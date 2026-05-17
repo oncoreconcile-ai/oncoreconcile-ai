@@ -276,10 +276,10 @@ oncoreconcile-ai/
 **OncoReconcile AI** is being developed as part of the **DFWIT AI Competition** by a small multidisciplinary team of researchers and engineers.
 
 ### Roles
-- **Project Lead / AI Research**: [Your Name]
-- **Genomics Domain Expert**: [Collaborator Name]
-- **Software Engineering**: [Developer Name]
-- **Human-in-the-Loop Design**: [UX/Governance Specialist]
+- **Project Lead / AI Research**
+- **Genomics Domain Expert**
+- **Software Engineering**
+- **Human-in-the-Loop Design**
 
 *Team members to be added as project grows.*
 
