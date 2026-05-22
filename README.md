@@ -1,5 +1,31 @@
 # OncoReconcile AI
 
+## Data Governance Guidance
+
+To ensure transparency, reproducibility, and ethical use of data in this project, all contributors and future data updates must follow these principles:
+
+1. **Provenance and Documentation:**
+        - Clearly document the source, method of acquisition, and any synthesis or curation steps for all new data files.
+        - Maintain or update the provenance and reproducibility documentation (see `oncoreconcile_starter/PROVENANCE_AND_REPRODUCIBILITY.md`).
+
+2. **Synthetic and Real Data:**
+        - Clearly distinguish between synthetic (AI- or human-generated) and real-world data.
+        - Do not include any real patient data or protected health information (PHI) unless explicit approval and compliance steps are followed.
+
+3. **Public Data Use:**
+        - Only use public, redistributable data sources or those with appropriate licenses for open-source projects.
+        - Attribute all external data sources in documentation and code as appropriate.
+
+4. **Reproducibility:**
+        - When possible, provide scripts or detailed steps for how new data was generated or processed.
+        - Ensure that others can reproduce or extend the dataset using the provided documentation.
+
+5. **Ethics and Compliance:**
+        - Follow all applicable data use agreements, licenses, and ethical guidelines.
+        - If in doubt, consult with project leads before adding new data.
+
+For more details and examples, see `oncoreconcile_starter/PROVENANCE_AND_REPRODUCIBILITY.md`.
+
 **AI-assisted oncology gene and variant reconciliation platform**
 
 OncoReconcile AI is a DFWIT AI Competition project focused on turning messy oncology gene and variant strings into traceable, reviewable canonical knowledge objects. The project is intentionally human-governed: AI and deterministic logic help reconcile data, but ambiguous or low-confidence mappings must preserve uncertainty and flow into review instead of being forced into a false answer.

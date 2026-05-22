@@ -36,6 +36,9 @@ CREATE
 
 Do not use `--create-remaining` if the P1 issues already exist. As of the initial team setup, issues #1-#12 were created in GitHub.
 
+
+---
+
 ## Issue 1
 
 Title: `P0: Define canonical reconciliation output schema`
@@ -43,6 +46,10 @@ Title: `P0: Define canonical reconciliation output schema`
 Body:
 
 ```markdown
+
+> **Governance Reminder:**
+> If this issue involves data modeling, provenance, or auditability, follow the data governance guidance in the main README and provenance documentation.
+
 ## Workstream
 Backend, Data, Governance
 
@@ -147,6 +154,10 @@ Title: `P0: Add explicit reconciliation status logic`
 Body:
 
 ```markdown
+
+> **Governance Reminder:**
+> This issue involves status logic and governance. Ensure all status and review logic is auditable and follows the data governance guidance in the main README and provenance documentation.
+
 ## Workstream
 Backend, AI/Retrieval, Governance
 
@@ -182,6 +193,10 @@ Title: `P0: Improve cannot-reconcile and ambiguity handling`
 Body:
 
 ```markdown
+
+> **Governance Reminder:**
+> This issue involves uncertainty handling and governance. Document all logic for ambiguity and ensure provenance is preserved. Follow the data governance guidance in the main README and provenance documentation.
+
 ## Workstream
 Data, AI/Retrieval, Governance
 
@@ -213,6 +228,10 @@ Title: `P1: Wire review decisions to audit log`
 Body:
 
 ```markdown
+
+> **Governance Reminder:**
+> This issue is core to governance and audit. Ensure all review and audit log logic is transparent, reproducible, and follows the data governance guidance in the main README and provenance documentation.
+
 ## Workstream
 Governance/Backend
 
@@ -278,6 +297,10 @@ Title: `P1: Build review queue UI`
 Body:
 
 ```markdown
+
+> **Governance Reminder:**
+> This issue involves governance UI. Ensure review queue and detail UI display provenance, auditability, and follow the data governance guidance in the main README and provenance documentation.
+
 ## Workstream
 Frontend/Governance
 

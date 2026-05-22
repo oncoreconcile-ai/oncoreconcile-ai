@@ -23,4 +23,26 @@ Suggested first demo workflow:
 4. Attach evidence using evidence_lookup.json.
 5. Show source_text + evidence + confidence in UI.
 
+
+## Data Sources and Provenance
+
+This starter data package and the OncoReconcile AI system use the following data sources:
+
+1. **CIViC (Clinical Interpretation of Variants in Cancer)**  
+	- Used for: Cancer variant interpretations, treatment assertions, evidence summaries.  
+	- API: https://civicdb.org/api/v2
+
+2. **ClinVar (NCBI)**  
+	- Used for: Clinical significance data, variant accession lookups.  
+	- API: https://eutils.ncbi.nlm.nih.gov/entrez/eutils
+
+3. **HGNC (HUGO Gene Nomenclature Committee)**  
+	- Used for: Gene symbol validation, HGNC ID lookup, alias resolution.  
+	- API: https://rest.genenames.org/search
+
+4. **Synthetic/Curated Data**  
+	- Files: `oncology_variants_master.csv`, `gene_aliases.csv`, `variant_synonyms.csv`, `evidence_lookup.json`, and `synthetic_reports/`  
+	- Purpose: Development, benchmarking, and demo (not clinical or real patient data).  
+	- Provenance: Curated by project team, with evidence hints and source columns referencing CIViC and ClinVar.
+
 Note: This package is synthetic/curated for development. It is not clinical advice and contains no real patient identifiers.
