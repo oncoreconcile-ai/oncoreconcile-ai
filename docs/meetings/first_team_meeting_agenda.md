@@ -11,6 +11,7 @@ Recommended duration: 60 minutes
 - [Competition Submission Proposal](../proposal/competition_submission_proposal.md)
 - [Weekly Execution Plan](../project_plan/weekly_execution_plan.md)
 - [Architecture and Task Map](../architecture/task_mapped_architecture.md)
+- [Architecture Diagrams](../diagrams/architecture_task_map.md)
 - [Team Task Board](../project_plan/team_task_board.md)
 - [GitHub Issue Backlog](../project_plan/github_issue_backlog.md)
 - [Starter Data Integration Notes](../architecture/starter_data_integration.md)
@@ -82,6 +83,7 @@ Use:
 - [Repository](https://github.com/michaeliuedu/oncoreconcile-ai)
 - [Branch: gene-reconciliation](https://github.com/michaeliuedu/oncoreconcile-ai/tree/gene-reconciliation)
 - [Architecture and Task Map](../architecture/task_mapped_architecture.md)
+- [Architecture Diagrams](../diagrams/architecture_task_map.md)
 - [Architecture and Task Map Google Doc](https://docs.google.com/document/d/1Ncew1t2lttX8mV2B5njBXqNFL4tie5-Wyizzx5ktPbA)
 
 Show:
@@ -133,6 +135,7 @@ Use:
 - [Team Task Board](../project_plan/team_task_board.md)
 - [Weekly Execution Plan](../project_plan/weekly_execution_plan.md)
 - [Architecture and Task Map](../architecture/task_mapped_architecture.md)
+- [Architecture Diagrams](../diagrams/architecture_task_map.md)
 
 Ask each coding contributor to pick:
 
