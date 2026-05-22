@@ -118,9 +118,13 @@ The API will be available at `http://localhost:8000`.
 
 If the backend is running locally:
 
+
 ```bash
-API_URL=http://localhost:8000 streamlit run frontend/streamlit_app.py
+export API_URL=http://localhost:8000
+streamlit run frontend/streamlit_app.py
 ```
+
+*This ensures the frontend connects to your local backend. If you see 'Cannot connect to API', check this step.*
 
 If running through Docker Compose, the frontend defaults to the Docker service URL `http://api:8000`.
 
