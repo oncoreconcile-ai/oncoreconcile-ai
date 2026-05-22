@@ -7,7 +7,9 @@ This agent normalizes genes and variants to canonical forms using:
 """
 
 from dataclasses import dataclass
-from typing import Optional, Dict, Any
+from pathlib import Path
+import csv
+from typing import Optional, Dict, Any, List
 
 
 @dataclass
@@ -25,29 +27,95 @@ class NormalizedVariant:
     notes: Optional[str] = None
 
 
+@dataclass
+class GeneReconciliationResult:
+    """Result of reconciling an input gene name to a canonical gene"""
+    input_gene: str
+    canonical_gene: str
+    hgnc_id: Optional[int]
+    entrez_gene_id: Optional[int]
+    confidence: float
+    match_type: str
+    aliases: List[str]
+    description: Optional[str] = None
+    notes: Optional[str] = None
+
+
 class GeneNormalizer:
     """Normalize gene symbols to canonical HGNC names"""
 
-    def __init__(self, gene_aliases_data: Optional[Dict[str, Dict]] = None):
+    def __init__(
+        self,
+        gene_aliases_data: Optional[Dict[str, Dict]] = None,
+        gene_aliases_path: Optional[str] = None,
+    ):
         """
         Initialize with gene alias data
         
         Args:
             gene_aliases_data: Dictionary mapping gene inputs to canonical forms
+            gene_aliases_path: Optional CSV path for gene alias reference data
         """
-        # Default mapping for MVP
-        self.gene_map = {
-            "EGFR": {"canonical": "EGFR", "hgnc_id": 3236, "entrez_id": 1956},
-            "EGF": {"canonical": "EGFR", "hgnc_id": 3236, "entrez_id": 1956},
-            "BRAF": {"canonical": "BRAF", "hgnc_id": 1097, "entrez_id": 673},
-            "ERBB2": {"canonical": "ERBB2", "hgnc_id": 3236, "entrez_id": 2064},
-            "HER2": {"canonical": "ERBB2", "hgnc_id": 3236, "entrez_id": 2064},
-            "KRAS": {"canonical": "KRAS", "hgnc_id": 6407, "entrez_id": 3845},
-            "ALK": {"canonical": "ALK", "hgnc_id": 427, "entrez_id": 238},
-            "MET": {"canonical": "MET", "hgnc_id": 6973, "entrez_id": 4233},
-        }
+        self.gene_map: Dict[str, Dict[str, Any]] = {}
+        self.aliases_by_canonical: Dict[str, List[str]] = {}
+        self._load_aliases_from_csv(gene_aliases_path)
+
         if gene_aliases_data:
-            self.gene_map.update(gene_aliases_data)
+            for gene_input, gene_info in gene_aliases_data.items():
+                self._add_gene_alias(gene_input, gene_info)
+
+    @staticmethod
+    def _default_gene_aliases_path() -> Path:
+        """Return the repository reference data path for gene aliases"""
+        return (
+            Path(__file__).resolve().parents[2]
+            / "data"
+            / "reference"
+            / "v0.1"
+            / "gene_aliases.csv"
+        )
+
+    @staticmethod
+    def _parse_optional_int(value: Optional[str]) -> Optional[int]:
+        """Parse CSV integer values while preserving blanks as None"""
+        if value in (None, ""):
+            return None
+        return int(value)
+
+    def _load_aliases_from_csv(self, gene_aliases_path: Optional[str] = None) -> None:
+        """Load gene aliases from the curated reference CSV"""
+        path = Path(gene_aliases_path) if gene_aliases_path else self._default_gene_aliases_path()
+        if not path.exists():
+            return
+
+        with path.open(newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                self._add_gene_alias(
+                    row["gene_input"],
+                    {
+                        "canonical": row["canonical_gene"],
+                        "hgnc_id": self._parse_optional_int(row.get("hgnc_id")),
+                        "entrez_id": self._parse_optional_int(row.get("entrez_id")),
+                        "description": row.get("description"),
+                    },
+                )
+
+    def _add_gene_alias(self, gene_input: str, gene_info: Dict[str, Any]) -> None:
+        """Register one input gene spelling as an alias for a canonical gene"""
+        alias_key = gene_input.upper().strip()
+        canonical = gene_info["canonical"].upper().strip()
+        normalized_info = {
+            "canonical": canonical,
+            "hgnc_id": gene_info.get("hgnc_id"),
+            "entrez_id": gene_info.get("entrez_id"),
+            "description": gene_info.get("description"),
+        }
+
+        self.gene_map[alias_key] = normalized_info
+        self.aliases_by_canonical.setdefault(canonical, [])
+        if alias_key not in self.aliases_by_canonical[canonical]:
+            self.aliases_by_canonical[canonical].append(alias_key)
 
     def normalize_gene(self, gene_input: str) -> Dict[str, Any]:
         """
@@ -62,7 +130,11 @@ class GeneNormalizer:
         gene_upper = gene_input.upper().strip()
         
         if gene_upper in self.gene_map:
-            return self.gene_map[gene_upper]
+            gene_info = self.gene_map[gene_upper].copy()
+            gene_info["confidence"] = 1.0 if gene_upper == gene_info["canonical"] else 0.95
+            gene_info["match_type"] = "canonical" if gene_upper == gene_info["canonical"] else "alias"
+            gene_info["aliases"] = self.aliases_by_canonical.get(gene_info["canonical"], [])
+            return gene_info
         
         # Fallback: return as-is with warning
         return {
@@ -70,8 +142,41 @@ class GeneNormalizer:
             "hgnc_id": None,
             "entrez_id": None,
             "confidence": 0.3,
+            "match_type": "unmatched",
+            "aliases": [],
             "note": f"Gene '{gene_input}' not in reference database"
         }
+
+
+class GeneReconciliationAgent:
+    """First-class gene name reconciliation workflow"""
+
+    def __init__(self, gene_normalizer: Optional[GeneNormalizer] = None):
+        """Initialize with a CSV-backed gene normalizer"""
+        self.gene_normalizer = gene_normalizer or GeneNormalizer()
+
+    def execute(self, gene_input: str) -> GeneReconciliationResult:
+        """
+        Reconcile a raw gene name or alias to a canonical gene symbol.
+
+        Args:
+            gene_input: Gene symbol, alias, or historical name
+
+        Returns:
+            GeneReconciliationResult with canonical mapping and audit-friendly details
+        """
+        gene_info = self.gene_normalizer.normalize_gene(gene_input)
+        return GeneReconciliationResult(
+            input_gene=gene_input,
+            canonical_gene=gene_info["canonical"],
+            hgnc_id=gene_info.get("hgnc_id"),
+            entrez_gene_id=gene_info.get("entrez_id"),
+            confidence=gene_info.get("confidence", 0.3),
+            match_type=gene_info.get("match_type", "unmatched"),
+            aliases=gene_info.get("aliases", []),
+            description=gene_info.get("description"),
+            notes=gene_info.get("note"),
+        )
 
 
 class VariantNormalizer:
