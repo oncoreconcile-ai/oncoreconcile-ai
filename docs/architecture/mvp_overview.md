@@ -1,3 +1,25 @@
+## Parallel Development for Blocked Issues
+
+To maximize team productivity, blocked issues can be developed in parallel using the following approach:
+
+- **Create a feature branch** for each blocked issue.
+- **Use mocks, stubs, or placeholder data** for any dependencies that are not yet implemented (e.g., API endpoints, schemas, or data files).
+- **Coordinate interface contracts** (API schemas, function signatures, expected outputs) with the owners of blocking issues to minimize merge conflicts.
+- **Write tests and documentation** as you go, using the mocked/stubbed interfaces.
+- **Communicate regularly** with the team about progress and any changes to interfaces.
+- **As soon as blockers are resolved:**
+    - Rebase your feature branch onto the latest main/development branch.
+    - Replace mocks/stubs with real implementations.
+    - Run integration tests and resolve any conflicts.
+    - Open a PR for review and merge.
+
+**Example:**
+
+- For #3 (Batch endpoint): Scaffold the endpoint and write tests using dummy data. After #1 and #2 are merged, update to use the real schema/data and integrate.
+- For #7 (Upload/results UI): Build the UI with placeholder logic. After #3 is merged, connect to the real batch endpoint and test end-to-end.
+- For #5, #6, #8, #10, #12: Follow the same pattern—develop logic, UI, or docs in isolation, then plug in and test as soon as dependencies are cleared.
+
+This approach ensures all developers can contribute productively, and features can be integrated rapidly as soon as blockers are resolved.
 # OncoReconcile AI MVP Overview
 
 ## 1. MVP System Diagram
