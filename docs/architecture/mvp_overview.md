@@ -61,8 +61,9 @@ Once #1 and #2 are done, #3 (batch endpoint) can begin. See the main meeting age
 | Streamlit Frontend                       | Ready     | All main UI pages present; single variant input, review queue, audit log | #7, #8 |
 | API: Batch Reconciliation Endpoint       | Partial   | Only single variant per request; batch endpoint not yet implemented | #3 |
 | Agents: Normalization, Confidence, Reasoning | Ready | Full pipeline for single variant; multi-agent orchestration | #4, #5 |
-| Canonical Output Schema                  | Ready     | Pydantic models in place for all outputs | #1 |
-| Status Logic                             | Ready     | Status set by workflow/confidence agent | #4, #5 |
+| Canonical Output Schema                  | Complete  | Pydantic models in place for all outputs. Feature implemented and MVP-ready. Team review welcome. | #1 |
+| Demo CSV Dataset                         | Complete  | Curated demo CSVs in place. Feature implemented and MVP-ready. Team review welcome. | #2 |
+| Status Logic                             | Complete  | Status set by workflow/confidence agent. Feature implemented and MVP-ready. Team review welcome. | #4, #5 |
 | Download/View Results in UI              | Partial   | Results shown in UI; no explicit download button | #7 |
 | Audit Log & Provenance                   | Next      | Audit log and provenance tracking planned | #6 |
 | Review Queue                             | Next      | Review queue backend and UI planned | #8 |
