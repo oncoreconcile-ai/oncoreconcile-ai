@@ -10,6 +10,32 @@ gh auth login -h github.com
 
 After that, issues can be created from these titles and bodies.
 
+## Issue Creation Helper
+
+The repository includes `scripts/create_github_issues.sh` as a safe helper script.
+
+Default behavior is read-only:
+
+```bash
+scripts/create_github_issues.sh
+```
+
+This lists current GitHub issues for `michaeliuedu/oncoreconcile-ai`.
+
+To create the remaining P1 issues in a fresh repository or if issues #6-#12 are missing:
+
+```bash
+scripts/create_github_issues.sh --create-remaining
+```
+
+The script will warn that duplicate issues may be created and requires typing:
+
+```text
+CREATE
+```
+
+Do not use `--create-remaining` if the P1 issues already exist. As of the initial team setup, issues #1-#12 were created in GitHub.
+
 ## Issue 1
 
 Title: `P0: Define canonical reconciliation output schema`

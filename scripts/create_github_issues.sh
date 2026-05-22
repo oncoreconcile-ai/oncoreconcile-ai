@@ -1,10 +1,56 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="${1:-michaeliuedu/oncoreconcile-ai}"
+REPO="michaeliuedu/oncoreconcile-ai"
+MODE="list"
+
+usage() {
+  cat <<'USAGE'
+Usage:
+  scripts/create_github_issues.sh [--repo owner/name] [--list | --create-remaining]
+
+Default behavior is safe and read-only:
+  scripts/create_github_issues.sh
+
+Options:
+  --repo owner/name       Target GitHub repository. Default: michaeliuedu/oncoreconcile-ai
+  --list                  List current issues. This is the default.
+  --create-remaining      Create the remaining P1 task issues (#6-#12). This can create duplicates.
+
+Important:
+  The project task issues have already been created. Prefer --list unless you are
+  intentionally recreating missing P1 issues in a fresh repository.
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --repo)
+      REPO="${2:?Missing repository after --repo}"
+      shift 2
+      ;;
+    --list)
+      MODE="list"
+      shift
+      ;;
+    --create-remaining)
+      MODE="create-remaining"
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
 
 if ! command -v gh >/dev/null 2>&1; then
-  echo "GitHub CLI not found. Install gh or create issues manually from docs/project_plan/github_issue_backlog.md."
+  echo "GitHub CLI not found. Install gh or inspect docs/project_plan/github_issue_backlog.md manually."
   exit 1
 fi
 
@@ -13,141 +59,34 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
+if [[ "$MODE" == "list" ]]; then
+  gh issue list --repo "$REPO" --limit 30
+  exit 0
+fi
+
+echo "WARNING: --create-remaining can create duplicate issues."
+echo "Target repository: $REPO"
+echo "It will create these P1 issues:"
+echo "  - P1: Wire review decisions to audit log"
+echo "  - P1: Build upload and results UI"
+echo "  - P1: Build review queue UI"
+echo "  - P1: Add API documentation and local runbook"
+echo "  - P1: Create demo case design document"
+echo "  - P1: Prepare pitch deck outline"
+echo "  - P1: Add demo smoke test checklist"
+printf "Type CREATE to continue: "
+read -r confirmation
+
+if [[ "$confirmation" != "CREATE" ]]; then
+  echo "Aborted."
+  exit 0
+fi
+
 create_issue() {
   local title="$1"
   local body="$2"
   gh issue create --repo "$REPO" --title "$title" --body "$body"
 }
-
-create_issue "P0: Define canonical reconciliation output schema" "$(cat <<'BODY'
-## Workstream
-Backend, Data, Governance
-
-## Priority
-P0 - Required for competition MVP demo
-
-## Depends on
-- Current reconciliation workflow
-
-## Blocks
-- Batch reconciliation endpoint
-- Frontend results table
-- Audit log
-
-## Goal
-Define a canonical reconciliation result object that preserves original strings, canonical mappings, confidence, status, evidence/provenance, and review state.
-
-## Acceptance Criteria
-- Schema includes original gene and variant
-- Schema includes canonical gene and variant
-- Schema includes confidence score and status
-- Schema includes provenance/source fields
-- Tests cover at least one reconciled and one unresolved result
-BODY
-)"
-
-create_issue "P0: Create curated demo CSV dataset" "$(cat <<'BODY'
-## Workstream
-Data, Demo
-
-## Priority
-P0 - Required for competition MVP demo
-
-## Depends on
-- Starter data package
-
-## Blocks
-- Batch endpoint tests
-- Demo walkthrough
-- Validation metrics
-
-## Goal
-Create `data/demo/demo_variants.csv` with a small, high-quality set of curated oncology reconciliation examples.
-
-## Acceptance Criteria
-- Contains 20-30 curated rows
-- Includes EGFR, KRAS, BRAF, TP53
-- Includes gene alias cases such as HER1, ERBB1, p53, C-MET
-- Includes unresolved cases such as EGF-RX and UnknownDel19
-- Includes expected canonical outputs/statuses for testing
-BODY
-)"
-
-create_issue "P0: Build batch CSV reconciliation endpoint" "$(cat <<'BODY'
-## Workstream
-Backend/API
-
-## Priority
-P0 - Required for competition MVP demo
-
-## Depends on
-- Canonical output schema
-- Demo CSV shape
-
-## Blocks
-- Upload UI
-- End-to-end demo
-
-## Goal
-Implement `POST /reconcile/batch` to reconcile multiple rows in one request.
-
-## Acceptance Criteria
-- Accepts CSV-style records or JSON rows with original gene and variant
-- Returns one canonical reconciliation object per row
-- Handles partial failures without crashing the whole batch
-- API tests cover happy path and unresolved input
-BODY
-)"
-
-create_issue "P0: Add explicit reconciliation status logic" "$(cat <<'BODY'
-## Workstream
-Backend, AI/Retrieval, Governance
-
-## Priority
-P0 - Required for competition MVP demo
-
-## Depends on
-- Confidence scoring
-- Normalization output
-
-## Blocks
-- Review queue routing
-- Frontend badges
-- Cannot-reconcile demo
-
-## Goal
-Add a deterministic status classifier for reconciliation outputs.
-
-## Acceptance Criteria
-- Supports `reconciled`, `needs_review`, and `cannot_reconcile`
-- Low-confidence unknown gene/variant maps to `cannot_reconcile`
-- Ambiguous but plausible mappings map to `needs_review`
-- Tests cover all statuses
-BODY
-)"
-
-create_issue "P0: Improve cannot-reconcile and ambiguity handling" "$(cat <<'BODY'
-## Workstream
-Data, AI/Retrieval, Governance
-
-## Priority
-P0 - Required for trustworthy AI demo story
-
-## Depends on
-- Status classifier
-
-## Blocks
-- Trustworthy AI demo story
-
-## Goal
-Ensure unresolved or ambiguous inputs preserve uncertainty instead of forcing mappings.
-
-## Acceptance Criteria
-- Inputs like EGF-RX, UnknownDel19, and MET-like do not get forced mappings
-- Output includes a human-readable uncertainty reason
-- Tests prove unresolved examples remain unresolved or review-routed
-BODY
-)"
 
 create_issue "P1: Wire review decisions to audit log" "$(cat <<'BODY'
 ## Workstream

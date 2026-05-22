@@ -256,3 +256,15 @@ Dependencies:
 Expected deliverable:
 Expected PR:
 ```
+
+## GitHub Issue Helper
+
+The 12 initial pickup issues are tracked in GitHub and mirrored in `docs/project_plan/github_issue_backlog.md`.
+
+Use the helper script in read-only mode to list current issues:
+
+```bash
+scripts/create_github_issues.sh
+```
+
+The script has an explicit `--create-remaining` mode for recreating missing P1 issues in a fresh repository, but it can create duplicates. Only use it intentionally, and only after confirming the issues do not already exist.
