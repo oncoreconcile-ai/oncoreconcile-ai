@@ -7,18 +7,18 @@ Below is a high-level diagram of the MVP, showing the true status of each featur
 
 ```mermaid
 graph TD
-    A[User Uploads CSV via UI]:::partial --> B[Streamlit Frontend]:::done
-    B --> C[API: Batch Reconciliation Endpoint]:::partial
-    C --> D[Agents: Normalization, Confidence, Reasoning]:::done
-    D --> E[Canonical Output Schema]:::done
-    D --> F[Status Logic: reconciled, needs_review, cannot_reconcile]:::done
-    D --> G[Audit Log & Provenance]:::next
-    D --> H[Review Queue]:::next
-    E --> I[Download/View Results in UI]:::partial
-    H --> J[Human Review Workflow]:::next
+    A[User Uploads CSV via UI<br/>(#7)]:::partial --> B[Streamlit Frontend<br/>(#7,#8)]:::done
+    B --> C[API: Batch Reconciliation Endpoint<br/>(#3)]:::partial
+    C --> D[Agents: Normalization, Confidence, Reasoning<br/>(#4,#5)]:::done
+    D --> E[Canonical Output Schema<br/>(#1)]:::done
+    D --> F[Status Logic: reconciled, needs_review, cannot_reconcile<br/>(#4,#5)]:::done
+    D --> G[Audit Log & Provenance<br/>(#6)]:::next
+    D --> H[Review Queue<br/>(#8)]:::next
+    E --> I[Download/View Results in UI<br/>(#7)]:::partial
+    H --> J[Human Review Workflow<br/>(#8)]:::next
     J --> G
-    G --> K[Audit Trail Display]:::next
-    I --> L[Demo Dashboard]:::future
+    G --> K[Audit Trail Display<br/>(#6)]:::next
+    I --> L[Demo Dashboard<br/>(#10,#12)]:::future
 
     classDef done fill:#b6e7a0,stroke:#333,stroke-width:2px;
     classDef partial fill:#ffe599,stroke:#333,stroke-width:2px;
@@ -43,15 +43,20 @@ graph TD
 
 ## 2. Feature Status Details
 
-| Feature                                 | Status    | Details |
-|------------------------------------------|-----------|---------|
-| User Uploads CSV via UI                  | Partial   | Only single variant input via text; CSV upload not yet implemented |
-| Streamlit Frontend                       | Ready     | All main UI pages present; single variant input, review queue, audit log |
-| API: Batch Reconciliation Endpoint       | Partial   | Only single variant per request; batch endpoint not yet implemented |
-| Agents: Normalization, Confidence, Reasoning | Ready | Full pipeline for single variant; multi-agent orchestration |
-| Canonical Output Schema                  | Ready     | Pydantic models in place for all outputs |
-| Status Logic                             | Ready     | Status set by workflow/confidence agent |
-| Download/View Results in UI              | Partial   | Results shown in UI; no explicit download button |
+| Feature                                 | Status    | Details | Issue(s) |
+|------------------------------------------|-----------|---------|----------|
+| User Uploads CSV via UI                  | Partial   | Only single variant input via text; CSV upload not yet implemented | #7 |
+| Streamlit Frontend                       | Ready     | All main UI pages present; single variant input, review queue, audit log | #7, #8 |
+| API: Batch Reconciliation Endpoint       | Partial   | Only single variant per request; batch endpoint not yet implemented | #3 |
+| Agents: Normalization, Confidence, Reasoning | Ready | Full pipeline for single variant; multi-agent orchestration | #4, #5 |
+| Canonical Output Schema                  | Ready     | Pydantic models in place for all outputs | #1 |
+| Status Logic                             | Ready     | Status set by workflow/confidence agent | #4, #5 |
+| Download/View Results in UI              | Partial   | Results shown in UI; no explicit download button | #7 |
+| Audit Log & Provenance                   | Next      | Audit log and provenance tracking planned | #6 |
+| Review Queue                             | Next      | Review queue backend and UI planned | #8 |
+| Human Review Workflow                    | Next      | Human review workflow planned | #8 |
+| Audit Trail Display                      | Next      | Audit trail display in UI planned | #6 |
+| Demo Dashboard                           | Future    | Dashboard/summary views, test cases | #10, #12 |
 
 ## 3. What’s Next (Next Week)
 - Audit log and provenance tracking
