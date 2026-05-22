@@ -33,15 +33,16 @@ graph TD
 ```
 ## 1a. Issues That Can Be Started Without Blockers
 
+
 The following issues can be started immediately (no dependencies):
 
-- **#1: Define canonical reconciliation output schema**
-- **#2: Create curated demo CSV dataset**
-- **#4: Add explicit reconciliation status logic**
 - **#9: Add API documentation and local runbook**
 - **#11: Prepare pitch deck outline**
 
-Once #1 and #2 are done, #3 (batch endpoint) can begin. See the main meeting agenda for a full dependency table.
+**Note:**
+- #1 (Canonical output schema), #2 (Demo CSV dataset), and #4 (Status logic) are now complete and open for team review. See the feature status table above.
+
+Once #1, #2, and #4 were completed, #3 (batch endpoint) became unblocked. See the main meeting agenda for a full dependency table.
 
 - **Green:** Complete or MVP-ready (current week)
 - **Yellow:** Partial/in progress (needs work for full MVP)
