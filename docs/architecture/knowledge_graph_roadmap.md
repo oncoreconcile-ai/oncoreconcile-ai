@@ -151,6 +151,26 @@ RETURN v, e
 
 ---
 
+## 11. Do We Need a Database?
+
+For the current MVP and competition phase, a dedicated database is **not required**. The system operates using CSVs, Python dictionaries, and in-memory data structures for mapping, retrieval, and reasoning. This is sufficient for prototyping, demos, and rapid iteration.
+
+**However, as the project grows or if you want to:**
+- Scale to larger datasets
+- Enable multi-user access
+- Support versioning, audit trails, or advanced queries
+- Integrate a knowledge graph or GraphRAG
+
+then introducing a database is recommended. Options include:
+- **Relational DB (e.g., PostgreSQL, DuckDB):** For structured, tabular data and versioning.
+- **Graph DB (e.g., Neo4j):** For knowledge graph and advanced relationship queries.
+- **Vector DB (e.g., pgvector, Pinecone):** For semantic search and embeddings.
+
+**Summary:**
+No database is required for the current MVP/competition phase, but planning for one is recommended for future scalability, auditability, and advanced features.
+
+---
+
 ## 10. References and Resources
 - [Neo4j Graph Database](https://neo4j.com/)
 - [HGNC REST API](https://www.genenames.org/help/rest-web-service-help/)
