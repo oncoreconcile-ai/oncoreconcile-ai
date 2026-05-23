@@ -2,11 +2,12 @@
 **Diagram Color Legend:**
 
 - <span style="background-color:#b6e7a0; padding:2px 8px; border:1px solid #333;">Green</span> = Complete/Done
+- <span style="background-color:#c9daf8; padding:2px 8px; border:1px solid #333;">Light Blue</span> = Ready to Develop (unblocked, not started)
 - <span style="background-color:#ffe599; padding:2px 8px; border:1px solid #333;">Yellow</span> = In Progress/Partial/Next
 - <span style="background-color:#f4cccc; padding:2px 8px; border:1px solid #333;">Red</span> = Future/Blocked
-- <span style="background-color:#c9daf8; padding:2px 8px; border:1px solid #333;">Blue</span> = Documentation/Deliverable
+- <span style="background-color:#a2c4c9; padding:2px 8px; border:1px solid #333;">Blue</span> = Documentation/Deliverable
 
-*Note: GitHub may not render HTML color swatches, but the color codes match the diagram classes: `done`, `partial`, `inprogress`, `next`, `future`, `doc`.*
+*Note: GitHub may not render HTML color swatches, but the color codes match the diagram classes: `done`, `ready`, `partial`, `inprogress`, `next`, `future`, `doc`.*
 ## Parallel Development for Blocked Issues
 
 To maximize team productivity, blocked issues can be developed in parallel using the following approach:
@@ -59,17 +60,19 @@ graph TD
     D --> N
 
     classDef done fill:#b6e7a0,stroke:#333,stroke-width:2px;
+    classDef ready fill:#c9daf8,stroke:#333,stroke-width:2px;
     classDef partial fill:#ffe599,stroke:#333,stroke-width:2px;
     classDef next fill:#ffe599,stroke:#333,stroke-width:2px;
     classDef future fill:#f4cccc,stroke:#333,stroke-width:2px;
-    classDef doc fill:#c9daf8,stroke:#333,stroke-width:2px;
+    classDef doc fill:#a2c4c9,stroke:#333,stroke-width:2px;
 
-    class Z,D,E,F done;
+    class Z,E,F done;
+    class D,G,H,J,K next;
     class A,B,I partial;
     class C inprogress;
-    class G,H,J,K next;
-    class L future;
     class M,N doc;
+    %% Ready to Develop nodes
+    class L ready;
 ```
 ## 1a. Issues That Can Be Started Without Blockers
 
@@ -106,11 +109,11 @@ Once #1, #2, and #4 were completed, #3 (batch endpoint) became unblocked. See th
 | Demo CSV Dataset                         | Complete  | Curated demo CSVs in place. Feature implemented and MVP-ready. Team review welcome. | #2 |  |  |
 | Status Logic                             | Complete  | Status set by workflow/confidence agent. Feature implemented and MVP-ready. Team review welcome. | #4, #5 |  |  |
 | Download/View Results in UI              | In Progress | Results shown in UI; download button to be added after batch endpoint | #7 | #3 | After #3 merged, connect UI to batch endpoint |
-| Audit Log & Provenance                   | Ready   | Audit log and provenance tracking can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
-| Review Queue                             | Ready   | Review queue backend and UI can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
-| Human Review Workflow                    | Ready   | Human review workflow can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
-| Audit Trail Display                      | Ready   | Audit trail display in UI can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
-| Demo Dashboard                           | In Progress   | Dashboard/summary views, test cases; blockers #2, #3, #7 are in progress or complete | #10, #12 |  | Finalize dashboard after #2, #3, #7 |
+| Audit Log & Provenance                   | Ready to Develop   | Audit log and provenance tracking can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
+| Review Queue                             | Ready to Develop   | Review queue backend and UI can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
+| Human Review Workflow                    | Ready to Develop   | Human review workflow can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
+| Audit Trail Display                      | Ready to Develop   | Audit trail display in UI can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
+| Demo Dashboard                           | Ready to Develop   | Dashboard/summary views, test cases; blockers #2, #3, #7 are in progress or complete | #10, #12 |  | Finalize dashboard after #2, #3, #7 |
 
 ## 3. What’s Next (Next Week)
 - Audit log and provenance tracking
