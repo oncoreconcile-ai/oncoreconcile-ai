@@ -97,11 +97,11 @@ Once #1, #2, and #4 were completed, #3 (batch endpoint) became unblocked. See th
 | Demo CSV Dataset                         | Complete  | Curated demo CSVs in place. Feature implemented and MVP-ready. Team review welcome. | #2 |  |  |
 | Status Logic                             | Complete  | Status set by workflow/confidence agent. Feature implemented and MVP-ready. Team review welcome. | #4, #5 |  |  |
 | Download/View Results in UI              | In Progress | Results shown in UI; download button to be added after batch endpoint | #7 | #3 | After #3 merged, connect UI to batch endpoint |
-| Audit Log & Provenance                   | Blocked   | Audit log and provenance tracking planned; design/tests in prep | #6 | #1, #4 | After #1, #4 merged, update schema |
-| Review Queue                             | Blocked   | Review queue backend and UI planned; UI/UX planning in prep | #8 | #4, #6 | After #4, #6 merged, connect UI/backend |
-| Human Review Workflow                    | Blocked   | Human review workflow planned; UI/UX planning in prep | #8 | #4, #6 | After #4, #6 merged, connect UI/backend |
-| Audit Trail Display                      | Blocked   | Audit trail display in UI planned; design/tests in prep | #6 | #1, #4 | After #1, #4 merged, update schema |
-| Demo Dashboard                           | Blocked   | Dashboard/summary views, test cases; outline in prep | #10, #12 | #2, #3, #7 | After #2, #3, #7 merged, finalize dashboard |
+| Audit Log & Provenance                   | Ready   | Audit log and provenance tracking can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
+| Review Queue                             | Ready   | Review queue backend and UI can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
+| Human Review Workflow                    | Ready   | Human review workflow can proceed; blockers #4 and #6 are now ready or in progress | #8 |  | Connect UI/backend and test |
+| Audit Trail Display                      | Ready   | Audit trail display in UI can proceed; blockers #1 and #4 are complete | #6 |  | Update schema and integrate |
+| Demo Dashboard                           | In Progress   | Dashboard/summary views, test cases; blockers #2, #3, #7 are in progress or complete | #10, #12 |  | Finalize dashboard after #2, #3, #7 |
 
 ## 3. What’s Next (Next Week)
 - Audit log and provenance tracking
