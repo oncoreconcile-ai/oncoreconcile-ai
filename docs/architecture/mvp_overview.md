@@ -43,16 +43,24 @@ graph TD
     G --> K[Audit Trail Display #6]:::next
     I --> L[Demo Dashboard #10 #12]:::future
 
+    %% Documentation/Deliverable Nodes
+    M[API Docs/Runbook #9]:::doc
+    N[Pitch Deck Outline #11]:::doc
+    D --> M
+    D --> N
+
     classDef done fill:#b6e7a0,stroke:#333,stroke-width:2px;
     classDef partial fill:#ffe599,stroke:#333,stroke-width:2px;
     classDef next fill:#ffe599,stroke:#333,stroke-width:2px;
     classDef future fill:#f4cccc,stroke:#333,stroke-width:2px;
+    classDef doc fill:#c9daf8,stroke:#333,stroke-width:2px;
 
     class Z,D,E,F done;
     class A,B,I partial;
     class C inprogress;
     class G,H,J,K next;
     class L future;
+    class M,N doc;
 ```
 ## 1a. Issues That Can Be Started Without Blockers
 
