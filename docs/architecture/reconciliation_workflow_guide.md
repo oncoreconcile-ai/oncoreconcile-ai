@@ -178,13 +178,70 @@ Task: Map the input to a canonical gene and variant. If ambiguous, explain why.
 ---
 
 ## 12. Example Real-World Cases Where AI Helps
-- "p53 mutation" (ambiguous, needs context)
-- "EGFR uncommon exon 20 insertion" (not a standard synonym)
-- "KRAS codon 12 glycine to cysteine" (free-text description)
-- "BRAF V600E-like mutation" (non-standard, context-dependent)
-- "EGFR ex19deltion" (typo)
-- "c-erbB-1" (legacy name)
-- "EGFR T790M and L858R double mutation" (multi-variant)
+| "p53 mutation" (ambiguous, needs context)
+| "EGFR uncommon exon 20 insertion" (not a standard synonym)
+| "KRAS codon 12 glycine to cysteine" (free-text description)
+| "BRAF V600E-like mutation" (non-standard, context-dependent)
+| "EGFR ex19deltion" (typo)
+| "c-erbB-1" (legacy name)
+| "EGFR T790M and L858R double mutation" (multi-variant)
+
+### Additional Demo Disease-Specific Examples
+
+**NSCLC (Non-Small Cell Lung Cancer):**
+- "EGFR exon 20 insertion, rare type" (ambiguous, not in standard mappings)
+- "ALK fusion, EML4-ALK variant 3" (free-text, fusion variant, multiple possible breakpoints)
+- "KRAS G12X" (ambiguous, X is a placeholder for any amino acid change)
+- "ROS1 rearrangement" (non-specific, could refer to multiple fusion partners)
+- "EGFR L858R/T790M" (multi-variant, co-occurring resistance and sensitizing mutations)
+- "MET exon 14 skipping" (event, not a simple SNV or indel)
+
+**Colorectal Cancer:**
+- "BRAF non-V600E mutation" (ambiguous, needs context to specify)
+- "KRAS codon 13 mutation" (free-text, could be G13D, G13C, etc.)
+- "NRAS activating mutation" (non-specific, multiple possible codons)
+- "APC truncating mutation" (event, not a specific variant)
+
+**Melanoma:**
+- "BRAF V600K/R" (ambiguous, could be V600K or V600R)
+- "NRAS Q61 mutation" (free-text, could be Q61K, Q61R, Q61L, etc.)
+- "KIT exon 11 mutation" (event, not a specific amino acid change)
+- "CDKN2A loss" (copy number event, not a sequence variant)
+
+---
+
+## 13. Team Guidance
+
+- When you encounter an unmapped input, first check if it can be handled by expanding the mapping files or adding a new rule.
+- For ambiguous or novel cases, escalate to AI/LLM or human review.
+- Document any new rules or mapping logic and update the mapping files as needed.
+- Use the resources and workflow in this document for all reconciliation tasks.
+
+---
+
+*This guide should be kept up to date as the project evolves and new reconciliation strategies or resources become available.*
+
+### Additional Demo Disease-Specific Examples
+
+**NSCLC (Non-Small Cell Lung Cancer):**
+- "EGFR exon 20 insertion, rare type" (ambiguous, not in standard mappings)
+- "ALK fusion, EML4-ALK variant 3" (free-text, fusion variant, multiple possible breakpoints)
+- "KRAS G12X" (ambiguous, X is a placeholder for any amino acid change)
+- "ROS1 rearrangement" (non-specific, could refer to multiple fusion partners)
+- "EGFR L858R/T790M" (multi-variant, co-occurring resistance and sensitizing mutations)
+- "MET exon 14 skipping" (event, not a simple SNV or indel)
+
+**Colorectal Cancer:**
+- "BRAF non-V600E mutation" (ambiguous, needs context to specify)
+- "KRAS codon 13 mutation" (free-text, could be G13D, G13C, etc.)
+- "NRAS activating mutation" (non-specific, multiple possible codons)
+- "APC truncating mutation" (event, not a specific variant)
+
+**Melanoma:**
+- "BRAF V600K/R" (ambiguous, could be V600K or V600R)
+- "NRAS Q61 mutation" (free-text, could be Q61K, Q61R, Q61L, etc.)
+- "KIT exon 11 mutation" (event, not a specific amino acid change)
+- "CDKN2A loss" (copy number event, not a sequence variant)
 
 ---
 
