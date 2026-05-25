@@ -108,7 +108,7 @@ def page_home():
             input -> gene -> extract -> normalize -> retrieve -> score -> review -> audit;
         }
         """,
-        width="stretch",
+        use_container_width=True,
     )
     st.caption("Multi-agent variant reconciliation pipeline")
 
