@@ -1,0 +1,15 @@
+{
+  "original_input": "XYZ123 nonsense",
+  "source_text": "XYZ123 nonsense",
+  "canonical_gene": null,
+  "canonical_variant": null,
+  "confidence": 0.0,
+  "evidence_sources": [],
+  "explainability": "Input does not match any known gene or variant.",
+  "requires_human_review": false,
+  "cannot_reconcile": true,
+  "audit_trail": [
+    "Input could not be parsed as valid gene or variant",
+    "No matches found in reference datasets"
+  ]
+}
