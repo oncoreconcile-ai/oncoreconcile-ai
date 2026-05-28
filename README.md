@@ -18,7 +18,7 @@ A trustworthy, explainable, and human-governed MVP for oncology gene and variant
 - Small, highly explainable, and auditable codebase.
 - Ready for rapid iteration and demo in a 7–8 week competition.
 
-See `src/reconciliation_schema.py` and `data/examples/` for canonical schema and output examples.
+See `src/reconciliation_schema.py` and `data/examples/canonical_schema/` for canonical schema and output examples.
 
 ## Data Governance Guidance
 
