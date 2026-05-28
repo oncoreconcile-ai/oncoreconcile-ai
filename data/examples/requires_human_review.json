@@ -1,0 +1,16 @@
+{
+  "original_input": "ALK fusion",
+  "source_text": "ALK fusion",
+  "canonical_gene": "ALK",
+  "canonical_variant": null,
+  "confidence": 0.5,
+  "evidence_sources": ["OncoKB:ALK-fusion"],
+  "explainability": "Ambiguous fusion partner; requires human review.",
+  "requires_human_review": true,
+  "cannot_reconcile": false,
+  "audit_trail": [
+    "Input parsed as gene: ALK, variant: fusion",
+    "No deterministic normalization possible for fusion partner",
+    "Flagged for human review"
+  ]
+}

@@ -61,6 +61,27 @@ This output demonstrates LLM-only reasoning, not a hybrid or production pipeline
 [2]: https://pmc.ncbi.nlm.nih.gov/articles/PMC6764748/?utm_source=chatgpt.com "Diverse EGFR Exon 20 Insertions and Co-Occurring ... - PMC"
 # OncoReconcile AI: Gene & Variant Reconciliation Workflow Guide
 
+---
+
+## Canonical Reconciliation Schema (2026 MVP)
+
+All reconciliation workflows and outputs now use the canonical schema defined in `src/reconciliation_schema.py`:
+
+- `original_input`: Raw input as received
+- `source_text`: Extracted text (if different from original_input)
+- `canonical_gene`: Normalized gene symbol
+- `canonical_variant`: Normalized variant (HGVS, etc)
+- `confidence`: Deterministic or model-based confidence score
+- `evidence_sources`: List of evidence references (ClinVar, CIViC, etc)
+- `explainability`: Human-readable explanation of normalization/decision
+- `requires_human_review`: True if human review is needed
+- `cannot_reconcile`: True if reconciliation is not possible
+- `audit_trail`: List of steps, sources, and decisions for traceability
+
+See `data/examples/` for sample outputs covering high-confidence, requires-human-review, and cannot-reconcile cases.
+
+All workflow documentation and implementation should use these field names for consistency, explainability, and auditability.
+
 ## Overview
 This document provides a comprehensive, step-by-step guide for team members on how to perform gene and variant reconciliation using deterministic rules, public APIs, human review, and AI agents. It includes practical examples, resources, and best practices for each stage of the workflow.
 

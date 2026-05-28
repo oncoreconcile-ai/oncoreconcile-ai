@@ -1,0 +1,16 @@
+{
+  "original_input": "EGFR p.L858R",
+  "source_text": "EGFR p.L858R",
+  "canonical_gene": "EGFR",
+  "canonical_variant": "NM_005228.5:c.2573T>G (p.L858R)",
+  "confidence": 0.99,
+  "evidence_sources": ["ClinVar:12345", "CIViC:6789"],
+  "explainability": "Matched to EGFR L858R using deterministic rules and cross-referenced with ClinVar and CIViC.",
+  "requires_human_review": false,
+  "cannot_reconcile": false,
+  "audit_trail": [
+    "Input parsed as gene: EGFR, variant: p.L858R",
+    "Deterministic normalization matched to reference transcript",
+    "Evidence found in ClinVar and CIViC"
+  ]
+}

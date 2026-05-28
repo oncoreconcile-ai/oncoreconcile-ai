@@ -1,5 +1,25 @@
 # OncoReconcile AI
 
+A trustworthy, explainable, and human-governed MVP for oncology gene and variant reconciliation.
+
+## MVP Scope & Principles
+
+- **Trustworthy AI**: All outputs are traceable, auditable, and explainable.
+- **Explainability**: Every normalization includes a human-readable explanation and confidence score.
+- **Provenance & Auditability**: All evidence sources and decision steps are recorded for each result.
+- **Human Governance**: Ambiguous or unresolvable cases are flagged for human review.
+- **Deterministic First**: Deterministic normalization is always attempted before AI reasoning.
+- **Evidence, Not Recommendations**: External sources (ClinVar, CIViC, OncoKB, COSMIC) are cited as evidence, not as clinical recommendations.
+- **Separation of Concerns**: Extraction (OCR, parsing) is separate from semantic interpretation.
+
+## MVP Focus
+
+- Initial normalization focus is SNVs/simple HGVS/common oncology aliases; other alteration types (for example, fusions) may appear in starter data/examples as review-only or limited-support cases.
+- Small, highly explainable, and auditable codebase.
+- Ready for rapid iteration and demo in a 7–8 week competition.
+
+See `src/reconciliation_schema.py` and `data/examples/canonical_schema/` for canonical schema and output examples.
+
 ## Data Governance Guidance
 
 To ensure transparency, reproducibility, and ethical use of data in this project, all contributors and future data updates must follow these principles:
