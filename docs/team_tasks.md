@@ -691,6 +691,48 @@ Keep changes minimal and backward compatible.
 After coding, list changed files and why.
 ```
 
+#### Example 5 — Rin (`data/variant_aliases.json` updates)
+
+```text
+Act as a data engineer for oncology normalization.
+Goal: add P0 variant aliases needed for Checkpoint 1.
+Edit only: data/variant_aliases.json, data/gene_aliases.json (only if strictly required).
+Do not change: backend/app/*.py logic, API contract files, frontend files.
+
+Requirements:
+- Add entries for E545K, METex14, ALK rearrangement, BRAF V600E, MSI-H.
+- Keep canonical naming aligned with data/nsclc_benchmark.csv expected values.
+- Preserve existing JSON structure and formatting.
+
+Acceptance criteria:
+- JSON is valid and parseable.
+- New aliases map to canonical values consistently.
+- No existing alias entries are removed unintentionally.
+
+Keep changes minimal and backward compatible.
+After coding, list changed files and why.
+```
+
+#### Example 6 — Rin (data QA consistency check prompt)
+
+```text
+Act as a QA reviewer for oncology alias dictionaries.
+Goal: audit alias consistency before Jun 6 merge.
+Read: data/variant_aliases.json, data/gene_aliases.json, data/cancer_aliases.json, data/nsclc_benchmark.csv.
+Do not edit files yet.
+
+Requirements:
+- Report canonical string mismatches against benchmark expected values.
+- Flag duplicates, conflicting mappings, and casing inconsistencies.
+- Output a short fix list grouped by file.
+
+Acceptance criteria:
+- Every issue includes file path + key + suggested corrected value.
+- Output is actionable for a single follow-up PR.
+
+Return findings only; do not refactor unrelated data.
+```
+
 ### Team self-check before sending prompt
 
 - Is this one PR-sized task?
