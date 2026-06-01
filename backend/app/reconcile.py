@@ -3,7 +3,7 @@ from pathlib import Path
 from .models import ReconcileRequest, ReconcileResponse, CanonicalConcept, EvidenceItem
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT.parent / "data"
+DATA_DIR = ROOT / "data"
 
 def load_json(name: str) -> dict:
     path = DATA_DIR / name

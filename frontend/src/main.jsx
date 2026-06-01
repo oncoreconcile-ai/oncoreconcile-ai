@@ -9,17 +9,33 @@ function App() {
     variant: "Amplification",
   });
   const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   async function submitRecord() {
-    const response = await fetch("http://127.0.0.1:8000/reconcile", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-    const data = await response.json();
-    setResult(data);
+    setError("");
+    setIsLoading(true);
+    try {
+      const response = await fetch("http://127.0.0.1:8000/reconcile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      setResult(data);
+    } catch (err) {
+      setResult(null);
+      setError(err instanceof Error ? err.message : "Failed to call backend API");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -48,7 +64,10 @@ function App() {
           onChange={(e) => setForm({ ...form, variant: e.target.value })}
         />
 
-        <button onClick={submitRecord}>Reconcile</button>
+        <button onClick={submitRecord} disabled={isLoading}>
+          {isLoading ? "Reconciling..." : "Reconcile"}
+        </button>
+        {error && <p>{error}</p>}
       </section>
 
       {result && (
