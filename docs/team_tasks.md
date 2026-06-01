@@ -341,3 +341,41 @@ Deliverable:
 - one complete record through the pipeline
 
 Due: Sunday
+
+---
+
+## Competition Milestone Plan (May 16 - Jul 18, 2026)
+
+Official milestones:
+
+- Checkpoint 1: **Jun 6, 2026**
+- Checkpoint 2: **Jun 27, 2026**
+- Final Submission: **Jul 11, 2026**
+- Final Presentation (if selected): **~Jul 18, 2026**
+
+### Reasonable task list by person
+
+| Owner | By Checkpoint 1 (Jun 6) | By Checkpoint 2 (Jun 27) | By Final Submission (Jul 11) |
+|---|---|---|---|
+| Justin (Lead) | Freeze MVP scope + API contract v1; approve task owners and dependency order | Lock judging narrative, architecture diagram, and risk log | Final technical review, submission package sign-off, presentation story approval |
+| Nikola (Backend reconciliation) | Deterministic reconciliation stable for benchmark easy/medium; endpoint reliability | Add prioritized improvements (fuzzy for cancer type + selected embedding experiments for hard cases) without breaking deterministic path | Final backend stability, edge-case handling, benchmark pass report |
+| Rin (Data) | Deliver P0 alias updates (`E545K` and high-value variants) + evidence rows | Deliver hard-case dataset and expanded alias coverage with QA cleanup | Final data freeze, provenance cleanup, handoff notes for judges/demo |
+| Michael (Backend explainability + QA) | Deterministic explanation templates and confidence-language rules drafted | Explainability tests in CI + evaluation sheet scored for quality | Final explainability polish for demo cases and reviewer-ready examples |
+| Anne (Frontend) | Manual input + single-result rendering (canonical/confidence/review) | Batch CSV upload + results table + evidence/explanation display | Demo-ready UX polish, error/loading states, stable end-to-end flow |
+| Eric (Platform/PM/full-stack support) | CI baseline, branch protections, project board discipline; unblock Anne API integration | Environment config hardening, batch flow reliability, release checklist | Final release hardening, demo runbook, rollback/fix playbook |
+| Hao (Limited backend support) | Async code review on backend PRs as available | Async test/bugfix support on high-priority backend issues | Final bug triage support only if needed |
+| Wei (Side support) | Async customer-validation notes collection | Async feedback synthesis for usability and clarity | Final notes summary for presentation narrative |
+
+### Weekly cadence to stay on track
+
+- **Mon-Tue:** build + data updates
+- **Wed:** integration checkpoint (backend/frontend/data)
+- **Thu:** bugfix + test hardening
+- **Fri:** demo rehearsal + issue triage
+- **Weekend (light):** backup buffer only for critical blockers
+
+### Scope guardrails (important)
+
+- Before Jun 6: prioritize deterministic MVP completion over new model experimentation
+- Jun 7-Jun 27: controlled improvements only if benchmark and demo path remain stable
+- After Jun 27: feature freeze bias; focus on quality, reliability, and presentation clarity
