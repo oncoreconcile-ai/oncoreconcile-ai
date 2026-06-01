@@ -14,9 +14,9 @@ Each person can use AI/vibe coding, but every task must produce a visible delive
 | Reconciliation rules + Backend API | Nikola | reconciliation logic, FastAPI endpoint, alias dictionaries | Active |
 | Frontend UI | Anne | upload page and results table — AI-assisted; data analytics + DB background, learning frontend | Active — also setting up Discord for team comms |
 | Backend Explainability + QA | Michael | backend explanation renderer, confidence-language rules, explainability tests, evaluation dataset | Active |
-| Platform/GitHub + PM + LLM Fallback | Eric | repo structure, Docker, CI, GitHub board, issue management; full-stack capable for unblocking; **LLM fallback layer** — evaluate LLM models (e.g. GPT-4o, Claude, Gemini) to reconcile hard/unmatched cases when alias lookup and rules all fail | Busy — focused tasks only |
+| Platform/GitHub + PM | Eric | repo structure, Docker, CI, GitHub board, issue management; full-stack capable for unblocking | Busy — focused tasks only |
 | Benchmark dataset | Rin | 20 NSCLC cases (✅ completed per instructions) | Busy — dataset done, limited going forward |
-| Backend (limited support) | Hao | async support only when available — no primary ownership | Busy |
+| Backend (limited support) + Deferred LLM Fallback | Hao | async backend support when available; after trip, evaluate **LLM fallback layer** for hard/unmatched cases (only after deterministic pipeline is stable) | Busy (travel); LLM task starts after return |
 | Customer validation (side support) | Wei | async notes and interview feedback only — no meeting obligation | Side support only |
 
 ---
@@ -31,7 +31,8 @@ Focus only on work-sequencing dependencies and technical handoff blockers.
 | Anne (Frontend) | Needs backend batch endpoint behavior finalized | CSV upload flow depends on `/reconcile/batch` payload/summary shape | Eric + Nikola provide one stable batch sample response; Anne implements table mapping from that sample |
 | Nikola (Backend) | Depends on Rin's new alias data for improved reconciliation coverage | Reconciliation quality plateaus without new aliases/hard cases | Rin ships P0 data first (`E545K` mappings + variant aliases); Nikola merges data-driven improvements before adding ML/embedding |
 | Michael (Backend Explainability) | Shares backend file paths with Nikola (`backend/app/reconcile.py`) | Concurrent edits can cause merge conflicts and logic regressions | Split ownership by function: Nikola owns mapping logic, Michael owns explanation builder/tests; merge in small PRs |
-| Eric (Platform + Full-stack support) | Overloaded across platform + PM + frontend pairing + LLM fallback | Context switching delays critical path tasks | Keep execution split: 70% platform guardrails, 20% Anne pairing, 10% backend unblockers; defer LLM fallback until P0 is stable |
+| Eric (Platform + Full-stack support) | Overloaded across platform + PM + frontend pairing | Context switching delays critical path tasks | Keep execution split: 70% platform guardrails, 20% Anne pairing, 10% backend unblockers |
+| Hao (Deferred LLM fallback) | Not available until return from trip | LLM fallback experiments cannot start yet | Keep LLM fallback as post-Checkpoint-2 task; no dependency for Checkpoint-1 MVP |
 | Rin (Data) | Needs canonical naming consistency from backend outputs | Data aliases can drift from backend canonical form | Use canonical strings exactly as backend outputs; validate against benchmark expected columns before PR |
 
 ### Dependency-first execution order
@@ -56,7 +57,7 @@ Use this table to prioritize implementation work for reconciliation.
 | P1 | Cancer type fuzzy normalization (RapidFuzz) | `lung cancer` | `Non-Small Cell Lung Cancer` | Only for cancer type free-text normalization |
 | P1 | Embedding similarity (biomedical model) | `pan-trk fusion` | `NTRK Fusion` | Benchmark case_014 (difficult); semantic synonym handling |
 | P1 | Embedding similarity (biomedical model) | `rearrangement` with gene `ROS1` | `ROS1 Fusion` | Benchmark case_011; clinical synonym mapping |
-| P2 | LLM fallback (owned by Eric) after deterministic + embedding fail | `unknown_gene` + `G12C` | low-confidence suggestion or unresolved | Must return LOW confidence and require human review |
+| P2 | LLM fallback (deferred; owned by Hao after trip) after deterministic + embedding fail | `unknown_gene` + `G12C` | low-confidence suggestion or unresolved | Must return LOW confidence and require human review |
 
 Recommended models for Nikola (embedding experiments):
 
@@ -363,7 +364,7 @@ Official milestones:
 | Michael (Backend explainability + QA) | Deterministic explanation templates and confidence-language rules drafted | Explainability tests in CI + evaluation sheet scored for quality | Final explainability polish for demo cases and reviewer-ready examples |
 | Anne (Frontend) | Manual input + single-result rendering (canonical/confidence/review) | Batch CSV upload + results table + evidence/explanation display | Demo-ready UX polish, error/loading states, stable end-to-end flow |
 | Eric (Platform/PM/full-stack support) | CI baseline, branch protections, project board discipline; unblock Anne API integration | Environment config hardening, batch flow reliability, release checklist | Final release hardening, demo runbook, rollback/fix playbook |
-| Hao (Limited backend support) | Async code review on backend PRs as available | Async test/bugfix support on high-priority backend issues | Final bug triage support only if needed |
+| Hao (Limited backend support + deferred LLM fallback) | Async code review on backend PRs as available (if bandwidth) | Start LLM fallback exploration after trip and after deterministic pipeline is stable | Optional LLM fallback integration for hard/unmatched cases with LOW confidence + REVIEW_REQUIRED |
 | Wei (Side support) | Async customer-validation notes collection | Async feedback synthesis for usability and clarity | Final notes summary for presentation narrative |
 
 ### Weekly cadence to stay on track
@@ -378,4 +379,5 @@ Official milestones:
 
 - Before Jun 6: prioritize deterministic MVP completion over new model experimentation
 - Jun 7-Jun 27: controlled improvements only if benchmark and demo path remain stable
+- LLM fallback is explicitly deprioritized for Checkpoint 1 and Checkpoint 2; schedule only after Hao returns and core pipeline is stable
 - After Jun 27: feature freeze bias; focus on quality, reliability, and presentation clarity
