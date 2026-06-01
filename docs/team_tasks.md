@@ -16,8 +16,8 @@ Each person can use AI/vibe coding, but every task must produce a visible delive
 | Backend Explainability + QA | Michael | backend explanation renderer, confidence-language rules, explainability tests, evaluation dataset | Active |
 | Platform/GitHub + PM | Eric | repo structure, Docker, CI, GitHub board, issue management; full-stack capable for unblocking | Busy — focused tasks only |
 | Benchmark dataset | Rin | 20 NSCLC cases (✅ completed per instructions) | Busy — dataset done, limited going forward |
-| Backend (limited support) + Deferred LLM Fallback | Hao | async backend support when available; after trip, evaluate **LLM fallback layer** for hard/unmatched cases (only after deterministic pipeline is stable) | Busy (travel); LLM task starts after return |
-| Customer validation (side support) | Wei | async notes and interview feedback only — no meeting obligation | Side support only |
+| Backend (limited support) + Deferred LLM Fallback | Hao | async backend support when available; evaluate **LLM fallback layer** for hard/unmatched cases (only after deterministic pipeline is stable), target start **Jun 30, 2026** | Busy (travel); LLM task starts no earlier than Jun 30, 2026 |
+| Customer validation (side support) | Wei | async notes and interview feedback only — no meeting obligation; minimum **1 structured feedback note/week** | Side support only |
 
 ---
 
@@ -32,7 +32,7 @@ Focus only on work-sequencing dependencies and technical handoff blockers.
 | Nikola (Backend) | Depends on Rin's new alias data for improved reconciliation coverage | Reconciliation quality plateaus without new aliases/hard cases | Rin ships P0 data first (`E545K` mappings + variant aliases); Nikola merges data-driven improvements before adding ML/embedding |
 | Michael (Backend Explainability) | Shares backend file paths with Nikola (`backend/app/reconcile.py`) | Concurrent edits can cause merge conflicts and logic regressions | Split ownership by function: Nikola owns mapping logic, Michael owns explanation builder/tests; merge in small PRs |
 | Eric (Platform + Full-stack support) | Overloaded across platform + PM + frontend pairing | Context switching delays critical path tasks | Keep execution split: 70% platform guardrails, 20% Anne pairing, 10% backend unblockers |
-| Hao (Deferred LLM fallback) | Not available until return from trip | LLM fallback experiments cannot start yet | Keep LLM fallback as post-Checkpoint-2 task; no dependency for Checkpoint-1 MVP |
+| Hao (Deferred LLM fallback) | LLM track is intentionally delayed until deterministic pipeline is stable and travel window ends | Early experimentation can distract from checkpoint-critical work | Earliest LLM kickoff date: **Jun 30, 2026** (post-Checkpoint-2 prep), no dependency for Checkpoint-1/2 MVP |
 | Rin (Data) | Needs canonical naming consistency from backend outputs | Data aliases can drift from backend canonical form | Use canonical strings exactly as backend outputs; validate against benchmark expected columns before PR |
 
 ### Dependency-first execution order
@@ -46,6 +46,20 @@ Focus only on work-sequencing dependencies and technical handoff blockers.
 ---
 
 ## Nikola: Reconciliation Methods + Real Example Data
+
+### Code entry points
+
+- [backend/app/reconcile.py](backend/app/reconcile.py) — all reconciliation logic lives here
+  - `normalize_cancer_type()` — cancer alias lookup
+  - `normalize_gene()` — gene alias lookup
+  - `normalize_variant()` — variant alias lookup with `{gene}` template substitution
+  - `get_confidence()` — confidence scoring logic
+  - `get_review_status()` — review status logic
+  - `reconcile_record()` — main entry point called by the API
+- [backend/app/models.py](backend/app/models.py) — request/response schema (`ReconcileRequest`, `ReconcileResponse`)
+- [backend/tests/test_reconcile.py](backend/tests/test_reconcile.py) — existing 2 tests; expand to cover all 20 benchmark cases
+- [data/nsclc_benchmark.csv](data/nsclc_benchmark.csv) — 20 benchmark cases with expected outputs to test against
+- [data/variant_aliases.json](data/variant_aliases.json), [data/gene_aliases.json](data/gene_aliases.json), [data/cancer_aliases.json](data/cancer_aliases.json) — alias dictionaries loaded at startup
 
 Use this table to prioritize implementation work for reconciliation.
 
@@ -75,6 +89,22 @@ Success criteria for Nikola experiments:
 ## Rin: Data Expansion Instructions (MVP)
 
 Rin can continue with data tasks using this exact checklist.
+
+### File entry points
+
+- [data/variant_aliases.json](data/variant_aliases.json) — JSON key/value map, `"input_term": "Canonical Output"`. Edit directly in any text editor or VS Code.
+- [data/gene_aliases.json](data/gene_aliases.json) — same format; maps gene aliases to HGNC canonical symbols
+- [data/cancer_aliases.json](data/cancer_aliases.json) — same format; maps cancer type aliases to canonical disease names
+- [data/nsclc_benchmark.csv](data/nsclc_benchmark.csv) — **reference file**; do not edit; use this to know what canonical values must match exactly
+- New file to create: [data/nsclc_hard_cases.csv](data/nsclc_hard_cases.csv) — follow same column structure as benchmark CSV
+- New file to create: [data/evidence_map.csv](data/evidence_map.csv) — trace every alias to its source
+
+### How to validate your changes
+
+1. Open [data/nsclc_benchmark.csv](data/nsclc_benchmark.csv)
+2. For every alias you add to a JSON file, check that the canonical value in your JSON **exactly matches** the `expected_*` column in the benchmark
+3. Check for duplicate keys in JSON files (each input term must appear only once)
+4. Run `python3 -c "import json; json.load(open('data/variant_aliases.json'))"` from repo root to verify JSON is valid
 
 ### Goal
 
@@ -161,6 +191,59 @@ Example rows:
 
 ---
 
+## Anne: Frontend UI Tasks
+
+### Code entry points
+
+- [frontend/src/main.jsx](frontend/src/main.jsx) — the entire React app is in this one file
+  - `form` state (lines 6-10) — holds `cancer_type`, `gene`, `variant` input values
+  - `submitRecord()` function (lines 15-38) — sends `POST /reconcile` and stores response in `result`
+  - API URL **hardcoded** as `http://127.0.0.1:8000/reconcile` (line 19) — move to `import.meta.env.VITE_API_BASE_URL`
+  - Results table (lines 76-100) — currently renders `canonical`, `confidence`, `review_status`, `explanation` only
+  - **Missing:** `evidence` list is NOT rendered — needs to be added
+  - **Missing:** CSV upload and batch flow — not yet implemented
+- [frontend/src/style.css](frontend/src/style.css) — all styles live here
+- [frontend/vite.config.js](frontend/vite.config.js) — Vite + React plugin config
+- [frontend/package.json](frontend/package.json) — dependencies (`react`, `vite`, `@vitejs/plugin-react`)
+- [contracts/api_contract.md](contracts/api_contract.md) — **read this first** to understand all response fields Anne must render
+- [contracts/output.example.json](contracts/output.example.json) — paste this into the browser console to test UI rendering
+
+### Task scope for Anne (priority order)
+
+#### P0 — Evidence list rendering
+
+- In the result section of `main.jsx`, add an evidence list below the table:
+  - `result.evidence` is an array of objects: `{ source, type, description }`
+  - Render each as a bullet: `{item.source}: {item.description}`
+
+#### P0 — Environment-based API URL
+
+- Replace `http://127.0.0.1:8000` with `import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'`
+- Create `frontend/.env.local` with `VITE_API_BASE_URL=http://127.0.0.1:8000`
+
+#### P1 — CSV upload + batch flow
+
+- Add a file input (`<input type="file" accept=".csv" />`) in a new card section
+- On file select, parse CSV rows using `FileReader` + `split('\n')`
+- Map each row to `{ cancer_type, gene, variant }` objects
+- Send as `POST /reconcile/batch` with body `{ records: [...] }`
+- Render results in a table with one row per record
+
+#### P1 — Confidence + review status color coding
+
+- `HIGH` / `AUTO_RECONCILE` → green badge
+- `MEDIUM` / `REVIEW_REQUIRED` → yellow badge
+- `LOW` / `CANNOT_RECONCILE` → red badge
+
+### Done criteria for Anne
+
+- Manual single-record input renders all fields including evidence list
+- CSV upload sends batch request and renders results table
+- API URL is env-based, not hardcoded
+- Error and loading states display cleanly
+
+---
+
 ## Michael: Backend Explainability + Quality Tasks
 
 Michael can contribute in these concrete areas beyond prompt/model evaluation.
@@ -171,6 +254,15 @@ Michael can contribute in these concrete areas beyond prompt/model evaluation.
 2. Update [backend/app/reconcile.py](backend/app/reconcile.py) explanation/notes generation paths
 3. Create [backend/tests/test_explainability.py](backend/tests/test_explainability.py)
 4. Create [data/explainability_eval.csv](data/explainability_eval.csv)
+
+### Code entry points
+
+- [backend/app/reconcile.py](backend/app/reconcile.py) — explanation is generated inside `reconcile_record()` function
+  - Look for the `explanation` field construction near the bottom of the function (after evidence is built)
+  - This is where the renderer logic should be added/replaced
+- [backend/app/models.py](backend/app/models.py) — `ReconcileResponse.explanation` is a plain `str`; `confidence` and `review_status` are plain `str` (can be hardened to `Literal` types)
+- [backend/tests/test_reconcile.py](backend/tests/test_reconcile.py) — existing test file; add `test_explainability.py` alongside it
+- [docs/prompts/explainability_prompt.md](docs/prompts/explainability_prompt.md) — existing prompt template to extend
 
 ### Task Scope
 
@@ -226,6 +318,14 @@ Eric should stay in platform ownership and take targeted unblocker tasks across 
 - GitHub project board hygiene (priority labels, assignees, due dates)
 - PR quality gates (required checks, review rules, branch protection)
 - Docker/dev runbook stability for team onboarding
+
+### Code entry points
+
+- [backend/app/main.py](backend/app/main.py) — hardcoded CORS origins list (lines 14–22); replace with env-based config
+- [frontend/src/main.jsx](frontend/src/main.jsx) — API URL hardcoded as `http://127.0.0.1:8000`; move to `import.meta.env.VITE_API_BASE_URL`
+- [frontend/vite.config.js](frontend/vite.config.js) — Vite config; add `envPrefix` or proxy config here for env support
+- [backend/requirements.txt](backend/requirements.txt) — add `python-dotenv` if env file loading needed in backend
+- CI setup: create `.github/workflows/backend-ci.yml` with `pytest` command using `backend/.venv`
 
 ### Backend support tasks (time-boxed)
 
@@ -364,8 +464,8 @@ Official milestones:
 | Michael (Backend explainability + QA) | Deterministic explanation templates and confidence-language rules drafted | Explainability tests in CI + evaluation sheet scored for quality | Final explainability polish for demo cases and reviewer-ready examples |
 | Anne (Frontend) | Manual input + single-result rendering (canonical/confidence/review) | Batch CSV upload + results table + evidence/explanation display | Demo-ready UX polish, error/loading states, stable end-to-end flow |
 | Eric (Platform/PM/full-stack support) | CI baseline, branch protections, project board discipline; unblock Anne API integration | Environment config hardening, batch flow reliability, release checklist | Final release hardening, demo runbook, rollback/fix playbook |
-| Hao (Limited backend support + deferred LLM fallback) | Async code review on backend PRs as available (if bandwidth) | Start LLM fallback exploration after trip and after deterministic pipeline is stable | Optional LLM fallback integration for hard/unmatched cases with LOW confidence + REVIEW_REQUIRED |
-| Wei (Side support) | Async customer-validation notes collection | Async feedback synthesis for usability and clarity | Final notes summary for presentation narrative |
+| Hao (Limited backend support + deferred LLM fallback) | Async code review on backend PRs as available (if bandwidth) | LLM fallback design note + model shortlist by **Jun 30, 2026** (post-checkpoint workstream) | Optional LLM fallback integration for hard/unmatched cases with LOW confidence + REVIEW_REQUIRED by **Jul 8, 2026** |
+| Wei (Side support) | Submit **3 structured feedback notes** (template-based) by Jun 6 | Submit **1 synthesis memo** (top 5 usability issues + recommendations) by Jun 27 | Submit **final validation summary** (top 10 insights + 3 demo quotes) by Jul 11 |
 
 ### Weekly cadence to stay on track
 
@@ -379,5 +479,5 @@ Official milestones:
 
 - Before Jun 6: prioritize deterministic MVP completion over new model experimentation
 - Jun 7-Jun 27: controlled improvements only if benchmark and demo path remain stable
-- LLM fallback is explicitly deprioritized for Checkpoint 1 and Checkpoint 2; schedule only after Hao returns and core pipeline is stable
+- LLM fallback is explicitly deprioritized for Checkpoint 1 and Checkpoint 2; earliest start is **Jun 30, 2026** after core pipeline stability review
 - After Jun 27: feature freeze bias; focus on quality, reliability, and presentation clarity
