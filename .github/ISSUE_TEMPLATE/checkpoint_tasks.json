@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Add reconciliation test cases for missing benchmark variants",
+    "body": "Expand the `test_reconcile.py` to include test cases for all 20 benchmark variants using the existing alias data.\n\n**Tasks**:\n- Add tests for `E545K`, `METex14`, and other medium-priority benchmarks.\n- Ensure all tests pass without regression.\n\n**Acceptance Criteria**:\n- All 20 benchmark variants are covered in `test_reconcile.py`.\n- Tests pass without errors in CI.\n\n**Assignee**: @nikola\n**Labels**: backend, test, priority:high, blocked (waiting for aliases)",
+    "assignees": ["nikola"],
+    "labels": ["backend", "test", "priority:high", "blocked"]
+  },
+  {
+    "title": "Build embedding function stub in reconcile.py",
+    "body": "Create a placeholder embedding similarity function (`None` output until model is integrated). Define a clear interface for later wiring.\n\n**Acceptance Criteria**:\n- Clear function signature is created and documented.\n- Tests validate placeholder behavior.\n\n**Assignee**: @nikola\n**Labels**: backend, ML, priority:medium",
+    "assignees": ["nikola"],
+    "labels": ["backend", "ML", "priority:medium"]
+  },
+  {
+    "title": "Add critical alias updates to variant_aliases.json",
+    "body": "Update alias maps to include missing variants like `E545K`, `METex14`, `ALK rearrangement`. Ensure canonical names match `nsclc_benchmark.csv`.\n\n**Acceptance Criteria**:\n- Alias data is updated and valid.\n- No regressions or errors in alias mapping.\n\n**Assignee**: @rin\n**Labels**: data, priority:high, P0",
+    "assignees": ["rin"],
+    "labels": ["data", "priority:high", "P0"]
+  },
+  {
+    "title": "Add evidence rows for new aliases in evidence_map.csv",
+    "body": "Add source and traceability documentation for newly added aliases (e.g., terms like `E545K` → `PIK3CA p.E545K`).\n\n**Acceptance Criteria**:\n- Evidence rows exist for all new alias mappings.\n- Fields such as `source`, `description`, and `entity_type` are complete and valid.\n\n**Assignee**: @rin\n**Labels**: data, QA",
+    "assignees": ["rin"],
+    "labels": ["data", "QA"]
+  },
+  {
+    "title": "Create explain.py with deterministic rendering for reconciliations",
+    "body": "Implement `build_explanation()` to generate explainability text based on confidence/review status, following predefined templates.\n\n**Acceptance Criteria**:\n- Explanations are deterministic and consistent.\n- Tests validate all HIGH, MEDIUM, and LOW scenarios.\n\n**Assignee**: @michael\n**Labels**: backend, explainability, priority:high",
+    "assignees": ["michael"],
+    "labels": ["backend", "explainability", "priority:high"]
+  },
+  {
+    "title": "Generate explainability_eval.csv with benchmark outputs",
+    "body": "Use the backend to manually reconcile benchmark cases. Populate 20 evaluator rows (`confidence`, `explanation`) for clinician review.\n\n**Acceptance Criteria**:\n- `explainability_eval.csv` is valid and aligned with benchmarks.\n- Outputs support reviewer scoring.\n\n**Assignee**: @michael\n**Labels**: backend, QA, data",
+    "assignees": ["michael"],
+    "labels": ["backend", "QA", "data"]
+  },
+  {
+    "title": "Add evidence list rendering to the result UI",
+    "body": "Extend the result table in `main.jsx` to display a bulleted list of evidence (`source`, `description`) under each result row.\n\n**Acceptance Criteria**:\n- Evidence renders correctly in the result table.\n- Frontend functionality remains intact.\n\n**Assignee**: @anne\n**Labels**: frontend, priority:high",
+    "assignees": ["anne"],
+    "labels": ["frontend", "priority:high"]
+  },
+  {
+    "title": "Build CSV upload + mock results table in the UI",
+    "body": "Add CSV upload functionality in `main.jsx`. Map data to table rows using mock data (`mockResult`), and prepare API integration later.\n\n**Acceptance Criteria**:\n- CSV upload and mock data result table are working.\n- Ready for wiring API integration.\n\n**Assignee**: @anne\n**Labels**: frontend, priority:medium, blocked",
+    "assignees": ["anne"],
+    "labels": ["frontend", "priority:medium", "blocked"]
+  },
+  {
+    "title": "Set up GitHub Actions CI for backend tests",
+    "body": "Create `.github/workflows/backend-ci.yml` to automate `pytest` for backend tests. Ensure it runs on PRs and branch pushes.\n\n**Acceptance Criteria**:\n- CI workflow file is valid and runs successfully in PRs.\n- Tests execute without errors in multiple environments.\n\n**Assignee**: @eric\n**Labels**: DevOps, priority:high",
+    "assignees": ["eric"],
+    "labels": ["DevOps", "priority:high"]
+  },
+  {
+    "title": "Add .env.local for frontend API configuration",
+    "body": "Replace hardcoded API URLs with environment-based configuration in `main.jsx` (Vite). Add `frontend/.env.local` for default values.\n\n**Acceptance Criteria**:\n- Environment-based API configuration works locally and in CI.\n- Frontend/API integration is simplified for developers.\n\n**Assignee**: @eric\n**Labels**: platform, frontend-support, priority:medium",
+    "assignees": ["eric"],
+    "labels": ["platform", "frontend-support", "priority:medium"]
+  }
+]
