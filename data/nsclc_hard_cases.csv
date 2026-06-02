@@ -1,0 +1,16 @@
+case_id,cancer_type,gene,variant,expected_cancer_type,expected_gene,expected_variant,difficulty,why_hard
+hard_001,non small cell lung ca,HER-2,copy number gain,Non-Small Cell Lung Cancer,ERBB2,ERBB2 Copy Number Gain,DIFFICULT,spacing+hyphen+synonym
+hard_002,LUAD,p53,Arg175His,Lung Adenocarcinoma,TP53,TP53 p.R175H,DIFFICULT,protein longform
+hard_003,NSCLC,ROS1,translocation,Non-Small Cell Lung Cancer,ROS1,ROS1 Fusion,DIFFICULT,synonym to fusion
+hard_004,lung adeno,ERBB1,del19,Lung Adenocarcinoma,EGFR,EGFR Exon 19 Deletion,DIFFICULT,legacy gene+abbreviation
+hard_005,non-small cell,c-met,exon 14 skip,Non-Small Cell Lung Cancer,MET,MET Exon 14 Skipping,DIFFICULT,alias+spacing
+hard_006,squamous cell ca,p16,loss,Squamous Cell Lung Carcinoma,CDKN2A,CDKN2A Deletion,DIFFICULT,legacy gene+ambiguous variant
+hard_007,NSCLC,LKB1,truncation,Non-Small Cell Lung Cancer,STK11,STK11 Truncating Mutation,DIFFICULT,legacy gene+narrative variant
+hard_008,adeno ca,K-ras,Gly12Cys,Lung Adenocarcinoma,KRAS,KRAS p.G12C,DIFFICULT,hyphen+protein longform
+hard_009,large cell lung cancer,neu,amplification,Large Cell Lung Carcinoma,ERBB2,ERBB2 Amplification,DIFFICULT,obscure legacy alias
+hard_010,NSCLC,ALK1,fusion positive,Non-Small Cell Lung Cancer,ALK,ALK Fusion,DIFFICULT,typo/alias+narrative
+hard_011,lung adenocarcinoma,B-raf,V600E,Lung Adenocarcinoma,BRAF,BRAF p.V600E,MEDIUM,hyphen+missing prefix
+hard_012,NSCLC,NTRK,translocated,Non-Small Cell Lung Cancer,NTRK1,NTRK1 Fusion,DIFFICULT,gene family name+synonym
+hard_013,lung squamous,FGFR,amp,Squamous Cell Lung Carcinoma,FGFR1,FGFR1 Amplification,DIFFICULT,gene family name+abbreviation
+hard_014,NSCLC,RET,rearr,Non-Small Cell Lung Cancer,RET,RET Fusion,DIFFICULT,abbreviation+synonym
+hard_015,adenocarcinoma of lung,PI3K,E545K,Lung Adenocarcinoma,PIK3CA,PIK3CA p.E545K,DIFFICULT,pathway name instead of gene+missing prefix

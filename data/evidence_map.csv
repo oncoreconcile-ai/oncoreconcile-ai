@@ -1,0 +1,29 @@
+input_term,canonical_term,entity_type,source,source_id,evidence_note
+HER2,ERBB2,gene,HGNC,HGNC:3430,Approved symbol mapping
+HER-2,ERBB2,gene,HGNC,HGNC:3430,Approved symbol mapping with hyphen
+p53,TP53,gene,HGNC,HGNC:11998,Approved symbol mapping
+Ex19del,EGFR Exon 19 Deletion,variant,Seed Knowledge Base,SKB-VAR-001,Canonical exon-19 deletion phrase
+del19,EGFR Exon 19 Deletion,variant,Seed Knowledge Base,SKB-VAR-001,Clinical shorthand mapping
+ERBB1,EGFR,gene,HGNC,HGNC:3236,Legacy symbol mapping
+c-met,MET,gene,HGNC,HGNC:7029,Legacy alias mapping
+exon 14 skip,MET Exon 14 Skipping,variant,Seed Knowledge Base,SKB-VAR-002,Shorthand mapping
+p16,CDKN2A,gene,HGNC,HGNC:1787,Legacy symbol mapping
+loss,Deletion,variant,ClinVar,CLINVAR-GEN-01,Standardized term for loss of function/copy number
+LKB1,STK11,gene,HGNC,HGNC:11389,Legacy alias mapping
+truncation,Truncating Mutation,variant,Sequence Ontology,SO:0000159,Standardized consequence term
+K-ras,KRAS,gene,HGNC,HGNC:6407,Hyphenated alias mapping
+Gly12Cys,p.G12C,variant,HGVS,HGVS-PROT-01,Three-letter to one-letter amino acid translation
+neu,ERBB2,gene,HGNC,HGNC:3430,Legacy alias mapping (HER2/neu)
+ALK1,ALK,gene,HGNC,HGNC:427,Common clinical typo/alias mapping
+fusion positive,Fusion,variant,Sequence Ontology,SO:0000080,Narrative to canonical structural variant
+B-raf,BRAF,gene,HGNC,HGNC:1097,Hyphenated alias mapping
+V600E,p.V600E,variant,HGVS,HGVS-PROT-02,Missing prefix interpolation
+NTRK,NTRK1,gene,HGNC,HGNC:8031,Family name mapped to primary clinical target
+translocated,Fusion,variant,Sequence Ontology,SO:0000080,Synonym for gene fusion event
+FGFR,FGFR1,gene,HGNC,HGNC:3688,Family name mapped to primary target
+amp,Amplification,variant,Sequence Ontology,SO:0000162,Abbreviation mapping
+rearr,Fusion,variant,Sequence Ontology,SO:0000080,Abbreviation for rearrangement/fusion
+PI3K,PIK3CA,gene,HGNC,HGNC:8975,Pathway/complex name to specific catalytic subunit mapping
+copy number gain,Amplification,variant,Sequence Ontology,SO:0000162,Synonym for amplification
+Arg175His,p.R175H,variant,HGVS,HGVS-PROT-03,Three-letter to one-letter translation
+translocation,Fusion,variant,Sequence Ontology,SO:0000080,Synonym mapping
