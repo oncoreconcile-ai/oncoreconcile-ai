@@ -2,34 +2,73 @@
 
 ## High-Level Architecture
 
-```text
-Frontend
-  |
-  | CSV upload / manual input
-  v
-FastAPI Backend
-  |
-  v
-Reconciliation Engine
-  |
-  |-- Cancer Type Reconciliation
-  |-- Gene Reconciliation
-  |-- Variant Reconciliation
-  |
-  v
-Canonical Oncology Concept Object
-  |
-  v
-Evidence Layer
-  |
-  v
-AI Explanation Layer
-  |
-  v
-Confidence + Review Recommendation
-  |
-  v
-Frontend Result Table / CSV Export
+```mermaid
+flowchart TD
+    subgraph UI["🖥️ Frontend (React + Vite)"]
+        A1[Manual Input Form\ncancer_type / gene / variant]
+        A2[CSV Upload\nbatch records]
+        A3[Results Table\ncanonical / confidence / review_status]
+        A4[Evidence & Explanation Display]
+    end
+
+    subgraph API["⚙️ FastAPI Backend"]
+        B1["POST /reconcile\nsingle record"]
+        B2["POST /reconcile/batch\nmultiple records"]
+        B3[reconcile_record\nentry point]
+    end
+
+    subgraph Engine["🔬 Reconciliation Engine (reconcile.py)"]
+        C1[Cancer Type Reconciliation\nalias lookup]
+        C2[Gene Reconciliation\nalias lookup]
+        C3[Variant Reconciliation\nalias + gene template]
+        C4[Confidence Scoring\nHIGH / MEDIUM / LOW]
+        C5[Review Status\nAUTO_RECONCILE / REVIEW_REQUIRED / CANNOT_RECONCILE]
+        C6[Explanation Builder\ndeterministic text]
+    end
+
+    subgraph Data["📦 Seed Data (data/)"]
+        D1[cancer_aliases.json]
+        D2[gene_aliases.json]
+        D3[variant_aliases.json]
+        D4[nsclc_benchmark.csv\n20 benchmark cases]
+    end
+
+    subgraph Output["📋 Canonical Oncology Concept Object"]
+        E1["canonical:\n  cancer_type\n  gene\n  variant"]
+        E2["evidence: [ ]"]
+        E3["explanation: string"]
+        E4["confidence: HIGH / MEDIUM / LOW"]
+        E5["review_status: AUTO / REVIEW / CANNOT"]
+    end
+
+    subgraph Future["🔮 Future Integrations (Roadmap)"]
+        F1[HGNC]
+        F2[ClinVar]
+        F3[CIViC / OncoKB]
+        F4[GA4GH VRS / CAT-VRS]
+    end
+
+    A1 -->|JSON POST| B1
+    A2 -->|JSON POST| B2
+    B1 --> B3
+    B2 --> B3
+    B3 --> C1
+    B3 --> C2
+    B3 --> C3
+    C1 --> D1
+    C2 --> D2
+    C3 --> D3
+    C1 --> C4
+    C2 --> C4
+    C3 --> C4
+    C4 --> C5
+    C4 --> C6
+    C5 --> Output
+    C6 --> Output
+    Output --> A3
+    Output --> A4
+    D4 -.->|benchmark validation| Engine
+    Data -.->|future connector| Future
 ```
 
 ---
