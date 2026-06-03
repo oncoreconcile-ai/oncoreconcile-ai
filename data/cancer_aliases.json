@@ -18,9 +18,12 @@
   "LUSC": "Lung Squamous Cell Carcinoma",
   "Squamous": "Lung Squamous Cell Carcinoma",
   "squamous cell carcinoma": "Lung Squamous Cell Carcinoma",
+  "lung squamous cell carcinoma": "Lung Squamous Cell Carcinoma",
   "SCLC": "Small Cell Lung Cancer",
   "Small Cell": "Small Cell Lung Cancer",
   "small cell": "Small Cell Lung Cancer",
+  "Small Cell Lung Cancer": "Small Cell Lung Cancer",
+  "small cell lung cancer": "Small Cell Lung Cancer",
   "Breast Cancer": "Breast Cancer",
   "breast cancer": "Breast Cancer",
   "BRCA": "Breast Cancer"
