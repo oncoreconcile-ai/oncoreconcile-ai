@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from .models import ReconcileRequest, ReconcileResponse, CanonicalConcept, EvidenceItem
+from .normalize import normalize_gene_text, normalize_variant_text, normalize_cancer_type_text
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
@@ -19,18 +20,20 @@ VARIANT_ALIASES = load_json("variant_aliases.json")
 def normalize_cancer_type(value: str | None):
     if not value:
         return None, None
-    canonical = CANCER_ALIASES.get(value) or CANCER_ALIASES.get(value.strip())
+    cleaned = normalize_cancer_type_text(value)
+    canonical = CANCER_ALIASES.get(value) or CANCER_ALIASES.get(cleaned)
     return canonical, "Cancer type alias match" if canonical else None
 
 
 def normalize_gene(value: str):
-    canonical = GENE_ALIASES.get(value) or GENE_ALIASES.get(value.strip())
+    cleaned = normalize_gene_text(value)
+    canonical = GENE_ALIASES.get(value) or GENE_ALIASES.get(cleaned)
     return canonical, "Gene alias match" if canonical else None
 
 
 def normalize_variant(value: str, canonical_gene: str | None):
-    raw = value.strip()
-    mapped = VARIANT_ALIASES.get(raw)
+    cleaned = normalize_variant_text(value)
+    mapped = VARIANT_ALIASES.get(value) or VARIANT_ALIASES.get(cleaned)
     if not mapped:
         return None, None
 
