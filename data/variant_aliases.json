@@ -6,7 +6,7 @@
   "E746_A750del": "EGFR p.E746_A750del",
   "T790M": "EGFR p.T790M",
   "L858R": "EGFR p.L858R",
-  "G12C": "KRAS p.G12C",
+  "G12C": "{gene} p.G12C",
   "R175H": "TP53 p.R175H",
   "V600E": "BRAF p.V600E",
   "Amplification": "{gene} Amplification",
