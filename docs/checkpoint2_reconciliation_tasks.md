@@ -23,6 +23,26 @@ Checkpoint 2 focus:
 
 Move from a single-record reconciliation demo to a practical reconciliation workflow with batch processing, review queue, explainability, auditability, and validation reporting.
 
+Competition delivery focus:
+
+The final submission should not only work technically. It must also be easy for judges to understand in a 5-7 minute demo. The plan should balance backend/frontend engineering with benchmark metrics, demo polish, and business value.
+
+Recommended final effort balance:
+
+- Backend engineering: 30%
+- Frontend engineering: 25%
+- Validation and benchmark reporting: 20%
+- Demo and presentation: 15%
+- Business impact: 10%
+
+Judge-facing scoring areas:
+
+- Problem clarity
+- Innovation
+- Technical execution
+- Business value
+- Demo and presentation
+
 ## Workstream 1: Backend Reconciliation Contract
 
 Owner: Backend
@@ -258,17 +278,204 @@ Acceptance criteria:
 - [ ] Final demo steps are clear and repeatable.
 - [ ] Docs no longer reference removed files as active inputs.
 
+## Workstream 10: Demo Dataset
+
+Owner: Data / Product
+
+Goal: Create a small, reliable dataset for screenshots, demo video, and live upload.
+
+Tasks:
+
+- [ ] Create `data/demo_cases.csv`.
+- [ ] Include 30-50 demo records.
+- [ ] Include approximately:
+  - 20-35 `AUTO_RECONCILE` records
+  - 10 `REVIEW_REQUIRED` records
+  - 5 `CANNOT_RECONCILE` records
+- [ ] Include common examples:
+  - `NSCLC,HER2,Amplification`
+  - `LUAD,p53,R175H`
+  - `NSCLC,EGFR,Ex19del`
+  - `NSCLC,TRK,Fusion`
+  - `NSCLC,unknown_gene,unknown_variant`
+- [ ] Make sure the file columns match frontend upload requirements:
+  - `case_id`
+  - `cancer_type`
+  - `gene`
+  - `variant`
+- [ ] Verify all demo rows produce expected status categories.
+
+Acceptance criteria:
+
+- [ ] Demo CSV can be uploaded without manual cleanup.
+- [ ] Demo results include all three statuses.
+- [ ] Demo file is small enough to explain during a live presentation.
+
+## Workstream 11: Metrics Dashboard
+
+Owner: Frontend
+
+Goal: Give judges an immediate visual summary of reconciliation output.
+
+Tasks:
+
+- [ ] Add dashboard cards above the results table.
+- [ ] Show:
+  - uploaded records
+  - `AUTO_RECONCILE`
+  - `REVIEW_REQUIRED`
+  - `CANNOT_RECONCILE`
+  - invalid rows
+- [ ] Add benchmark accuracy card if benchmark metrics are available.
+- [ ] Use the same colors as status badges.
+- [ ] Keep the dashboard simple and presentation-friendly.
+
+Acceptance criteria:
+
+- [ ] Judge can understand result quality at a glance.
+- [ ] Counts update after CSV upload.
+- [ ] Metrics align with backend batch summary.
+
+## Workstream 12: Competition Metrics Script
+
+Owner: Backend / QA
+
+Goal: Generate judge-friendly metrics for the final presentation.
+
+Tasks:
+
+- [ ] Create `scripts/generate_competition_metrics.py`.
+- [ ] Reuse or wrap `scripts/evaluate_benchmark.py` if possible.
+- [ ] Print summary metrics:
+  - benchmark cases
+  - disease accuracy
+  - gene accuracy
+  - variant accuracy
+  - review status accuracy
+  - review escalation accuracy
+  - exact full-row accuracy
+- [ ] Write optional output to `data/competition_metrics.json`.
+- [ ] Keep output copy-paste friendly for slides.
+
+Acceptance criteria:
+
+- [ ] One command produces final presentation metrics.
+- [ ] Metrics can be reproduced by judges or teammates.
+- [ ] Metrics are consistent with backend benchmark tests.
+
+## Workstream 13: Business Value Documentation
+
+Owner: Product / Documentation
+
+Goal: Make the value proposition clear for judges.
+
+Tasks:
+
+- [ ] Create `docs/business_case.md`.
+- [ ] Describe target users:
+  - cancer centers
+  - molecular diagnostics labs
+  - healthcare systems
+  - research organizations
+  - pharmaceutical companies
+  - real-world evidence platforms
+  - healthcare AI startups
+- [ ] Describe benefits:
+  - reduced manual reconciliation effort
+  - improved oncology data quality
+  - faster cohort creation
+  - better interoperability
+  - improved AI/RAG retrieval quality
+  - stronger auditability
+- [ ] Describe future revenue paths:
+  - SaaS workflow tool
+  - enterprise licensing
+  - clinical research integration
+  - data quality API
+- [ ] Include why human-governed reconciliation matters.
+
+Acceptance criteria:
+
+- [ ] Business value can be explained in under one minute.
+- [ ] Document supports final submission and pitch slides.
+- [ ] Claims stay focused on data quality, not treatment recommendations.
+
+## Workstream 14: Final Demo Script
+
+Owner: Product / Demo Lead
+
+Goal: Make the final presentation repeatable and judge-friendly.
+
+Tasks:
+
+- [ ] Create `docs/final_demo_script.md`.
+- [ ] Use a 7-minute structure:
+  - Minute 1: problem
+  - Minute 2: architecture
+  - Minute 3: upload CSV
+  - Minute 4: review queue
+  - Minute 5: export results
+  - Minute 6: benchmark validation
+  - Minute 7: business value and roadmap
+- [ ] Include exact demo inputs and expected outputs.
+- [ ] Include fallback screenshots or talking points in case live demo fails.
+- [ ] Include the command sequence to start backend and frontend.
+- [ ] Include where to click in the UI.
+
+Acceptance criteria:
+
+- [ ] Demo can be rehearsed end to end.
+- [ ] Demo shows all three reconciliation outcomes.
+- [ ] Demo clearly connects technical workflow to business value.
+
+## Priority Tiers
+
+### Tier 1: Required For Final Submission
+
+- [ ] Batch upload
+- [ ] Review queue
+- [ ] Export CSV
+- [ ] Benchmark evaluation
+- [ ] Demo dataset
+- [ ] Metrics summary
+- [ ] Demo script
+- [ ] Demo video
+
+### Tier 2: Nice To Have
+
+- [ ] JSON export
+- [ ] Advanced filtering
+- [ ] Expanded explanations
+- [ ] Review reason code filters
+- [ ] Competition metrics JSON artifact
+
+### Tier 3: Can Skip
+
+- [ ] Database persistence
+- [ ] Authentication
+- [ ] LLM integration
+- [ ] Production deployment
+- [ ] Cloud hosting
+- [ ] Kubernetes
+- [ ] FHIR integration
+- [ ] OMOP integration
+
 ## Recommended Build Order
 
 1. Backend response contract.
 2. Batch API hardening.
 3. Benchmark evaluation script.
-4. Frontend CSV upload.
-5. Results table and filters.
-6. Review queue.
-7. Export.
-8. Explainability polish.
-9. Documentation cleanup.
+4. Demo dataset.
+5. Frontend CSV upload.
+6. Metrics dashboard.
+7. Results table and filters.
+8. Review queue.
+9. Export CSV.
+10. Competition metrics script.
+11. Demo script.
+12. Business value documentation.
+13. Explainability polish.
+14. Documentation cleanup.
 
 ## Definition Of Done For Checkpoint 2
 
@@ -280,4 +487,31 @@ Acceptance criteria:
 - [ ] Review-required rows can be reviewed.
 - [ ] Results can be exported.
 - [ ] Benchmark evaluation report can be generated.
+- [ ] Demo dataset can be uploaded successfully.
+- [ ] Metrics dashboard shows status counts.
+- [ ] Competition metrics can be generated for slides.
+- [ ] Business value document is complete.
 - [ ] Demo workflow is documented end to end.
+
+## Final Competition Definition Of Done
+
+The final MVP is competition-ready when the team can demonstrate:
+
+```text
+Upload CSV
+-> disease/gene/variant reconciliation
+-> AUTO_RECONCILE / REVIEW_REQUIRED / CANNOT_RECONCILE
+-> review queue
+-> export results
+-> benchmark accuracy report
+```
+
+Judge-facing proof points:
+
+- [ ] 156 benchmark cases validated.
+- [ ] 30-50 record demo CSV upload works.
+- [ ] Review workflow is visible.
+- [ ] Audit trail or evidence is visible.
+- [ ] Export works.
+- [ ] Metrics are clear enough for slides.
+- [ ] Demo can be completed in 5-7 minutes.
