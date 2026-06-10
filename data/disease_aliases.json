@@ -1,0 +1,11 @@
+{
+  "NSCLC": "Lung Non-Small Cell Carcinoma",
+  "Non-Small Cell Lung Cancer": "Lung Non-Small Cell Carcinoma",
+  "LUAD": "Lung Adenocarcinoma",
+  "Adenocarcinoma of the Lung": "Lung Adenocarcinoma",
+  "Adenocarcinoma of Lung": "Lung Adenocarcinoma",
+  "LUSC": "Lung Squamous Cell Carcinoma",
+  "Lung Squamous Cell Carcinoma": "Lung Squamous Cell Carcinoma",
+  "Small Cell Carcinoma of Lung": "Lung Small Cell Carcinoma",
+  "Lung Small Cell Carcinoma": "Lung Small Cell Carcinoma"
+}

@@ -1,9 +1,0 @@
-{
-  "lung cancer": {
-    "reason": "Could represent NSCLC, SCLC, LUAD, LUSC, or other subtype"
-  },
-
-  "adenocarcinoma": {
-    "reason": "Primary site unspecified"
-  }
-}
