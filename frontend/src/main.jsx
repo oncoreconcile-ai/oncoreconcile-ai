@@ -36,85 +36,145 @@ function Badge({ label, color }) {
 }
 
 function ScoreBar({ label, value }) {
-  const pct = Math.round((value || 0) * 100);
+  const pct = Math.round(Number(value) * 100);
   const col = pct >= 75 ? "#1a7f37" : pct >= 45 ? "#9a6700" : "#cf222e";
   return (
-    <div style={{ marginBottom:6 }}>
-      <div style={{ display:"flex", justifyContent:"space-between", fontSize:12, marginBottom:2 }}>
-        <span style={{ color:"#444" }}>{label}</span>
+    <div className="score-row">
+      <div className="score-row-label">
+        <span>{label}</span>
         <span style={{ fontWeight:"bold", color:col }}>{pct}%</span>
       </div>
-      <div style={{ background:"#eee", borderRadius:4, height:8 }}>
-        <div style={{ background:col, width:`${pct}%`, borderRadius:4, height:8, transition:"width 0.4s" }}/>
+      <div className="score-track">
+        <div style={{ background:col, width:`${Math.max(0, Math.min(100, pct))}%` }} />
       </div>
     </div>
   );
 }
 
+const SCORE_LABELS = {
+  match_type: "Match quality",
+  source_authority: "Source authority",
+  string_similarity: "String similarity",
+  context_consistency: "Context consistency",
+  alias_coverage: "Alias coverage",
+  variant_catalog: "Variant catalog",
+};
+
+const EVIDENCE_SOURCE_LABELS = {
+  live_myvariant_api: "MyVariant.info",
+  live_clinvar_api: "ClinVar",
+  live_civic_api: "CIViC",
+  live_clingen_allele_registry_api: "ClinGen",
+  local_exact_alias: "Local Catalog",
+  local_disease_gene_catalog: "Disease-Gene Catalog",
+  local_gene_variant_catalog: "Gene-Variant Catalog",
+  local_variant_catalog: "Gene-Variant Catalog",
+  local_civic_candidate_csv: "CIViC",
+};
+
+function evidenceSourceLabel(item) {
+  const mode = item?.retrieval_mode || "";
+  const matchedMode = Object.keys(EVIDENCE_SOURCE_LABELS).find(key => mode === key || mode.startsWith(`${key}_`));
+  if (matchedMode) return EVIDENCE_SOURCE_LABELS[matchedMode];
+  if (mode.startsWith("local_")) return "Local Catalog";
+  const source = String(item?.source || "").toLowerCase();
+  if (source.includes("myvariant")) return "MyVariant.info";
+  if (source.includes("clinvar")) return "ClinVar";
+  if (source.includes("civic")) return "CIViC";
+  if (source.includes("clingen")) return "ClinGen";
+  if (source.includes("seed")) return "Seed Knowledge Base";
+  return item?.source || "Local Catalog";
+}
+
+function getEvidenceBadges(evidence = []) {
+  return Array.from(new Set(evidence.map(evidenceSourceLabel).filter(Boolean)));
+}
+
+function isGovernanceEvidence(item) {
+  const text = [
+    item?.source,
+    item?.type,
+    item?.evidence_type,
+    item?.retrieval_mode,
+    item?.description,
+    item?.governance_standard,
+  ].filter(Boolean).join(" ").toLowerCase();
+  return ["review", "governance", "adjudication", "catalog promotion", "human review"]
+    .some(term => text.includes(term));
+}
+
 function EvidenceList({ evidence }) {
-  if (!evidence?.length) return <p style={{ color:"#888" }}>No evidence.</p>;
+  if (!evidence?.length) return <p className="empty-evidence">No evidence returned in this category.</p>;
   return (
-    <ul style={{ paddingLeft:16, margin:0 }}>
+    <div className="evidence-list">
       {evidence.map((e,i) => (
-        <li key={i} style={{ marginBottom:6, fontSize:13 }}>
-          <strong>{e.type}</strong> — {e.description}
-          <span style={{ color:"#888", fontSize:11 }}> [{e.source}]</span>
-          {e.url && (
-            <a href={e.url} target="_blank" rel="noreferrer" style={{ marginLeft:6, fontSize:11 }}>
-              Open Source
+        <article className="evidence-row" key={`${e.retrieval_mode || e.source}-${i}`}>
+          <div className="evidence-row-header">
+            <strong>{e.source || "Not available"}</strong>
+            <span>{e.evidence_type || e.type || "Not available"}</span>
+          </div>
+          <p>{e.description || "Not available"}</p>
+          <dl className="evidence-meta">
+            <div><dt>Retrieval mode</dt><dd>{e.retrieval_mode || "Not available"}</dd></div>
+            <div><dt>Confidence weight</dt><dd>{e.confidence_weight || "Not available"}</dd></div>
+            <div><dt>Timestamp</dt><dd>{e.timestamp || "Not available"}</dd></div>
+            <div><dt>External ID</dt><dd>{e.external_id || "Not available"}</dd></div>
+          </dl>
+          {(e.source_url || e.url) && (
+            <a className="evidence-link" href={e.source_url || e.url} target="_blank" rel="noreferrer">
+              View source ↗
             </a>
           )}
-          {(e.evidence_type || e.confidence_weight || e.governance_standard) && (
-            <div style={{ color:"#777", fontSize:11, marginTop:2 }}>
-              {e.evidence_type && <span>{e.evidence_type}</span>}
-              {e.confidence_weight && <span> · {e.confidence_weight}</span>}
-              {e.retrieval_mode && <span> · {e.retrieval_mode}</span>}
-              {e.governance_standard && <span> · {e.governance_standard}</span>}
-            </div>
+          {e.governance_standard && (
+            <div className="governance-note">{e.governance_standard}</div>
           )}
-          {(e.external_id || e.timestamp) && (
-            <div style={{ color:"#777", fontSize:11, marginTop:2 }}>
-              {e.external_id && <span>External ID: {e.external_id}</span>}
-              {e.external_id && e.timestamp && <span> · </span>}
-              {e.timestamp && <span>{e.timestamp}</span>}
-            </div>
-          )}
-        </li>
+        </article>
       ))}
-    </ul>
+    </div>
   );
 }
 
-function EvidenceGroups({ evidence }) {
-  const errorEvidence = evidence?.filter(
-    e => e.retrieval_mode?.startsWith("live_") && e.retrieval_mode?.endsWith("_error")
-  ) || [];
-  const liveEvidence = evidence?.filter(
-    e => e.retrieval_mode?.startsWith("live_") && !e.retrieval_mode?.endsWith("_error")
-  ) || [];
-  const localEvidence = evidence?.filter(e => !e.retrieval_mode?.startsWith("live_")) || [];
+function EvidenceGroup({ title, evidence, tone }) {
   return (
-    <>
-      <p style={{ fontSize:12, fontWeight:"bold", margin:"6px 0 4px" }}>Local Evidence</p>
-      <EvidenceList evidence={localEvidence}/>
-      {liveEvidence.length > 0 && (
-        <>
-          <p style={{ fontSize:12, fontWeight:"bold", margin:"10px 0 4px", color:"#0969da" }}>
-            Live External Evidence
-          </p>
-          <EvidenceList evidence={liveEvidence}/>
-        </>
-      )}
-      {errorEvidence.length > 0 && (
-        <>
-          <p style={{ fontSize:12, fontWeight:"bold", margin:"10px 0 4px", color:"#b42318" }}>
-            External API Errors
-          </p>
-          <EvidenceList evidence={errorEvidence}/>
-        </>
-      )}
-    </>
+    <section className={`evidence-group evidence-group-${tone}`}>
+      <div className="evidence-group-title">
+        <h4>{title}</h4>
+        <span>{evidence.length}</span>
+      </div>
+      <EvidenceList evidence={evidence}/>
+    </section>
   );
+}
+
+function EvidenceGroups({ evidence = [] }) {
+  const groups = {
+    governance: [],
+    errors: [],
+    live: [],
+    local: [],
+  };
+  evidence.forEach(item => {
+    const mode = item?.retrieval_mode || "";
+    if (mode.startsWith("live_") && mode.endsWith("_error")) groups.errors.push(item);
+    else if (mode.startsWith("live_")) groups.live.push(item);
+    else if (isGovernanceEvidence(item)) groups.governance.push(item);
+    else groups.local.push(item);
+  });
+  return (
+    <div className="evidence-groups">
+      <EvidenceGroup title="Local Evidence" evidence={groups.local} tone="local"/>
+      <EvidenceGroup title="Live External Evidence" evidence={groups.live} tone="live"/>
+      <EvidenceGroup title="External API Errors" evidence={groups.errors} tone="error"/>
+      <EvidenceGroup title="Governance Evidence" evidence={groups.governance} tone="governance"/>
+    </div>
+  );
+}
+
+function reviewRecommendation(status) {
+  if (status === "AUTO_RECONCILE") return "Eligible for automated reconciliation";
+  if (status === "REVIEW_REQUIRED") return "Human review required before curated use";
+  if (status === "CANNOT_RECONCILE") return "Do not reconcile; curator investigation required";
+  return "Not available";
 }
 
 function ResultCard({ result }) {
@@ -123,10 +183,10 @@ function ResultCard({ result }) {
   const [standardsExportLabel, setStandardsExportLabel] = useState("");
   const [standardsLoading, setStandardsLoading] = useState("");
   if (!result) return null;
-  const { canonical, confidence, confidence_score, score_breakdown, review_status, explanation, evidence, alternatives, notes, audit_trail, curation_metadata } = result;
-  const externalEvidenceCount = evidence?.filter(
-    e => e.retrieval_mode?.startsWith("live_") && !e.retrieval_mode?.endsWith("_error")
-  ).length || 0;
+  const { canonical, confidence, confidence_score, score_breakdown, review_status, explanation, evidence = [], alternatives, notes, audit_trail, curation_metadata } = result;
+  const evidenceBadges = getEvidenceBadges(evidence);
+  const hasConfidenceScore = typeof confidence_score === "number" && Number.isFinite(confidence_score);
+  const hasScoreBreakdown = score_breakdown && Object.keys(score_breakdown).length > 0;
 
   async function showStandardsExport(label, path) {
     setStandardsLoading(label);
@@ -148,46 +208,77 @@ function ResultCard({ result }) {
   }
 
   return (
-    <div style={{ border:"1px solid #ddd", borderRadius:8, padding:16, background:"#fafafa", marginTop:12 }}>
-      <div style={{ display:"flex", gap:10, alignItems:"center", marginBottom:10, flexWrap:"wrap" }}>
-        <Badge label={review_status} color={STATUS_COLOR[review_status]}/>
-        <Badge label={confidence} color={CONF_COLOR[confidence]}/>
-        <span style={{ fontSize:13, color:"#555" }}>Score: <strong>{(confidence_score*100).toFixed(0)}%</strong></span>
-        {externalEvidenceCount > 0 && (
-          <span style={{ fontSize:12, color:"#0969da", fontWeight:"bold" }}>
-            External evidence: {externalEvidenceCount}
-          </span>
-        )}
+    <section className="result-shell" aria-live="polite">
+      <div className="result-heading">
+        <div>
+          <span className="eyebrow">Reconciliation result</span>
+          <h3>Evidence-supported decision summary</h3>
+        </div>
+        <div className="status-stack">
+          <Badge label={review_status || "Not available"} color={STATUS_COLOR[review_status] || "#64748b"}/>
+          {confidence && <Badge label={`${confidence} CONFIDENCE`} color={CONF_COLOR[confidence] || "#64748b"}/>}
+        </div>
       </div>
 
-      {/* Canonical */}
-      <table style={{ width:"100%", fontSize:13, borderCollapse:"collapse", marginBottom:10 }}>
-        <tbody>
-          {[["Disease", canonical?.cancer_type],["Gene", canonical?.gene],["Variant", canonical?.variant]].map(([k,v])=>(
-            <tr key={k}><td style={{ color:"#888", width:80 }}>{k}</td><td><strong>{v||<em style={{color:"#bbb"}}>—</em>}</strong></td></tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="result-overview-grid">
+        <div className="decision-panel">
+          <div className="summary-label">Final Status</div>
+          <div className="decision-status" style={{ color:STATUS_COLOR[review_status] || "#334155" }}>
+            {review_status || "Not available"}
+          </div>
+          <div className="recommendation-box">
+            <span>Review Recommendation</span>
+            <strong>{reviewRecommendation(review_status)}</strong>
+          </div>
+        </div>
 
-      {/* Score breakdown */}
-      {score_breakdown && Object.keys(score_breakdown).length > 0 && (
-        <div style={{ marginBottom:10 }}>
-          <p style={{ fontSize:12, fontWeight:"bold", color:"#555", margin:"0 0 6px" }}>Confidence breakdown</p>
-          {Object.entries(score_breakdown).map(([k,v])=>(
-            <ScoreBar key={k} label={k.replace(/_/g," ")} value={v}/>
+        <div className="canonical-panel">
+          {[
+            ["Canonical Disease", canonical?.cancer_type],
+            ["Canonical Gene", canonical?.gene],
+            ["Canonical Variant", canonical?.variant],
+          ].map(([label,value]) => (
+            <div className="canonical-value" key={label}>
+              <span>{label}</span>
+              <strong>{value || "Not available"}</strong>
+            </div>
           ))}
         </div>
-      )}
 
-      {/* Explanation */}
-      <div style={{ background:"#f0f4f8", borderRadius:6, padding:10, fontSize:13, marginBottom:10 }}>
-        <strong>Explanation:</strong> {explanation}
+        <div className="confidence-panel">
+          <div className="confidence-number">
+            <span>Overall confidence</span>
+            <strong>{hasConfidenceScore ? `${Math.round(confidence_score * 100)}%` : "Not available"}</strong>
+          </div>
+          {hasConfidenceScore && <ScoreBar label="Overall score" value={confidence_score}/>}
+          {hasScoreBreakdown && (
+            <div className="confidence-breakdown">
+              {Object.entries(score_breakdown).map(([key,value]) => (
+                <ScoreBar key={key} label={SCORE_LABELS[key] || key.replace(/_/g," ")} value={value}/>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="evidence-badge-row">
+        <span>Evidence sources</span>
+        <div>
+          {evidenceBadges.length
+            ? evidenceBadges.map(label => <span className="evidence-badge" key={label}>{label}</span>)
+            : <span className="evidence-badge evidence-badge-muted">Not available</span>}
+        </div>
+      </div>
+
+      <div className="explanation-box">
+        <span>Decision rationale</span>
+        <p>{explanation || "Not available"}</p>
       </div>
 
       {/* Alternatives */}
       {alternatives?.length > 0 && (
-        <div style={{ marginBottom:10 }}>
-          <p style={{ fontSize:12, fontWeight:"bold", color:"#555", margin:"0 0 4px" }}>Alternatives considered</p>
+        <div className="alternatives-box">
+          <p>Alternatives considered</p>
           <ul style={{ paddingLeft:16, margin:0 }}>
             {alternatives.map((a,i)=>(
               <li key={i} style={{ fontSize:12, color:"#555" }}>{a.name || a.id} {a.reason && `— ${a.reason}`}</li>
@@ -197,22 +288,26 @@ function ResultCard({ result }) {
       )}
 
       {/* Notes */}
-      {notes?.length > 0 && <div style={{ color:"#9a6700", fontSize:12, marginBottom:8 }}>⚠ {notes.join(" ")}</div>}
+      {notes?.length > 0 && <div className="result-notes">⚠ {notes.join(" ")}</div>}
 
       {curation_metadata && (
-        <section style={{ borderTop:"1px solid #d0d7de", paddingTop:10, marginTop:10, marginBottom:10 }}>
-          <p style={{ fontSize:12, fontWeight:"bold", color:"#444", margin:"0 0 6px" }}>
-            Standards & Curation Alignment
-          </p>
-          <div style={{ display:"flex", gap:8, flexWrap:"wrap", fontSize:11, color:"#555", marginBottom:8 }}>
+        <section className="standards-panel">
+          <div className="standards-title">
+            <div>
+              <span className="eyebrow">Knowledge graph & standards readiness</span>
+              <h4>Standards & Curation Alignment</h4>
+            </div>
+            <span className="prototype-pill">{curation_metadata.standards_status || "standards-inspired prototype"}</span>
+          </div>
+          <div className="standards-facts">
             <span>Stage: <strong>{curation_metadata.curation_stage}</strong></span>
             <span>Human governance: <strong>{curation_metadata.human_governance_required ? "Required" : "Not required"}</strong></span>
             <span>Catalog promotion candidate: <strong>{curation_metadata.catalog_promotion_candidate ? "Yes" : "No"}</strong></span>
           </div>
-          <div style={{ fontSize:11, color:"#666", marginBottom:8 }}>
+          <div className="alignment-copy">
             AIWS alignment: {(curation_metadata.aiws_use_case_alignment || []).join(" · ")}
           </div>
-          <div style={{ display:"flex", gap:6, flexWrap:"wrap" }}>
+          <div className="standards-actions">
             {[
               ["Provenance Export","/export/provenance"],
               ["Knowledge Graph","/export/knowledge-graph"],
@@ -225,7 +320,7 @@ function ResultCard({ result }) {
                 type="button"
                 onClick={()=>showStandardsExport(label,path)}
                 disabled={Boolean(standardsLoading)}
-                style={{ fontSize:11, padding:"4px 9px", border:"1px solid #0969da", borderRadius:4, background:"#fff", color:"#0969da", cursor:"pointer" }}
+                className="standards-button"
               >
                 {standardsLoading === label ? "Loading..." : `Show ${label}`}
               </button>
@@ -248,20 +343,23 @@ function ResultCard({ result }) {
         </section>
       )}
 
-      {/* Evidence + Audit (collapsible) */}
-      <button onClick={()=>setExpanded(!expanded)} style={{ fontSize:12, background:"none", border:"1px solid #ccc", borderRadius:4, padding:"3px 10px", cursor:"pointer" }}>
-        {expanded ? "Hide" : "Show"} evidence & audit trail
+      <button onClick={()=>setExpanded(!expanded)} className="evidence-toggle">
+        {expanded ? "Hide detailed evidence" : "Explore evidence sources & audit trail"}
       </button>
       {expanded && (
-        <div style={{ marginTop:8 }}>
+        <div className="evidence-details">
+          <h3>Evidence Sources</h3>
+          <p>Provenance is grouped by retrieval behavior so judges can distinguish local evidence, live APIs, safe API failures, and governance signals.</p>
           <EvidenceGroups evidence={evidence}/>
-          <p style={{ fontSize:12, fontWeight:"bold", margin:"10px 0 4px" }}>Audit trail</p>
-          <ol style={{ fontSize:11, color:"#666", paddingLeft:16, margin:0 }}>
-            {audit_trail?.map((s,i)=><li key={i}>{s}</li>)}
-          </ol>
+          <section className="audit-panel">
+            <h4>Audit trail</h4>
+            {audit_trail?.length
+              ? <ol>{audit_trail.map((s,i)=><li key={i}>{s}</li>)}</ol>
+              : <p className="empty-evidence">Not available</p>}
+          </section>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
@@ -269,7 +367,7 @@ function ResultCard({ result }) {
 const EXAMPLES = [
   {
     id:"step_001",
-    label:"Exact alias + catalog",
+    label:"Exact Alias / Catalog",
     type:"Exact Alias / Catalog",
     cancer_type:"NSCLC",
     gene:"HER2",
@@ -279,7 +377,7 @@ const EXAMPLES = [
   },
   {
     id:"step_004",
-    label:"Variant alias",
+    label:"Variant Alias",
     type:"Variant Alias",
     cancer_type:"NSCLC",
     gene:"EGFR",
@@ -289,8 +387,8 @@ const EXAMPLES = [
   },
   {
     id:"fuzzy_001",
-    label:"Fuzzy disease",
-    type:"Fuzzy Match",
+    label:"Fuzzy Disease",
+    type:"Fuzzy Disease",
     cancer_type:"non-small cell lung carcinom",
     gene:"EGFR",
     variant:"Ex19del",
@@ -299,8 +397,8 @@ const EXAMPLES = [
   },
   {
     id:"fuzzy_002",
-    label:"Fuzzy gene",
-    type:"Fuzzy Match",
+    label:"Fuzzy Gene",
+    type:"Fuzzy Gene",
     cancer_type:"NSCLC",
     gene:"ERBB-2",
     variant:"amp",
@@ -309,8 +407,8 @@ const EXAMPLES = [
   },
   {
     id:"fuzzy_003",
-    label:"Fuzzy variant",
-    type:"Fuzzy Match",
+    label:"Fuzzy Variant",
+    type:"Fuzzy Variant",
     cancer_type:"NSCLC",
     gene:"EGFR",
     variant:"Exon 19 deletin",
@@ -319,7 +417,7 @@ const EXAMPLES = [
   },
   {
     id:"step_005",
-    label:"Cat-VRS ambiguity",
+    label:"Cat-VRS-style Ambiguity",
     type:"Cat-VRS-style Ambiguity",
     cancer_type:"NSCLC",
     gene:"TRK",
@@ -329,8 +427,8 @@ const EXAMPLES = [
   },
   {
     id:"step_006",
-    label:"Catalog review",
-    type:"Review Required",
+    label:"Catalog Review Required",
+    type:"Catalog Review Required",
     cancer_type:"NSCLC",
     gene:"EGFR",
     variant:"Exon20ins",
@@ -339,7 +437,7 @@ const EXAMPLES = [
   },
   {
     id:"llm_004",
-    label:"LLM review hook",
+    label:"LLM-gated Review",
     type:"LLM-gated Review",
     cancer_type:"NSCLC",
     gene:"KRAS",
@@ -349,7 +447,7 @@ const EXAMPLES = [
   },
   {
     id:"external_001",
-    label:"External candidate",
+    label:"External Candidate",
     type:"External Candidate",
     cancer_type:"NSCLC",
     gene:"PIK3CA",
@@ -359,8 +457,8 @@ const EXAMPLES = [
   },
   {
     id:"step_007",
-    label:"Safe failure",
-    type:"Cannot Reconcile",
+    label:"Unknown Gene",
+    type:"Unknown Gene",
     cancer_type:"NSCLC",
     gene:"unknown_gene",
     variant:"G12C",
@@ -369,8 +467,8 @@ const EXAMPLES = [
   },
   {
     id:"step_010",
-    label:"No trusted match",
-    type:"Cannot Reconcile",
+    label:"No Trusted Match",
+    type:"No Trusted Match",
     cancer_type:"NSCLC",
     gene:"FAKE_GENE_XYZ",
     variant:"FAKE_VARIANT_XYZ",
@@ -379,26 +477,19 @@ const EXAMPLES = [
   },
 ];
 
-const EXAMPLE_TYPE_ORDER = [
-  "Exact Alias / Catalog",
-  "Variant Alias",
-  "Fuzzy Match",
-  "Cat-VRS-style Ambiguity",
-  "Review Required",
-  "LLM-gated Review",
-  "External Candidate",
-  "Cannot Reconcile",
-];
-
-const EXAMPLE_TYPE_HELP = {
-  "Exact Alias / Catalog": "High-confidence deterministic mapping from curated dictionaries and catalogs.",
-  "Variant Alias": "Variant synonym normalization against the gene-specific variant catalog.",
-  "Fuzzy Match": "Typo-tolerant matching using string similarity after exact lookup fails.",
-  "Cat-VRS-style Ambiguity": "Preserves uncertainty as a categorical variation instead of forcing precision.",
-  "Review Required": "Known or plausible entity that needs human review before approval.",
-  "LLM-gated Review": "LLM may suggest a candidate only after deterministic logic has routed the case to review.",
-  "External Candidate": "Plausible evidence found outside the local trusted disease context, routed to review.",
-  "Cannot Reconcile": "Safe failure when the system lacks trusted evidence."
+const EXAMPLE_GROUPS = {
+  "Auto-Reconcile Examples": {
+    status: "AUTO_RECONCILE",
+    description: "Deterministic normalization and high-confidence catalog pathways.",
+  },
+  "Human Review Examples": {
+    status: "REVIEW_REQUIRED",
+    description: "Ambiguous or advisory candidates preserved for accountable curator review.",
+  },
+  "Safe Failure Examples": {
+    status: "CANNOT_RECONCILE",
+    description: "Unknown inputs stop safely instead of being forced into an unsupported match.",
+  },
 };
 
 const REVIEW_EXAMPLES = [
@@ -467,7 +558,7 @@ function SinglePage() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedType, setSelectedType] = useState("All");
+  const [selectedGroup, setSelectedGroup] = useState("All");
 
   async function submit(overrideForm = null) {
     const payload = overrideForm || form;
@@ -502,74 +593,130 @@ function SinglePage() {
     submit(payload);
   }
 
-  const visibleExamples = selectedType === "All"
-    ? EXAMPLES
-    : EXAMPLES.filter(ex => ex.type === selectedType);
+  const featuredDemo = {
+    id:"featured_egfr_c797s",
+    cancer_type:"NSCLC",
+    gene:"EGFR",
+    variant:"C797S",
+  };
+  const groupedExamples = Object.entries(EXAMPLE_GROUPS)
+    .map(([group, metadata]) => ({
+      group,
+      ...metadata,
+      examples: EXAMPLES.filter(example => example.expected_status === metadata.status),
+    }))
+    .filter(section => selectedGroup === "All" || section.group === selectedGroup);
 
   return (
     <div>
-      <h2 style={{ color:"#028090", marginBottom:4 }}>Single Record Reconciliation</h2>
-      <p style={{ color:"#666", fontSize:13 }}>
-        Test one disease · gene · variant input and demonstrate each reconciliation pathway: exact alias, fuzzy match,
-        Cat-VRS-style ambiguity, LLM-gated review, and safe failure.
-      </p>
+      <header className="single-hero">
+        <span className="eyebrow">AI-assisted oncology data harmonization</span>
+        <h1>Single Record Reconciliation</h1>
+        <p>
+          Use this tab to demonstrate how OncoReconcile AI transforms messy oncology inputs into canonical
+          candidates with evidence, confidence scoring, and human-governed review recommendations.
+        </p>
+      </header>
 
       <div className="workflow-strip">
-        {["Normalize", "Alias", "Fuzzy", "Ambiguity", "Evidence", "Score", "Review"].map(step => (
+        {["Normalize", "Retrieve evidence", "Score confidence", "Govern review", "Export provenance"].map(step => (
           <span key={step}>{step}</span>
         ))}
       </div>
 
-      <div className="example-filter-row">
-        {["All", ...EXAMPLE_TYPE_ORDER].map(type => (
-          <button
-            key={type}
-            type="button"
-            onClick={() => setSelectedType(type)}
-            className={selectedType === type ? "filter-chip active" : "filter-chip"}
-          >
-            {type}
+      <div className="demo-input-grid">
+        <section className="featured-demo">
+          <div>
+            <span className="featured-kicker">Featured Demo</span>
+            <h2>Evidence-Supported Human Review</h2>
+            <p>
+              This example demonstrates disease and gene normalization, external evidence retrieval,
+              confidence scoring, and REVIEW_REQUIRED governance.
+            </p>
+          </div>
+          <div className="featured-values">
+            <div><span>Disease / Cancer Type</span><strong>NSCLC</strong></div>
+            <div><span>Gene</span><strong>EGFR</strong></div>
+            <div><span>Variant</span><strong>C797S</strong></div>
+          </div>
+          <button type="button" onClick={() => runExample(featuredDemo)} disabled={loading} className="featured-button">
+            {loading ? "Running Demo…" : "Run Featured Demo"}
           </button>
-        ))}
-      </div>
+        </section>
 
-      {selectedType !== "All" && (
-        <p className="helper-text" style={{ marginTop:-4 }}>
-          {EXAMPLE_TYPE_HELP[selectedType]}
-        </p>
-      )}
-
-      <div className="example-grid-wide">
-        {visibleExamples.map(ex => (
-          <ExampleCard
-            key={ex.id}
-            example={ex}
-            onLoad={loadExample}
-            onRun={runExample}
-            loading={loading}
-          />
-        ))}
-      </div>
-
-      <div className="single-form-card">
-        <h3>Manual input</h3>
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:10, marginBottom:12 }}>
-          {[["cancer_type","Disease / Cancer Type"],["gene","Gene"],["variant","Variant"]].map(([k,lbl])=>(
-            <div key={k}>
-              <label style={{ fontSize:12, color:"#555", display:"block", marginBottom:3 }}>{lbl}</label>
-              <input value={form[k]||""} onChange={e=>setForm({...form,[k]:e.target.value})}
-                style={{ width:"100%", padding:"6px 8px", borderRadius:4, border:"1px solid #ccc", fontSize:13, boxSizing:"border-box" }}/>
+        <section className="single-form-card">
+          <div className="form-card-heading">
+            <div>
+              <span className="eyebrow">Try your own record</span>
+              <h3>Manual input</h3>
             </div>
-          ))}
-        </div>
-        <button onClick={() => submit()} disabled={loading}
-          style={{ padding:"8px 24px", background:"#028090", color:"#fff", border:"none", borderRadius:6, fontSize:14, cursor:"pointer", opacity:loading?0.6:1 }}>
-          {loading ? "Reconciling…" : "Reconcile"}
-        </button>
+            <span>Required: gene + variant</span>
+          </div>
+          <div className="manual-input-grid">
+            {[["cancer_type","Disease / Cancer Type"],["gene","Gene"],["variant","Variant"]].map(([k,lbl])=>(
+              <div key={k}>
+                <label htmlFor={`single-${k}`}>{lbl}</label>
+                <input id={`single-${k}`} value={form[k]||""} onChange={e=>setForm({...form,[k]:e.target.value})}/>
+              </div>
+            ))}
+          </div>
+          <button onClick={() => submit()} disabled={loading} className="reconcile-button">
+            {loading ? "Reconciling…" : "Reconcile Record"}
+          </button>
+        </section>
       </div>
 
       {error && <p style={{ color:"#cf222e", marginTop:8 }}>{error}</p>}
       <ResultCard result={result}/>
+
+      <section className="example-library">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Demo pathway library</span>
+            <h2>Explore reconciliation outcomes</h2>
+          </div>
+          <p>All existing examples are preserved and organized around the decision a judge will see.</p>
+        </div>
+        <div className="example-filter-row">
+          {["All", ...Object.keys(EXAMPLE_GROUPS)].map(group => (
+            <button
+              key={group}
+              type="button"
+              onClick={() => setSelectedGroup(group)}
+              className={selectedGroup === group ? "filter-chip active" : "filter-chip"}
+            >
+              {group}
+            </button>
+          ))}
+        </div>
+        {groupedExamples.map(section => (
+          <section className="example-section" key={section.group}>
+            <div className="example-section-heading">
+              <div>
+                <h3>{section.group}</h3>
+                <p>{section.description}</p>
+              </div>
+              <Badge label={section.status} color={statusBadgeColor(section.status)}/>
+            </div>
+            <div className="example-grid-wide">
+              {section.examples.map(ex => (
+                <ExampleCard
+                  key={ex.id}
+                  example={ex}
+                  onLoad={loadExample}
+                  onRun={runExample}
+                  loading={loading}
+                />
+              ))}
+            </div>
+          </section>
+        ))}
+      </section>
+
+      <p className="safety-note">
+        Prototype for oncology data harmonization and curation. Not intended for clinical interpretation,
+        treatment recommendation, or autonomous clinical decision support.
+      </p>
     </div>
   );
 }
@@ -1258,7 +1405,7 @@ function Nav() {
 function App() {
   return (
     <BrowserRouter>
-      <div style={{ maxWidth:900, margin:"0 auto", padding:"24px 16px", fontFamily:"system-ui,sans-serif" }}>
+      <div className="app-shell">
         <Nav/>
         <Routes>
           <Route path="/" element={<SinglePage/>}/>
