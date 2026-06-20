@@ -30,7 +30,17 @@ Verified June 20, 2026.
 
 ## Quick Start
 
-Start the backend:
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/oncoreconcile-ai/oncoreconcile-ai.git
+cd oncoreconcile-ai
+git checkout feature/vanguard-justin-checkpoint2
+```
+
+### 2. Set Up and Start Backend
+
+From the repository root:
 
 ```bash
 cd backend
@@ -46,22 +56,34 @@ python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
 > Recommended Python version: 3.10–3.12. Python 3.14 is not currently validated for this project.
 
-Start the frontend in another terminal:
+The backend API will be available at `http://127.0.0.1:8000`. Interactive API documentation is available at `http://127.0.0.1:8000/docs`.
+
+### 3. Set Up and Start Frontend
+
+Open a second terminal and run:
 
 ```bash
+cd oncoreconcile-ai
 cd frontend
 npm install
 npm run dev
 ```
 
-Run validation:
+Open the local URL printed by Vite in the terminal, typically `http://localhost:5173`.
+
+### 4. Validate the Project
+
+Open another terminal at the repository root and run the backend tests:
 
 ```bash
-cd backend
-source .venv/bin/activate
+source backend/.venv/bin/activate
 python -m pytest -q
+```
 
-cd ../frontend
+Then verify the frontend production build:
+
+```bash
+cd frontend
 npm run build
 ```
 
