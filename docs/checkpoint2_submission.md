@@ -1,6 +1,6 @@
 # OncoReconcile AI
 
-## DFWIT AI & Startup Competition 2026 – Checkpoint 2 Submission
+## DFWIT AI & Startup Competition 2026 – Checkpoint 2 Technical Evidence Package
 
 ### Team Variant Vanguard
 
@@ -10,262 +10,177 @@
 - [NAME]
 - [NAME]
 
-**Project Repository**
+**Repository:** [github.com/justin-mbca/oncoreconcile-ai](https://github.com/justin-mbca/oncoreconcile-ai)
 
-[https://github.com/justin-mbca/oncoreconcile-ai](https://github.com/justin-mbca/oncoreconcile-ai)
+**Demo:** [INSERT DEMO URL]
 
-**Demo URL**
+## Verification Summary
 
-[INSERT DEMO URL]
+Verified June 20, 2026:
 
----
-
-## Executive Summary
-
-OncoReconcile AI is a human-governed platform for oncology data harmonization and curation.
-
-The platform reconciles disease, gene, and variant entities from heterogeneous oncology datasets and supports evidence-based, explainable, and reviewable harmonization workflows. Rather than forcing uncertain mappings, it preserves ambiguity, surfaces advisory evidence, records provenance, measures reviewer agreement, and routes unresolved cases through expert review.
-
-The current MVP combines:
-
-- Disease, gene, and variant harmonization
-- Alias and fuzzy matching
-- Ambiguity preservation
-- Multi-source evidence retrieval
-- Explainability and confidence scoring
-- Persistent human review
-- Reviewer agreement metrics
-- Adjudication workflows
-- Provenance tracking
-- JSON-LD knowledge graph export
-- Benchmark validation
-
-## Problem Statement
-
-Modern oncology data originates from molecular laboratories, EHR systems, clinical trials, research datasets, commercial genomic vendors, and precision-oncology programs. The same biological concept frequently appears under different names.
-
-| Original | Canonical |
+| Verification | Result |
 |---|---|
-| HER2 | ERBB2 |
-| HER1 | EGFR |
-| p53 | TP53 |
-| NSCLC | Lung Non-Small Cell Carcinoma |
-| LUAD | Lung Adenocarcinoma |
-| Ex19del | EGFR Exon 19 Deletion |
+| Backend test suite | 43 passed |
+| Curated benchmark | 191 cases |
+| Frontend production build | Passed |
+| External integration tests | Passed |
+| Review governance tests | Passed |
+| Export tests | Passed |
 
-These inconsistencies reduce data quality and create challenges for analytics, cohort construction, integration, and trustworthy AI.
+Commands:
 
-## Proposed Solution
-
-OncoReconcile AI provides:
-
-- Disease reconciliation
-- Gene reconciliation
-- Variant reconciliation
-- Evidence discovery
-- Confidence scoring
-- Explainable decisions
-- Human-governed review workflows
-
-The platform preserves ambiguity and routes uncertain cases for expert review rather than forcing potentially incorrect mappings.
-
-## Current MVP Workflow
-
-```text
-Input: cancer type, gene, variant
-  ↓
-Disease reconciliation
-  ↓
-Gene reconciliation
-  ↓
-Variant reconciliation
-  ↓
-Local evidence and ambiguity checks
-  ↓
-Adaptive external evidence retrieval
-  ↓
-Confidence assessment
-  ↓
-AUTO_RECONCILE | REVIEW_REQUIRED | CANNOT_RECONCILE
-  ↓
-Human review queue
-  ↓
-Reviewer agreement metrics
-  ↓
-Adjudication workflow
-  ↓
-Governed output and prototype exports
+```bash
+cd backend
+python -m pytest -q
 ```
 
-## Current Progress
+```bash
+python -c "import csv; print(sum(1 for _ in csv.DictReader(open('data/benchmark_cases.csv'))))"
+```
 
-### Core Harmonization
+```bash
+cd frontend
+npm run build
+```
 
-Implemented:
+The benchmark and test suite are internal technical validation, not independent clinical validation.
 
-- Disease reconciliation
-- Gene reconciliation
-- Variant reconciliation
-- Alias matching
-- Fuzzy matching
+## Technical Evidence
+
+### Reconciliation Engine
+
+The backend implements:
+
+- Disease, gene, and variant reconciliation
+- Exact, alias, and fuzzy matching
 - Ambiguity preservation
+- Confidence scoring and explanations
+- `AUTO_RECONCILE`, `REVIEW_REQUIRED`, and `CANNOT_RECONCILE` outcomes
 
-### External Evidence Retrieval
+Primary evidence:
 
-Implemented:
+- `backend/app/reconcile.py`
+- `data/disease_aliases.json`
+- `data/gene_aliases.json`
+- `data/gene_variant_catalog.csv`
+- `data/benchmark_cases.csv`
+- `backend/tests/test_reconcile.py`
 
-- MyVariant.info
-- ClinVar
-- CIViC
-- ClinGen Allele Registry
-- Aggregated external-evidence routing
-- Graceful source-specific failure records
+### External Integrations
 
-External evidence supports review workflows and candidate discovery. It does not automatically convert a candidate into a high-confidence reconciliation.
+`backend/app/external_lookup.py` implements:
 
-### Human Governance
+| Source | Function | Behavior |
+|---|---|---|
+| MyVariant.info | `lookup_myvariant()` | Retrieves advisory variant evidence |
+| ClinVar | `lookup_clinvar()` | Searches and summarizes ClinVar records |
+| CIViC | `lookup_civic()` | Retrieves oncology variant candidates |
+| ClinGen Allele Registry | `lookup_clingen_allele_registry()` | Retrieves candidate allele identifiers |
 
-Implemented:
+`lookup_all_external_sources()` aggregates all four connectors. `backend/app/reconcile.py` integrates the aggregator so external evidence can support review-required records.
 
-- Persistent human review queue
-- Stable review keys
+Tests verify successful responses and graceful API failure records for every connector. External API errors preserve the local result instead of failing the complete reconciliation request.
+
+### Governance Features
+
+Implemented in `backend/app/main.py`, `backend/app/review_store.py`, and `backend/app/models.py`:
+
+- File-backed persistent review queue
+- Stable generated review keys
 - Duplicate prevention
-- Approve, reject, edit, and reopen workflows
+- Approve, reject, edit, and reopen decisions
 - Curator notes and timestamps
-- Explicit disabled catalog-promotion stub
-
-The MVP does not automatically modify its curated catalog.
-
-### Reviewer Agreement & Adjudication
-
-Implemented:
-
-- Multi-reviewer history
-- Agreement percentage calculation
-- Cohen's kappa calculation
+- Chronological multi-reviewer history
+- Agreement percentage
+- Cohen's kappa
 - Disagreement detection
-- Senior-curator adjudication workflow
+- Senior-curator adjudication
 
-### Curation and Exports
+Conflicting reviewer decisions mark a case as requiring adjudication. An adjudicator can record the final decision and canonical override.
 
-Implemented:
+Catalog promotion is represented by an explicit endpoint that returns `not_implemented`. The MVP does not automatically modify its curated catalog.
 
-- Curation metadata in reconciliation output
-- Human-governance and catalog-candidate flags
-- Combined curation report endpoint
-- PROV-O-inspired provenance export
-- JSON-LD knowledge graph prototype
-- Canonical disease, gene, variant, and evidence nodes
-- VRS-ready, Cat-VRS-ready, and VA-Spec-ready export stubs
+### Export and Curation Evidence
 
-These are standards-inspired prototypes and stubs, not official standards compliance.
+Verified endpoints:
 
-## Validation
+| Endpoint | Evidence produced |
+|---|---|
+| `POST /export/provenance` | PROV-O-inspired provenance |
+| `POST /export/knowledge-graph` | JSON-LD knowledge graph prototype |
+| `POST /export/vrs-ready` | VRS-ready stub |
+| `POST /export/cat-vrs-ready` | Cat-VRS-ready stub |
+| `POST /export/va-spec-ready` | VA-Spec-ready stub |
+| `POST /curation/report` | Reconciliation, provenance, graph, and governance summary |
+| `GET /review-queue-metrics` | Agreement and adjudication metrics |
+| `POST /review-queue/{case_id}/adjudicate` | Final adjudication record |
 
-Verified on June 20, 2026:
+The knowledge graph export contains reconciliation activity, canonical concept, evidence, and relationship nodes. It is a JSON-LD prototype, not an official RDF, GA4GH, FHIR, or OMOP implementation.
 
-- **43 backend tests passed**
-- **191 benchmark cases**
-- **Frontend production build successful**
-- External retrieval success and error paths verified
-- Persistent review workflow verified
-- Stable keys and duplicate prevention verified
-- Reviewer agreement workflow verified
-- Adjudication workflow verified
-- Provenance and knowledge graph exports verified
+## Validation Coverage
 
-The benchmark is internally curated and does not represent independent clinical validation.
+The 43-test backend suite covers:
+
+- Benchmark reconciliation across 191 cases
+- Alias and fuzzy normalization
+- Ambiguity and cannot-reconcile behavior
+- MyVariant.info integration
+- ClinVar integration
+- CIViC integration
+- ClinGen Allele Registry integration
+- External evidence routing
+- Graceful API failure handling
+- Persistent review queue behavior
+- Stable keys and duplicate prevention
+- Review reopening
+- Reviewer agreement metrics
+- Cohen's kappa and disagreement detection
+- Adjudication
+- Provenance and knowledge graph exports
+- Curation metadata
 
 ## Screenshots
 
-Screenshots will be placed in `docs/images/` without breaking this document while assets are pending.
+Final screenshots should use the reserved paths below. Text placeholders remain until the competition assets are captured.
 
 ### Single Record Reconciliation
 
-[INSERT SCREENSHOT: `docs/images/single_reconciliation.png`]
+`docs/images/single_reconciliation.png`
+
+[INSERT SCREENSHOT]
 
 ### Review Queue
 
-[INSERT SCREENSHOT: `docs/images/review_queue.png`]
+`docs/images/review_queue.png`
+
+[INSERT SCREENSHOT]
 
 ### Reviewer Agreement Metrics
 
-[INSERT SCREENSHOT: `docs/images/reviewer_agreement.png`]
+`docs/images/reviewer_agreement.png`
+
+[INSERT SCREENSHOT]
 
 ### Knowledge Graph Export
 
-[INSERT SCREENSHOT: `docs/images/knowledge_graph_export.png`]
+`docs/images/knowledge_graph_export.png`
 
-## Challenges Encountered
+[INSERT SCREENSHOT]
 
-- Harmonizing heterogeneous oncology terminology
-- Balancing automation with human review
-- Handling ambiguous concepts safely
-- Designing explainable workflows
-- Supporting governance and provenance
-- Integrating multiple advisory evidence sources
+## Claims Boundary
 
-## Lessons Learned
+Confirmed capabilities are limited to data reconciliation, advisory evidence discovery, human-governed curation, internal validation, and prototype exports.
 
-- Data quality is foundational to trustworthy AI.
-- Ambiguity preservation is safer than forced normalization.
-- Human governance remains essential.
-- Evidence improves reviewer context but does not replace judgment.
-- Provenance matters for auditability.
+The project does not claim:
 
-## Business Opportunity
+- Clinical interpretation
+- Treatment recommendations
+- Autonomous clinical decision support
+- Official GA4GH, FHIR, OMOP, RDF, or other standards compliance
 
-Potential users include:
+## Related Documentation
 
-- Cancer centers
-- Molecular laboratories
-- Clinical research organizations
-- Biopharmaceutical companies
-- Precision-oncology programs
-- Genomic knowledgebases
-
-Potential value includes:
-
-- Reduced manual curation effort
-- Faster cohort creation
-- Improved data consistency
-- Better interoperability
-- More reliable AI-ready datasets
-- Improved governance and auditability
-
-## Current Project Status
-
-The Checkpoint 2 MVP is implemented and verified as a human-governed competition prototype.
-
-Completed:
-
-- Core reconciliation engine
-- Advisory external evidence retrieval
-- Human review workflow
-- Reviewer agreement metrics
-- Adjudication workflow
-- Curation metadata
-- Provenance tracking
-- Knowledge graph export prototype
-- Benchmark framework
-
-Remaining:
-
-- Demo hardening
-- Screenshots
-- Expanded benchmark coverage
-- Competition presentation
-- Competition video
-
-## Project Resources
-
-- Repository: [github.com/justin-mbca/oncoreconcile-ai](https://github.com/justin-mbca/oncoreconcile-ai)
-- [MVP Documentation](mvp.md)
+- [MVP Product Definition](mvp.md)
 - [Architecture](architecture.md)
-- Demo: [INSERT DEMO LINK]
-- Video: [INSERT VIDEO LINK IF AVAILABLE]
-- Presentation: [INSERT SLIDES LINK IF AVAILABLE]
-
-## Safety and Claims Boundary
-
-OncoReconcile AI does not provide clinical interpretation, treatment recommendations, or autonomous clinical decision support. FHIR, OMOP, and fully standards-compliant genomic representations remain future interoperability work.
+- [Curation Methodology](curation_methodology.md)
+- [Screenshot Instructions](images/README.md)

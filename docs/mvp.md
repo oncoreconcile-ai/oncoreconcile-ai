@@ -1,197 +1,146 @@
-# OncoReconcile AI
+# OncoReconcile AI MVP
 
-## Human-Governed AI Platform for Oncology Data Quality, Harmonization, and Curation
+## Product Definition
 
-## 1. Executive Summary
+OncoReconcile AI is a human-governed oncology data-quality product. It transforms inconsistent cancer-type, gene, and variant strings into canonical candidates suitable for analytics, cohort preparation, evidence aggregation, and downstream data workflows.
 
-OncoReconcile AI is a human-governed platform for reconciling inconsistent oncology terminology. The MVP converts cancer-type, gene, and variant inputs into canonical candidates with evidence, confidence, explanations, provenance, and explicit review recommendations.
+The product is designed for oncology data engineers, clinical-genomics analysts, molecular-pathology informatics teams, translational researchers, and other teams preparing governed oncology datasets.
 
-The system favors safe uncertainty over forced normalization. Ambiguous or externally supported candidates are routed to expert review rather than treated as autonomous clinical conclusions.
+### Product Principles
 
-## 2. Problem Statement
+- Prefer deterministic reconciliation before probabilistic assistance.
+- Preserve ambiguity instead of forcing a specific mapping.
+- Treat external evidence as advisory context.
+- Keep human reviewers accountable for uncertain decisions.
+- Preserve evidence, provenance, and decision history.
 
-Oncology data arrives from laboratories, EHR systems, clinical trials, research datasets, and genomic vendors. The same concept may be represented by aliases, abbreviations, punctuation differences, misspellings, or underspecified variant descriptions.
+### Inputs and Outputs
 
-Examples include:
+Inputs:
 
-| Original | Canonical |
+- Required: `gene`, `variant`
+- Optional: `cancer_type`, `case_id`
+
+Outputs include:
+
+- Canonical disease, gene, and variant candidates
+- Evidence records and alternatives
+- Confidence score and score breakdown
+- Deterministic explanation
+- Review status
+- Audit trail and curation metadata
+
+Every record receives one status:
+
+| Status | Product behavior |
 |---|---|
-| HER2 | ERBB2 |
-| HER1 | EGFR |
-| p53 | TP53 |
-| NSCLC | Lung Non-Small Cell Carcinoma |
-| LUAD | Lung Adenocarcinoma |
-| Ex19del | EGFR Exon 19 Deletion |
+| `AUTO_RECONCILE` | High-confidence local reconciliation |
+| `REVIEW_REQUIRED` | Ambiguous or evidence-supported candidate requiring review |
+| `CANNOT_RECONCILE` | No reliable candidate found |
 
-Without harmonization, these differences reduce data quality and fragment analytics.
-
-## 3. Why This Matters
-
-Trusted normalization supports:
-
-- More reliable cohort construction
-- Cross-vendor data integration
-- Consistent evidence aggregation
-- Reproducible research analytics
-- Auditable curation workflows
-- Better inputs for downstream AI systems
-
-OncoReconcile AI addresses data quality. It does not perform clinical interpretation or recommend treatments.
-
-## 4. Proposed Solution
-
-The platform provides:
-
-- Disease, gene, and variant reconciliation
-- Exact, alias, and fuzzy matching
-- Ambiguity preservation
-- Local and external evidence discovery
-- Confidence scoring and explanations
-- Human review and adjudication
-- Provenance and prototype export formats
-- Benchmark-driven validation
-
-## 5. MVP Workflow
+## Workflow
 
 ```text
-Input: cancer type, gene, variant
+Oncology record
   ↓
-Disease reconciliation
+Disease normalization
   ↓
-Gene reconciliation
+Gene normalization
   ↓
-Variant reconciliation
+Variant normalization
   ↓
-Local evidence and ambiguity checks
+Local catalog and ambiguity checks
   ↓
-Adaptive external evidence retrieval when needed
+External evidence retrieval when needed
   ↓
-Confidence assessment and explanation
+Confidence scoring and explanation
   ↓
-AUTO_RECONCILE | REVIEW_REQUIRED | CANNOT_RECONCILE
+Review recommendation
   ↓
-Persistent human review queue
+Human review, agreement measurement, and adjudication
   ↓
-Reviewer agreement and adjudication
-  ↓
-Governed output and prototype exports
+Governed output and exports
 ```
 
-## 6. Current MVP Features
+Automatic results rely on local reconciliation rules. External API evidence can support candidate discovery and route a record to review, but it does not independently produce `AUTO_RECONCILE`.
 
-Implemented:
+## Product Features
+
+### Reconciliation and Explainability
 
 - Disease, gene, and variant reconciliation
-- Exact dictionary and alias matching
-- Fuzzy matching with entity-specific safeguards
-- Categorical ambiguity preservation for review-required concepts
-- Confidence scores and score breakdowns
+- Exact and alias matching
+- Fuzzy matching with safeguards for precise variants
+- Categorical ambiguity preservation
+- Alternatives considered
+- Confidence scoring
 - Deterministic explanations
-- Alternative candidate presentation
-- Response audit trails
-- Batch and CSV processing
-- Benchmark metrics endpoint and frontend dashboard
-- AI-assisted curation metadata
-- Optional LLM suggestion hook restricted to `REVIEW_REQUIRED` cases
+- Audit trails
+- Batch and CSV workflows
 
-## 7. Evidence Retrieval
+### Evidence
 
-Implemented advisory connectors:
+- Local alias, disease-gene, and variant catalogs
+- MyVariant.info integration
+- ClinVar integration
+- CIViC integration
+- ClinGen Allele Registry integration
+- Graceful source-specific error handling
 
-- MyVariant.info
-- ClinVar
-- CIViC
-- ClinGen Allele Registry
+### Human Governance
 
-The four connectors are aggregated through `lookup_all_external_sources()`. Source-specific results include retrieval mode, timestamp, identifiers, and URLs when available. API errors are converted into evidence records so external failures do not erase the local reconciliation result.
-
-External evidence is advisory. It can route a case to `REVIEW_REQUIRED`, but it does not independently create `AUTO_RECONCILE`.
-
-## 8. Human Governance
-
-Implemented:
-
-- File-backed persistent review queue
-- Stable generated review keys
-- Duplicate prevention
-- Approve, reject, edit, and reopen decisions
-- Curator notes and timestamps
-- Review history preservation
-- Explicit catalog-promotion endpoint
-
-Catalog promotion is intentionally disabled in the MVP. The endpoint returns a clear `not_implemented` response rather than modifying the curated catalog automatically.
-
-## 9. Reviewer Agreement & Adjudication
-
-Implemented:
-
-- Chronological multi-reviewer history
-- Comparable-case agreement counts
-- Percent agreement
+- Persistent review queue
+- Stable review keys and duplicate prevention
+- Approve, reject, edit, and reopen actions
+- Curator notes and chronological review history
+- Reviewer agreement metrics
 - Cohen's kappa
 - Disagreement detection
-- `REQUIRED` and `RESOLVED` adjudication states
-- Senior-curator adjudication with canonical override support
+- Senior-curator adjudication workflow
 
-These are internal prototype governance metrics, not independently validated inter-reviewer reliability findings.
+Catalog promotion remains an explicit disabled MVP control; reviewed records do not automatically modify the curated catalog.
 
-## 10. Knowledge Graph Export
+### Exports
 
-The MVP produces a JSON-LD knowledge graph prototype containing:
+- PROV-O-inspired provenance export
+- JSON-LD knowledge graph export
+- Curation report
+- VRS-ready export stub
+- Cat-VRS-ready export stub
+- VA-Spec-ready export stub
 
-- Raw-record nodes
-- Canonical disease, gene, and variant nodes
-- Evidence records
-- Alternatives
-- Reconciliation activity and provenance relationships
+## Validation
 
-Additional outputs include a PROV-O-inspired provenance export and VRS-ready, Cat-VRS-ready, and VA-Spec-ready stubs. These outputs demonstrate future integration paths; they are not official standards-compliant representations.
+The current MVP has:
 
-## 11. Validation
+- **43 passing backend tests**
+- **191 curated benchmark cases**
+- A passing frontend production build
 
-Verified on June 20, 2026:
+The benchmark covers automatic reconciliation, ambiguous terminology, review-required candidates, cannot-reconcile cases, external evidence behavior, governance workflows, and exports. It is an internal product benchmark rather than independent clinical validation.
 
-| Validation item | Result |
-|---|---|
-| Backend tests | 43 passed |
-| Benchmark cases | 191 |
-| Frontend production build | Passed |
-| External connector success/error behavior | Tested |
-| Persistent review workflow | Tested |
-| Stable keys and duplicate prevention | Tested |
-| Agreement and adjudication workflow | Tested |
-| Provenance and knowledge graph exports | Tested |
+Detailed test and endpoint evidence is maintained in the [Checkpoint 2 technical package](checkpoint2_submission.md).
 
-The benchmark includes automatic, review-required, and cannot-reconcile scenarios. It is an internal curated benchmark and is not a substitute for independent clinical validation.
+## Standards Alignment
 
-## 12. Business Opportunity
+The MVP is influenced by:
 
-Potential users include cancer centers, molecular laboratories, clinical research organizations, biopharmaceutical companies, precision-oncology programs, and genomic knowledgebase teams.
+- GA4GH VRS and Cat-VRS representation concepts
+- VA-Spec evidence concepts
+- PROV-O provenance concepts
+- JSON-LD graph representation
 
-Potential value:
+Current exports are standards-inspired prototypes or stubs. The project does not claim official GA4GH, RDF, FHIR, or OMOP compliance.
 
-- Reduced repetitive manual normalization
-- Faster cohort preparation
-- Improved traceability
-- More consistent multi-source datasets
-- Safer human-in-the-loop AI preparation
-- Better governance and auditability
+The product addresses data harmonization and curation. It does not provide clinical interpretation, treatment recommendations, or autonomous clinical decision support.
 
-## 13. Roadmap
+## Roadmap
 
-Future work:
-
-- Expanded benchmark coverage and independent validation
-- Evidence quality ranking
-- Multi-source evidence agents
-- Reviewer copilot
-- FHIR Genomics interoperability
-- OMOP Oncology interoperability
-- Standards-compliant genomic representations
-- Governed, versioned catalog promotion
-
-## 14. Current Project Status
-
-The Checkpoint 2 MVP is implemented and verified as a competition prototype. Core reconciliation, advisory evidence retrieval, review governance, reviewer agreement, adjudication, curation metadata, provenance, and knowledge graph export are operational.
-
-Remaining competition work centers on demo hardening, screenshots, presentation materials, video production, and broader validation—not autonomous clinical decision support.
+- Expand benchmark coverage and independent validation
+- Rank evidence quality across sources
+- Add coordinated multi-source evidence agents
+- Develop a reviewer copilot
+- Add governed, versioned catalog promotion
+- Support FHIR Genomics interoperability
+- Support OMOP Oncology interoperability
+- Generate standards-compliant genomic representations
