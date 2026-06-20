@@ -34,9 +34,17 @@ Start the backend:
 
 ```bash
 cd backend
+
+python3.10 -m venv .venv
+source .venv/bin/activate
+
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+
 python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
+
+> Recommended Python version: 3.10–3.12. Python 3.14 is not currently validated for this project.
 
 Start the frontend in another terminal:
 
@@ -49,9 +57,21 @@ npm run dev
 Run validation:
 
 ```bash
+cd backend
+source .venv/bin/activate
 python -m pytest -q
-cd frontend && npm run build
+
+cd ../frontend
+npm run build
 ```
+
+## Environment
+
+- Python 3.10–3.12
+- Node.js 18+
+- npm
+- FastAPI
+- React
 
 ## Documentation
 
