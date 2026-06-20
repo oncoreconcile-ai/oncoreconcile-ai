@@ -1,6 +1,6 @@
 # OncoReconcile AI
 
-OncoReconcile AI is a human-governed platform for harmonizing inconsistent oncology disease, gene, and variant terminology. It produces canonical candidates with confidence scores, explanations, evidence, provenance, and explicit review recommendations.
+OncoReconcile AI is a human-governed AI platform for harmonizing inconsistent oncology disease, gene, and variant terminology. It produces canonical candidates with confidence scores, explanations, evidence, provenance, and explicit review recommendations.
 
 Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard**.
 
@@ -59,6 +59,6 @@ cd frontend && npm run build
 - [Checkpoint 2 Technical Evidence Package](docs/checkpoint2_submission.md)
 - [Architecture](docs/architecture.md)
 - [Curation Methodology](docs/curation_methodology.md)
-- [Project Repository](https://github.com/justin-mbca/oncoreconcile-ai)
+- [Project Repository](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/feature/vanguard-justin-checkpoint2)
 
 OncoReconcile AI is a data-harmonization prototype. It does not provide clinical interpretation, treatment recommendations, or autonomous clinical decision support.

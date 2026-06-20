@@ -10,8 +10,8 @@
 
 Ask all attendees to read their section in the task plan before joining:
 
-- 📋 [Team Task Plan](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md)
-- 🏁 [MVP Definition](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/mvp.md)
+- 📋 [Team Task Plan](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md)
+- 🏁 [MVP Definition](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/mvp.md)
 
 ---
 
@@ -23,7 +23,7 @@ Ask all attendees to read their section in the task plan before joining:
 - What is the DFWIT AI & Startup Competition?
 - Competition timeline: Checkpoint 1 is **June 6** — 5 days away
 
-📎 [README](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/README.md)
+📎 [README](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/README.md)
 
 ---
 
@@ -37,8 +37,8 @@ Show the working system:
 4. Output: `ERBB2 Amplification` · `HIGH` · `AUTO_RECONCILE`
 5. Show Swagger UI: `http://127.0.0.1:8000/docs`
 
-📎 [Demo Script](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/demo/demo_script.md)  
-📎 [API Contract](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/contracts/api_contract.md)
+📎 [Demo Script](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/demo/demo_script.md)
+📎 [API Contract](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/contracts/api_contract.md)
 
 ---
 
@@ -54,8 +54,8 @@ Quick screen share of repo structure:
 | `docs/` | MVP, architecture, team tasks |
 | `contracts/` | API contract + examples |
 
-📎 [Repository](https://github.com/justin-mbca/oncoreconcile-ai)  
-📎 [Architecture Docs](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/architecture.md)
+📎 [Repository](https://github.com/oncoreconcile-ai/oncoreconcile-ai)
+📎 [Architecture Docs](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/architecture.md)
 
 ---
 
@@ -65,14 +65,14 @@ Each person has a dedicated section. Walk through together:
 
 | Person | Task Section |
 |---|---|
-| Nikola | [Nikola: Reconciliation Methods](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#nikola-reconciliation-methods--real-example-data) |
-| Rin | [Rin: Data Expansion](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#rin-data-expansion-instructions-mvp) |
-| Michael | [Michael: Backend Explainability + QA](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#michael-backend-explainability--quality-tasks) |
-| Anne | [Anne: Frontend UI](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#anne-frontend-ui-tasks) |
-| Eric | [Eric: Platform Support](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#eric-full-stack-platform-support-tasks-focused) |
+| Nikola | [Nikola: Reconciliation Methods](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#nikola-reconciliation-methods--real-example-data) |
+| Rin | [Rin: Data Expansion](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#rin-data-expansion-instructions-mvp) |
+| Michael | [Michael: Backend Explainability + QA](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#michael-backend-explainability--quality-tasks) |
+| Anne | [Anne: Frontend UI](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#anne-frontend-ui-tasks) |
+| Eric | [Eric: Platform Support](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#eric-full-stack-platform-support-tasks-focused) |
 
-📎 [Full Task Plan](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md)  
-📎 [Blocker Guidance (Do Now vs. Wait For)](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md#dependency-blockers--what-to-do-now-vs-wait-for)
+📎 [Full Task Plan](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md)
+📎 [Blocker Guidance (Do Now vs. Wait For)](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md#dependency-blockers--what-to-do-now-vs-wait-for)
 
 ---
 
@@ -122,7 +122,7 @@ Everyone picks their task and starts building **live during the meeting** using 
 - Next async check-in: **June 4 (Thu)** — drop status update in Discord
 - If blocked: post in Discord, tag Justin or Eric
 
-📎 [Onboarding Guide](https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/onboarding.md)
+📎 [Onboarding Guide](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/onboarding.md)
 
 ---
 
@@ -139,12 +139,12 @@ Everyone picks their task and starts building **live during the meeting** using 
 
 | Resource | Link |
 |---|---|
-| Repository | https://github.com/justin-mbca/oncoreconcile-ai |
-| Team Task Plan | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/team_tasks.md |
-| MVP Definition | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/mvp.md |
-| API Contract | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/contracts/api_contract.md |
-| Architecture | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/docs/architecture.md |
-| Benchmark Data | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/data/nsclc_benchmark.csv |
-| Demo Script | https://github.com/justin-mbca/oncoreconcile-ai/blob/main/demo/demo_script.md |
+| Repository | https://github.com/oncoreconcile-ai/oncoreconcile-ai |
+| Team Task Plan | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/team_tasks.md |
+| MVP Definition | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/mvp.md |
+| API Contract | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/contracts/api_contract.md |
+| Architecture | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/docs/architecture.md |
+| Benchmark Data | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/data/nsclc_benchmark.csv |
+| Demo Script | https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/main/demo/demo_script.md |
 | Swagger UI (local) | http://127.0.0.1:8000/docs |
 | Frontend (local) | http://localhost:5173 |

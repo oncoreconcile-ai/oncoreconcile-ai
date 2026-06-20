@@ -10,7 +10,7 @@
 - [NAME]
 - [NAME]
 
-**Repository:** [github.com/justin-mbca/oncoreconcile-ai](https://github.com/justin-mbca/oncoreconcile-ai)
+**Repository:** [Checkpoint 2 competition branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/feature/vanguard-justin-checkpoint2)
 
 **Demo:** [INSERT DEMO URL]
 
