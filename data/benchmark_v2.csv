@@ -1,0 +1,501 @@
+case_id,input_disease,input_gene,input_variant,expected_disease,expected_gene,expected_variant,expected_status,category,source,notes
+BV2_0001,NSCLC,EGFR,Ex19del,Lung Non-Small Cell Carcinoma,EGFR,EGFR Exon 19 Deletion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0002,non small cell lung ca,HER1,ex19del,Lung Non-Small Cell Carcinoma,EGFR,EGFR Exon 19 Deletion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0003,non-small cell lung cancer,ERBB1,exon 19 deletion,Lung Non-Small Cell Carcinoma,EGFR,EGFR Exon 19 Deletion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0004,lung nsclc,egfr,EGFR exon19 del,Lung Non-Small Cell Carcinoma,EGFR,EGFR Exon 19 Deletion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0005,NSCLC,EGFR,L858R,Lung Non-Small Cell Carcinoma,EGFR,EGFR L858R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0006,non small cell lung ca,HER1,l858r,Lung Non-Small Cell Carcinoma,EGFR,EGFR L858R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0007,non-small cell lung cancer,ERBB1,L858R,Lung Non-Small Cell Carcinoma,EGFR,EGFR L858R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0008,lung nsclc,egfr,EGFR L858R,Lung Non-Small Cell Carcinoma,EGFR,EGFR L858R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0009,NSCLC,EGFR,T790M,Lung Non-Small Cell Carcinoma,EGFR,EGFR T790M,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0010,non small cell lung ca,HER1,t790m,Lung Non-Small Cell Carcinoma,EGFR,EGFR T790M,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0011,non-small cell lung cancer,ERBB1,T790M,Lung Non-Small Cell Carcinoma,EGFR,EGFR T790M,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0012,lung nsclc,egfr,EGFR T790M,Lung Non-Small Cell Carcinoma,EGFR,EGFR T790M,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0013,NSCLC,KRAS,G12C,Lung Non-Small Cell Carcinoma,KRAS,KRAS G12C,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0014,non small cell lung ca,K-RAS,g12c,Lung Non-Small Cell Carcinoma,KRAS,KRAS G12C,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0015,non-small cell lung cancer,kras,G12C,Lung Non-Small Cell Carcinoma,KRAS,KRAS G12C,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0016,lung nsclc,KRAS2,KRAS G12C,Lung Non-Small Cell Carcinoma,KRAS,KRAS G12C,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0017,NSCLC,ALK,fusion,Lung Non-Small Cell Carcinoma,ALK,ALK Fusion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0018,non small cell lung ca,ALK gene,rearrangement,Lung Non-Small Cell Carcinoma,ALK,ALK Fusion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0019,non-small cell lung cancer,anaplastic lymphoma kinase,translocation,Lung Non-Small Cell Carcinoma,ALK,ALK Fusion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0020,lung nsclc,ALK1,gene fusion,Lung Non-Small Cell Carcinoma,ALK,ALK Fusion,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0021,breast ca,HER2,amplification,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0022,breast carcinoma,HER2,amp,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0023,HER2+ breast cancer,HER2,amplified,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0024,TNBC,HER2,copy number gain,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0025,breast ca,ERBB2,amp,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0026,breast carcinoma,HER2,amp,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0027,HER2+ breast cancer,HER-2,AMP,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0028,TNBC,neu,ERBB2 amp,Breast Carcinoma,ERBB2,ERBB2 Amplification,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0029,breast ca,PIK3CA,H1047R,Breast Carcinoma,PIK3CA,PIK3CA H1047R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0030,breast carcinoma,PI3KCA,h1047r,Breast Carcinoma,PIK3CA,PIK3CA H1047R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0031,HER2+ breast cancer,p110 alpha,H1047R,Breast Carcinoma,PIK3CA,PIK3CA H1047R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0032,TNBC,PIK3CA gene,PIK3CA H1047R,Breast Carcinoma,PIK3CA,PIK3CA H1047R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0033,breast ca,BRCA1,loss,Breast Carcinoma,BRCA1,BRCA1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0034,breast carcinoma,BRCA-1,deletion,Breast Carcinoma,BRCA1,BRCA1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0035,HER2+ breast cancer,brca1,LOF,Breast Carcinoma,BRCA1,BRCA1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0036,TNBC,breast cancer 1,loss of function,Breast Carcinoma,BRCA1,BRCA1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0037,breast ca,TP53,R273H,Breast Carcinoma,TP53,TP53 R273H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0038,breast carcinoma,p53,r273h,Breast Carcinoma,TP53,TP53 R273H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0039,HER2+ breast cancer,P53,R273H,Breast Carcinoma,TP53,TP53 R273H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0040,TNBC,tumor protein p53,TP53 R273H,Breast Carcinoma,TP53,TP53 R273H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0041,AML,FLT3,ITD,Acute Myeloid Leukemia,FLT3,FLT3 ITD,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0042,acute myeloid leukemia,flk2,internal tandem duplication,Acute Myeloid Leukemia,FLT3,FLT3 ITD,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0043,acute myelogenous leukemia,CD135,FLT3-ITD,Acute Myeloid Leukemia,FLT3,FLT3 ITD,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0044,myeloid leukemia,FLT-3,itd,Acute Myeloid Leukemia,FLT3,FLT3 ITD,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0045,AML,IDH1,R132H,Acute Myeloid Leukemia,IDH1,IDH1 R132H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0046,acute myeloid leukemia,idh1,r132h,Acute Myeloid Leukemia,IDH1,IDH1 R132H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0047,acute myelogenous leukemia,IDH-1,R132H,Acute Myeloid Leukemia,IDH1,IDH1 R132H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0048,myeloid leukemia,isocitrate dehydrogenase 1,IDH1 R132H,Acute Myeloid Leukemia,IDH1,IDH1 R132H,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0049,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0050,acute myeloid leukemia,idh2,r172k,Acute Myeloid Leukemia,IDH2,IDH2 R172K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0051,acute myelogenous leukemia,IDH-2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0052,myeloid leukemia,isocitrate dehydrogenase 2,IDH2 R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0053,AML,NPM1,mutation,Acute Myeloid Leukemia,NPM1,NPM1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0054,acute myeloid leukemia,npm1,mut,Acute Myeloid Leukemia,NPM1,NPM1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0055,acute myelogenous leukemia,nucleophosmin,variant,Acute Myeloid Leukemia,NPM1,NPM1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0056,myeloid leukemia,NPM,alteration,Acute Myeloid Leukemia,NPM1,NPM1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0057,AML,RUNX1,mutation,Acute Myeloid Leukemia,RUNX1,RUNX1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0058,acute myeloid leukemia,runx1,mut,Acute Myeloid Leukemia,RUNX1,RUNX1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0059,acute myelogenous leukemia,AML1,variant,Acute Myeloid Leukemia,RUNX1,RUNX1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0060,myeloid leukemia,CBFA2,alteration,Acute Myeloid Leukemia,RUNX1,RUNX1 Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0061,CRC,KRAS,G12D,Colorectal Carcinoma,KRAS,KRAS G12D,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0062,colon cancer,K-RAS,g12d,Colorectal Carcinoma,KRAS,KRAS G12D,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0063,colorectal ca,kras,G12D,Colorectal Carcinoma,KRAS,KRAS G12D,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0064,colorectal cancer,KRAS2,KRAS G12D,Colorectal Carcinoma,KRAS,KRAS G12D,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0065,CRC,KRAS,G12V,Colorectal Carcinoma,KRAS,KRAS G12V,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0066,colon cancer,K-RAS,g12v,Colorectal Carcinoma,KRAS,KRAS G12V,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0067,colorectal ca,kras,G12V,Colorectal Carcinoma,KRAS,KRAS G12V,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0068,colorectal cancer,KRAS2,KRAS G12V,Colorectal Carcinoma,KRAS,KRAS G12V,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0069,CRC,BRAF,V600E,Colorectal Carcinoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0070,colon cancer,B-RAF,v600e,Colorectal Carcinoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0071,colorectal ca,braf,V600E,Colorectal Carcinoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0072,colorectal cancer,BRAF1,BRAF V600E,Colorectal Carcinoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0073,CRC,MSI,high,Colorectal Carcinoma,MSI,MSI-High,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0074,colon cancer,microsatellite instability,MSI-H,Colorectal Carcinoma,MSI,MSI-High,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0075,colorectal ca,MSI-H,MSI high,Colorectal Carcinoma,MSI,MSI-High,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0076,colorectal cancer,MSI high,microsatellite instability high,Colorectal Carcinoma,MSI,MSI-High,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0077,CRC,NRAS,Q61K,Colorectal Carcinoma,NRAS,NRAS Q61K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0078,colon cancer,N-RAS,q61k,Colorectal Carcinoma,NRAS,NRAS Q61K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0079,colorectal ca,nras,Q61K,Colorectal Carcinoma,NRAS,NRAS Q61K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0080,colorectal cancer,NRAS gene,NRAS Q61K,Colorectal Carcinoma,NRAS,NRAS Q61K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0081,melanoma,BRAF,V600E,Cutaneous Melanoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0082,cutaneous melanoma,B-RAF,v600e,Cutaneous Melanoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0083,skin melanoma,braf,V600E,Cutaneous Melanoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0084,malignant melanoma,BRAF1,BRAF V600E,Cutaneous Melanoma,BRAF,BRAF V600E,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0085,melanoma,BRAF,V600K,Cutaneous Melanoma,BRAF,BRAF V600K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0086,cutaneous melanoma,B-RAF,v600k,Cutaneous Melanoma,BRAF,BRAF V600K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0087,skin melanoma,braf,V600K,Cutaneous Melanoma,BRAF,BRAF V600K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0088,malignant melanoma,BRAF1,BRAF V600K,Cutaneous Melanoma,BRAF,BRAF V600K,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0089,melanoma,NRAS,Q61R,Cutaneous Melanoma,NRAS,NRAS Q61R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0090,cutaneous melanoma,N-RAS,q61r,Cutaneous Melanoma,NRAS,NRAS Q61R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0091,skin melanoma,nras,Q61R,Cutaneous Melanoma,NRAS,NRAS Q61R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0092,malignant melanoma,NRAS gene,NRAS Q61R,Cutaneous Melanoma,NRAS,NRAS Q61R,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0093,melanoma,KIT,mutation,Cutaneous Melanoma,KIT,KIT Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0094,cutaneous melanoma,c-KIT,mut,Cutaneous Melanoma,KIT,KIT Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0095,skin melanoma,CD117,variant,Cutaneous Melanoma,KIT,KIT Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0096,malignant melanoma,KIT gene,alteration,Cutaneous Melanoma,KIT,KIT Mutation,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0097,melanoma,NF1,loss,Cutaneous Melanoma,NF1,NF1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0098,cutaneous melanoma,neurofibromin 1,deletion,Cutaneous Melanoma,NF1,NF1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0099,skin melanoma,NF-1,LOF,Cutaneous Melanoma,NF1,NF1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0100,malignant melanoma,nf1,loss of function,Cutaneous Melanoma,NF1,NF1 Loss,AUTO_RECONCILE,alias_or_exact,synthetic_curated,Expected to reconcile automatically if local catalog supports it.
+BV2_0101,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0102,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0103,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0104,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0105,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0106,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0107,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0108,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0109,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0110,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0111,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0112,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0113,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0114,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0115,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0116,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0117,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0118,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0119,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0120,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0121,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0122,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0123,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0124,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0125,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0126,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0127,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0128,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0129,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0130,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0131,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0132,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0133,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0134,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0135,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0136,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0137,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0138,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0139,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0140,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0141,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0142,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0143,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0144,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0145,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0146,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0147,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0148,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0149,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0150,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0151,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0152,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0153,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0154,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0155,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0156,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0157,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0158,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0159,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0160,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0161,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0162,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0163,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0164,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0165,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0166,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0167,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0168,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0169,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0170,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0171,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0172,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0173,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0174,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0175,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0176,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0177,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0178,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0179,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0180,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0181,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0182,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0183,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0184,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0185,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0186,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0187,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0188,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0189,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0190,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0191,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0192,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0193,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0194,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0195,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0196,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0197,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0198,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0199,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0200,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0201,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0202,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0203,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0204,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0205,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0206,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0207,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0208,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0209,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0210,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0211,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0212,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0213,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0214,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0215,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0216,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0217,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0218,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0219,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0220,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0221,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0222,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0223,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0224,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0225,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0226,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0227,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0228,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0229,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0230,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0231,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0232,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0233,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0234,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0235,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0236,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0237,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0238,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0239,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0240,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0241,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0242,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0243,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0244,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0245,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0246,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0247,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0248,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0249,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0250,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0251,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0252,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0253,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0254,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0255,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0256,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0257,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0258,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0259,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0260,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0261,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0262,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0263,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0264,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0265,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0266,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0267,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0268,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0269,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0270,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0271,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0272,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0273,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0274,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0275,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0276,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0277,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0278,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0279,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0280,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0281,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0282,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0283,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0284,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0285,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0286,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0287,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0288,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0289,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0290,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0291,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0292,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0293,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0294,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0295,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0296,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0297,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0298,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0299,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0300,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0301,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0302,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0303,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0304,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0305,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0306,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0307,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0308,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0309,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0310,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0311,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0312,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0313,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0314,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0315,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0316,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0317,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0318,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0319,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0320,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0321,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0322,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0323,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0324,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0325,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0326,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0327,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0328,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0329,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0330,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0331,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0332,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0333,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0334,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0335,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0336,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0337,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0338,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0339,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0340,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0341,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0342,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0343,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0344,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0345,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0346,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0347,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0348,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0349,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0350,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0351,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0352,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0353,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0354,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0355,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0356,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0357,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0358,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0359,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0360,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0361,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0362,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0363,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0364,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0365,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0366,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0367,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0368,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0369,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0370,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0371,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0372,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0373,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0374,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0375,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0376,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0377,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0378,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0379,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0380,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0381,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0382,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0383,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0384,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0385,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0386,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0387,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0388,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0389,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0390,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0391,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0392,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0393,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0394,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0395,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0396,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0397,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0398,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0399,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0400,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0401,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0402,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0403,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0404,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0405,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0406,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0407,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0408,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0409,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0410,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0411,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0412,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0413,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0414,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0415,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0416,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0417,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0418,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0419,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0420,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0421,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0422,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0423,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0424,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0425,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0426,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0427,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0428,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0429,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0430,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0431,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0432,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0433,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0434,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0435,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0436,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0437,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0438,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0439,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0440,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0441,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0442,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0443,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0444,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0445,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0446,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0447,Breast Cancer,ESR1,Y537S,Breast Carcinoma,ESR1,ESR1 Y537S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0448,CRC,KRAS,A146T,Colorectal Carcinoma,KRAS,KRAS A146T,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0449,AML,IDH2,R172K,Acute Myeloid Leukemia,IDH2,IDH2 R172K,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0450,NSCLC,EGFR,C797S,Lung Non-Small Cell Carcinoma,EGFR,EGFR C797S,REVIEW_REQUIRED,external_or_review_required,synthetic_curated,Expected to require reviewer evidence package.
+BV2_0451,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0452,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0453,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0454,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0455,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0456,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0457,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0458,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0459,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0460,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0461,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0462,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0463,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0464,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0465,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0466,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0467,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0468,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0469,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0470,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0471,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0472,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0473,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0474,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0475,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0476,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0477,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0478,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0479,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0480,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0481,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0482,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0483,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0484,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0485,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0486,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0487,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0488,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0489,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0490,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0491,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0492,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0493,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0494,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0495,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0496,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0497,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0498,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0499,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
+BV2_0500,unknown cancer term,FAKEGENE123,unknown_variant,,,,CANNOT_RECONCILE,negative_control,synthetic_curated,Expected to fail safely without auto-reconciliation.
