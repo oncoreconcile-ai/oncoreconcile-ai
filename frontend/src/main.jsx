@@ -2,29 +2,8 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./style.css";
-
-const configuredApi = import.meta.env.VITE_API_BASE_URL;
-const currentHostApi = `${window.location.protocol}//${window.location.hostname || "127.0.0.1"}:8000`;
-const API_CANDIDATES = Array.from(new Set([
-  configuredApi,
-  currentHostApi,
-  "http://127.0.0.1:8000",
-  "http://localhost:8000",
-].filter(Boolean)));
-
-async function apiFetch(path, options = {}) {
-  let lastError;
-  for (const baseUrl of API_CANDIDATES) {
-    try {
-      const response = await fetch(`${baseUrl}${path}`, options);
-      window.__ONCORECONCILE_API_BASE__ = baseUrl;
-      return response;
-    } catch (error) {
-      lastError = error;
-    }
-  }
-  throw lastError || new Error("Backend API is not reachable.");
-}
+import { apiFetch } from "./api";
+import EvaluationDashboard from "./EvaluationDashboard";
 
 // ── Colours ──────────────────────────────────────────────────────────────────
 const STATUS_COLOR = { AUTO_RECONCILE:"#1a7f37", REVIEW_REQUIRED:"#9a6700", CANNOT_RECONCILE:"#cf222e" };
@@ -314,11 +293,43 @@ function ResultCard({ result }) {
               ["VRS-ready Stub","/export/vrs-ready"],
               ["Cat-VRS-ready Stub","/export/cat-vrs-ready"],
               ["VA-Spec-ready Stub","/export/va-spec-ready"],
+              ["FHIR R4 Bundle","/export/fhir"],
+              ["Download FHIR JSON","/export/fhir/download"],
             ].map(([label,path])=>(
               <button
                 key={label}
                 type="button"
-                onClick={()=>showStandardsExport(label,path)}
+                onClick={() => {
+                  if (path === "/export/fhir/download") {
+                    // Trigger actual file download via fetch + blob
+                    (async () => {
+                      setStandardsLoading(label);
+                      try {
+                        const response = await apiFetch(path, {
+                          method:"POST",
+                          headers:{"Content-Type":"application/json"},
+                          body:JSON.stringify(result),
+                        });
+                        if (!response.ok) throw new Error(`API error ${response.status}`);
+                        const blob = await response.blob();
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement("a");
+                        a.href = url;
+                        a.download = response.headers.get("Content-Disposition")
+                          ?.split("filename=")[1]?.replace(/"/g,"") || "oncoreconcile-fhir-bundle.json";
+                        a.click();
+                        URL.revokeObjectURL(url);
+                      } catch(error) {
+                        setStandardsExport({ error:error.message });
+                        setStandardsExportLabel(label);
+                      } finally {
+                        setStandardsLoading("");
+                      }
+                    })();
+                  } else {
+                    showStandardsExport(label, path);
+                  }
+                }}
                 disabled={Boolean(standardsLoading)}
                 className="standards-button"
               >
@@ -1390,9 +1401,9 @@ function Nav() {
   const active = { background:"#028090", color:"#fff" };
   const inactive = { background:"#e8f4f6", color:"#028090" };
   return (
-    <nav style={{ display:"flex", gap:8, marginBottom:24, paddingBottom:12, borderBottom:"1px solid #e0e0e0", alignItems:"center" }}>
+    <nav style={{ display:"flex", gap:8, marginBottom:24, paddingBottom:12, borderBottom:"1px solid #e0e0e0", alignItems:"center", flexWrap:"wrap" }}>
       <span style={{ fontWeight:"bold", fontSize:16, color:"#0A1628", marginRight:8 }}>🧬 OncoReconcile AI</span>
-      {[["Single Record","/"],["CSV Upload","/upload"],["Review Queue","/review"],["Benchmark","/benchmark"]].map(([label,path])=>(
+      {[["Single Record","/"],["CSV Upload","/upload"],["Review Queue","/review"],["Benchmark","/benchmark"],["Evaluation","/evaluation"]].map(([label,path])=>(
         <NavLink key={path} to={path} end={path==="/"}
           style={({isActive})=>({...navStyle,...(isActive?active:inactive)})}>
           {label}
@@ -1412,6 +1423,7 @@ function App() {
           <Route path="/upload" element={<UploadPage/>}/>
           <Route path="/review" element={<ReviewQueuePage/>}/>
           <Route path="/benchmark" element={<BenchmarkPage/>}/>
+          <Route path="/evaluation" element={<EvaluationDashboard/>}/>
         </Routes>
       </div>
     </BrowserRouter>
