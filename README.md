@@ -8,7 +8,8 @@ Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard
 
 Official submission branch:
 
-https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
+[Startup Platform Branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform)
+
 
 This project is a biomedical data harmonization and governance prototype. It does not provide clinical interpretation or treatment recommendations.
 
@@ -143,8 +144,8 @@ Export / Benchmark / Analytics
 
 Additional architecture documentation:
 
-* docs/architecture.md
-* docs/architecture_diagrams.md
+* [Architecture](docs/architecture.md)
+* [Architecture Diagrams](docs/architecture_diagrams.md)
 
 ---
 
@@ -154,6 +155,7 @@ Frontend route:
 
 ```text
 /evaluation
+```
 
 The startup-platform branch includes:
 
@@ -200,13 +202,13 @@ archive/
 
 See:
 
-* docs/README.md
-* docs/mvp.md
-* docs/commercial_strategy.md
-* docs/architecture.md
-* docs/architecture_diagrams.md
-* docs/curation_methodology.md
-* docs/final_submission_draft.md
+- [Documentation Index](./docs/README.md)
+- [MVP Definition](./docs/mvp.md)
+- [Commercial Strategy](./docs/commercial_strategy.md)
+- [Architecture](./docs/architecture.md)
+- [Architecture Diagrams](./docs/architecture_diagrams.md)
+- [Curation Methodology](./docs/curation_methodology.md)
+- [Final Submission Draft](./docs/final_submission_draft.md)
 
 ---
 
