@@ -18,6 +18,8 @@ from .standards_export import (
     build_va_spec_ready_stub,
     build_vrs_ready_stub,
 )
+from .fhir_export import build_fhir_bundle, build_fhir_bundle_batch
+from .omop_export import build_omop_records, build_omop_records_batch
 from . import review_store
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -62,9 +64,9 @@ def root():
                 "audit",
             ],
             "standards_alignment": {
-                "implemented": ["HGNC-inspired", "HGVS-inspired", "ClinVar-inspired", "ClinGen-inspired"],
+                "implemented": ["HGNC-inspired", "HGVS-inspired", "ClinVar-inspired", "ClinGen-inspired", "FHIR Genomics R4 Bundle", "OMOP CDM v5.4 Export"],
                 "partially_implemented": ["GA4GH Cat-VRS-inspired", "GA4GH VA-Spec-inspired"],
-                "future": ["GA4GH VRS", "FHIR Genomics", "OMOP Oncology"],
+                "future": ["GA4GH VRS"],
             },
         },
     }
@@ -445,6 +447,164 @@ def clear_review_queue():
     """Clear the entire review queue (admin/testing use)."""
     review_store.clear_queue()
     return {"status": "ok", "message": "Review queue cleared."}
+
+
+from fastapi.responses import Response
+
+
+# ── FHIR R4 export ──────────────────────────────────────────────────────────
+
+
+@app.post("/export/fhir")
+def export_fhir(payload: dict):
+    """
+    Export reconciliation result as a FHIR R4 Bundle.
+
+    Maps:
+      - Disease (cancer_type) → Condition (SNOMED CT coded)
+      - Gene → Observation (LOINC 48018-6, HGNC coded)
+      - Variant → Observation (LOINC 69548-6) or MolecularSequence
+      - Full result → DiagnosticReport (LOINC 81247-9)
+      - Reconciliation activity → Provenance
+
+    Includes a placeholder Patient resource. All resources are wrapped in a
+    Bundle of type 'collection'.
+
+    Suitable for integration with FHIR Genomics pipelines, EHR systems, and
+    health information exchanges.
+    """
+    result = resolve_reconciliation_payload(payload)
+    canonical = result.get("canonical") or {}
+    bundle = build_fhir_bundle(
+        canonical=canonical,
+        evidence=result.get("evidence"),
+        confidence=result.get("confidence"),
+        case_id=result.get("case_id"),
+        review_status=result.get("review_status"),
+        score_breakdown=result.get("score_breakdown"),
+        alternatives=result.get("alternatives"),
+    )
+    return bundle
+
+
+@app.post("/export/fhir/download")
+def export_fhir_download(payload: dict):
+    """
+    Download reconciliation result as a FHIR R4 Bundle JSON file.
+
+    Same as POST /export/fhir but returns the bundle as a downloadable
+    `.json` file with Content-Disposition attachment headers.
+    """
+    result = resolve_reconciliation_payload(payload)
+    canonical = result.get("canonical") or {}
+    bundle = build_fhir_bundle(
+        canonical=canonical,
+        evidence=result.get("evidence"),
+        confidence=result.get("confidence"),
+        case_id=result.get("case_id"),
+        review_status=result.get("review_status"),
+        score_breakdown=result.get("score_breakdown"),
+        alternatives=result.get("alternatives"),
+    )
+    import json
+    case_id = result.get("case_id") or "unknown"
+    content = json.dumps(bundle, indent=2, default=str)
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={
+            "Content-Disposition": f'attachment; filename="oncoreconcile-fhir-{case_id}.json"',
+        },
+    )
+
+
+@app.post("/export/fhir/batch")
+def export_fhir_batch(payload: dict):
+    """
+    Export multiple reconciliation results as a single FHIR R4 Bundle.
+
+    Accepts either a list of results or a BatchRequest-style payload.
+    Each result produces Patient + Condition + Observation + MolecularSequence
+    + Provenance + DiagnosticReport resources, all merged into one Bundle.
+    """
+    results = payload.get("results") if isinstance(payload, dict) and "results" in payload else [payload]
+    bundle = build_fhir_bundle_batch(results)
+    return bundle
+
+
+# ── OMOP CDM v5.4 export ────────────────────────────────────────────────────
+
+
+@app.post("/export/omop")
+def export_omop(payload: dict):
+    """
+    Export reconciliation result as OMOP CDM v5.4 records.
+
+    Maps:
+      - Disease (cancer_type) → condition_occurrence (SNOMED→OMOP concept_id)
+      - Gene → measurement (LOINC 48018-6 concept_id)
+      - Variant → observation (LOINC 69548-6 concept_id)
+
+    Records use placeholder person_id=0. Where OMOP vocabulary concept_ids
+    cannot be resolved (unmapped SNOMED/HGNC codes), concept_id is set to 0
+    and the source_value preserves the original code for later backfill.
+    """
+    result = resolve_reconciliation_payload(payload)
+    canonical = result.get("canonical") or {}
+    omop = build_omop_records(
+        canonical=canonical,
+        confidence=result.get("confidence"),
+        case_id=result.get("case_id"),
+        review_status=result.get("review_status"),
+        evidence=result.get("evidence"),
+        score_breakdown=result.get("score_breakdown"),
+        alternatives=result.get("alternatives"),
+    )
+    return omop
+
+
+@app.post("/export/omop/download")
+def export_omop_download(payload: dict):
+    """
+    Download OMOP CDM v5.4 records as a JSON file.
+
+    Returns the OMOP records with Content-Disposition attachment headers
+    for direct file download.
+    """
+    result = resolve_reconciliation_payload(payload)
+    canonical = result.get("canonical") or {}
+    omop = build_omop_records(
+        canonical=canonical,
+        confidence=result.get("confidence"),
+        case_id=result.get("case_id"),
+        review_status=result.get("review_status"),
+        evidence=result.get("evidence"),
+        score_breakdown=result.get("score_breakdown"),
+        alternatives=result.get("alternatives"),
+    )
+    import json
+    case_id = result.get("case_id") or "unknown"
+    content = json.dumps(omop, indent=2, default=str)
+    return Response(
+        content=content,
+        media_type="application/json",
+        headers={
+            "Content-Disposition": f'attachment; filename="oncoreconcile-omop-{case_id}.json"',
+        },
+    )
+
+
+@app.post("/export/omop/batch")
+def export_omop_batch(payload: dict):
+    """
+    Export multiple reconciliation results as OMOP CDM v5.4 records.
+
+    Accepts either a list of results or a single result. Each result
+    produces condition_occurrence + measurement + observation records.
+    """
+    results = payload.get("results") if isinstance(payload, dict) and "results" in payload else [payload]
+    omop = build_omop_records_batch(results)
+    return {"omop_records": omop, "total_records": len(omop)}
 
 
 @app.post("/review-queue/{case_id}/promote")
