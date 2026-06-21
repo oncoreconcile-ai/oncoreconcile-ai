@@ -10,7 +10,7 @@
 - [NAME]
 - [NAME]
 
-**Repository:** [Checkpoint 2 competition branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/feature/vanguard-justin-checkpoint2)
+**Repository:** [Checkpoint 2 competition branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform)
 
 **Demo:** [INSERT DEMO URL]
 
@@ -20,7 +20,7 @@ Verified June 20, 2026:
 
 | Verification | Result |
 |---|---|
-| Backend test suite | 43 passed |
+| Backend test suite | 102 passed |
 | Curated benchmark | 191 cases |
 | Frontend production build | Passed |
 | External integration tests | Passed |

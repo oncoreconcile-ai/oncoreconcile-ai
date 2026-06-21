@@ -1,46 +1,226 @@
 # OncoReconcile AI
 
+## Human-Governed Biomedical Entity Resolution Platform for Precision Oncology
+
 OncoReconcile AI is a human-governed AI platform for harmonizing inconsistent oncology disease, gene, and variant terminology. It produces canonical candidates with confidence scores, explanations, evidence, provenance, and explicit review recommendations.
 
 Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard**.
 
-## Implemented Features
+Official submission branch:
 
-- Disease, gene, and variant reconciliation
-- Exact, alias, and fuzzy matching
-- Ambiguity preservation with `AUTO_RECONCILE`, `REVIEW_REQUIRED`, and `CANNOT_RECONCILE` outcomes
-- MyVariant.info, ClinVar, CIViC, and ClinGen Allele Registry integrations
-- Persistent human review queue
-- Reviewer agreement metrics and Cohen's kappa
-- Senior-curator adjudication workflow
-- Provenance and JSON-LD knowledge graph exports
-- Standards-inspired VRS-ready, Cat-VRS-ready, and VA-Spec-ready stubs
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
-External evidence is advisory and cannot independently create a high-confidence automatic reconciliation.
+This project is a biomedical data harmonization and governance prototype. It does not provide clinical interpretation or treatment recommendations.
 
-## Validation Metrics
+---
 
-| Metric | Result |
-|---|---|
-| Backend tests | 43 passed |
-| Benchmark cases | 191 |
-| Frontend production build | Passed |
+# Problem
 
-Verified June 20, 2026.
+Precision oncology data is fragmented across:
 
-## Quick Start
+* Electronic Health Records (EHR)
+* Molecular diagnostic reports
+* Clinical trial systems
+* Research databases
+* Laboratory information systems
+* Real-world evidence platforms
 
-### 1. Clone Repository
+The same disease, gene, or variant may appear in multiple forms:
+
+| Input    | Canonical Form                       |
+| -------- | ------------------------------------ |
+| NSCLC    | Non-Small Cell Lung Carcinoma        |
+| HER2     | ERBB2                                |
+| Ex19del  | EGFR c.2235_2249del15                |
+| FLT3 ITD | Standardized FLT3 ITD representation |
+
+---
+
+# Solution
+
+OncoReconcile AI provides:
+
+* Disease reconciliation
+* Gene reconciliation
+* Variant reconciliation
+* Confidence scoring
+* Human review governance
+* Provenance tracking
+* Benchmark evaluation
+* External evidence retrieval
+
+---
+
+# Implemented Features
+
+## Reconciliation Engine
+
+* Exact matching
+* Alias matching
+* Fuzzy matching
+* Compound disease-gene-variant matching
+* Review-required routing
+
+## Governance
+
+* AUTO_RECONCILE
+* REVIEW_REQUIRED
+* CANNOT_RECONCILE
+
+## Evidence Sources
+
+* Local curated catalog
+* MyVariant.info
+* ClinVar
+* CIViC
+* ClinGen Allele Registry
+
+## Human Review Workflow
+
+* Persistent review queue
+* Curator review
+* Senior curator adjudication
+* Reviewer agreement metrics
+* Cohen's kappa reporting
+
+## Standards Alignment
+
+* VRS-inspired structures
+* Cat-VRS-inspired structures
+* VA-Spec-inspired provenance
+* Knowledge graph export foundations
+
+---
+
+# Validation
+
+| Metric                    | Result     |
+| ------------------------- | ---------- |
+| Backend Tests             | 102 Passed |
+| Benchmark Cases           | 191        |
+| Frontend Production Build | Passed     |
+
+Verified June 2026.
+
+---
+
+# Platform Architecture
+
+```text
+User Input
+     |
+     v
+Normalization Engine
+     |
+     +--> Alias Matching
+     +--> Fuzzy Matching
+     +--> Catalog Matching
+     |
+     v
+Evidence Retrieval Layer
+     |
+     +--> Local Catalog
+     +--> MyVariant
+     +--> ClinVar
+     +--> CIViC
+     |
+     v
+Confidence Scoring
+     |
+     v
+Governance Decision
+     |
+     +--> AUTO_RECONCILE
+     +--> REVIEW_REQUIRED
+     +--> CANNOT_RECONCILE
+     |
+     v
+Review Queue
+     |
+     v
+Export / Benchmark / Analytics
+```
+
+Additional architecture documentation:
+
+* docs/architecture.md
+* docs/architecture_diagrams.md
+
+---
+
+# Evaluation Dashboard
+
+Frontend route:
+
+```text
+/evaluation
+
+The startup-platform branch includes:
+
+* Benchmark evaluation API
+* Accuracy reporting
+* Review-rate reporting
+* False auto-accept tracking
+* Evaluation Dashboard UI
+
+---
+
+# Startup Vision
+
+The long-term vision of OncoReconcile AI is to become the biomedical entity resolution and interoperability layer for precision oncology.
+
+Future directions include:
+
+* FHIR interoperability
+* OMOP interoperability
+* Biomedical knowledge graphs
+* Enterprise APIs
+* Multi-cancer support
+* AI-assisted curation workflows
+* Clinical trial harmonization
+
+---
+
+# Repository Structure
+
+```text
+backend/
+frontend/
+data/
+contracts/
+demo/
+docs/
+scripts/
+archive/
+```
+
+---
+
+# Documentation
+
+See:
+
+* docs/README.md
+* docs/mvp.md
+* docs/commercial_strategy.md
+* docs/architecture.md
+* docs/architecture_diagrams.md
+* docs/curation_methodology.md
+* docs/final_submission_draft.md
+
+---
+
+# Quick Start
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/oncoreconcile-ai/oncoreconcile-ai.git
 cd oncoreconcile-ai
-git checkout feature/vanguard-justin-checkpoint2
+git checkout startup-platform
 ```
 
-### 2. Set Up and Start Backend
-
-From the repository root:
+## Backend
 
 ```bash
 cd backend
@@ -48,59 +228,51 @@ cd backend
 python3.10 -m venv .venv
 source .venv/bin/activate
 
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+pip install -r requirements.txt
 
-python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+uvicorn app.main:app --reload
 ```
 
-> Recommended Python version: 3.10–3.12. Python 3.14 is not currently validated for this project.
+Backend API:
 
-The backend API will be available at `http://127.0.0.1:8000`. Interactive API documentation is available at `http://127.0.0.1:8000/docs`.
+```text
+http://127.0.0.1:8000
+```
 
-### 3. Set Up and Start Frontend
+Swagger UI:
 
-Open a second terminal and run:
+```text
+http://127.0.0.1:8000/docs
+```
+
+## Frontend
 
 ```bash
-cd oncoreconcile-ai
 cd frontend
+
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite in the terminal, typically `http://localhost:5173`.
+---
 
-### 4. Validate the Project
-
-Open another terminal at the repository root and run the backend tests:
+# Validation
 
 ```bash
-source backend/.venv/bin/activate
+cd backend
 python -m pytest -q
 ```
 
-Then verify the frontend production build:
+Expected:
 
-```bash
-cd frontend
-npm run build
+```text
+102 passed
 ```
 
-## Environment
+---
 
-- Python 3.10–3.12
-- Node.js 18+
-- npm
-- FastAPI
-- React
+# Disclaimer
 
-## Documentation
+OncoReconcile AI is a data harmonization and governance platform.
 
-- [MVP Product Definition](docs/mvp.md)
-- [Checkpoint 2 Technical Evidence Package](docs/checkpoint2_submission.md)
-- [Architecture](docs/architecture.md)
-- [Curation Methodology](docs/curation_methodology.md)
-- [Project Repository](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/feature/vanguard-justin-checkpoint2)
-
-OncoReconcile AI is a data-harmonization prototype. It does not provide clinical interpretation, treatment recommendations, or autonomous clinical decision support.
+It is not a clinical decision support system and does not provide diagnosis, treatment recommendations, or medical advice.
