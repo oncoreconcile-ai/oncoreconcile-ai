@@ -1,138 +1,518 @@
-# Architecture
+# OncoReconcile AI
 
-## High-Level Architecture
+# Architecture Documentation
 
-```mermaid
-flowchart TD
-    subgraph UI["🖥️ Frontend (React + Vite)"]
-        A1[Manual Input Form\ncancer_type / gene / variant]
-        A2[CSV Upload\nbatch records]
-        A3[Results Table\ncanonical / confidence / review_status]
-        A4[Evidence & Explanation Display]
-    end
+## Overview
 
-    subgraph API["⚙️ FastAPI Backend"]
-        B1["POST /reconcile\nsingle record"]
-        B2["POST /reconcile/batch\nmultiple records"]
-        B3[reconcile_record\nentry point]
-    end
+OncoReconcile AI is a biomedical data quality, governance, and interoperability platform designed to standardize oncology disease, gene, and variant data while maintaining explainability, traceability, and human oversight.
 
-    subgraph Engine["🔬 Reconciliation Engine (reconcile.py)"]
-        C1[Cancer Type Reconciliation\nalias lookup]
-        C2[Gene Reconciliation\nalias lookup]
-        C3[Variant Reconciliation\nalias + gene template]
-        C4[Confidence Scoring\nHIGH / MEDIUM / LOW]
-        C5[Review Status\nAUTO_RECONCILE / REVIEW_REQUIRED / CANNOT_RECONCILE]
-        C6[Explanation Builder\ndeterministic text]
-    end
+The platform combines:
 
-    subgraph Data["📦 Seed Data (data/)"]
-        D1[cancer_aliases.json]
-        D2[gene_aliases.json]
-        D3[variant_aliases.json]
-        D4[nsclc_benchmark.csv\n20 benchmark cases]
-    end
+* Biomedical entity resolution
+* Evidence retrieval
+* Confidence scoring
+* Human governance workflows
+* Interoperability exports
+* Benchmark-driven validation
 
-    subgraph Output["📋 Canonical Oncology Concept Object"]
-        E1["canonical:\n  cancer_type\n  gene\n  variant"]
-        E2["evidence: [ ]"]
-        E3["explanation: string"]
-        E4["confidence: HIGH / MEDIUM / LOW"]
-        E5["review_status: AUTO / REVIEW / CANNOT"]
-    end
-
-    subgraph Future["🔮 Future Integrations (Roadmap)"]
-        F1[HGNC]
-        F2[ClinVar]
-        F3[CIViC / OncoKB]
-        F4[GA4GH VRS / CAT-VRS]
-    end
-
-    A1 -->|JSON POST| B1
-    A2 -->|JSON POST| B2
-    B1 --> B3
-    B2 --> B3
-    B3 --> C1
-    B3 --> C2
-    B3 --> C3
-    C1 --> D1
-    C2 --> D2
-    C3 --> D3
-    C1 --> C4
-    C2 --> C4
-    C3 --> C4
-    C4 --> C5
-    C4 --> C6
-    C5 --> Output
-    C6 --> Output
-    Output --> A3
-    Output --> A4
-    D4 -.->|benchmark validation| Engine
-    Data -.->|future connector| Future
-```
+The architecture is intentionally designed to support trustworthy AI by ensuring uncertain recommendations are reviewed by human experts.
 
 ---
 
-## Backend Components
-
-| Component | Purpose |
-|---|---|
-| `main.py` | FastAPI app and endpoints |
-| `models.py` | Pydantic request/response models |
-| `reconcile.py` | Reconciliation engine |
-| `evidence.py` | Evidence generation |
-| `explain.py` | Explanation generation |
-| `rules.py` | Confidence and review rules |
-
----
-
-## Data Sources for MVP
-
-The MVP starts with local seed dictionaries:
-
-- `data/cancer_aliases.json`
-- `data/gene_aliases.json`
-- `data/variant_aliases.json`
-
-Future versions can connect to:
-
-- HGNC
-- ClinVar
-- CIViC
-- VICC
-- OncoKB if allowed
-- GA4GH standards-based services
-
----
-
-## API Contract
-
-All frontend and backend work should follow:
+# High-Level Architecture
 
 ```text
-contracts/api_contract.md
-```
+Clinical Data Sources
+Genomic Data Sources
+Laboratory Data Sources
+Research Data Sources
 
-Do not change the API contract without team discussion.
+            |
+            v
+
+     Normalization Layer
+
+            |
+            v
+
+   Entity Resolution Layer
+
+            |
+            v
+
+    Evidence Retrieval Layer
+
+            |
+            v
+
+     Confidence Engine
+
+            |
+            v
+
+     Governance Engine
+
+            |
+            v
+
+      Human Review Layer
+
+            |
+            v
+
+    Interoperability Layer
+
+            |
+            v
+
+Analytics & AI Applications
+```
 
 ---
 
-## Canonical Oncology Concept Object
+# Data Sources
 
-The internal object should contain:
+The platform is designed to process oncology data originating from multiple systems.
 
-```json
-{
-  "canonical": {
-    "cancer_type": "",
-    "gene": "",
-    "variant": ""
-  },
-  "evidence": [],
-  "explanation": "",
-  "confidence": "",
-  "review_status": ""
-}
+Examples include:
+
+## Clinical Sources
+
+* Electronic Health Records (EHR)
+* Cancer Registries
+* Clinical Trial Systems
+
+## Molecular Sources
+
+* Molecular Diagnostic Reports
+* Next-Generation Sequencing Platforms
+* Clinical Genomics Pipelines
+
+## Research Sources
+
+* Research Databases
+* Real-World Evidence Platforms
+* Precision Oncology Programs
+
+---
+
+# Normalization Layer
+
+The normalization layer standardizes incoming values before reconciliation.
+
+Examples:
+
+| Input        | Normalized   |
+| ------------ | ------------ |
+| HER2         | her2         |
+| HER-2        | her2         |
+| HER 2        | her2         |
+| EGFR Ex19del | egfr ex19del |
+
+Functions include:
+
+* Case normalization
+* Punctuation normalization
+* Whitespace normalization
+* Synonym preparation
+
+This stage reduces variation prior to matching.
+
+---
+
+# Entity Resolution Layer
+
+The entity resolution layer converts raw inputs into canonical biomedical concepts.
+
+Supported entities:
+
+* Disease
+* Gene
+* Variant
+
+Resolution strategies include:
+
+## Exact Matching
+
+Example:
+
+```text id="r4a1ko"
+EGFR → EGFR
 ```
 
-This simplified object may later be mapped to GA4GH VRS or CAT-VRS-compatible structures.
+---
+
+## Alias Matching
+
+Example:
+
+```text id="c4ay6m"
+HER1 → EGFR
+HER2 → ERBB2
+p53 → TP53
+```
+
+---
+
+## Fuzzy Matching
+
+Used when exact and alias matching fail.
+
+Examples:
+
+```text id="7e95li"
+non small cell lung ca
+     →
+Lung Non-Small Cell Carcinoma
+```
+
+---
+
+## Context-Aware Resolution
+
+The platform evaluates:
+
+* Disease context
+* Gene context
+* Variant context
+
+to improve reconciliation quality.
+
+---
+
+# Evidence Retrieval Layer
+
+Evidence retrieval provides supporting information for reconciliation decisions.
+
+Sources currently include:
+
+## Local Knowledge Sources
+
+* Disease catalogs
+* Gene catalogs
+* Variant catalogs
+
+---
+
+## External Knowledge Sources
+
+* MyVariant.info
+* ClinVar
+* CIViC
+* ClinGen resources
+
+---
+
+# Evidence Package Generation
+
+Evidence packages provide:
+
+* Supporting evidence
+* Provenance
+* Auditability
+* Reviewer context
+
+These packages help reviewers make informed decisions.
+
+---
+
+# Confidence Engine
+
+The confidence engine evaluates reconciliation quality.
+
+Factors include:
+
+| Factor              | Purpose                        |
+| ------------------- | ------------------------------ |
+| Match Type          | Exact vs Alias vs Fuzzy        |
+| Source Authority    | Evidence quality               |
+| Similarity Score    | String similarity              |
+| Context Consistency | Disease-gene-variant coherence |
+| Catalog Coverage    | Curated support                |
+
+Outputs:
+
+* Confidence Score
+* Confidence Category
+
+Examples:
+
+```text id="44xt1i"
+HIGH
+MEDIUM
+LOW
+```
+
+---
+
+# Governance Engine
+
+The governance engine determines the appropriate workflow.
+
+Possible outcomes:
+
+## AUTO_RECONCILE
+
+High-confidence mappings.
+
+Characteristics:
+
+* Strong evidence
+* Consistent context
+* Low ambiguity
+
+---
+
+## REVIEW_REQUIRED
+
+Ambiguous mappings requiring expert review.
+
+Characteristics:
+
+* Multiple candidates
+* Limited evidence
+* Potential ambiguity
+
+---
+
+## CANNOT_RECONCILE
+
+Insufficient evidence.
+
+Characteristics:
+
+* No reliable mapping
+* Missing context
+* Unknown terminology
+
+---
+
+# Human Review Layer
+
+Human governance is a core platform feature.
+
+The platform intentionally avoids forcing uncertain decisions.
+
+Capabilities include:
+
+## Review Queue
+
+Stores cases requiring review.
+
+---
+
+## Reviewer Decisions
+
+Supported actions:
+
+* Approve
+* Reject
+* Edit
+* Reopen
+
+---
+
+## Adjudication
+
+Senior reviewers can resolve disagreements.
+
+---
+
+## Governance Metrics
+
+Examples:
+
+* Review rates
+* Agreement rates
+* Adjudication rates
+* Reviewer productivity
+
+---
+
+# Interoperability Layer
+
+The interoperability layer prepares standardized outputs.
+
+## FHIR Export
+
+Supports future healthcare interoperability.
+
+Potential resources include:
+
+* Patient
+* Condition
+* Observation
+* DiagnosticReport
+
+---
+
+## OMOP Export
+
+Supports:
+
+* Research workflows
+* Real-world evidence studies
+* Cohort generation
+
+---
+
+## Knowledge Graph Export
+
+Supports graph-based analytics.
+
+Examples:
+
+```text id="a7o4hf"
+Disease
+   |
+Gene
+   |
+Variant
+   |
+Evidence
+```
+
+---
+
+# Analytics Layer
+
+The analytics layer provides operational visibility.
+
+Current capabilities include:
+
+## Evaluation Dashboard
+
+Tracks:
+
+* Benchmark performance
+* Accuracy metrics
+* Safety metrics
+
+---
+
+## Governance Analytics
+
+Tracks:
+
+* Review rates
+* Reviewer activity
+* Escalation rates
+
+---
+
+## Data Quality Metrics
+
+Tracks:
+
+* Reconciliation success
+* Ambiguous cases
+* Coverage
+
+---
+
+# Validation Framework
+
+The platform includes automated validation capabilities.
+
+Current validation includes:
+
+* Automated test suite
+* Benchmark framework
+* Negative control testing
+* Safety-aware evaluation
+
+Current benchmark coverage:
+
+* 500 benchmark cases
+
+Representative metrics:
+
+* Disease Accuracy
+* Gene Accuracy
+* Variant Accuracy
+* Safety-Aware Accuracy
+* False Auto-Accept Rate
+
+---
+
+# Security & Governance Principles
+
+The platform follows several design principles.
+
+## Human Oversight
+
+Humans remain responsible for final decisions.
+
+---
+
+## Explainability
+
+Every recommendation includes:
+
+* Evidence
+* Confidence score
+* Provenance
+* Audit trail
+
+---
+
+## Transparency
+
+The platform avoids hidden decision-making.
+
+---
+
+## Reproducibility
+
+Results can be reproduced using the same inputs and evidence.
+
+---
+
+# Future Architecture Evolution
+
+Planned future enhancements include:
+
+## Patient Journey Analytics
+
+```text id="6otdxq"
+Diagnosis
+      ↓
+Biomarker Testing
+      ↓
+Treatment
+      ↓
+Progression
+      ↓
+Outcome
+```
+
+---
+
+## Biomedical Knowledge Graphs
+
+Expanded relationship modeling.
+
+---
+
+## Enterprise APIs
+
+* Reconciliation API
+* Evidence API
+* Governance API
+* Interoperability API
+
+---
+
+## AI-Assisted Curation
+
+Future reviewer assistance capabilities while preserving human oversight.
+
+---
+
+# Architectural Philosophy
+
+OncoReconcile AI is built around a simple principle:
+
+**Trustworthy AI requires trustworthy data.**
+
+The platform combines AI-assisted reconciliation with human governance to create explainable, auditable, and interoperable oncology data suitable for precision medicine, clinical research, and future healthcare AI applications.
