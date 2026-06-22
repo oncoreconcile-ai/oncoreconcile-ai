@@ -1,17 +1,23 @@
-# DFWIT AI & Startup Competition 2026
+<div align="center">
 
-## Checkpoint 2 Primary Submission
+<img src="images/oncoreconcile_logo.png" alt="Variant Vanguard logo" width="620" />
 
-### OncoReconcile AI
+# OncoReconcile AI
 
-**AI-Powered Precision Oncology Data Quality, Governance & Interoperability Platform**
+## AI-Powered Precision Oncology Data Quality, Governance & Interoperability Platform
 
-**Team:** Variant Vanguard  
-**Submission branch:** `startup-platform`  
-**Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform  
-**Submission year:** 2026
+### DFWIT AI & Startup Competition 2026
 
----
+### Checkpoint 2 Primary Submission
+
+**Team:** Variant Vanguard<br>
+**Submission Branch:** `startup-platform`<br>
+**Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform<br>
+**Submission Date:** June 2026
+
+</div>
+
+<div style="page-break-after: always;"></div>
 
 ## Executive Summary
 
@@ -29,6 +35,24 @@ The platform reconciles heterogeneous disease names, genes, and genomic variants
 Rather than forcing uncertain mappings, the system surfaces supporting evidence and routes ambiguous cases through expert review.
 
 The result is trustworthy, explainable, and reusable oncology data suitable for precision medicine, clinical research, healthcare analytics, and future AI applications.
+
+---
+
+## Checkpoint 2 Deliverables
+
+* Human-governed reconciliation engine
+* Single-record reconciliation
+* Batch reconciliation
+* Evidence retrieval
+* Review queue and reviewer governance workflow
+* 500-case benchmark evaluation
+* Evaluation dashboard
+* FHIR export prototype
+* OMOP export prototype
+* Knowledge graph export prototype
+* Data collection and curation pipeline
+* PDF-ready documentation package
+* Screenshots and demo assets
 
 ---
 
@@ -113,6 +137,14 @@ AUTO_RECONCILE REVIEW_REQUIRED CANNOT_RECONCILE
                 v
      FHIR / OMOP / Analytics
 ```
+
+<div align="center">
+
+<img src="screenshots/02-single-record-reconciliation.png" alt="Figure 1. Single Record Reconciliation" width="700" />
+
+**Figure 1. Single Record Reconciliation**
+
+</div>
 
 ---
 
@@ -269,39 +301,6 @@ This governed data pipeline demonstrates that OncoReconcile AI is building a reu
 
 ---
 
-## Validation & Quality
-
-Current competition submission status:
-
-| Metric | Result |
-|---|---:|
-| Backend Tests | 102 Passed |
-| Benchmark | 500 Cases |
-| Frontend Build | Passing |
-| Evaluation Dashboard | Operational |
-| Review Queue | Operational |
-| Evidence Package | Operational |
-| FHIR Export | Operational |
-| OMOP Export | Operational |
-| Knowledge Graph Export | Operational |
-
-### Benchmark Evaluation Results
-
-The benchmark framework supports alias normalization testing, ambiguous terminology testing, review-required scenarios, negative-control safety testing, and regression testing.
-
-| Evaluation Metric | Result |
-|---|---:|
-| Disease Accuracy | 68.6% |
-| Gene Accuracy | 96.6% |
-| Variant Accuracy | 94.6% |
-| Safety-Aware Status Accuracy | 89.8% |
-| False Auto-Accept Rate | 0% |
-| Negative Control Safety Rate | 100% |
-
-The 500-case benchmark intentionally includes difficult ambiguity scenarios. Disease accuracy remains the clearest improvement opportunity, while the 0% false auto-accept rate demonstrates the value of routing uncertainty into governed review instead of forcing unsafe mappings.
-
----
-
 ## Reviewer Governance Workflow
 
 OncoReconcile AI is designed around three explicit outcomes:
@@ -327,11 +326,70 @@ The governing principle is:
 
 > **AI assists. Humans decide.**
 
+<div align="center">
+
+<img src="screenshots/04-review-queue.png" alt="Figure 2. Human Review Queue" width="700" />
+
+**Figure 2. Human Review Queue**
+
+</div>
+
+---
+
+## Validation & Quality
+
+Current competition submission status:
+
+| Metric | Result |
+|---|---:|
+| Backend Tests | 102 Passed |
+| Benchmark | 500 Cases |
+| Frontend Build | Passing |
+| Evaluation Dashboard | Operational |
+| Review Queue | Operational |
+| Evidence Package | Operational |
+| FHIR Export Prototype | Operational |
+| OMOP Export Prototype | Operational |
+| Knowledge Graph Export Prototype | Operational |
+
+### Benchmark Evaluation Results
+
+The benchmark framework supports alias normalization testing, ambiguous terminology testing, review-required scenarios, negative-control safety testing, and regression testing.
+
+| Evaluation Metric | Result |
+|---|---:|
+| Disease Accuracy | 68.6% |
+| Gene Accuracy | 96.6% |
+| Variant Accuracy | 94.6% |
+| Safety-Aware Status Accuracy | 89.8% |
+| False Auto-Accept Rate | 0% |
+| Negative Control Safety Rate | 100% |
+
+The 500-case benchmark intentionally includes difficult ambiguity scenarios. Disease accuracy remains the clearest improvement opportunity, while the 0% false auto-accept rate demonstrates the value of routing uncertainty into governed review instead of forcing unsafe mappings.
+
+The benchmark intentionally includes ambiguous and negative-control cases to evaluate safety-aware reconciliation behavior, not only exact-match accuracy.
+
+---
+
+<div style="page-break-before: always;"></div>
+
+## Evaluation Dashboard Evidence
+
+The submission dashboard evidence below summarizes the current `benchmark_v2.csv` evaluation context and the validated Checkpoint 2 metrics.
+
+<div align="center">
+
+<img src="screenshots/05-evaluation-dashboard.png" alt="Figure 3. Evaluation Dashboard" width="700" />
+
+**Figure 3. Evaluation Dashboard**
+
+</div>
+
 ---
 
 ## FHIR Interoperability
 
-The platform provides operational FHIR R4 export for downstream healthcare integration.
+The platform provides an operational FHIR R4 export prototype for downstream healthcare integration.
 
 FHIR output can represent:
 
@@ -349,7 +407,7 @@ The export layer preserves source terminology and reconciliation metadata so an 
 
 ## OMOP Interoperability
 
-The platform provides operational OMOP CDM v5.4-oriented exports for research and real-world evidence workflows.
+The platform provides an operational OMOP CDM v5.4-oriented export prototype for research and real-world evidence workflows.
 
 OMOP output maps:
 
@@ -480,6 +538,20 @@ The platform prioritizes transparency, reproducibility, and trust.
 ### Biomedical Specialization
 
 Unlike general-purpose entity-resolution systems, OncoReconcile AI is purpose-built for precision-oncology workflows.
+
+---
+
+## Team Differentiation
+
+Team Variant Vanguard combines experience in precision oncology, clinical genomics, biomedical data engineering, healthcare interoperability, OMOP/FHIR-oriented data modeling, and AI-assisted data quality workflows. This domain background shaped the project's focus on governed reconciliation, explainability, evidence, and auditability rather than black-box automation.
+
+---
+
+## Expert Feedback & Customer Discovery
+
+Early feedback from precision oncology and standards-oriented discussions highlighted several needs: reducing interpretation bottlenecks, preserving provenance, supporting human review, and aligning reconciliation outputs with emerging interoperability standards. This feedback informed the platform's emphasis on human governance, evidence packages, benchmark evaluation, and standards-aligned exports.
+
+This feedback is formative and does not represent formal clinical validation.
 
 ---
 
