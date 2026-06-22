@@ -97,7 +97,7 @@ OncoReconcile AI improves data quality before downstream analytics and AI workfl
 
 | Metric               | Status      |
 | -------------------- | ----------- |
-| Automated Tests      | 151 Passing |
+| Backend Test Suite  | 102 Passing |
 | Frontend Build       | Passing     |
 | Benchmark Framework  | 500 Cases   |
 | Evaluation Dashboard | Operational |
@@ -128,31 +128,35 @@ Latest benchmark results:
 
 ---
 
-## Enterprise Demonstration
+## Screenshots
+
+### Platform Homepage
+
+![OncoReconcile AI homepage](docs/screenshots/01-homepage.png)
 
 ### Single Record Reconciliation
 
-[Add Screenshot]
+![High-confidence single record reconciliation](docs/screenshots/02-single-record-reconciliation.png)
+
+### Review-Required Decision
+
+![Ambiguous TRK fusion routed to human review](docs/screenshots/03-review-required.png)
 
 ### Human Review Queue
 
-[Add Screenshot]
+![Human review queue and curator workflow](docs/screenshots/04-review-queue.png)
 
-### Patient Journey Analytics
+### Evaluation Dashboard
 
-[Add Screenshot]
+![Benchmark evaluation and safety metrics](docs/screenshots/05-evaluation-dashboard.png)
 
-### Precision Oncology Dashboard
+### Knowledge Graph Export
 
-[Add Screenshot]
+![JSON-LD knowledge graph export](docs/screenshots/06-knowledge-graph-export.png)
 
-### Enterprise Governance Dashboard
+### Interactive API Documentation
 
-[Add Screenshot]
-
-### FHIR / OMOP Export
-
-[Add Screenshot]
+![FastAPI OpenAPI documentation](docs/screenshots/07-api-docs.png)
 
 ---
 

@@ -468,6 +468,53 @@ Results can be reproduced using the same inputs and evidence.
 
 ---
 
+## Data Collection & Curation Pipeline
+
+```text
+Public Biomedical Sources
+          ↓
+Automated Collection Scripts
+          ↓
+Candidate Data
+          ↓
+Human Review / Curation
+          ↓
+Curated Knowledge Catalogs
+          ↓
+Benchmark Generation
+          ↓
+Reconciliation Engine
+          ↓
+Evaluation & Governance
+```
+
+The architecture separates automated collection from production curation. Current pipeline components include:
+
+1. **MyGene.info** — collects gene aliases and supports gene-symbol normalization through [`download_gene_aliases_from_mygene.py`](../scripts/download_gene_aliases_from_mygene.py), producing [`raw_gene_alias_candidates.json`](../data/raw/raw_gene_alias_candidates.json) and [`gene_aliases.json`](../data/gene_aliases.json).
+2. **CIViC** — collects cancer-variant candidates through [`download_variant_candidates_from_civic_graphql.py`](../scripts/download_variant_candidates_from_civic_graphql.py), producing [`civic_variant_candidates.csv`](../data/raw/civic_variant_candidates.csv).
+3. **Disease aliases** — [`disease_aliases.json`](../data/disease_aliases.json) is the manually curated MVP knowledge base for disease terminology normalization.
+4. **Disease-gene catalog** — [`disease_gene_catalog.csv`](../data/disease_gene_catalog.csv) provides curated, static disease-to-gene context.
+5. **Gene-variant catalog** — [`create_gene_variant_catalog.py`](../scripts/create_gene_variant_catalog.py), [`create_expanded_gene_variant_catalog.py`](../scripts/create_expanded_gene_variant_catalog.py), and [`create_curated_catalog_from_review.py`](../scripts/create_curated_catalog_from_review.py) produce the canonical mappings in [`gene_variant_catalog.csv`](../data/gene_variant_catalog.csv).
+6. **Benchmark generation** — [`generate_benchmark_cases_from_catalogs.py`](../scripts/generate_benchmark_cases_from_catalogs.py) produces [`benchmark_cases.csv`](../data/benchmark_cases.csv). The newer [`benchmark_v2.csv`](../data/benchmark_v2.csv) is the current benchmark and contains 500 cases.
+
+| Data Source | Purpose | Current Status |
+|---|---|---|
+| MyGene.info | Gene aliases | Integrated |
+| CIViC | Variant candidates | Integrated |
+| ClinVar | Evidence support | Integrated |
+| MyVariant.info | Evidence retrieval | Integrated |
+| HGNC | Gene nomenclature support | Curated / integrated |
+| ClinGen Allele Registry | Variant reference support | Integrated |
+| Internal Curated Catalogs | Production mappings | Active |
+
+Downloaded candidate data is not blindly promoted into production. Candidate aliases and variants are reviewed before becoming curated catalog entries. Ambiguous terms such as `TRK` should route to `REVIEW_REQUIRED`; unknown terms should route to `CANNOT_RECONCILE`.
+
+Future source and standards expansion includes NCIt, OncoTree, COSMIC, OncoKB, SEER, TCGA, AACR GENIE, GA4GH VRS, GA4GH Cat-VRS, GA4GH VA-Spec, FHIR Genomics, and OMOP Oncology. These are roadmap targets, not claims of current clinical validation or complete standards compliance.
+
+This governed data pipeline demonstrates that OncoReconcile AI is building a reusable biomedical knowledge asset and data quality infrastructure, not just a one-off reconciliation demo.
+
+---
+
 # Future Architecture Evolution
 
 Planned future enhancements include:

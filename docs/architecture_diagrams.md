@@ -37,7 +37,7 @@ flowchart TB
         Reconcile["Reconciliation Engine\nDisease · Gene · Variant normalization"]
         Governance["Human Governance\nReview queue · Kappa metrics · Adjudication"]
         Export["Standards Export\nFHIR R4 · OMOP CDM · GA4GH VRS · PROV-O"]
-        Catalog["Curated Benchmark\n191 cases · Evaluation dashboard"]
+        Catalog["Curated Benchmark\n500 cases · Evaluation dashboard"]
     end
 
     subgraph Offerings["📦 Service & SaaS Offerings"]

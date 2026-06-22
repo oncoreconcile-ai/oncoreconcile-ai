@@ -41,9 +41,7 @@ No patient-identifiable information was used.
 
 Benchmark cases prioritize terminology commonly encountered in oncology workflows.
 
-Examples:
-
-Preferred:
+Preferred examples:
 
 * HER2
 * HER-2
@@ -55,7 +53,7 @@ Avoided:
 
 * Rare historical aliases
 * Obsolete nomenclature
-* Uncommon reporting terms
+* Extremely uncommon reporting terminology
 
 ---
 
@@ -65,8 +63,6 @@ The benchmark includes:
 
 #### Disease Aliases
 
-Examples:
-
 * NSCLC
 * Non-Small Cell Lung Cancer
 * LUAD
@@ -74,15 +70,11 @@ Examples:
 
 #### Gene Aliases
 
-Examples:
-
 * HER2 → ERBB2
 * HER-2 → ERBB2
 * p53 → TP53
 
 #### Variant Synonyms
-
-Examples:
 
 * Ex19del
 * del19
@@ -90,15 +82,11 @@ Examples:
 
 #### Fusions
 
-Examples:
-
 * ALK Fusion
 * RET Fusion
 * ROS1 Rearrangement
 
 #### Copy Number Alterations
-
-Examples:
 
 * Amplification
 * Copy Gain
@@ -107,11 +95,9 @@ Examples:
 
 ### Difficulty Stratification
 
-Benchmark cases are assigned difficulty levels.
-
 #### EASY
 
-Canonical or common terminology.
+Canonical terminology.
 
 Examples:
 
@@ -120,7 +106,7 @@ Examples:
 
 #### MEDIUM
 
-Alias or shorthand normalization required.
+Alias normalization required.
 
 Examples:
 
@@ -129,7 +115,7 @@ Examples:
 
 #### DIFFICULT
 
-Ambiguous or incomplete terminology.
+Ambiguous terminology.
 
 Examples:
 
@@ -141,7 +127,7 @@ Examples:
 
 ### Human Review
 
-The benchmark intentionally contains examples requiring review.
+The benchmark intentionally contains review-required scenarios.
 
 Examples:
 
@@ -155,6 +141,28 @@ These scenarios support evaluation of:
 * Confidence scoring
 * Review recommendations
 * Cannot Reconcile outcomes
+
+---
+
+## Data Collection Pipeline
+
+The benchmark is generated from curated oncology knowledge assets maintained by the OncoReconcile AI platform.
+
+These assets include:
+
+* Disease aliases
+* Gene aliases
+* Disease-gene relationships
+* Gene-variant catalogs
+* Human-reviewed benchmark cases
+
+The complete data collection, governance, and catalog generation process is documented in:
+
+```text
+docs/data_curation_pipeline.md
+```
+
+The benchmark relies on governed biomedical knowledge assets rather than purely AI-generated mappings. Downloaded candidate data is reviewed before promotion into production catalogs, and ambiguous concepts are intentionally preserved for REVIEW_REQUIRED evaluation scenarios.
 
 ---
 
@@ -184,7 +192,13 @@ Every benchmark case should be traceable to:
 * Generated experiment
 * Team curation decision
 
-Future versions may include explicit provenance fields.
+Future versions will expand provenance tracking using:
+
+* GA4GH VA-Spec-inspired structures
+* Evidence lineage
+* Review history
+* Audit metadata
+* Standards-aligned provenance records
 
 ---
 
@@ -199,3 +213,5 @@ The benchmark balances:
 * Validation coverage
 
 while maintaining transparency regarding how benchmark truth was established.
+
+The goal is not simply high accuracy, but trustworthy evaluation of biomedical entity reconciliation systems operating under human governance.

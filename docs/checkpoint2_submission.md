@@ -21,7 +21,7 @@ Verified June 20, 2026:
 | Verification | Result |
 |---|---|
 | Backend test suite | 102 passed |
-| Curated benchmark | 191 cases |
+| Curated benchmark | 500 cases |
 | Frontend production build | Passed |
 | External integration tests | Passed |
 | Review governance tests | Passed |
@@ -121,7 +121,7 @@ The knowledge graph export contains reconciliation activity, canonical concept, 
 
 The 43-test backend suite covers:
 
-- Benchmark reconciliation across 191 cases
+- Benchmark reconciliation across 500 cases
 - Alias and fuzzy normalization
 - Ambiguity and cannot-reconcile behavior
 - MyVariant.info integration

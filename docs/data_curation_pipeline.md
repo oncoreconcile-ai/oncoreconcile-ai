@@ -144,7 +144,7 @@ Output:
 data/benchmark_cases.csv
 ```
 
-The current generated benchmark contains 156 cases.
+The current benchmark_v2 evaluation dataset contains 500 benchmark cases.
 
 ## Notes
 

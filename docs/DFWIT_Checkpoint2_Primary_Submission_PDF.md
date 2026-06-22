@@ -222,6 +222,53 @@ The architecture separates deterministic normalization, evidence discovery, conf
 
 ---
 
+## Data Collection & Curation Pipeline
+
+```text
+Public Biomedical Sources
+          ↓
+Automated Collection Scripts
+          ↓
+Candidate Data
+          ↓
+Human Review / Curation
+          ↓
+Curated Knowledge Catalogs
+          ↓
+Benchmark Generation
+          ↓
+Reconciliation Engine
+          ↓
+Evaluation & Governance
+```
+
+The current governed pipeline includes:
+
+1. **MyGene.info** — gene alias collection and gene-symbol support through [download_gene_aliases_from_mygene.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/download_gene_aliases_from_mygene.py), producing [raw_gene_alias_candidates.json](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/raw/raw_gene_alias_candidates.json) and [gene_aliases.json](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/gene_aliases.json).
+2. **CIViC** — cancer-variant candidate collection through [download_variant_candidates_from_civic_graphql.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/download_variant_candidates_from_civic_graphql.py), producing [civic_variant_candidates.csv](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/raw/civic_variant_candidates.csv).
+3. **Disease aliases** — [disease_aliases.json](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/disease_aliases.json), the manually curated MVP disease-normalization knowledge base.
+4. **Disease-gene catalog** — [disease_gene_catalog.csv](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/disease_gene_catalog.csv), a curated/static source of disease-gene context.
+5. **Gene-variant catalog** — built through [create_gene_variant_catalog.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/create_gene_variant_catalog.py), [create_expanded_gene_variant_catalog.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/create_expanded_gene_variant_catalog.py), or [create_curated_catalog_from_review.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/create_curated_catalog_from_review.py), producing [gene_variant_catalog.csv](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/gene_variant_catalog.csv).
+6. **Benchmark generation** — [generate_benchmark_cases_from_catalogs.py](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/scripts/generate_benchmark_cases_from_catalogs.py) produces [benchmark_cases.csv](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/benchmark_cases.csv). The newer [benchmark_v2.csv](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/data/benchmark_v2.csv) is the current benchmark and contains 500 cases.
+
+| Data Source | Purpose | Current Status |
+|---|---|---|
+| MyGene.info | Gene aliases | Integrated |
+| CIViC | Variant candidates | Integrated |
+| ClinVar | Evidence support | Integrated |
+| MyVariant.info | Evidence retrieval | Integrated |
+| HGNC | Gene nomenclature support | Curated / integrated |
+| ClinGen Allele Registry | Variant reference support | Integrated |
+| Internal Curated Catalogs | Production mappings | Active |
+
+Downloaded candidate data is not blindly promoted into production. Candidate aliases and variants are reviewed before becoming curated catalog entries. Ambiguous terms such as `TRK` should route to `REVIEW_REQUIRED`; unknown terms should route to `CANNOT_RECONCILE`.
+
+The data-source roadmap includes NCIt, OncoTree, COSMIC, OncoKB, SEER, TCGA, AACR GENIE, GA4GH VRS, GA4GH Cat-VRS, GA4GH VA-Spec, FHIR Genomics, and OMOP Oncology. These are future expansion targets, not claims of current clinical validation or complete standards compliance.
+
+This governed data pipeline demonstrates that OncoReconcile AI is building a reusable biomedical knowledge asset and data quality infrastructure, not just a one-off reconciliation demo.
+
+---
+
 ## Validation & Quality
 
 Current competition submission status:
