@@ -389,6 +389,17 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
 ---
 
+## Additional Resources
+
+* **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
+* **README:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/README.md
+* **Architecture:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/architecture.md
+* **Architecture Diagrams:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/architecture_diagrams.md
+* **Commercial Strategy:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/commercial_strategy.md
+* **Roadmap:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/roadmap.md
+
+---
+
 # Disclaimer
 
 OncoReconcile AI is a biomedical data harmonization and governance platform.

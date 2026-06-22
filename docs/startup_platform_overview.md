@@ -358,3 +358,14 @@ Future directions include:
 As healthcare organizations increasingly adopt AI, the demand for trustworthy and explainable data infrastructure will continue to grow.
 
 OncoReconcile AI aims to become a foundational component of that future ecosystem.
+
+---
+
+## Additional Resources
+
+* **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
+* **README:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/README.md
+* **Architecture:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/architecture.md
+* **Architecture Diagrams:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/architecture_diagrams.md
+* **Commercial Strategy:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/commercial_strategy.md
+* **Roadmap:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/startup-platform/docs/roadmap.md
