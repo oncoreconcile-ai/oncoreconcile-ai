@@ -1,280 +1,230 @@
 # OncoReconcile AI
 
-## Human-Governed Biomedical Entity Resolution Platform for Precision Oncology
+## AI-Powered Precision Oncology Data Quality, Governance, Analytics & Interoperability Platform
 
-OncoReconcile AI is a human-governed AI platform for harmonizing inconsistent oncology disease, gene, and variant terminology. It produces canonical candidates with confidence scores, explanations, evidence, provenance, and explicit review recommendations.
+OncoReconcile AI is an enterprise-grade platform that transforms fragmented oncology and clinical genomics data into trustworthy, explainable, and AI-ready information.
 
 Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard**.
 
-Official submission branch:
+### Key Capabilities
 
-[Startup Platform Branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform)
-
-
-This project is a biomedical data harmonization and governance prototype. It does not provide clinical interpretation or treatment recommendations.
+* Disease Reconciliation
+* Gene Reconciliation
+* Variant Reconciliation
+* Human-Governed AI
+* Evidence Retrieval
+* Patient Journey Analytics
+* Precision Oncology Dashboards
+* Evaluation & Benchmarking
+* FHIR Export
+* OMOP Export
+* Knowledge Graph Generation
+* Enterprise Governance Reporting
 
 ---
 
-# Problem
+## Why This Matters
 
 Precision oncology data is fragmented across:
 
 * Electronic Health Records (EHR)
-* Molecular diagnostic reports
-* Clinical trial systems
-* Research databases
-* Laboratory information systems
-* Real-world evidence platforms
+* Molecular Diagnostics
+* Clinical Trials
+* Research Databases
+* Claims Systems
+* Real-World Evidence Platforms
 
-The same disease, gene, or variant may appear in multiple forms:
+The same biological concept often appears under different names:
 
-| Input    | Canonical Form                       |
-| -------- | ------------------------------------ |
-| NSCLC    | Non-Small Cell Lung Carcinoma        |
-| HER2     | ERBB2                                |
-| Ex19del  | EGFR c.2235_2249del15                |
-| FLT3 ITD | Standardized FLT3 ITD representation |
+| Input   | Canonical                     |
+| ------- | ----------------------------- |
+| HER2    | ERBB2                         |
+| HER1    | EGFR                          |
+| p53     | TP53                          |
+| NSCLC   | Lung Non-Small Cell Carcinoma |
+| Ex19del | EGFR Exon 19 Deletion         |
 
----
+Poorly harmonized data reduces interoperability, increases manual effort, and limits AI effectiveness.
 
-# Solution
-
-OncoReconcile AI provides:
-
-* Disease reconciliation
-* Gene reconciliation
-* Variant reconciliation
-* Confidence scoring
-* Human review governance
-* Provenance tracking
-* Benchmark evaluation
-* External evidence retrieval
+OncoReconcile AI improves data quality before downstream analytics and AI workflows.
 
 ---
 
-# Implemented Features
+## Platform Modules
 
-## Reconciliation Engine
+### Clinical Data Harmonization
 
-* Exact matching
-* Alias matching
-* Fuzzy matching
-* Compound disease-gene-variant matching
-* Review-required routing
+* Single Reconciliation
+* Batch Reconciliation
+* Review Queue
+* Reviewer Workspace
 
-## Governance
+### Evidence Intelligence
 
-* AUTO_RECONCILE
-* REVIEW_REQUIRED
-* CANNOT_RECONCILE
+* Evidence Explorer
+* Evidence Packages
+* External Knowledge Sources
 
-## Evidence Sources
+### Precision Oncology Analytics
 
-* Local curated catalog
-* MyVariant.info
-* ClinVar
-* CIViC
-* ClinGen Allele Registry
+* Patient Journey Analytics
+* Biomarker Analytics
+* Cohort Analytics
+* Disease Analytics
 
-## Human Review Workflow
+### Enterprise Governance
 
-* Persistent review queue
-* Curator review
-* Senior curator adjudication
-* Reviewer agreement metrics
-* Cohen's kappa reporting
+* Human Review Workflows
+* Reviewer Metrics
+* Governance Dashboard
+* Audit Trails
 
-## Standards Alignment
+### Interoperability
 
-* VRS-inspired structures
-* Cat-VRS-inspired structures
-* VA-Spec-inspired provenance
-* Knowledge graph export foundations
+* FHIR Export
+* OMOP Export
+* Standards Alignment
 
----
+### Knowledge Graph
 
-# Validation
-
-| Metric                    | Result     |
-| ------------------------- | ---------- |
-| Backend Tests             | 102 Passed |
-| Benchmark Cases           | 191        |
-| Frontend Production Build | Passed     |
-
-Verified June 2026.
+* Disease-Gene-Variant Relationships
+* Therapy Relationships
+* Evidence Relationships
 
 ---
 
-# Platform Architecture
+## Validation
 
-```text
-User Input
-     |
-     v
-Normalization Engine
-     |
-     +--> Alias Matching
-     +--> Fuzzy Matching
-     +--> Catalog Matching
-     |
-     v
-Evidence Retrieval Layer
-     |
-     +--> Local Catalog
-     +--> MyVariant
-     +--> ClinVar
-     +--> CIViC
-     |
-     v
+| Metric               | Status      |
+| -------------------- | ----------- |
+| Automated Tests      | 151 Passing |
+| Frontend Build       | Passing     |
+| Benchmark Framework  | 500 Cases   |
+| Evaluation Dashboard | Operational |
+| Review Queue         | Operational |
+| Evidence Package     | Operational |
+| FHIR Export          | Operational |
+| OMOP Export          | Operational |
+
+---
+
+## Benchmark Highlights
+
+Current benchmark framework includes:
+
+* 500 evaluation cases
+* Alias normalization
+* Ambiguous terminology
+* Negative control testing
+* Human governance validation
+
+Latest benchmark results:
+
+* Disease Accuracy: 68.6%
+* Gene Accuracy: 96.6%
+* Variant Accuracy: 94.6%
+* Safety-Aware Status Accuracy: 89.8%
+* False Auto-Accept Rate: 0%
+
+---
+
+## Enterprise Demonstration
+
+### Single Record Reconciliation
+
+[Add Screenshot]
+
+### Human Review Queue
+
+[Add Screenshot]
+
+### Patient Journey Analytics
+
+[Add Screenshot]
+
+### Precision Oncology Dashboard
+
+[Add Screenshot]
+
+### Enterprise Governance Dashboard
+
+[Add Screenshot]
+
+### FHIR / OMOP Export
+
+[Add Screenshot]
+
+---
+
+## Architecture
+
+Raw Oncology Data
+
+↓
+
+Entity Resolution
+
+↓
+
+Evidence Retrieval
+
+↓
+
 Confidence Scoring
-     |
-     v
-Governance Decision
-     |
-     +--> AUTO_RECONCILE
-     +--> REVIEW_REQUIRED
-     +--> CANNOT_RECONCILE
-     |
-     v
-Review Queue
-     |
-     v
-Export / Benchmark / Analytics
-```
 
-Additional architecture documentation:
+↓
 
-* [Architecture](docs/architecture.md)
-* [Architecture Diagrams](docs/architecture_diagrams.md)
+Governance Engine
+
+↓
+
+Human Review
+
+↓
+
+FHIR / OMOP Export
+
+↓
+
+Analytics & AI Applications
 
 ---
 
-# Evaluation Dashboard
+## Startup Vision
 
-Frontend route:
-
-```text
-/evaluation
-```
-
-The startup-platform branch includes:
-
-* Benchmark evaluation API
-* Accuracy reporting
-* Review-rate reporting
-* False auto-accept tracking
-* Evaluation Dashboard UI
-
----
-
-# Startup Vision
-
-The long-term vision of OncoReconcile AI is to become the biomedical entity resolution and interoperability layer for precision oncology.
+Our long-term vision is to become the biomedical data quality and interoperability layer for precision oncology.
 
 Future directions include:
 
-* FHIR interoperability
-* OMOP interoperability
-* Biomedical knowledge graphs
-* Enterprise APIs
 * Multi-cancer support
-* AI-assisted curation workflows
-* Clinical trial harmonization
+* Enterprise APIs
+* Biomedical Knowledge Graphs
+* AI-Assisted Curation
+* Clinical Trial Harmonization
+* Precision Oncology Intelligence Platforms
 
 ---
 
-# Repository Structure
+## Repository
 
-```text
-backend/
-frontend/
-data/
-contracts/
-demo/
-docs/
-scripts/
-archive/
-```
+Startup Platform Branch
+
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
 ---
 
-# Documentation
+## Documentation
 
-See:
-
-- [Documentation Index](./docs/README.md)
-- [MVP Definition](./docs/mvp.md)
-- [Commercial Strategy](./docs/commercial_strategy.md)
-- [Architecture](./docs/architecture.md)
-- [Architecture Diagrams](./docs/architecture_diagrams.md)
-- [Curation Methodology](./docs/curation_methodology.md)
-- [Final Submission Draft](./docs/final_submission_draft.md)
+* docs/DFWIT_Checkpoint2_Primary_Submission.md
+* docs/startup_platform_overview.md
+* docs/commercial_strategy.md
+* docs/roadmap.md
+* docs/architecture.md
 
 ---
 
-# Quick Start
+## Disclaimer
 
-## Clone Repository
-
-```bash
-git clone https://github.com/oncoreconcile-ai/oncoreconcile-ai.git
-cd oncoreconcile-ai
-git checkout startup-platform
-```
-
-## Backend
-
-```bash
-cd backend
-
-python3.10 -m venv .venv
-source .venv/bin/activate
-
-pip install -r requirements.txt
-
-uvicorn app.main:app --reload
-```
-
-Backend API:
-
-```text
-http://127.0.0.1:8000
-```
-
-Swagger UI:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-## Frontend
-
-```bash
-cd frontend
-
-npm install
-npm run dev
-```
-
----
-
-# Validation
-
-```bash
-cd backend
-python -m pytest -q
-```
-
-Expected:
-
-```text
-102 passed
-```
-
----
-
-# Disclaimer
-
-OncoReconcile AI is a data harmonization and governance platform.
+OncoReconcile AI is a biomedical data harmonization and governance platform.
 
 It is not a clinical decision support system and does not provide diagnosis, treatment recommendations, or medical advice.
