@@ -6,7 +6,10 @@
   "data_governance": {
     "data_origin": "synthetically_generated",
     "contains_real_patient_data": false,
-    "complies_with": ["HIPAA_safe_harbor", "GDPR_anonymization"],
+    "complies_with": [
+      "HIPAA_safe_harbor",
+      "GDPR_anonymization"
+    ],
     "intended_use": "platform_demo_and_development"
   },
   "patients": [
@@ -19,38 +22,134 @@
       "stage": "IV",
       "diagnosis_date": "2023-03-15",
       "biomarker_tests": [
-        {"test": "EGFR Mutation Analysis", "date": "2023-03-20", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "PD-L1 IHC", "date": "2023-03-20", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "ALK FISH", "date": "2023-03-22", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "ROS1 IHC", "date": "2023-03-22", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "ctDNA NGS Panel", "date": "2024-09-10", "method": "NGS", "sample_type": "Blood"}
+        {
+          "test": "EGFR Mutation Analysis",
+          "date": "2023-03-20",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "PD-L1 IHC",
+          "date": "2023-03-20",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ALK FISH",
+          "date": "2023-03-22",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ROS1 IHC",
+          "date": "2023-03-22",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ctDNA NGS Panel",
+          "date": "2024-09-10",
+          "method": "NGS",
+          "sample_type": "Blood"
+        }
       ],
-      "genes": ["EGFR", "TP53"],
+      "genes": [
+        "EGFR",
+        "TP53"
+      ],
       "variants": [
-        {"gene": "EGFR", "variant": "Exon 19 Deletion (E746_A750del)", "classification": "Oncogenic", "allele_frequency": 0.38},
-        {"gene": "TP53", "variant": "R273H", "classification": "Oncogenic", "allele_frequency": 0.42}
+        {
+          "gene": "EGFR",
+          "variant": "Exon 19 Deletion (E746_A750del)",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.38
+        },
+        {
+          "gene": "TP53",
+          "variant": "R273H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.42
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "EGFR", "alteration": "Amplification", "copy_number": 6}
+        {
+          "gene": "EGFR",
+          "alteration": "Amplification",
+          "copy_number": 6
+        }
       ],
       "treatments": [
-        {"drug": "Tagrisso (Osimertinib)", "class": "EGFR TKI", "regimen": "Osimertinib 80mg daily", "line_of_therapy": 1, "start_date": "2023-04-01", "end_date": "2024-08-15"},
-        {"drug": "Carboplatin + Pemetrexed", "class": "Platinum Doublet", "regimen": "Carboplatin AUC5 + Pemetrexed 500mg/m2 q3w", "line_of_therapy": 2, "start_date": "2024-09-01", "end_date": "2024-12-20"},
-        {"drug": "Clinical Trial: EGFR TKI + Amivantamab", "class": "Investigational", "regimen": "Investigational combination", "line_of_therapy": 3, "start_date": "2025-01-15", "end_date": null}
+        {
+          "drug": "Tagrisso (Osimertinib)",
+          "class": "EGFR TKI",
+          "regimen": "Osimertinib 80mg daily",
+          "line_of_therapy": 1,
+          "start_date": "2023-04-01",
+          "end_date": "2024-08-15"
+        },
+        {
+          "drug": "Carboplatin + Pemetrexed",
+          "class": "Platinum Doublet",
+          "regimen": "Carboplatin AUC5 + Pemetrexed 500mg/m2 q3w",
+          "line_of_therapy": 2,
+          "start_date": "2024-09-01",
+          "end_date": "2024-12-20"
+        },
+        {
+          "drug": "Clinical Trial: EGFR TKI + Amivantamab",
+          "class": "Investigational",
+          "regimen": "Investigational combination",
+          "line_of_therapy": 3,
+          "start_date": "2025-01-15",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2023-06-01", "recist": "PR"},
-        {"line_of_therapy": 2, "assessment": "Stable Disease", "date": "2024-10-15", "recist": "SD"},
-        {"line_of_therapy": 3, "assessment": "Pending Evaluation", "date": null, "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2023-06-01",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Stable Disease",
+          "date": "2024-10-15",
+          "recist": "SD"
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Pending Evaluation",
+          "date": null,
+          "recist": null
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-08-15", "type": "Radiographic", "notes": "New liver lesion, CNS stable"},
-        {"event": "Progression after 2nd line", "date": "2024-12-20", "type": "Radiographic", "notes": "Increase in primary tumor size"},
-        {"event": "EGFR T790M detected", "date": "2024-09-10", "type": "Molecular", "notes": "ctDNA revealed acquired T790M resistance mutation"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-08-15",
+          "type": "Radiographic",
+          "notes": "New liver lesion, CNS stable"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2024-12-20",
+          "type": "Radiographic",
+          "notes": "Increase in primary tumor size"
+        },
+        {
+          "event": "EGFR T790M detected",
+          "date": "2024-09-10",
+          "type": "Molecular",
+          "notes": "ctDNA revealed acquired T790M resistance mutation"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for EGFR T790M-directed trial", "Enrolled in combination TKI trial"],
+      "clinical_trial_flags": [
+        "Eligible for EGFR T790M-directed trial",
+        "Enrolled in combination TKI trial"
+      ],
       "review_required_count": 1,
       "data_quality_score": 0.92,
       "reconciliation_status": "REVIEW_REQUIRED",
@@ -65,38 +164,133 @@
       "stage": "IIIB",
       "diagnosis_date": "2023-07-10",
       "biomarker_tests": [
-        {"test": "ER/PR IHC", "date": "2023-07-15", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "HER2 FISH", "date": "2023-07-15", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "Ki-67 Proliferation Index", "date": "2023-07-15", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "BRCA1/2 Germline Testing", "date": "2023-08-01", "method": "NGS", "sample_type": "Blood"}
+        {
+          "test": "ER/PR IHC",
+          "date": "2023-07-15",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 FISH",
+          "date": "2023-07-15",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "Ki-67 Proliferation Index",
+          "date": "2023-07-15",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "BRCA1/2 Germline Testing",
+          "date": "2023-08-01",
+          "method": "NGS",
+          "sample_type": "Blood"
+        }
       ],
-      "genes": ["ERBB2", "BRCA1", "TP53"],
+      "genes": [
+        "ERBB2",
+        "BRCA1",
+        "TP53"
+      ],
       "variants": [
-        {"gene": "ERBB2", "variant": "Amplification (HER2+)", "classification": "Oncogenic", "allele_frequency": null},
-        {"gene": "BRCA1", "variant": "c.5266dupC (p.Gln1756ProfsTer74)", "classification": "Pathogenic", "allele_frequency": 0.5},
-        {"gene": "TP53", "variant": "R248W", "classification": "Oncogenic", "allele_frequency": 0.31}
+        {
+          "gene": "ERBB2",
+          "variant": "Amplification (HER2+)",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        },
+        {
+          "gene": "BRCA1",
+          "variant": "c.5266dupC (p.Gln1756ProfsTer74)",
+          "classification": "Pathogenic",
+          "allele_frequency": 0.5
+        },
+        {
+          "gene": "TP53",
+          "variant": "R248W",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.31
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "ERBB2", "alteration": "Amplification", "copy_number": 12},
-        {"gene": "CCND1", "alteration": "Amplification", "copy_number": 5}
+        {
+          "gene": "ERBB2",
+          "alteration": "Amplification",
+          "copy_number": 12
+        },
+        {
+          "gene": "CCND1",
+          "alteration": "Amplification",
+          "copy_number": 5
+        }
       ],
       "treatments": [
-        {"drug": "Herceptin (Trastuzumab) + Pertuzumab + Docetaxel", "class": "HER2-directed + Chemotherapy", "regimen": "THP regimen q3w", "line_of_therapy": 1, "start_date": "2023-08-01", "end_date": "2024-02-01"},
-        {"drug": "T-DM1 (Ado-Trastuzumab Emtansine)", "class": "ADC", "regimen": "T-DM1 3.6mg/kg q3w", "line_of_therapy": 2, "start_date": "2024-03-01", "end_date": "2025-01-15"},
-        {"drug": "Tucatinib + Capecitabine + Trastuzumab", "class": "HER2-directed + Chemotherapy", "regimen": "Tucatinib 300mg BID + Capecitabine + Trastuzumab", "line_of_therapy": 3, "start_date": "2025-02-01", "end_date": null}
+        {
+          "drug": "Herceptin (Trastuzumab) + Pertuzumab + Docetaxel",
+          "class": "HER2-directed + Chemotherapy",
+          "regimen": "THP regimen q3w",
+          "line_of_therapy": 1,
+          "start_date": "2023-08-01",
+          "end_date": "2024-02-01"
+        },
+        {
+          "drug": "T-DM1 (Ado-Trastuzumab Emtansine)",
+          "class": "ADC",
+          "regimen": "T-DM1 3.6mg/kg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2024-03-01",
+          "end_date": "2025-01-15"
+        },
+        {
+          "drug": "Tucatinib + Capecitabine + Trastuzumab",
+          "class": "HER2-directed + Chemotherapy",
+          "regimen": "Tucatinib 300mg BID + Capecitabine + Trastuzumab",
+          "line_of_therapy": 3,
+          "start_date": "2025-02-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Complete Response", "date": "2024-01-15", "recist": "CR"},
-        {"line_of_therapy": 2, "assessment": "Partial Response", "date": "2024-06-01", "recist": "PR"},
-        {"line_of_therapy": 3, "assessment": "Stable Disease", "date": "2025-04-01", "recist": "SD"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Complete Response",
+          "date": "2024-01-15",
+          "recist": "CR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Partial Response",
+          "date": "2024-06-01",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Stable Disease",
+          "date": "2025-04-01",
+          "recist": "SD"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-02-01", "type": "Radiographic", "notes": "New brain metastasis detected"},
-        {"event": "Progression after 2nd line", "date": "2025-01-15", "type": "Radiographic", "notes": "Liver lesion progression"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-02-01",
+          "type": "Radiographic",
+          "notes": "New brain metastasis detected"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2025-01-15",
+          "type": "Radiographic",
+          "notes": "Liver lesion progression"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for HER2-directed ADC trial with CNS activity"],
+      "clinical_trial_flags": [
+        "Eligible for HER2-directed ADC trial with CNS activity"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.95,
       "reconciliation_status": "AUTO_RECONCILE",
@@ -111,37 +305,125 @@
       "stage": "IV",
       "diagnosis_date": "2024-01-20",
       "biomarker_tests": [
-        {"test": "MSI Testing", "date": "2024-01-25", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "RAS/BRAF Mutation Analysis", "date": "2024-01-25", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "HER2 Testing", "date": "2024-01-28", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2024-02-01", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "MSI Testing",
+          "date": "2024-01-25",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "RAS/BRAF Mutation Analysis",
+          "date": "2024-01-25",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 Testing",
+          "date": "2024-01-28",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-02-01",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["KRAS", "BRAF", "APC", "TP53"],
+      "genes": [
+        "KRAS",
+        "BRAF",
+        "APC",
+        "TP53"
+      ],
       "variants": [
-        {"gene": "KRAS", "variant": "G12C", "classification": "Oncogenic", "allele_frequency": 0.45},
-        {"gene": "APC", "variant": "Q1338Ter", "classification": "Oncogenic", "allele_frequency": 0.52},
-        {"gene": "TP53", "variant": "R175H", "classification": "Oncogenic", "allele_frequency": 0.48}
+        {
+          "gene": "KRAS",
+          "variant": "G12C",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.45
+        },
+        {
+          "gene": "APC",
+          "variant": "Q1338Ter",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.52
+        },
+        {
+          "gene": "TP53",
+          "variant": "R175H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.48
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "FOLFOX + Bevacizumab", "class": "Chemotherapy + VEGF inhibitor", "regimen": "FOLFOX q2w + Bevacizumab 5mg/kg", "line_of_therapy": 1, "start_date": "2024-02-15", "end_date": "2024-08-20"},
-        {"drug": "FOLFIRI + Aflibercept", "class": "Chemotherapy + VEGF inhibitor", "regimen": "FOLFIRI q2w + Aflibercept 4mg/kg", "line_of_therapy": 2, "start_date": "2024-09-10", "end_date": "2025-03-01"},
-        {"drug": "Lumakras (Sotorasib)", "class": "KRAS G12C Inhibitor", "regimen": "Sotorasib 960mg daily", "line_of_therapy": 3, "start_date": "2025-03-15", "end_date": null}
+        {
+          "drug": "FOLFOX + Bevacizumab",
+          "class": "Chemotherapy + VEGF inhibitor",
+          "regimen": "FOLFOX q2w + Bevacizumab 5mg/kg",
+          "line_of_therapy": 1,
+          "start_date": "2024-02-15",
+          "end_date": "2024-08-20"
+        },
+        {
+          "drug": "FOLFIRI + Aflibercept",
+          "class": "Chemotherapy + VEGF inhibitor",
+          "regimen": "FOLFIRI q2w + Aflibercept 4mg/kg",
+          "line_of_therapy": 2,
+          "start_date": "2024-09-10",
+          "end_date": "2025-03-01"
+        },
+        {
+          "drug": "Lumakras (Sotorasib)",
+          "class": "KRAS G12C Inhibitor",
+          "regimen": "Sotorasib 960mg daily",
+          "line_of_therapy": 3,
+          "start_date": "2025-03-15",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2024-05-15", "recist": "PR"},
-        {"line_of_therapy": 2, "assessment": "Progressive Disease", "date": "2025-03-01", "recist": "PD"},
-        {"line_of_therapy": 3, "assessment": "Pending Evaluation", "date": null, "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2024-05-15",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Progressive Disease",
+          "date": "2025-03-01",
+          "recist": "PD"
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Pending Evaluation",
+          "date": null,
+          "recist": null
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-08-20", "type": "Radiographic", "notes": "New lung metastases"},
-        {"event": "Progression after 2nd line", "date": "2025-03-01", "type": "Radiographic", "notes": "Liver metastasis growth"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-08-20",
+          "type": "Radiographic",
+          "notes": "New lung metastases"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2025-03-01",
+          "type": "Radiographic",
+          "notes": "Liver metastasis growth"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for KRAS G12C-directed combination trial"],
+      "clinical_trial_flags": [
+        "Eligible for KRAS G12C-directed combination trial"
+      ],
       "review_required_count": 0,
-      "data_quality_score": 0.90,
+      "data_quality_score": 0.9,
       "reconciliation_status": "AUTO_RECONCILE",
       "evidence_coverage": 0.85
     },
@@ -154,41 +436,132 @@
       "stage": "IV",
       "diagnosis_date": "2023-11-05",
       "biomarker_tests": [
-        {"test": "BRAF Mutation Analysis", "date": "2023-11-10", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "c-KIT Mutation Analysis", "date": "2023-11-10", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2023-11-12", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "PD-L1 IHC", "date": "2023-11-12", "method": "IHC", "sample_type": "Tissue"}
+        {
+          "test": "BRAF Mutation Analysis",
+          "date": "2023-11-10",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "c-KIT Mutation Analysis",
+          "date": "2023-11-10",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2023-11-12",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "PD-L1 IHC",
+          "date": "2023-11-12",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["BRAF", "CDKN2A", "PTEN"],
+      "genes": [
+        "BRAF",
+        "CDKN2A",
+        "PTEN"
+      ],
       "variants": [
-        {"gene": "BRAF", "variant": "V600E", "classification": "Oncogenic", "allele_frequency": 0.52},
-        {"gene": "CDKN2A", "variant": "Loss (exon 1-2 deletion)", "classification": "Loss of Function", "allele_frequency": null},
-        {"gene": "PTEN", "variant": "R130Q", "classification": "Oncogenic", "allele_frequency": 0.28}
+        {
+          "gene": "BRAF",
+          "variant": "V600E",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.52
+        },
+        {
+          "gene": "CDKN2A",
+          "variant": "Loss (exon 1-2 deletion)",
+          "classification": "Loss of Function",
+          "allele_frequency": null
+        },
+        {
+          "gene": "PTEN",
+          "variant": "R130Q",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.28
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "CDKN2A", "alteration": "Homozygous Deletion", "copy_number": 0}
+        {
+          "gene": "CDKN2A",
+          "alteration": "Homozygous Deletion",
+          "copy_number": 0
+        }
       ],
       "treatments": [
-        {"drug": "Opdivo (Nivolumab) + Yervoy (Ipilimumab)", "class": "Immunotherapy (PD-1 + CTLA-4)", "regimen": "Nivolumab 1mg/kg + Ipilimumab 3mg/kg q3w x4, then Nivolumab 480mg q4w", "line_of_therapy": 1, "start_date": "2023-12-01", "end_date": "2024-06-15"},
-        {"drug": "Tafinlar (Dabrafenib) + Mekinist (Trametinib)", "class": "BRAF/MEK Inhibitor", "regimen": "Dabrafenib 150mg BID + Trametinib 2mg daily", "line_of_therapy": 2, "start_date": "2024-07-01", "end_date": "2025-02-20"},
-        {"drug": "Keytruda (Pembrolizumab)", "class": "Immunotherapy (PD-1)", "regimen": "Pembrolizumab 200mg q3w", "line_of_therapy": 3, "start_date": "2025-03-01", "end_date": null}
+        {
+          "drug": "Opdivo (Nivolumab) + Yervoy (Ipilimumab)",
+          "class": "Immunotherapy (PD-1 + CTLA-4)",
+          "regimen": "Nivolumab 1mg/kg + Ipilimumab 3mg/kg q3w x4, then Nivolumab 480mg q4w",
+          "line_of_therapy": 1,
+          "start_date": "2023-12-01",
+          "end_date": "2024-06-15"
+        },
+        {
+          "drug": "Tafinlar (Dabrafenib) + Mekinist (Trametinib)",
+          "class": "BRAF/MEK Inhibitor",
+          "regimen": "Dabrafenib 150mg BID + Trametinib 2mg daily",
+          "line_of_therapy": 2,
+          "start_date": "2024-07-01",
+          "end_date": "2025-02-20"
+        },
+        {
+          "drug": "Keytruda (Pembrolizumab)",
+          "class": "Immunotherapy (PD-1)",
+          "regimen": "Pembrolizumab 200mg q3w",
+          "line_of_therapy": 3,
+          "start_date": "2025-03-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2024-03-01", "recist": "PR"},
-        {"line_of_therapy": 2, "assessment": "Complete Response", "date": "2024-10-15", "recist": "CR"},
-        {"line_of_therapy": 3, "assessment": "Partial Response", "date": "2025-05-01", "recist": "PR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2024-03-01",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Complete Response",
+          "date": "2024-10-15",
+          "recist": "CR"
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Partial Response",
+          "date": "2025-05-01",
+          "recist": "PR"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-06-15", "type": "Radiographic", "notes": "New subcutaneous metastases"},
-        {"event": "Progression after 2nd line", "date": "2025-02-20", "type": "Radiographic", "notes": "Brain metastasis detected"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-06-15",
+          "type": "Radiographic",
+          "notes": "New subcutaneous metastases"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2025-02-20",
+          "type": "Radiographic",
+          "notes": "Brain metastasis detected"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for BRAF V600 + immunotherapy combination trial"],
+      "clinical_trial_flags": [
+        "Eligible for BRAF V600 + immunotherapy combination trial"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.93,
       "reconciliation_status": "AUTO_RECONCILE",
-      "evidence_coverage": 0.90
+      "evidence_coverage": 0.9
     },
     {
       "patient_id": "PT-DEMO-005",
@@ -199,37 +572,136 @@
       "stage": "De Novo",
       "diagnosis_date": "2024-05-01",
       "biomarker_tests": [
-        {"test": "Cytogenetics / Karyotype", "date": "2024-05-03", "method": "Karyotyping", "sample_type": "Bone Marrow"},
-        {"test": "FLT3 Mutation Analysis", "date": "2024-05-03", "method": "PCR", "sample_type": "Bone Marrow"},
-        {"test": "NPM1 Mutation Analysis", "date": "2024-05-03", "method": "PCR", "sample_type": "Bone Marrow"},
-        {"test": "IDH1/IDH2 Mutation Analysis", "date": "2024-05-05", "method": "NGS", "sample_type": "Bone Marrow"},
-        {"test": "MRD Assessment by Flow", "date": "2024-07-01", "method": "Flow Cytometry", "sample_type": "Bone Marrow"}
+        {
+          "test": "Cytogenetics / Karyotype",
+          "date": "2024-05-03",
+          "method": "Karyotyping",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "FLT3 Mutation Analysis",
+          "date": "2024-05-03",
+          "method": "PCR",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "NPM1 Mutation Analysis",
+          "date": "2024-05-03",
+          "method": "PCR",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "IDH1/IDH2 Mutation Analysis",
+          "date": "2024-05-05",
+          "method": "NGS",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "MRD Assessment by Flow",
+          "date": "2024-07-01",
+          "method": "Flow Cytometry",
+          "sample_type": "Bone Marrow"
+        }
       ],
-      "genes": ["NPM1", "FLT3", "IDH2", "DNMT3A"],
+      "genes": [
+        "NPM1",
+        "FLT3",
+        "IDH2",
+        "DNMT3A"
+      ],
       "variants": [
-        {"gene": "NPM1", "variant": "c.863_864insTCTG (p.W288CfsTer12)", "classification": "Oncogenic", "allele_frequency": 0.48},
-        {"gene": "FLT3", "variant": "ITD (internal tandem duplication)", "classification": "Oncogenic", "allele_frequency": 0.35},
-        {"gene": "IDH2", "variant": "R140Q", "classification": "Oncogenic", "allele_frequency": 0.42},
-        {"gene": "DNMT3A", "variant": "R882H", "classification": "Oncogenic", "allele_frequency": 0.50}
+        {
+          "gene": "NPM1",
+          "variant": "c.863_864insTCTG (p.W288CfsTer12)",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.48
+        },
+        {
+          "gene": "FLT3",
+          "variant": "ITD (internal tandem duplication)",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.35
+        },
+        {
+          "gene": "IDH2",
+          "variant": "R140Q",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.42
+        },
+        {
+          "gene": "DNMT3A",
+          "variant": "R882H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.5
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "7+3 (Cytarabine + Daunorubicin)", "class": "Induction Chemotherapy", "regimen": "Cytarabine 100mg/m2 x7 + Daunorubicin 60mg/m2 x3", "line_of_therapy": 1, "start_date": "2024-05-10", "end_date": "2024-06-10"},
-        {"drug": "High-Dose Cytarabine (HiDAC) Consolidation", "class": "Consolidation Chemotherapy", "regimen": "Cytarabine 3g/m2 q12h x6 doses", "line_of_therapy": 2, "start_date": "2024-07-15", "end_date": "2024-10-01"},
-        {"drug": "Quizartinib (FLT3 Inhibitor)", "class": "FLT3 Inhibitor", "regimen": "Quizartinib 30mg daily", "line_of_therapy": 3, "start_date": "2025-01-15", "end_date": null}
+        {
+          "drug": "7+3 (Cytarabine + Daunorubicin)",
+          "class": "Induction Chemotherapy",
+          "regimen": "Cytarabine 100mg/m2 x7 + Daunorubicin 60mg/m2 x3",
+          "line_of_therapy": 1,
+          "start_date": "2024-05-10",
+          "end_date": "2024-06-10"
+        },
+        {
+          "drug": "High-Dose Cytarabine (HiDAC) Consolidation",
+          "class": "Consolidation Chemotherapy",
+          "regimen": "Cytarabine 3g/m2 q12h x6 doses",
+          "line_of_therapy": 2,
+          "start_date": "2024-07-15",
+          "end_date": "2024-10-01"
+        },
+        {
+          "drug": "Quizartinib (FLT3 Inhibitor)",
+          "class": "FLT3 Inhibitor",
+          "regimen": "Quizartinib 30mg daily",
+          "line_of_therapy": 3,
+          "start_date": "2025-01-15",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Complete Remission (CR)", "date": "2024-07-01", "recist": null},
-        {"line_of_therapy": 2, "assessment": "Complete Remission (CR)", "date": "2024-10-01", "recist": null},
-        {"line_of_therapy": 3, "assessment": "Pending Evaluation", "date": null, "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Complete Remission (CR)",
+          "date": "2024-07-01",
+          "recist": null
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Complete Remission (CR)",
+          "date": "2024-10-01",
+          "recist": null
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Pending Evaluation",
+          "date": null,
+          "recist": null
+        }
       ],
       "progression_events": [
-        {"event": "Relapse after consolidation", "date": "2025-01-01", "type": "Molecular", "notes": "FLT3-ITD detectable by PCR, 5% blasts in marrow"},
-        {"event": "FLT3-ITD mutation confirmed as resistance mechanism", "date": "2025-01-01", "type": "Molecular", "notes": "Clonal evolution with persistent FLT3-ITD"}
+        {
+          "event": "Relapse after consolidation",
+          "date": "2025-01-01",
+          "type": "Molecular",
+          "notes": "FLT3-ITD detectable by PCR, 5% blasts in marrow"
+        },
+        {
+          "event": "FLT3-ITD mutation confirmed as resistance mechanism",
+          "date": "2025-01-01",
+          "type": "Molecular",
+          "notes": "Clonal evolution with persistent FLT3-ITD"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for FLT3 inhibitor maintenance trial", "Eligible for allogeneic SCT"],
+      "clinical_trial_flags": [
+        "Eligible for FLT3 inhibitor maintenance trial",
+        "Eligible for allogeneic SCT"
+      ],
       "review_required_count": 2,
       "data_quality_score": 0.88,
       "reconciliation_status": "REVIEW_REQUIRED",
@@ -244,33 +716,102 @@
       "stage": "IIIB",
       "diagnosis_date": "2024-02-10",
       "biomarker_tests": [
-        {"test": "PD-L1 IHC", "date": "2024-02-15", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2024-02-15", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "PD-L1 IHC",
+          "date": "2024-02-15",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-02-15",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["PIK3CA", "KEAP1", "STK11"],
+      "genes": [
+        "PIK3CA",
+        "KEAP1",
+        "STK11"
+      ],
       "variants": [
-        {"gene": "PIK3CA", "variant": "E545K", "classification": "Oncogenic", "allele_frequency": 0.32},
-        {"gene": "KEAP1", "variant": "G333C", "classification": "Oncogenic", "allele_frequency": 0.41},
-        {"gene": "STK11", "variant": "Loss (c.250_251del)", "classification": "Loss of Function", "allele_frequency": 0.55}
+        {
+          "gene": "PIK3CA",
+          "variant": "E545K",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.32
+        },
+        {
+          "gene": "KEAP1",
+          "variant": "G333C",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.41
+        },
+        {
+          "gene": "STK11",
+          "variant": "Loss (c.250_251del)",
+          "classification": "Loss of Function",
+          "allele_frequency": 0.55
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "PIK3CA", "alteration": "Amplification", "copy_number": 7}
+        {
+          "gene": "PIK3CA",
+          "alteration": "Amplification",
+          "copy_number": 7
+        }
       ],
       "treatments": [
-        {"drug": "Carboplatin + Nab-Paclitaxel + Keytruda (Pembrolizumab)", "class": "Chemoimmunotherapy", "regimen": "Carboplatin AUC5 + Nab-Paclitaxel 100mg/m2 + Pembrolizumab 200mg q3w", "line_of_therapy": 1, "start_date": "2024-03-01", "end_date": "2024-09-15"},
-        {"drug": "Docetaxel + Ramucirumab", "class": "Chemotherapy + VEGFR2 inhibitor", "regimen": "Docetaxel 75mg/m2 + Ramucirumab 10mg/kg q3w", "line_of_therapy": 2, "start_date": "2024-10-01", "end_date": "2025-02-20"}
+        {
+          "drug": "Carboplatin + Nab-Paclitaxel + Keytruda (Pembrolizumab)",
+          "class": "Chemoimmunotherapy",
+          "regimen": "Carboplatin AUC5 + Nab-Paclitaxel 100mg/m2 + Pembrolizumab 200mg q3w",
+          "line_of_therapy": 1,
+          "start_date": "2024-03-01",
+          "end_date": "2024-09-15"
+        },
+        {
+          "drug": "Docetaxel + Ramucirumab",
+          "class": "Chemotherapy + VEGFR2 inhibitor",
+          "regimen": "Docetaxel 75mg/m2 + Ramucirumab 10mg/kg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2024-10-01",
+          "end_date": "2025-02-20"
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Stable Disease", "date": "2024-06-01", "recist": "SD"},
-        {"line_of_therapy": 2, "assessment": "Progressive Disease", "date": "2025-02-20", "recist": "PD"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Stable Disease",
+          "date": "2024-06-01",
+          "recist": "SD"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Progressive Disease",
+          "date": "2025-02-20",
+          "recist": "PD"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-09-15", "type": "Radiographic", "notes": "Primary tumor growth, new adrenal metastasis"},
-        {"event": "Progression after 2nd line", "date": "2025-02-20", "type": "Radiographic", "notes": "Brain metastasis, pleural effusion"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-09-15",
+          "type": "Radiographic",
+          "notes": "Primary tumor growth, new adrenal metastasis"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2025-02-20",
+          "type": "Radiographic",
+          "notes": "Brain metastasis, pleural effusion"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for KEAP1/STK11 directed clinical trial"],
+      "clinical_trial_flags": [
+        "Eligible for KEAP1/STK11 directed clinical trial"
+      ],
       "review_required_count": 1,
       "data_quality_score": 0.85,
       "reconciliation_status": "REVIEW_REQUIRED",
@@ -285,31 +826,96 @@
       "stage": "IV",
       "diagnosis_date": "2023-09-01",
       "biomarker_tests": [
-        {"test": "MSI Testing", "date": "2023-09-05", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "RAS/BRAF Mutation Analysis", "date": "2023-09-05", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "HER2 Testing", "date": "2023-09-08", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "NTRK Fusion Testing", "date": "2023-09-10", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "MSI Testing",
+          "date": "2023-09-05",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "RAS/BRAF Mutation Analysis",
+          "date": "2023-09-05",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 Testing",
+          "date": "2023-09-08",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NTRK Fusion Testing",
+          "date": "2023-09-10",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["BRAF", "MSH2", "MLH1"],
+      "genes": [
+        "BRAF",
+        "MSH2",
+        "MLH1"
+      ],
       "variants": [
-        {"gene": "BRAF", "variant": "V600E", "classification": "Oncogenic", "allele_frequency": 0.48},
-        {"gene": "MSH2", "variant": "M1T (start loss)", "classification": "Loss of Function", "allele_frequency": 0.5}
+        {
+          "gene": "BRAF",
+          "variant": "V600E",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.48
+        },
+        {
+          "gene": "MSH2",
+          "variant": "M1T (start loss)",
+          "classification": "Loss of Function",
+          "allele_frequency": 0.5
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "FOLFOXIRI + Bevacizumab", "class": "Intensive Chemotherapy + VEGF inhibitor", "regimen": "FOLFOXIRI q2w + Bevacizumab 5mg/kg", "line_of_therapy": 1, "start_date": "2023-09-20", "end_date": "2024-03-10"},
-        {"drug": "Keytruda (Pembrolizumab)", "class": "Immunotherapy (PD-1)", "regimen": "Pembrolizumab 200mg q3w", "line_of_therapy": 2, "start_date": "2024-04-01", "end_date": null}
+        {
+          "drug": "FOLFOXIRI + Bevacizumab",
+          "class": "Intensive Chemotherapy + VEGF inhibitor",
+          "regimen": "FOLFOXIRI q2w + Bevacizumab 5mg/kg",
+          "line_of_therapy": 1,
+          "start_date": "2023-09-20",
+          "end_date": "2024-03-10"
+        },
+        {
+          "drug": "Keytruda (Pembrolizumab)",
+          "class": "Immunotherapy (PD-1)",
+          "regimen": "Pembrolizumab 200mg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2024-04-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2023-12-15", "recist": "PR"},
-        {"line_of_therapy": 2, "assessment": "Complete Response", "date": "2024-08-01", "recist": "CR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2023-12-15",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Complete Response",
+          "date": "2024-08-01",
+          "recist": "CR"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-03-10", "type": "Radiographic", "notes": "New peritoneal metastases"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-03-10",
+          "type": "Radiographic",
+          "notes": "New peritoneal metastases"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for MSI-H directed immunotherapy trial"],
+      "clinical_trial_flags": [
+        "Eligible for MSI-H directed immunotherapy trial"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.94,
       "reconciliation_status": "AUTO_RECONCILE",
@@ -324,34 +930,115 @@
       "stage": "IIB",
       "diagnosis_date": "2024-06-15",
       "biomarker_tests": [
-        {"test": "ER/PR IHC", "date": "2024-06-20", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "HER2 FISH", "date": "2024-06-20", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "Ki-67 Proliferation Index", "date": "2024-06-20", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "BRCA1/2 Germline Testing", "date": "2024-07-01", "method": "NGS", "sample_type": "Blood"}
+        {
+          "test": "ER/PR IHC",
+          "date": "2024-06-20",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 FISH",
+          "date": "2024-06-20",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "Ki-67 Proliferation Index",
+          "date": "2024-06-20",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "BRCA1/2 Germline Testing",
+          "date": "2024-07-01",
+          "method": "NGS",
+          "sample_type": "Blood"
+        }
       ],
-      "genes": ["BRCA1", "TP53", "MYC"],
+      "genes": [
+        "BRCA1",
+        "TP53",
+        "MYC"
+      ],
       "variants": [
-        {"gene": "BRCA1", "variant": "c.68_69delAG (p.Glu23ValfsTer17)", "classification": "Pathogenic", "allele_frequency": 0.5},
-        {"gene": "TP53", "variant": "Y220C", "classification": "Oncogenic", "allele_frequency": 0.38},
-        {"gene": "MYC", "variant": "Amplification", "classification": "Oncogenic", "allele_frequency": null}
+        {
+          "gene": "BRCA1",
+          "variant": "c.68_69delAG (p.Glu23ValfsTer17)",
+          "classification": "Pathogenic",
+          "allele_frequency": 0.5
+        },
+        {
+          "gene": "TP53",
+          "variant": "Y220C",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.38
+        },
+        {
+          "gene": "MYC",
+          "variant": "Amplification",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "MYC", "alteration": "Amplification", "copy_number": 8},
-        {"gene": "BRCA1", "alteration": "Loss of Heterozygosity", "copy_number": null}
+        {
+          "gene": "MYC",
+          "alteration": "Amplification",
+          "copy_number": 8
+        },
+        {
+          "gene": "BRCA1",
+          "alteration": "Loss of Heterozygosity",
+          "copy_number": null
+        }
       ],
       "treatments": [
-        {"drug": "Paclitaxel + Carboplatin", "class": "Taxane + Platinum", "regimen": "Paclitaxel 80mg/m2 weekly + Carboplatin AUC5 q3w", "line_of_therapy": 1, "start_date": "2024-07-10", "end_date": "2024-12-15"},
-        {"drug": "Keytruda (Pembrolizumab)", "class": "Immunotherapy (PD-1)", "regimen": "Pembrolizumab 200mg q3w", "line_of_therapy": 1, "start_date": "2024-07-10", "end_date": "2024-12-15"},
-        {"drug": "Lynparza (Olaparib)", "class": "PARP Inhibitor", "regimen": "Olaparib 300mg BID", "line_of_therapy": 2, "start_date": "2025-01-10", "end_date": null}
+        {
+          "drug": "Paclitaxel + Carboplatin",
+          "class": "Taxane + Platinum",
+          "regimen": "Paclitaxel 80mg/m2 weekly + Carboplatin AUC5 q3w",
+          "line_of_therapy": 1,
+          "start_date": "2024-07-10",
+          "end_date": "2024-12-15"
+        },
+        {
+          "drug": "Keytruda (Pembrolizumab)",
+          "class": "Immunotherapy (PD-1)",
+          "regimen": "Pembrolizumab 200mg q3w",
+          "line_of_therapy": 1,
+          "start_date": "2024-07-10",
+          "end_date": "2024-12-15"
+        },
+        {
+          "drug": "Lynparza (Olaparib)",
+          "class": "PARP Inhibitor",
+          "regimen": "Olaparib 300mg BID",
+          "line_of_therapy": 2,
+          "start_date": "2025-01-10",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Pathologic Complete Response (pCR)", "date": "2024-12-15", "recist": "CR"},
-        {"line_of_therapy": 2, "assessment": "No Evidence of Disease", "date": "2025-04-01", "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Pathologic Complete Response (pCR)",
+          "date": "2024-12-15",
+          "recist": "CR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "No Evidence of Disease",
+          "date": "2025-04-01",
+          "recist": null
+        }
       ],
       "progression_events": [],
-      "clinical_trial_flags": ["Eligible for PARP inhibitor maintenance trial", "Eligible for BRCA-directed therapy"],
+      "clinical_trial_flags": [
+        "Eligible for PARP inhibitor maintenance trial",
+        "Eligible for BRCA-directed therapy"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.96,
       "reconciliation_status": "AUTO_RECONCILE",
@@ -366,32 +1053,95 @@
       "stage": "III",
       "diagnosis_date": "2024-03-01",
       "biomarker_tests": [
-        {"test": "BRAF Mutation Analysis", "date": "2024-03-05", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "c-KIT Mutation Analysis", "date": "2024-03-05", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2024-03-08", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "BRAF Mutation Analysis",
+          "date": "2024-03-05",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "c-KIT Mutation Analysis",
+          "date": "2024-03-05",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-03-08",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["KIT", "NRAS"],
+      "genes": [
+        "KIT",
+        "NRAS"
+      ],
       "variants": [
-        {"gene": "KIT", "variant": "L576P", "classification": "Oncogenic", "allele_frequency": 0.42},
-        {"gene": "NRAS", "variant": "Q61R", "classification": "Oncogenic", "allele_frequency": 0.12}
+        {
+          "gene": "KIT",
+          "variant": "L576P",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.42
+        },
+        {
+          "gene": "NRAS",
+          "variant": "Q61R",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.12
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "KIT", "alteration": "Amplification", "copy_number": 5}
+        {
+          "gene": "KIT",
+          "alteration": "Amplification",
+          "copy_number": 5
+        }
       ],
       "treatments": [
-        {"drug": "Opdivo (Nivolumab)", "class": "Immunotherapy (PD-1)", "regimen": "Nivolumab 240mg q2w", "line_of_therapy": 1, "start_date": "2024-03-20", "end_date": "2024-09-15"},
-        {"drug": "Gleevec (Imatinib)", "class": "KIT Inhibitor", "regimen": "Imatinib 400mg daily", "line_of_therapy": 2, "start_date": "2024-10-01", "end_date": null}
+        {
+          "drug": "Opdivo (Nivolumab)",
+          "class": "Immunotherapy (PD-1)",
+          "regimen": "Nivolumab 240mg q2w",
+          "line_of_therapy": 1,
+          "start_date": "2024-03-20",
+          "end_date": "2024-09-15"
+        },
+        {
+          "drug": "Gleevec (Imatinib)",
+          "class": "KIT Inhibitor",
+          "regimen": "Imatinib 400mg daily",
+          "line_of_therapy": 2,
+          "start_date": "2024-10-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Stable Disease", "date": "2024-06-15", "recist": "SD"},
-        {"line_of_therapy": 2, "assessment": "Partial Response", "date": "2025-01-15", "recist": "PR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Stable Disease",
+          "date": "2024-06-15",
+          "recist": "SD"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Partial Response",
+          "date": "2025-01-15",
+          "recist": "PR"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-09-15", "type": "Radiographic", "notes": "Primary mucosal lesion growth"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-09-15",
+          "type": "Radiographic",
+          "notes": "Primary mucosal lesion growth"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for KIT-directed therapy expansion trial"],
+      "clinical_trial_flags": [
+        "Eligible for KIT-directed therapy expansion trial"
+      ],
       "review_required_count": 1,
       "data_quality_score": 0.87,
       "reconciliation_status": "REVIEW_REQUIRED",
@@ -406,42 +1156,139 @@
       "stage": "Relapsed/Refractory",
       "diagnosis_date": "2023-05-10",
       "biomarker_tests": [
-        {"test": "Cytogenetics / Karyotype", "date": "2023-05-12", "method": "Karyotyping", "sample_type": "Bone Marrow"},
-        {"test": "FLT3 Mutation Analysis", "date": "2023-05-12", "method": "PCR", "sample_type": "Bone Marrow"},
-        {"test": "NPM1 Mutation Analysis", "date": "2023-05-12", "method": "PCR", "sample_type": "Bone Marrow"},
-        {"test": "NGS Comprehensive Panel", "date": "2023-05-15", "method": "NGS", "sample_type": "Bone Marrow"},
-        {"test": "MRD Assessment by NGS", "date": "2024-11-01", "method": "NGS", "sample_type": "Bone Marrow"}
+        {
+          "test": "Cytogenetics / Karyotype",
+          "date": "2023-05-12",
+          "method": "Karyotyping",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "FLT3 Mutation Analysis",
+          "date": "2023-05-12",
+          "method": "PCR",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "NPM1 Mutation Analysis",
+          "date": "2023-05-12",
+          "method": "PCR",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2023-05-15",
+          "method": "NGS",
+          "sample_type": "Bone Marrow"
+        },
+        {
+          "test": "MRD Assessment by NGS",
+          "date": "2024-11-01",
+          "method": "NGS",
+          "sample_type": "Bone Marrow"
+        }
       ],
-      "genes": ["KMT2A (MLL)", "FLT3", "WT1"],
+      "genes": [
+        "KMT2A (MLL)",
+        "FLT3",
+        "WT1"
+      ],
       "variants": [
-        {"gene": "KMT2A", "variant": "MLL rearrangement (t(9;11)(p22;q23))", "classification": "Oncogenic", "allele_frequency": null},
-        {"gene": "FLT3", "variant": "D835Y (TKD mutation)", "classification": "Oncogenic", "allele_frequency": 0.25},
-        {"gene": "WT1", "variant": "R365W", "classification": "Oncogenic", "allele_frequency": 0.38}
+        {
+          "gene": "KMT2A",
+          "variant": "MLL rearrangement (t(9;11)(p22;q23))",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        },
+        {
+          "gene": "FLT3",
+          "variant": "D835Y (TKD mutation)",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.25
+        },
+        {
+          "gene": "WT1",
+          "variant": "R365W",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.38
+        }
       ],
       "fusions": [
-        {"fusion": "KMT2A-MLLT3 (MLL-AF9)", "type": "Translocation", "functional_class": "Oncogenic"}
+        {
+          "fusion": "KMT2A-MLLT3 (MLL-AF9)",
+          "type": "Translocation",
+          "functional_class": "Oncogenic"
+        }
       ],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "CPX-351 (Liposomal Daunorubicin/Cytarabine)", "class": "Induction Chemotherapy", "regimen": "CPX-351 100 units/m2 x3 days", "line_of_therapy": 1, "start_date": "2023-05-25", "end_date": "2023-06-25"},
-        {"drug": "Allogeneic Stem Cell Transplant (matched unrelated donor)", "class": "Cellular Therapy", "regimen": "Fludarabine/Busulfan conditioning", "line_of_therapy": 2, "start_date": "2023-09-01", "end_date": "2023-09-20"},
-        {"drug": "Sorafenib-based therapy", "class": "FLT3 TKI", "regimen": "Sorafenib 400mg BID", "line_of_therapy": 3, "start_date": "2025-02-01", "end_date": null}
+        {
+          "drug": "CPX-351 (Liposomal Daunorubicin/Cytarabine)",
+          "class": "Induction Chemotherapy",
+          "regimen": "CPX-351 100 units/m2 x3 days",
+          "line_of_therapy": 1,
+          "start_date": "2023-05-25",
+          "end_date": "2023-06-25"
+        },
+        {
+          "drug": "Allogeneic Stem Cell Transplant (matched unrelated donor)",
+          "class": "Cellular Therapy",
+          "regimen": "Fludarabine/Busulfan conditioning",
+          "line_of_therapy": 2,
+          "start_date": "2023-09-01",
+          "end_date": "2023-09-20"
+        },
+        {
+          "drug": "Sorafenib-based therapy",
+          "class": "FLT3 TKI",
+          "regimen": "Sorafenib 400mg BID",
+          "line_of_therapy": 3,
+          "start_date": "2025-02-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Complete Remission (CR)", "date": "2023-07-01", "recist": null},
-        {"line_of_therapy": 2, "assessment": "Complete Remission (CR)", "date": "2023-11-01", "recist": null},
-        {"line_of_therapy": 3, "assessment": "Pending Evaluation", "date": null, "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Complete Remission (CR)",
+          "date": "2023-07-01",
+          "recist": null
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Complete Remission (CR)",
+          "date": "2023-11-01",
+          "recist": null
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Pending Evaluation",
+          "date": null,
+          "recist": null
+        }
       ],
       "progression_events": [
-        {"event": "Relapse after transplant", "date": "2025-01-15", "type": "Molecular", "notes": "Donor chimerism decline, FLT3-D835Y detected"},
-        {"event": "MLL rearrangement measurable by PCR", "date": "2025-01-15", "type": "Molecular", "notes": "Minimal residual disease detected"}
+        {
+          "event": "Relapse after transplant",
+          "date": "2025-01-15",
+          "type": "Molecular",
+          "notes": "Donor chimerism decline, FLT3-D835Y detected"
+        },
+        {
+          "event": "MLL rearrangement measurable by PCR",
+          "date": "2025-01-15",
+          "type": "Molecular",
+          "notes": "Minimal residual disease detected"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for MLL-directed menin inhibitor trial", "Eligible for FLT3-targeted cellular therapy trial"],
+      "clinical_trial_flags": [
+        "Eligible for MLL-directed menin inhibitor trial",
+        "Eligible for FLT3-targeted cellular therapy trial"
+      ],
       "review_required_count": 2,
       "data_quality_score": 0.86,
       "reconciliation_status": "REVIEW_REQUIRED",
-      "evidence_coverage": 0.80
+      "evidence_coverage": 0.8
     },
     {
       "patient_id": "PT-DEMO-011",
@@ -452,33 +1299,101 @@
       "stage": "IV",
       "diagnosis_date": "2024-08-01",
       "biomarker_tests": [
-        {"test": "EGFR Mutation Analysis", "date": "2024-08-05", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "ALK FISH", "date": "2024-08-05", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "ROS1 IHC", "date": "2024-08-07", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2024-08-10", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "EGFR Mutation Analysis",
+          "date": "2024-08-05",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ALK FISH",
+          "date": "2024-08-05",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ROS1 IHC",
+          "date": "2024-08-07",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-08-10",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["ALK", "NTRK1", "TP53"],
+      "genes": [
+        "ALK",
+        "NTRK1",
+        "TP53"
+      ],
       "variants": [
-        {"gene": "ALK", "variant": "TRK Fusion (Categorical)", "classification": "Oncogenic", "allele_frequency": null}
+        {
+          "gene": "ALK",
+          "variant": "TRK Fusion (Categorical)",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        }
       ],
       "fusions": [
-        {"fusion": "EML4-ALK (E13;A20)", "type": "Inversion", "functional_class": "Oncogenic"},
-        {"fusion": "EML4-ALK (E6;A20)", "type": "Inversion", "functional_class": "Oncogenic"}
+        {
+          "fusion": "EML4-ALK (E13;A20)",
+          "type": "Inversion",
+          "functional_class": "Oncogenic"
+        },
+        {
+          "fusion": "EML4-ALK (E6;A20)",
+          "type": "Inversion",
+          "functional_class": "Oncogenic"
+        }
       ],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "Xalkori (Crizotinib)", "class": "ALK Inhibitor", "regimen": "Crizotinib 250mg BID", "line_of_therapy": 1, "start_date": "2024-09-01", "end_date": "2025-02-15"},
-        {"drug": "Alecensa (Alectinib)", "class": "ALK Inhibitor", "regimen": "Alectinib 600mg BID", "line_of_therapy": 2, "start_date": "2025-03-01", "end_date": null}
+        {
+          "drug": "Xalkori (Crizotinib)",
+          "class": "ALK Inhibitor",
+          "regimen": "Crizotinib 250mg BID",
+          "line_of_therapy": 1,
+          "start_date": "2024-09-01",
+          "end_date": "2025-02-15"
+        },
+        {
+          "drug": "Alecensa (Alectinib)",
+          "class": "ALK Inhibitor",
+          "regimen": "Alectinib 600mg BID",
+          "line_of_therapy": 2,
+          "start_date": "2025-03-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2024-11-15", "recist": "PR"},
-        {"line_of_therapy": 2, "assessment": "Partial Response", "date": "2025-05-15", "recist": "PR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2024-11-15",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Partial Response",
+          "date": "2025-05-15",
+          "recist": "PR"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2025-02-15", "type": "Radiographic", "notes": "New brain metastases, CNS progression"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2025-02-15",
+          "type": "Radiographic",
+          "notes": "New brain metastases, CNS progression"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for next-gen ALK TKI CNS-penetrant trial"],
+      "clinical_trial_flags": [
+        "Eligible for next-gen ALK TKI CNS-penetrant trial"
+      ],
       "review_required_count": 1,
       "data_quality_score": 0.91,
       "reconciliation_status": "REVIEW_REQUIRED",
@@ -493,41 +1408,133 @@
       "stage": "IV",
       "diagnosis_date": "2022-11-15",
       "biomarker_tests": [
-        {"test": "ER/PR IHC", "date": "2022-11-20", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "HER2 FISH", "date": "2022-11-20", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "ESR1 Mutation Testing", "date": "2024-02-10", "method": "NGS", "sample_type": "Blood"}
+        {
+          "test": "ER/PR IHC",
+          "date": "2022-11-20",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 FISH",
+          "date": "2022-11-20",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ESR1 Mutation Testing",
+          "date": "2024-02-10",
+          "method": "NGS",
+          "sample_type": "Blood"
+        }
       ],
-      "genes": ["ESR1", "PIK3CA", "CCND1"],
+      "genes": [
+        "ESR1",
+        "PIK3CA",
+        "CCND1"
+      ],
       "variants": [
-        {"gene": "ESR1", "variant": "D538G", "classification": "Oncogenic", "allele_frequency": 0.28},
-        {"gene": "PIK3CA", "variant": "H1047R", "classification": "Oncogenic", "allele_frequency": 0.35},
-        {"gene": "CCND1", "variant": "Amplification", "classification": "Oncogenic", "allele_frequency": null}
+        {
+          "gene": "ESR1",
+          "variant": "D538G",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.28
+        },
+        {
+          "gene": "PIK3CA",
+          "variant": "H1047R",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.35
+        },
+        {
+          "gene": "CCND1",
+          "variant": "Amplification",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "CCND1", "alteration": "Amplification", "copy_number": 6}
+        {
+          "gene": "CCND1",
+          "alteration": "Amplification",
+          "copy_number": 6
+        }
       ],
       "treatments": [
-        {"drug": "Letrozole + Ibrance (Palbociclib)", "class": "Aromatase Inhibitor + CDK4/6 Inhibitor", "regimen": "Letrozole 2.5mg daily + Palbociclib 125mg daily 3/1 week", "line_of_therapy": 1, "start_date": "2022-12-01", "end_date": "2024-01-15"},
-        {"drug": "Faslodex (Fulvestrant) + Afinitor (Everolimus)", "class": "SERD + mTOR Inhibitor", "regimen": "Fulvestrant 500mg IM q2w + Everolimus 10mg daily", "line_of_therapy": 2, "start_date": "2024-02-01", "end_date": "2025-01-01"},
-        {"drug": "Orserdu (Elacestrant)", "class": "Oral SERD", "regimen": "Elacestrant 345mg daily", "line_of_therapy": 3, "start_date": "2025-02-01", "end_date": null}
+        {
+          "drug": "Letrozole + Ibrance (Palbociclib)",
+          "class": "Aromatase Inhibitor + CDK4/6 Inhibitor",
+          "regimen": "Letrozole 2.5mg daily + Palbociclib 125mg daily 3/1 week",
+          "line_of_therapy": 1,
+          "start_date": "2022-12-01",
+          "end_date": "2024-01-15"
+        },
+        {
+          "drug": "Faslodex (Fulvestrant) + Afinitor (Everolimus)",
+          "class": "SERD + mTOR Inhibitor",
+          "regimen": "Fulvestrant 500mg IM q2w + Everolimus 10mg daily",
+          "line_of_therapy": 2,
+          "start_date": "2024-02-01",
+          "end_date": "2025-01-01"
+        },
+        {
+          "drug": "Orserdu (Elacestrant)",
+          "class": "Oral SERD",
+          "regimen": "Elacestrant 345mg daily",
+          "line_of_therapy": 3,
+          "start_date": "2025-02-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 3,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Stable Disease", "date": "2023-06-01", "recist": "SD"},
-        {"line_of_therapy": 2, "assessment": "Partial Response", "date": "2024-06-01", "recist": "PR"},
-        {"line_of_therapy": 3, "assessment": "Stable Disease", "date": "2025-05-01", "recist": "SD"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Stable Disease",
+          "date": "2023-06-01",
+          "recist": "SD"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Partial Response",
+          "date": "2024-06-01",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 3,
+          "assessment": "Stable Disease",
+          "date": "2025-05-01",
+          "recist": "SD"
+        }
       ],
       "progression_events": [
-        {"event": "Progression after 1st line", "date": "2024-01-15", "type": "Radiographic", "notes": "Bone metastasis progression, new liver lesion"},
-        {"event": "ESR1 D538G detected as resistance mechanism", "date": "2024-02-01", "type": "Molecular", "notes": "Liquid biopsy revealed acquired ESR1 mutation"},
-        {"event": "Progression after 2nd line", "date": "2025-01-01", "type": "Radiographic", "notes": "Liver lesion growth"}
+        {
+          "event": "Progression after 1st line",
+          "date": "2024-01-15",
+          "type": "Radiographic",
+          "notes": "Bone metastasis progression, new liver lesion"
+        },
+        {
+          "event": "ESR1 D538G detected as resistance mechanism",
+          "date": "2024-02-01",
+          "type": "Molecular",
+          "notes": "Liquid biopsy revealed acquired ESR1 mutation"
+        },
+        {
+          "event": "Progression after 2nd line",
+          "date": "2025-01-01",
+          "type": "Radiographic",
+          "notes": "Liver lesion growth"
+        }
       ],
-      "clinical_trial_flags": ["Eligible for ESR1-directed oral SERD trial", "Eligible for PIK3CA-directed therapy"],
+      "clinical_trial_flags": [
+        "Eligible for ESR1-directed oral SERD trial",
+        "Eligible for PIK3CA-directed therapy"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.93,
       "reconciliation_status": "AUTO_RECONCILE",
-      "evidence_coverage": 0.90
+      "evidence_coverage": 0.9
     },
     {
       "patient_id": "PT-DEMO-013",
@@ -538,26 +1545,69 @@
       "stage": "IV",
       "diagnosis_date": "2024-10-01",
       "biomarker_tests": [
-        {"test": "BRAF Mutation Analysis", "date": "2024-10-05", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2024-10-05", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "LDH Level", "date": "2024-10-01", "method": "Blood Chemistry", "sample_type": "Blood"}
+        {
+          "test": "BRAF Mutation Analysis",
+          "date": "2024-10-05",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-10-05",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "LDH Level",
+          "date": "2024-10-01",
+          "method": "Blood Chemistry",
+          "sample_type": "Blood"
+        }
       ],
-      "genes": ["BRAF", "NRAS", "CTNNB1"],
+      "genes": [
+        "BRAF",
+        "NRAS",
+        "CTNNB1"
+      ],
       "variants": [
-        {"gene": "BRAF", "variant": "V600K", "classification": "Oncogenic", "allele_frequency": 0.44},
-        {"gene": "CTNNB1", "variant": "S37F", "classification": "Oncogenic", "allele_frequency": 0.22}
+        {
+          "gene": "BRAF",
+          "variant": "V600K",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.44
+        },
+        {
+          "gene": "CTNNB1",
+          "variant": "S37F",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.22
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "Keytruda (Pembrolizumab)", "class": "Immunotherapy (PD-1)", "regimen": "Pembrolizumab 200mg q3w", "line_of_therapy": 1, "start_date": "2024-10-20", "end_date": null}
+        {
+          "drug": "Keytruda (Pembrolizumab)",
+          "class": "Immunotherapy (PD-1)",
+          "regimen": "Pembrolizumab 200mg q3w",
+          "line_of_therapy": 1,
+          "start_date": "2024-10-20",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 1,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2025-02-15", "recist": "PR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2025-02-15",
+          "recist": "PR"
+        }
       ],
       "progression_events": [],
-      "clinical_trial_flags": ["Eligible for BRAF V600 + immunotherapy combination trial"],
+      "clinical_trial_flags": [
+        "Eligible for BRAF V600 + immunotherapy combination trial"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.92,
       "reconciliation_status": "AUTO_RECONCILE",
@@ -572,34 +1622,106 @@
       "stage": "IIIB",
       "diagnosis_date": "2024-04-15",
       "biomarker_tests": [
-        {"test": "MSI Testing", "date": "2024-04-20", "method": "PCR", "sample_type": "Tissue"},
-        {"test": "RAS/BRAF Mutation Analysis", "date": "2024-04-20", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "HER2 Testing", "date": "2024-04-22", "method": "IHC", "sample_type": "Tissue"}
+        {
+          "test": "MSI Testing",
+          "date": "2024-04-20",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "RAS/BRAF Mutation Analysis",
+          "date": "2024-04-20",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 Testing",
+          "date": "2024-04-22",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["KRAS", "BRAF", "APC", "TP53", "SMAD4"],
+      "genes": [
+        "KRAS",
+        "BRAF",
+        "APC",
+        "TP53",
+        "SMAD4"
+      ],
       "variants": [
-        {"gene": "KRAS", "variant": "G13D", "classification": "Oncogenic", "allele_frequency": 0.38},
-        {"gene": "APC", "variant": "R1450Ter", "classification": "Oncogenic", "allele_frequency": 0.55},
-        {"gene": "TP53", "variant": "R273C", "classification": "Oncogenic", "allele_frequency": 0.45},
-        {"gene": "SMAD4", "variant": "D351H", "classification": "Oncogenic", "allele_frequency": 0.28}
+        {
+          "gene": "KRAS",
+          "variant": "G13D",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.38
+        },
+        {
+          "gene": "APC",
+          "variant": "R1450Ter",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.55
+        },
+        {
+          "gene": "TP53",
+          "variant": "R273C",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.45
+        },
+        {
+          "gene": "SMAD4",
+          "variant": "D351H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.28
+        }
       ],
       "fusions": [],
       "copy_number_alterations": [
-        {"gene": "HER2", "alteration": "Amplification", "copy_number": 4, "source": "IHC2+, FISH positive"}
+        {
+          "gene": "HER2",
+          "alteration": "Amplification",
+          "copy_number": 4,
+          "source": "IHC2+, FISH positive"
+        }
       ],
       "treatments": [
-        {"drug": "FOLFOX (adjuvant)", "class": "Adjuvant Chemotherapy", "regimen": "FOLFOX q2w x12 cycles", "line_of_therapy": 1, "start_date": "2024-05-10", "end_date": "2024-11-01"},
-        {"drug": "Herceptin (Trastuzumab)", "class": "HER2-directed Therapy", "regimen": "Trastuzumab 8mg/kg loading then 6mg/kg q3w", "line_of_therapy": 2, "start_date": "2025-01-15", "end_date": null}
+        {
+          "drug": "FOLFOX (adjuvant)",
+          "class": "Adjuvant Chemotherapy",
+          "regimen": "FOLFOX q2w x12 cycles",
+          "line_of_therapy": 1,
+          "start_date": "2024-05-10",
+          "end_date": "2024-11-01"
+        },
+        {
+          "drug": "Herceptin (Trastuzumab)",
+          "class": "HER2-directed Therapy",
+          "regimen": "Trastuzumab 8mg/kg loading then 6mg/kg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2025-01-15",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 2,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Complete Resection", "date": "2024-04-20", "recist": null},
-        {"line_of_therapy": 2, "assessment": "No Evidence of Disease", "date": "2025-04-01", "recist": null}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Complete Resection",
+          "date": "2024-04-20",
+          "recist": null
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "No Evidence of Disease",
+          "date": "2025-04-01",
+          "recist": null
+        }
       ],
       "progression_events": [],
-      "clinical_trial_flags": ["Eligible for HER2-directed therapy in colorectal cancer trial"],
+      "clinical_trial_flags": [
+        "Eligible for HER2-directed therapy in colorectal cancer trial"
+      ],
       "review_required_count": 1,
-      "data_quality_score": 0.90,
+      "data_quality_score": 0.9,
       "reconciliation_status": "AUTO_RECONCILE",
       "evidence_coverage": 0.86
     },
@@ -612,72 +1734,515 @@
       "stage": "IV",
       "diagnosis_date": "2025-01-10",
       "biomarker_tests": [
-        {"test": "EGFR Mutation Analysis", "date": "2025-01-15", "method": "NGS", "sample_type": "Tissue"},
-        {"test": "ALK FISH", "date": "2025-01-15", "method": "FISH", "sample_type": "Tissue"},
-        {"test": "ROS1 IHC", "date": "2025-01-17", "method": "IHC", "sample_type": "Tissue"},
-        {"test": "NGS Comprehensive Panel", "date": "2025-01-20", "method": "NGS", "sample_type": "Tissue"}
+        {
+          "test": "EGFR Mutation Analysis",
+          "date": "2025-01-15",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ALK FISH",
+          "date": "2025-01-15",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ROS1 IHC",
+          "date": "2025-01-17",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2025-01-20",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
       ],
-      "genes": ["ROS1", "EGFR", "TP53"],
+      "genes": [
+        "ROS1",
+        "EGFR",
+        "TP53"
+      ],
       "variants": [
-        {"gene": "ROS1", "variant": "CD74-ROS1 Fusion", "classification": "Oncogenic", "allele_frequency": null},
-        {"gene": "TP53", "variant": "G245S", "classification": "Oncogenic", "allele_frequency": 0.32}
+        {
+          "gene": "ROS1",
+          "variant": "CD74-ROS1 Fusion",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        },
+        {
+          "gene": "TP53",
+          "variant": "G245S",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.32
+        }
       ],
       "fusions": [
-        {"fusion": "CD74-ROS1", "type": "Translocation", "functional_class": "Oncogenic"}
+        {
+          "fusion": "CD74-ROS1",
+          "type": "Translocation",
+          "functional_class": "Oncogenic"
+        }
       ],
       "copy_number_alterations": [],
       "treatments": [
-        {"drug": "Rozlytrek (Entrectinib)", "class": "ROS1/NTRK Inhibitor", "regimen": "Entrectinib 600mg daily", "line_of_therapy": 1, "start_date": "2025-02-01", "end_date": null}
+        {
+          "drug": "Rozlytrek (Entrectinib)",
+          "class": "ROS1/NTRK Inhibitor",
+          "regimen": "Entrectinib 600mg daily",
+          "line_of_therapy": 1,
+          "start_date": "2025-02-01",
+          "end_date": null
+        }
       ],
       "line_of_therapy": 1,
       "response": [
-        {"line_of_therapy": 1, "assessment": "Partial Response", "date": "2025-04-01", "recist": "PR"}
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2025-04-01",
+          "recist": "PR"
+        }
       ],
       "progression_events": [],
-      "clinical_trial_flags": ["Eligible for ROS1-directed TKI CNS-penetrant trial"],
+      "clinical_trial_flags": [
+        "Eligible for ROS1-directed TKI CNS-penetrant trial"
+      ],
       "review_required_count": 0,
       "data_quality_score": 0.94,
       "reconciliation_status": "AUTO_RECONCILE",
       "evidence_coverage": 0.91
+    },
+    {
+      "patient_id": "PT-DEMO-016",
+      "sex": "F",
+      "age_group": "55-64",
+      "diagnosis": "Breast Cancer",
+      "histology": "Invasive Ductal Carcinoma",
+      "stage": "IV",
+      "diagnosis_date": "2024-04-01",
+      "biomarker_tests": [
+        {
+          "test": "ER/PR IHC",
+          "date": "2024-04-05",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "HER2 FISH",
+          "date": "2024-04-05",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-04-08",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
+      ],
+      "genes": [
+        "ERBB2",
+        "TP53",
+        "PIK3CA"
+      ],
+      "variants": [
+        {
+          "gene": "ERBB2",
+          "variant": "Amplification (HER2+)",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        },
+        {
+          "gene": "TP53",
+          "variant": "R175H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.35
+        },
+        {
+          "gene": "PIK3CA",
+          "variant": "E542K",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.22
+        }
+      ],
+      "fusions": [],
+      "copy_number_alterations": [
+        {
+          "gene": "ERBB2",
+          "alteration": "Amplification",
+          "copy_number": 9
+        }
+      ],
+      "treatments": [
+        {
+          "drug": "Enhertu (Trastuzumab Deruxtecan)",
+          "class": "HER2-directed ADC",
+          "regimen": "Trastuzumab Deruxtecan 5.4mg/kg q3w",
+          "line_of_therapy": 1,
+          "start_date": "2024-05-01",
+          "end_date": "2024-11-15"
+        },
+        {
+          "drug": "Tucatinib + Capecitabine + Trastuzumab",
+          "class": "HER2-directed + Chemotherapy",
+          "regimen": "Tucatinib 300mg BID + Capecitabine 1000mg/m2 BID + Trastuzumab 6mg/kg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2025-01-01",
+          "end_date": null
+        }
+      ],
+      "line_of_therapy": 2,
+      "response": [
+        {
+          "line_of_therapy": 1,
+          "assessment": "Stable Disease",
+          "date": "2024-08-01",
+          "recist": "SD"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Partial Response",
+          "date": "2025-04-01",
+          "recist": "PR"
+        }
+      ],
+      "progression_events": [
+        {
+          "event": "Progression after 1st line Enhertu",
+          "date": "2024-11-15",
+          "type": "Radiographic",
+          "notes": "New liver metastasis, best response was SD"
+        },
+        {
+          "event": "HER2 amplification confirmed in liquid biopsy",
+          "date": "2025-01-01",
+          "type": "Molecular",
+          "notes": "ctDNA showed persistent ERBB2 amplification"
+        }
+      ],
+      "clinical_trial_flags": [
+        "Eligible for HER2-directed ADC + immunotherapy combination trial"
+      ],
+      "review_required_count": 0,
+      "data_quality_score": 0.91,
+      "reconciliation_status": "AUTO_RECONCILE",
+      "evidence_coverage": 0.86
+    },
+    {
+      "patient_id": "PT-DEMO-017",
+      "sex": "M",
+      "age_group": "45-54",
+      "diagnosis": "Non-Small Cell Lung Cancer",
+      "histology": "Lung Adenocarcinoma",
+      "stage": "IV",
+      "diagnosis_date": "2024-06-01",
+      "biomarker_tests": [
+        {
+          "test": "EGFR Mutation Analysis",
+          "date": "2024-06-05",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ALK FISH",
+          "date": "2024-06-05",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ROS1 IHC",
+          "date": "2024-06-07",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NGS Comprehensive Panel",
+          "date": "2024-06-10",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "NTRK1/2/3 Fusion Testing",
+          "date": "2024-06-12",
+          "method": "NGS",
+          "sample_type": "Tissue"
+        }
+      ],
+      "genes": [
+        "NTRK1",
+        "TP53"
+      ],
+      "variants": [
+        {
+          "gene": "NTRK1",
+          "variant": "LMNA-NTRK1 Fusion",
+          "classification": "Oncogenic",
+          "allele_frequency": null
+        },
+        {
+          "gene": "TP53",
+          "variant": "Y220C",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.28
+        }
+      ],
+      "fusions": [
+        {
+          "fusion": "LMNA-NTRK1",
+          "type": "Translocation",
+          "functional_class": "Oncogenic"
+        }
+      ],
+      "copy_number_alterations": [],
+      "treatments": [
+        {
+          "drug": "Vitrakvi (Larotrectinib)",
+          "class": "TRK Inhibitor",
+          "regimen": "Larotrectinib 100mg BID",
+          "line_of_therapy": 1,
+          "start_date": "2024-07-15",
+          "end_date": null
+        }
+      ],
+      "line_of_therapy": 1,
+      "response": [
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2024-10-01",
+          "recist": "PR"
+        }
+      ],
+      "progression_events": [],
+      "clinical_trial_flags": [
+        "Eligible for NTRK-directed long-term follow-up study"
+      ],
+      "review_required_count": 1,
+      "reconciliation_status": "REVIEW_REQUIRED",
+      "evidence_coverage": 0.82,
+      "data_quality_score": 0.87,
+      "governance_history": {
+        "initial_status": "REVIEW_REQUIRED",
+        "reason": "TRK/NTRK categorical fusion ambiguity requires curator determination of specific NTRK gene",
+        "reviewer_decision": "approved",
+        "reviewer_id": "curator-1",
+        "review_date": "2024-07-10",
+        "reviewer_notes": "LMNA-NTRK1 fusion confirmed by RNA sequencing. Approved for Larotrectinib treatment."
+      }
+    },
+    {
+      "patient_id": "PT-DEMO-018",
+      "sex": "F",
+      "age_group": "65-74",
+      "diagnosis": "Non-Small Cell Lung Cancer",
+      "histology": "Lung Adenocarcinoma",
+      "stage": "IV",
+      "diagnosis_date": "2023-01-15",
+      "biomarker_tests": [
+        {
+          "test": "EGFR Mutation Analysis",
+          "date": "2023-01-20",
+          "method": "PCR",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "PD-L1 IHC",
+          "date": "2023-01-20",
+          "method": "IHC",
+          "sample_type": "Tissue"
+        },
+        {
+          "test": "ALK FISH",
+          "date": "2023-01-22",
+          "method": "FISH",
+          "sample_type": "Tissue"
+        }
+      ],
+      "genes": [
+        "EGFR",
+        "TP53"
+      ],
+      "variants": [
+        {
+          "gene": "EGFR",
+          "variant": "Exon 19 Deletion (E746_A750del)",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.42
+        },
+        {
+          "gene": "TP53",
+          "variant": "R273H",
+          "classification": "Oncogenic",
+          "allele_frequency": 0.38
+        }
+      ],
+      "fusions": [],
+      "copy_number_alterations": [],
+      "treatments": [
+        {
+          "drug": "Tagrisso (Osimertinib)",
+          "class": "EGFR TKI",
+          "regimen": "Osimertinib 80mg daily",
+          "line_of_therapy": 1,
+          "start_date": "2023-02-01",
+          "end_date": "2024-06-15"
+        },
+        {
+          "drug": "Carboplatin + Pemetrexed + Keytruda (Pembrolizumab)",
+          "class": "Chemoimmunotherapy",
+          "regimen": "Carboplatin AUC5 + Pemetrexed 500mg/m2 + Pembrolizumab 200mg q3w",
+          "line_of_therapy": 2,
+          "start_date": "2024-07-01",
+          "end_date": "2025-01-15"
+        }
+      ],
+      "line_of_therapy": 2,
+      "response": [
+        {
+          "line_of_therapy": 1,
+          "assessment": "Partial Response",
+          "date": "2023-05-01",
+          "recist": "PR"
+        },
+        {
+          "line_of_therapy": 2,
+          "assessment": "Progressive Disease",
+          "date": "2025-01-15",
+          "recist": "PD"
+        }
+      ],
+      "progression_events": [
+        {
+          "event": "Progression after 1st line Osimertinib",
+          "date": "2024-06-15",
+          "type": "Radiographic",
+          "notes": "New brain metastasis, EGFR T790M negative by liquid biopsy"
+        },
+        {
+          "event": "Progression after 2nd line chemoimmunotherapy",
+          "date": "2025-01-15",
+          "type": "Radiographic",
+          "notes": "Primary tumor growth, new liver lesions"
+        }
+      ],
+      "clinical_trial_flags": [
+        "Eligible for EGFR exon 20 insertion-directed clinical trial after osimertinib resistance"
+      ],
+      "review_required_count": 0,
+      "data_quality_score": 0.94,
+      "reconciliation_status": "AUTO_RECONCILE",
+      "evidence_coverage": 0.9
     }
   ],
   "summary_statistics": {
-    "total_patients": 15,
+    "total_patients": 18,
     "cancer_type_distribution": {
-      "Non-Small Cell Lung Cancer": 4,
-      "Breast Cancer": 3,
+      "Non-Small Cell Lung Cancer": 6,
+      "Breast Cancer": 4,
       "Colorectal Cancer": 3,
       "Melanoma": 3,
       "Acute Myeloid Leukemia": 2
     },
-    "sex_distribution": {"F": 9, "M": 6},
-    "age_group_distribution": {"25-34": 1, "35-44": 2, "45-54": 2, "55-64": 5, "65-74": 3, "75+": 2},
-    "stage_distribution": {"De Novo": 1, "IIB": 1, "III": 1, "IIIB": 2, "IV": 9, "Relapsed/Refractory": 1},
+    "sex_distribution": {
+      "F": 10,
+      "M": 8
+    },
+    "age_group_distribution": {
+      "65-74": 4,
+      "55-64": 6,
+      "75+": 2,
+      "45-54": 3,
+      "35-44": 2,
+      "25-34": 1
+    },
+    "stage_distribution": {
+      "IV": 11,
+      "IIIB": 3,
+      "De Novo": 1,
+      "IIB": 1,
+      "III": 1,
+      "Relapsed/Refractory": 1
+    },
     "gene_frequency": {
-      "TP53": 8, "EGFR": 3, "BRAF": 3, "BRCA1": 2, "FLT3": 2, "PIK3CA": 2, "APC": 2, "ERBB2": 1, "KRAS": 2,
-      "NRAS": 1, "KIT": 1, "ALK": 1, "ROS1": 1, "NPM1": 1, "ESR1": 1, "IDH2": 1, "KEAP1": 1, "STK11": 1,
-      "KMT2A": 1, "MYC": 1, "CCND1": 1, "CTNNB1": 1, "SMAD4": 1, "CDKN2A": 1, "PTEN": 1, "WT1": 1,
-      "DNMT3A": 1, "MSH2": 1, "MLH1": 1, "NTRK1": 1
+      "TP53": 10,
+      "BRAF": 5,
+      "EGFR": 3,
+      "PIK3CA": 3,
+      "ERBB2": 2,
+      "BRCA1": 2,
+      "KRAS": 2,
+      "APC": 2,
+      "FLT3": 2,
+      "NRAS": 2,
+      "NTRK1": 2,
+      "CDKN2A": 1,
+      "PTEN": 1,
+      "NPM1": 1,
+      "IDH2": 1,
+      "DNMT3A": 1,
+      "KEAP1": 1,
+      "STK11": 1,
+      "MSH2": 1,
+      "MLH1": 1,
+      "MYC": 1,
+      "KIT": 1,
+      "KMT2A (MLL)": 1,
+      "WT1": 1,
+      "ALK": 1,
+      "ESR1": 1,
+      "CCND1": 1,
+      "CTNNB1": 1,
+      "SMAD4": 1,
+      "ROS1": 1
     },
     "drug_frequency": {
-      "Keytruda (Pembrolizumab)": 3, "Opdivo (Nivolumab)": 2, "FOLFOX": 2, "Carboplatin": 2,
-      "Tagrisso (Osimertinib)": 1, "Herceptin (Trastuzumab)": 2, "T-DM1": 1, "Xalkori (Crizotinib)": 1,
-      "Alecensa (Alectinib)": 1, "Rozlytrek (Entrectinib)": 1, "Gleevec (Imatinib)": 1,
-      "Lynparza (Olaparib)": 1, "Tafinlar (Dabrafenib) + Mekinist (Trametinib)": 1,
-      "Lumakras (Sotorasib)": 1, "Ibrance (Palbociclib)": 1, "Faslodex (Fulvestrant)": 1,
-      "Orserdu (Elacestrant)": 1, "Letrozole": 1, "FOLFOXIRI": 1, "FOLFIRI": 1,
-      "Bevacizumab": 2, "Docetaxel": 1, "Pemetrexed": 1, "Nab-Paclitaxel": 1, "Paclitaxel": 1,
-      "Pertuzumab": 1, "Quizartinib": 1, "Sorafenib": 1, "Afinitor (Everolimus)": 1,
-      "Opdivo (Nivolumab) + Yervoy (Ipilimumab)": 1
+      "Keytruda (Pembrolizumab)": 4,
+      "Tagrisso (Osimertinib)": 2,
+      "Tucatinib + Capecitabine + Trastuzumab": 2,
+      "Carboplatin + Pemetrexed": 1,
+      "Clinical Trial: EGFR TKI + Amivantamab": 1,
+      "Herceptin (Trastuzumab) + Pertuzumab + Docetaxel": 1,
+      "T-DM1 (Ado-Trastuzumab Emtansine)": 1,
+      "FOLFOX + Bevacizumab": 1,
+      "FOLFIRI + Aflibercept": 1,
+      "Lumakras (Sotorasib)": 1,
+      "Opdivo (Nivolumab) + Yervoy (Ipilimumab)": 1,
+      "Tafinlar (Dabrafenib) + Mekinist (Trametinib)": 1,
+      "7+3 (Cytarabine + Daunorubicin)": 1,
+      "High-Dose Cytarabine (HiDAC) Consolidation": 1,
+      "Quizartinib (FLT3 Inhibitor)": 1,
+      "Carboplatin + Nab-Paclitaxel + Keytruda (Pembrolizumab)": 1,
+      "Docetaxel + Ramucirumab": 1,
+      "FOLFOXIRI + Bevacizumab": 1,
+      "Paclitaxel + Carboplatin": 1,
+      "Lynparza (Olaparib)": 1,
+      "Opdivo (Nivolumab)": 1,
+      "Gleevec (Imatinib)": 1,
+      "CPX-351 (Liposomal Daunorubicin/Cytarabine)": 1,
+      "Allogeneic Stem Cell Transplant (matched unrelated donor)": 1,
+      "Sorafenib-based therapy": 1,
+      "Xalkori (Crizotinib)": 1,
+      "Alecensa (Alectinib)": 1,
+      "Letrozole + Ibrance (Palbociclib)": 1,
+      "Faslodex (Fulvestrant) + Afinitor (Everolimus)": 1,
+      "Orserdu (Elacestrant)": 1
     },
     "response_distribution": {
-      "Complete Response": 3, "Partial Response": 10, "Stable Disease": 4, "Progressive Disease": 2,
-      "Complete Remission": 3, "Pathologic Complete Response": 1, "Complete Resection": 1,
-      "No Evidence of Disease": 2, "Pending Evaluation": 4
+      "Partial Response": 15,
+      "Stable Disease": 7,
+      "Pending Evaluation": 4,
+      "Complete Response": 3,
+      "Progressive Disease": 3,
+      "Complete Remission (CR)": 4,
+      "Pathologic Complete Response (pCR)": 1,
+      "No Evidence of Disease": 2,
+      "Complete Resection": 1
     },
-    "clinical_trial_eligible_patients": 15,
-    "review_required_cases": 6,
-    "average_data_quality_score": 0.910,
-    "average_evidence_coverage": 0.864
+    "clinical_trial_eligible_patients": 18,
+    "review_required_cases": 7,
+    "average_data_quality_score": 0.91,
+    "average_evidence_coverage": 0.858
   }
 }

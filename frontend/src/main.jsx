@@ -7,6 +7,7 @@ import EvaluationDashboard from "./EvaluationDashboard";
 import EnterprisePatientJourney from "./EnterprisePatientJourney";
 import EnterpriseAnalytics from "./EnterpriseAnalytics";
 import ExecutiveDashboard from "./ExecutiveDashboard";
+import CodingCoverageDashboard from "./CodingCoverageDashboard";
 
 // ── Colours ──────────────────────────────────────────────────────────────────
 const STATUS_COLOR = { AUTO_RECONCILE:"#1a7f37", REVIEW_REQUIRED:"#9a6700", CANNOT_RECONCILE:"#cf222e" };
@@ -1435,6 +1436,7 @@ function Nav() {
               ["Patient Journey","/enterprise/journeys"],
               ["Analytics","/enterprise/analytics"],
               ["Executive Dashboard","/enterprise/executive"],
+              ["Coding Alignment","/enterprise/coding-alignment"],
             ].map(([label,path])=>(
               <NavLink key={path} to={path}
                 onClick={()=>setShowEnterprise(false)}
@@ -1464,6 +1466,7 @@ function App() {
           <Route path="/enterprise/journeys" element={<EnterprisePatientJourney/>}/>
           <Route path="/enterprise/analytics" element={<EnterpriseAnalytics/>}/>
           <Route path="/enterprise/executive" element={<ExecutiveDashboard/>}/>
+          <Route path="/enterprise/coding-alignment" element={<CodingCoverageDashboard/>}/>
         </Routes>
       </div>
     </BrowserRouter>

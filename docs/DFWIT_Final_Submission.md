@@ -140,6 +140,39 @@ The demonstration includes a curated semantic layer that maps oncology concepts 
 
 Mappings include source, confidence, and review status. This is a prototype semantic layer, not a complete terminology service or an assertion of official certification by any standards organization.
 
+
+## Retrieval-Augmented Evidence Workflows
+
+OncoReconcile AI uses retrieval-augmented evidence workflows to support reconciliation decisions and governance. The platform retrieves evidence from multiple sources to inform confidence scoring and review recommendations.
+
+### Local Oncology Catalogs
+
+The primary evidence layer consists of curated local catalogs:
+- **Disease-Gene Catalog:** curated disease-to-gene associations from NCCN guidelines and oncology knowledgebases
+- **Gene-Variant Catalog:** structured variant aliases and synonym mappings
+- **Alias Catalogs:** gene aliases and variant representations normalized from multiple sources
+
+### External Evidence Sources
+
+When local catalogs do not contain sufficient evidence, the platform can query external sources:
+- **ClinVar:** variant interpretations and clinical significance classifications
+- **ClinGen:** allele registry identifiers and dosage sensitivity assertions
+- **CIViC:** evidence-based interpretations of cancer variants
+- **MyGene.info:** gene annotation and alias resolution
+- **MyVariant.info:** variant annotation and clinical relevance
+
+### Governance Integration
+
+Evidence retrieval supports reconciliation decisions but does not independently determine outcomes:
+- Local catalog matches can produce AUTO_RECONCILE results
+- External evidence may identify candidate mappings routed for human review
+- Review decisions incorporate evidence from all available sources
+- Audit trails and provenance tracking capture which sources informed each decision
+
+### Platform Positioning
+
+OncoReconcile AI uses retrieval-augmented evidence workflows — not a fully autonomous RAG platform. Evidence supports governance decisions; human oversight remains the final authority for uncertain cases. The platform does not make autonomous clinical decisions or treatment recommendations.
+
 ## Human Governance Workflow
 
 OncoReconcile AI separates three outcomes:

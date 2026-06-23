@@ -702,6 +702,57 @@ def enterprise_executive_dashboard():
     return compute_executive_dashboard()
 
 
+@app.get("/enterprise/semantic-harmonization")
+def enterprise_semantic_harmonization():
+    """Return the full semantic harmonization data with coding system mappings."""
+    from .enterprise import load_semantic_harmonization
+    return load_semantic_harmonization()
+
+
+@app.get("/enterprise/coding-system-mappings")
+def enterprise_coding_system_mappings():
+    """Return a flat list of all coding system mappings for display in CodingCoverageDashboard."""
+    from .enterprise import load_semantic_harmonization
+    harm = load_semantic_harmonization()
+    all_mappings = []
+    
+    for cat in ["diseases", "histologies", "drugs", "biomarkers", "lab_tests"]:
+        cat_data = harm.get(cat, {})
+        for entity_key, entity_data in cat_data.items():
+            canonical = entity_data.get("canonical_value", entity_key)
+            for m in entity_data.get("mappings", []):
+                all_mappings.append({
+                    "category": cat,
+                    "original": entity_key,
+                    "canonical": canonical,
+                    "coding_system": m.get("coding_system"),
+                    "code": m.get("code"),
+                    "display_name": m.get("display_name"),
+                    "confidence": m.get("confidence", entity_data.get("confidence", 0.85)),
+                })
+    
+    # Add variant aliases
+    for alias_key, alias_data in harm.get("variant_aliases", {}).items():
+        canonical = alias_data.get("canonical_value", alias_key)
+        for m in alias_data.get("mappings", []):
+            all_mappings.append({
+                "category": "variant_aliases",
+                "original": alias_key,
+                "canonical": canonical,
+                "coding_system": m.get("coding_system"),
+                "code": m.get("code"),
+                "display_name": m.get("display_name"),
+                "confidence": m.get("confidence", alias_data.get("confidence", 0.85)),
+            })
+    
+    return {
+        "total_mappings": len(all_mappings),
+        "mappings": all_mappings,
+        "coding_system_descriptions": harm.get("coding_system_descriptions", {}),
+        "variant_canonical_mappings": harm.get("variant_canonical_mappings", []),
+    }
+
+
 @app.get("/enterprise/ai-ready-dataset")
 def enterprise_ai_ready_dataset():
     """Return AI-ready standardized dataset from all patient journeys."""

@@ -1,5 +1,7 @@
 # OncoReconcile AI — Five-Minute Final Demo Script
 
+**Updated:** June 23, 2026
+
 **Team:** Variant Vanguard  
 **Target length:** 5:00  
 **Primary message:** OncoReconcile AI turns fragmented oncology data into governed, interoperable, analytics-ready information without hiding uncertainty.
@@ -81,7 +83,7 @@ The goal is to make data quality visible and manageable—not leave it buried in
 
 ## 3:05–3:35 — Semantic Harmonization and Coding Systems
 
-**On screen:** Terminology section in enterprise analytics or patient detail.
+**On screen:** `/enterprise/coding-alignment` — the Coding System Alignment dashboard.
 
 **Narration:**
 
