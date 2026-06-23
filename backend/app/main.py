@@ -613,3 +613,123 @@ def promote_review_candidate(case_id: str):
     if not review_store.get_item(case_id):
         raise HTTPException(status_code=404, detail=f"Case {case_id} not found in review queue.")
     return review_store.promote_candidate_to_catalog(case_id)
+
+
+# ── Enterprise Patient Journey APIs ──────────────────────────────────────────
+
+
+from .enterprise import (
+    get_patient_journey_list,
+    get_patient_journey_detail,
+    compute_analytics_summary,
+    compute_analytics_biomarkers,
+    compute_analytics_treatments,
+    compute_analytics_outcomes,
+    compute_data_quality,
+    compute_governance_metrics,
+    compute_terminology_metrics,
+    compute_executive_dashboard,
+    build_expanded_fhir_bundle,
+    build_expanded_omop_records,
+    build_expanded_knowledge_graph,
+    build_ai_ready_dataset,
+)
+
+
+@app.get("/enterprise/patient-journey")
+def enterprise_patient_journey_list():
+    """Return a summary list of all enterprise patient journeys."""
+    return {
+        "patients": get_patient_journey_list(),
+        "total": len(get_patient_journey_list()),
+    }
+
+
+@app.get("/enterprise/patient-journey/{patient_id}")
+def enterprise_patient_journey_detail(patient_id: str):
+    """Return the full patient journey with timeline and harmonization for a specific patient."""
+    detail = get_patient_journey_detail(patient_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail=f"Patient {patient_id} not found.")
+    return detail
+
+
+@app.get("/enterprise/analytics/summary")
+def enterprise_analytics_summary():
+    """Return comprehensive cohort analytics summary."""
+    return compute_analytics_summary()
+
+
+@app.get("/enterprise/analytics/biomarkers")
+def enterprise_analytics_biomarkers():
+    """Return biomarker-specific analytics across the cohort."""
+    return compute_analytics_biomarkers()
+
+
+@app.get("/enterprise/analytics/treatments")
+def enterprise_analytics_treatments():
+    """Return treatment-specific analytics across the cohort."""
+    return compute_analytics_treatments()
+
+
+@app.get("/enterprise/analytics/outcomes")
+def enterprise_analytics_outcomes():
+    """Return outcome-related analytics across the cohort."""
+    return compute_analytics_outcomes()
+
+
+@app.get("/enterprise/analytics/data-quality")
+def enterprise_analytics_data_quality():
+    """Return data quality metrics with green/yellow/red indicators."""
+    return compute_data_quality()
+
+
+@app.get("/enterprise/analytics/governance")
+def enterprise_analytics_governance():
+    """Return governance workflow metrics."""
+    return compute_governance_metrics()
+
+
+@app.get("/enterprise/analytics/terminology")
+def enterprise_analytics_terminology():
+    """Return terminology mapping coverage metrics."""
+    return compute_terminology_metrics()
+
+
+@app.get("/enterprise/executive-dashboard")
+def enterprise_executive_dashboard():
+    """Return executive summary view with key performance indicators."""
+    return compute_executive_dashboard()
+
+
+@app.get("/enterprise/ai-ready-dataset")
+def enterprise_ai_ready_dataset():
+    """Return AI-ready standardized dataset from all patient journeys."""
+    return build_ai_ready_dataset()
+
+
+@app.post("/enterprise/export/fhir/{patient_id}")
+def enterprise_export_fhir(patient_id: str):
+    """Export a patient journey as an expanded FHIR R4 Bundle."""
+    detail = get_patient_journey_detail(patient_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail=f"Patient {patient_id} not found.")
+    return build_expanded_fhir_bundle(detail["patient"])
+
+
+@app.post("/enterprise/export/omop/{patient_id}")
+def enterprise_export_omop(patient_id: str):
+    """Export a patient journey as expanded OMOP CDM v5.4 records."""
+    detail = get_patient_journey_detail(patient_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail=f"Patient {patient_id} not found.")
+    return build_expanded_omop_records(detail["patient"])
+
+
+@app.post("/enterprise/export/knowledge-graph/{patient_id}")
+def enterprise_export_knowledge_graph(patient_id: str):
+    """Export a patient journey as an expanded enterprise knowledge graph."""
+    detail = get_patient_journey_detail(patient_id)
+    if not detail:
+        raise HTTPException(status_code=404, detail=f"Patient {patient_id} not found.")
+    return build_expanded_knowledge_graph(detail["patient"])

@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./style.css";
 import { apiFetch } from "./api";
 import EvaluationDashboard from "./EvaluationDashboard";
+import EnterprisePatientJourney from "./EnterprisePatientJourney";
+import EnterpriseAnalytics from "./EnterpriseAnalytics";
+import ExecutiveDashboard from "./ExecutiveDashboard";
 
 // ── Colours ──────────────────────────────────────────────────────────────────
 const STATUS_COLOR = { AUTO_RECONCILE:"#1a7f37", REVIEW_REQUIRED:"#9a6700", CANNOT_RECONCILE:"#cf222e" };
@@ -1400,6 +1403,9 @@ function Nav() {
   const navStyle = { textDecoration:"none", padding:"8px 16px", borderRadius:6, fontSize:13, fontWeight:"bold" };
   const active = { background:"#028090", color:"#fff" };
   const inactive = { background:"#e8f4f6", color:"#028090" };
+  const [showEnterprise, setShowEnterprise] = useState(false);
+  const enterpriseActive = { background:"#7c3aed", color:"#fff" };
+  const enterpriseInactive = { background:"#f0eaff", color:"#7c3aed" };
   return (
     <nav style={{ display:"flex", gap:8, marginBottom:24, paddingBottom:12, borderBottom:"1px solid #e0e0e0", alignItems:"center", flexWrap:"wrap" }}>
       <span style={{ fontWeight:"bold", fontSize:16, color:"#0A1628", marginRight:8 }}>🧬 OncoReconcile AI</span>
@@ -1409,6 +1415,37 @@ function Nav() {
           {label}
         </NavLink>
       ))}
+      <div style={{ position:"relative", display:"inline-block" }}>
+        <button
+          type="button"
+          onClick={()=>setShowEnterprise(!showEnterprise)}
+          style={{ ...navStyle, background:"#7c3aed", color:"#fff", cursor:"pointer", display:"flex", alignItems:"center", gap:4, fontSize:11 }}
+        >
+          🏢 Enterprise
+          <span style={{ fontSize:8 }}>{showEnterprise ? "▲" : "▼"}</span>
+        </button>
+        {showEnterprise && (
+          <div style={{
+            position:"absolute", top:"100%", left:0, marginTop:4,
+            background:"#fff", border:"1px solid #d0d7de", borderRadius:8,
+            boxShadow:"0 8px 24px rgba(0,0,0,0.12)", zIndex:50, minWidth:200,
+            padding:"6px"
+          }}>
+            {[
+              ["Patient Journey","/enterprise/journeys"],
+              ["Analytics","/enterprise/analytics"],
+              ["Executive Dashboard","/enterprise/executive"],
+            ].map(([label,path])=>(
+              <NavLink key={path} to={path}
+                onClick={()=>setShowEnterprise(false)}
+                style={({isActive})=>({ ...navStyle, display:"block", margin:0, ...(isActive?enterpriseActive:enterpriseInactive) })}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
+        )}
+      </div>
     </nav>
   );
 }
@@ -1424,6 +1461,9 @@ function App() {
           <Route path="/review" element={<ReviewQueuePage/>}/>
           <Route path="/benchmark" element={<BenchmarkPage/>}/>
           <Route path="/evaluation" element={<EvaluationDashboard/>}/>
+          <Route path="/enterprise/journeys" element={<EnterprisePatientJourney/>}/>
+          <Route path="/enterprise/analytics" element={<EnterpriseAnalytics/>}/>
+          <Route path="/enterprise/executive" element={<ExecutiveDashboard/>}/>
         </Routes>
       </div>
     </BrowserRouter>
