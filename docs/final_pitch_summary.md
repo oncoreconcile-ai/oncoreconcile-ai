@@ -17,13 +17,17 @@ OncoReconcile AI is an AI-powered data quality, semantic harmonization, governan
 It:
 
 - normalizes disease, gene, and variant terminology;
-- retrieves evidence and calculates transparent confidence;
+- resolves curated protein, coding, and genomic HGVS values when available and provides a best-effort protein-substitution fallback;
+- retrieves structured evidence from ClinVar (via E-utilities) and CIViC (via GraphQL);
+- unifies evidence into a common schema with deduplication and source grouping;
+- reports a separate evidence-weight breakdown without changing reconciliation routing;
 - routes uncertainty to `REVIEW_REQUIRED` or `CANNOT_RECONCILE`;
 - gives curators a governed review queue and audit history;
 - maps concepts across SNOMED CT, NCIt, OncoTree, ICD-10, HGNC, RxNorm, ATC, ClinVar, ClinGen-inspired identifiers, and LOINC;
 - exports FHIR, OMOP, and knowledge-graph prototypes;
 - connects harmonized data to synthetic patient journeys and enterprise analytics;
-- exposes an API-first architecture for integration.
+- exposes an API-first architecture for integration;
+- includes GA4GH VRS placeholder fields and commented extension points for future standards alignment.
 
 ### Why It Is Different
 
@@ -39,16 +43,13 @@ The platform does not hide uncertainty. Optional AI suggestions remain inside hu
 
 | Metric | Current result |
 |---|---:|
-| Backend tests | 127 passed |
+| Backend tests | 149 collected; 11 targeted HGVS/evidence tests passed |
 | Frontend build | Passing |
-| Internal benchmark | 500 cases |
-| Gene accuracy | 96.6% |
-| Variant accuracy | 94.6% |
-| Safety-aware status accuracy | 89.8% |
-| False auto-accept rate | 0% |
-| Negative-control safety | 100% |
+| Current API/test benchmark | 191 curated cases |
+| Expanded benchmark dataset | 500 cases |
+| Full benchmark rerun | Required before submission |
 
-These are engineering benchmark results, not clinical validation.
+These are repository and engineering validation results, not clinical validation. The full benchmark is currently network-dependent because the new federation path invokes live external evidence services.
 
 ### Business Model
 
@@ -73,4 +74,3 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-jou
 Demo video link will be added before final portal submission.
 
 *OncoReconcile AI is a prototype data harmonization and governance platform. It is not clinically validated and does not provide diagnosis, treatment recommendations, clinical decision support, or medical advice. The patient journey demonstration uses synthetic data only.*
-

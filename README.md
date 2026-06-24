@@ -1,132 +1,178 @@
 # OncoReconcile AI
 
-## AI-Powered Precision Oncology Data Quality, Governance, Analytics & Interoperability Platform
+## AI-Powered Precision Oncology Data Quality, Semantic Harmonization, Governance & Interoperability Platform
 
-OncoReconcile AI is an enterprise-grade platform that transforms fragmented oncology and clinical genomics data into trustworthy, explainable, and AI-ready information.
+OncoReconcile AI is an AI-powered precision oncology data quality, semantic harmonization, governance, patient journey analytics, coding-system alignment, interoperability, and AI-ready biomedical data platform.
 
 Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard**.
 
-### Key Capabilities
+## Final Submission Branch
 
-* Disease Reconciliation
-* Gene Reconciliation
-* Variant Reconciliation
-* Human-Governed AI
-* Evidence Retrieval
-* Patient Journey Analytics
-* Precision Oncology Dashboards
-* Evaluation & Benchmarking
-* FHIR Export
-* OMOP Export
-* Knowledge Graph Generation
-* Enterprise Governance Reporting
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
----
+## Key Capabilities
+
+- Disease reconciliation
+- Gene reconciliation
+- Variant reconciliation
+- Semantic harmonization
+- Coding-system alignment
+- Retrieval-augmented evidence workflows
+- Human-governed review
+- Patient journey analytics
+- Executive analytics dashboard
+- Benchmark evaluation
+- FHIR R4 export prototype
+- OMOP CDM export prototype
+- Knowledge graph export
+- API-first architecture
 
 ## Why This Matters
 
 Precision oncology data is fragmented across:
 
-* Electronic Health Records (EHR)
-* Molecular Diagnostics
-* Clinical Trials
-* Research Databases
-* Claims Systems
-* Real-World Evidence Platforms
+- electronic health records;
+- molecular diagnostic laboratories;
+- clinical trials and research databases;
+- claims and real-world-evidence platforms;
+- registries, data warehouses, and external data partners.
 
-The same biological concept often appears under different names:
+The same biological or clinical concept often appears under different names:
 
-| Input   | Canonical                     |
-| ------- | ----------------------------- |
-| HER2    | ERBB2                         |
-| HER1    | EGFR                          |
-| p53     | TP53                          |
-| NSCLC   | Lung Non-Small Cell Carcinoma |
-| Ex19del | EGFR Exon 19 Deletion         |
+| Input | Canonical representation |
+|---|---|
+| `HER2` | `ERBB2` |
+| `HER1` | `EGFR` |
+| `p53` | `TP53` |
+| `NSCLC` | Lung Non-Small Cell Carcinoma |
+| `Ex19del` | EGFR Exon 19 Deletion |
 
-Poorly harmonized data reduces interoperability, increases manual effort, and limits AI effectiveness.
+Poorly harmonized data increases manual effort, fragments cohorts, weakens interoperability, and reduces confidence in downstream analytics and AI.
 
-OncoReconcile AI improves data quality before downstream analytics and AI workflows.
-
----
+OncoReconcile AI provides a governed data-quality layer that preserves uncertainty, exposes evidence, and routes ambiguous cases to human review.
 
 ## Platform Modules
 
-### Clinical Data Harmonization
+### Reconciliation and Semantic Harmonization
 
-* Single Reconciliation
-* Batch Reconciliation
-* Review Queue
-* Reviewer Workspace
+- Single-record reconciliation
+- Batch and CSV reconciliation
+- Disease, gene, and variant normalization
+- Canonical HGVS resolution
+- Semantic and coding-system mappings
+- Transparent confidence scoring
 
 ### Evidence Intelligence
 
-* Evidence Explorer
-* Evidence Packages
-* External Knowledge Sources
+- Curated local evidence packages
+- ClinVar evidence retrieval
+- CIViC variant-record retrieval
+- MyGene.info and MyVariant.info integrations
+- Unified evidence display
+- Source links, provenance, and retrieval-error reporting
+
+### Human Governance
+
+- `AUTO_RECONCILE`
+- `REVIEW_REQUIRED`
+- `CANNOT_RECONCILE`
+- Review queue and reviewer workspace
+- Approve, reject, edit, override, reopen, and adjudicate workflows
+- Decision history, agreement metrics, notes, and audit trails
 
 ### Precision Oncology Analytics
 
-* Patient Journey Analytics
-* Biomarker Analytics
-* Cohort Analytics
-* Disease Analytics
-
-### Enterprise Governance
-
-* Human Review Workflows
-* Reviewer Metrics
-* Governance Dashboard
-* Audit Trails
+- Synthetic longitudinal patient journeys
+- Biomarker and cohort analytics
+- Coding coverage and terminology analytics
+- Data-quality and governance metrics
+- Executive analytics dashboard
 
 ### Interoperability
 
-* FHIR Export
-* OMOP Export
-* Standards Alignment
-
-### Knowledge Graph
-
-* Disease-Gene-Variant Relationships
-* Therapy Relationships
-* Evidence Relationships
-
----
+- FHIR R4 export prototype
+- OMOP CDM v5.4-oriented export prototype
+- JSON-LD knowledge graph export
+- Provenance export
+- API-first integration through FastAPI
 
 ## Validation
 
-| Metric               | Status      |
-| -------------------- | ----------- |
-| Backend Test Suite  | 102 Passing |
-| Frontend Build       | Passing     |
-| Benchmark Framework  | 500 Cases   |
-| Evaluation Dashboard | Operational |
-| Review Queue         | Operational |
-| Evidence Package     | Operational |
-| FHIR Export          | Operational |
-| OMOP Export          | Operational |
+| Metric | Final Submission result |
+|---|---:|
+| Backend Test Suite | 127 Passing |
+| Frontend Build | Passing |
+| Benchmark Framework | 500 Cases |
+| Gene Accuracy | 96.6% |
+| Variant Accuracy | 94.6% |
+| Safety-Aware Status Accuracy | 89.8% |
+| False Auto-Accept Rate | 0% |
 
----
+These are internal engineering benchmark results, not clinical validation.
 
-## Benchmark Highlights
+## Architecture Flow
 
-Current benchmark framework includes:
+```text
+Clinical Data Sources
+        ↓
+Normalization
+        ↓
+Semantic Harmonization
+        ↓
+Evidence Retrieval
+        ↓
+Confidence Scoring
+        ↓
+Human Governance
+        ↓
+Patient Journey Analytics
+        ↓
+Executive Analytics
+        ↓
+FHIR / OMOP / Knowledge Graph Exports
+```
 
-* 500 evaluation cases
-* Alias normalization
-* Ambiguous terminology
-* Negative control testing
-* Human governance validation
+## Evidence and API Architecture
 
-Latest benchmark results:
+The backend exposes FastAPI endpoints for reconciliation, evidence retrieval, human review, analytics, and standards-oriented exports.
 
-* Disease Accuracy: 68.6%
-* Gene Accuracy: 96.6%
-* Variant Accuracy: 94.6%
-* Safety-Aware Status Accuracy: 89.8%
-* False Auto-Accept Rate: 0%
+Key endpoints include:
 
----
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/reconcile` | POST | Reconcile one disease-gene-variant record |
+| `/reconcile/batch` | POST | Reconcile multiple records |
+| `/reconcile/upload` | POST | Reconcile a CSV upload |
+| `/evidence/federated` | POST | Retrieve and unify configured evidence sources |
+| `/hgvs/resolve` | POST | Resolve available protein, coding, and genomic HGVS values |
+| `/review-queue` | GET | View governed review cases |
+| `/benchmark` | GET | View benchmark evaluation metrics |
+| `/export/fhir` | POST | Generate a FHIR R4 Bundle prototype |
+| `/export/omop` | POST | Generate OMOP CDM-oriented records |
+| `/export/knowledge-graph` | POST | Generate a JSON-LD knowledge graph |
+
+The core workflow remains human governed. External evidence supports review and traceability; it does not provide diagnosis or treatment recommendations.
+
+## Standards Alignment
+
+OncoReconcile AI is designed around relevant healthcare interoperability, biomedical terminology, and precision oncology resources:
+
+- HL7 FHIR
+- OMOP Common Data Model
+- SNOMED CT
+- LOINC
+- RxNorm
+- ICD-10-CM
+- HGNC
+- ClinVar
+- ClinGen
+- NCI Thesaurus (NCIt)
+- GA4GH Variant Representation Specification (VRS)
+- CIViC
+- MyGene.info
+- MyVariant.info
+
+Current implementation includes selected prototype mappings and standards-aligned exports. Additional terminology coverage remains future roadmap work. The project does not claim full production vocabulary coverage or formal standards compliance.
 
 ## Screenshots
 
@@ -134,9 +180,9 @@ Latest benchmark results:
 
 ![OncoReconcile AI homepage](docs/screenshots/01-homepage.png)
 
-### Single Record Reconciliation
+### Single-Record Reconciliation
 
-![High-confidence single record reconciliation](docs/screenshots/02-single-record-reconciliation.png)
+![High-confidence single-record reconciliation](docs/screenshots/02-single-record-reconciliation.png)
 
 ### Review-Required Decision
 
@@ -158,151 +204,30 @@ Latest benchmark results:
 
 ![FastAPI OpenAPI documentation](docs/screenshots/07-api-docs.png)
 
----
+Additional final-submission screenshots will be added after manual capture.
 
-## Architecture
+## Final Submission Documentation
 
-### Evidence Retrieval Architecture (Upgraded)
-
-```
-Input (Disease, Gene, Variant)
-        │
-        ▼
-Disease Reconciliation  ──► Disease Aliases + Fuzzy Matching
-        │
-        ▼
-Gene Reconciliation  ──► Gene Aliases + HGNC-inspired lookup
-        │
-        ▼
-Variant Reconciliation  ──► Variant Aliases + Gene-Variant Catalog
-        │
-        ▼
-Canonical HGVS Generation
-  ├── Protein HGVS (p.Cys797Ser)
-  ├── Coding HGVS  (c.2390G>C)
-  ├── Genomic HGVS (chr7:g.55249192G>C)
-  └── GA4GH VRS ready (vrs_id, vrs_ready) [future]
-        │
-        ▼
-Evidence Retrieval Layer
-  ├── ClinVar ──► Clinical significance, review status, variation ID, citations
-  ├── CIViC   ──► Evidence type, level, direction, therapies, disease
-  ├── MyVariant.info ──► Live variant annotation
-  └── Local Catalog ──► Curated alias/harmonization evidence
-        │
-        ▼
-Unified Evidence Model  ──► Common schema across sources
-  {"source": "ClinVar | CIViC | Local Catalog",
-   "variant": "...",
-   "evidence_type": "...",
-   "summary": "...",
-   "confidence": 0.0,
-   "url": "...",
-   "metadata": {}}
-        │
-        ▼
-Evidence Ranking & Weighting
-  ├── ClinVar Pathogenic / Review Status → confidence boost
-  ├── CIViC Evidence Level (A/B/C/D/E) → confidence boost
-  ├── CIViC Predictive Evidence → bonus
-  └── Catalog AUTO_RECONCILE status → bonus
-        │
-        ▼
-Confidence Score  ──► 6 weighted signals + evidence boost
-   breakdown: match_type, source_authority, string_similarity,
-              context_consistency, alias_coverage, variant_catalog
-        │
-        ▼
-Review Queue  ──► Stores canonical HGVS, evidence summary, sources, count, breakdown
-   ▲──────────  curator approve / reject / edit / adjudicate
-        │
-        ▼
-FHIR / OMOP / Knowledge Graph / Provenance Exports
-```
-
-### Target Architecture Flow
-
-```
-Raw Oncology Data
-        │
-        ▼
-Entity Resolution
-        │
-        ▼
-Evidence Retrieval
-        │
-        ▼
-Confidence Scoring
-        │
-        ▼
-Governance Engine
-        │
-        ▼
-Human Review
-        │
-        ▼
-FHIR / OMOP Export
-        │
-        ▼
-Analytics & AI Applications
-```
-
-### New API Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/reconcile` | POST | Main reconciliation with HGVS + federated evidence |
-| `/evidence/federated` | POST | Fetch evidence from all sources for a gene+variant |
-| `/hgvs/resolve` | POST | Resolve canonical HGVS (protein/coding/genomic) |
-| `/evidence/boost` | POST | Compute confidence score boost from evidence items |
-
-### Evidence Sources
-
-**ClinVar** — Queries NCBI ClinVar via E-utilities using canonical HGVS first, falls back to gene+variant text search. Retrieves clinical significance, review status, variation ID, accession, and supporting submissions count.
-
-**CIViC** — Queries CIViC via GraphQL variant search. Retrieves evidence type (Predictive, Prognostic, Diagnostic), evidence level (A–E), evidence direction, therapies, and disease context.
-
-**Local Catalog** — Curated aliases and disease-gene-variant relationships from local CSV catalogs.
-
-**MyVariant.info** — Live variant annotation API as a secondary evidence source.
-
----
-
-## Startup Vision
-
-Our long-term vision is to become the biomedical data quality and interoperability layer for precision oncology.
-
-Future directions include:
-
-* Multi-cancer support
-* Enterprise APIs
-* Biomedical Knowledge Graphs
-* AI-Assisted Curation
-* Clinical Trial Harmonization
-* Precision Oncology Intelligence Platforms
-
----
+- [Final Submission](docs/DFWIT_Final_Submission.md)
+- [PDF-Ready Final Submission](docs/DFWIT_Final_Submission_PDF.md)
+- [Final Demo Script](docs/final_demo_script.md)
+- [One-Page Pitch Summary](docs/final_pitch_summary.md)
+- [Final Submission Checklist](docs/final_submission_checklist.md)
+- [Architecture](docs/architecture.md)
+- [Architecture Diagrams](docs/architecture_diagrams.md)
+- [Commercial Strategy](docs/commercial_strategy.md)
+- [Roadmap](docs/roadmap.md)
 
 ## Repository
 
-Startup Platform Branch
+**Final Submission Branch:**
 
-https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
-
----
-
-## Documentation
-
-* docs/DFWIT_Checkpoint2_Primary_Submission.md
-* docs/startup_platform_overview.md
-* docs/commercial_strategy.md
-* docs/roadmap.md
-* docs/architecture.md
-
----
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 ## Disclaimer
 
-OncoReconcile AI is a biomedical data harmonization and governance platform.
+OncoReconcile AI is a biomedical data harmonization, governance, interoperability, and analytics platform.
 
-It is not a clinical decision support system and does not provide diagnosis, treatment recommendations, or medical advice.
+This is not clinical decision support and does not provide diagnosis, treatment recommendations, or medical advice.
+
+The patient journey demonstration uses synthetic data. FHIR, OMOP, terminology, and knowledge graph capabilities are prototypes that require implementation-specific validation before production use.

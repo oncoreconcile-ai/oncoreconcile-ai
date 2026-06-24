@@ -193,49 +193,16 @@ The following screenshots demonstrate the complete OncoReconcile AI enterprise p
 </p>
 *Benchmark validation metrics, accuracy and coverage gauges, failure analysis, and reviewer agreement.*
 
-## 6. Enterprise Patient Journey
+The repository currently contains seven verified screenshot files. Enterprise patient journey, executive dashboard, coding alignment, FHIR export, and OMOP export views are implemented but still require final screenshot capture before PDF export.
 
-<p align="center">
-  <img src="screenshots/08-patient-journey.png" alt="Enterprise Patient Journey dashboard" width="700" />
-</p>
-*Longitudinal oncology patient journey with diagnosis, biomarkers, treatment timeline, and semantic harmonization.*
-
-## 7. Executive Dashboard
-
-<p align="center">
-  <img src="screenshots/09-executive-dashboard.png" alt="Executive Dashboard" width="700" />
-</p>
-*Executive summary with patients managed, data quality, governance score, AI readiness, and coverage scorecard.*
-
-## 8. Coding System Alignment
-
-<p align="center">
-  <img src="screenshots/10-coding-alignment.png" alt="Coding System Alignment dashboard" width="700" />
-</p>
-*Semantic harmonization mappings across SNOMED CT, NCIt, HGNC, RxNorm, LOINC, ClinVar, ClinGen, and more.*
-
-## 9. FHIR Export
-
-<p align="center">
-  <img src="screenshots/11-fhir-export.png" alt="FHIR R4 Bundle export" width="700" />
-</p>
-*FHIR R4 Bundle with Patient, Condition, Observation, Provenance, and DiagnosticReport resources.*
-
-## 10. OMOP Export
-
-<p align="center">
-  <img src="screenshots/12-omop-export.png" alt="OMOP CDM v5.4 records export" width="700" />
-</p>
-*OMOP CDM v5.4-oriented condition_occurrence, measurement, and observation records.*
-
-## 11. Knowledge Graph Export
+## 6. Knowledge Graph Export
 
 <p align="center">
   <img src="screenshots/06-knowledge-graph-export.png" alt="Knowledge Graph export" width="700" />
 </p>
 *JSON-LD knowledge graph with disease-gene-variant-treatment-evidence relationships.*
 
-## 12. API Documentation
+## 7. API Documentation
 
 <p align="center">
   <img src="screenshots/07-api-docs.png" alt="Interactive API documentation" width="700" />
@@ -243,22 +210,95 @@ The following screenshots demonstrate the complete OncoReconcile AI enterprise p
 *FastAPI interactive OpenAPI documentation exposing reconciliation, review, analytics, and export endpoints.*
 
 
+# Evidence Retrieval Architecture
+
+The current prototype adds curated HGVS resolution, structured ClinVar retrieval, CIViC variant-record search, a unified evidence model, and a separately reported evidence-weight calculation.
+
+## Architecture
+
+```text
+Input (Disease, Gene, Variant)
+        │
+        ▼
+Disease Reconciliation
+        │
+        ▼
+Gene Reconciliation
+        │
+        ▼
+Variant Reconciliation
+        │
+        ▼
+Canonical HGVS Generation  [IMPLEMENTED]
+  ├── Protein HGVS (p.Cys797Ser)
+  ├── Coding HGVS  (c.2390G>C)
+  ├── Genomic HGVS (chr7:g.55249192G>C)
+  └── VRS future fields (vrs_id, vrs_ready — design stubs)
+        │
+        ▼
+Evidence Retrieval Layer  [IMPLEMENTED]
+  ├── ClinVar        (NCBI E-utilities, HGVS-first)
+  ├── CIViC          (GraphQL variant search)
+  ├── Local Catalog  (curated alias evidence)
+  └── MyVariant.info (live variant annotation)
+        │
+        ▼
+Unified Evidence Model  [IMPLEMENTED]
+  Deduplication, ranking, source-grouped display
+        │
+        ▼
+Evidence Summary & Weighting  [IMPLEMENTED]
+  ClinVar metadata and source configuration → separate breakdown
+        │
+        ▼
+Existing Confidence Score + Separate Evidence Breakdown
+```
+
+## Canonical HGVS
+
+The resolver returns protein, coding, and genomic HGVS fields when present in a curated map of 30 entries across 10 genes. A best-effort pattern fallback handles simple protein substitutions but is not a full HGVS validator. Each result includes `vrs_id` and `vrs_ready` fields as GA4GH VRS placeholders.
+
+## ClinVar Integration
+
+The `evidence_clinvar` service queries NCBI ClinVar via E-utilities using HGVS-first strategy with rate-limiting (3 req/s). Retrieves clinical significance, review status, variation ID, accession, and submission count. Confidence is mapped from review status (practice guideline → 0.95, expert panel → 0.90, etc.).
+
+## CIViC Integration
+
+The `evidence_civic` service queries CIViC via GraphQL variant search and returns variant name, CIViC variant ID, and a direct record URL. Evidence statements, levels, therapies, diseases, and citations are not yet retrieved by the active path.
+
+## Unified Evidence Model
+
+Evidence sources share a common schema with deduplication and source grouping for frontend display. A capped evidence-weight value and breakdown are returned separately; they do not currently change the core confidence score or reconciliation routing.
+
+## New API Endpoints
+
+| Endpoint | Description |
+|---|---|
+| `POST /evidence/federated` | Fetch all-source evidence for a gene+variant |
+| `POST /hgvs/resolve` | Resolve canonical HGVS |
+| `POST /evidence/boost` | Compute confidence score boost |
+
+## Future Architecture (Design Only)
+
+Interface stubs exist for: GA4GH VRS (`vrs_id`, `vrs_ready`), ClinGen Allele Registry, OncoKB, gnomAD, GA4GH Beacon, GA4GH Phenopackets. No implementation has been started.
+
+## Testing
+
+The evidence upgrade has 22 test cases in the reconciliation test module. On June 24, 2026, pytest collected 149 backend tests and 11 targeted HGVS/evidence tests passed.
+
 # Validation
 
-Validated on June 22, 2026:
+Reviewed on June 24, 2026:
 
 | Metric | Result |
 |---|---:|
-| Backend tests | 127 passed |
+| Backend tests | 149 collected; 11 targeted HGVS/evidence tests passed |
 | Frontend production build | Passing |
-| Benchmark | 500 cases |
-| Gene accuracy | 96.6% |
-| Variant accuracy | 94.6% |
-| Safety-aware status accuracy | 89.8% |
-| False auto-accept rate | 0% |
-| Negative-control safety rate | 100% |
+| Current API/test benchmark | 191 curated cases |
+| Expanded benchmark dataset | 500 cases |
+| Full benchmark rerun | Required before submission |
 
-The benchmark is an internal engineering evaluation, not a clinical validation study.
+The benchmark assets are internal engineering evaluation materials, not clinical validation studies. The full rerun is currently network-dependent because reconciliation invokes live ClinVar/CIViC federation.
 
 ![Benchmark and safety evaluation dashboard](screenshots/05-evaluation-dashboard.png)
 

@@ -110,11 +110,14 @@ cd backend
 PYTHONPATH=. pytest -q
 ```
 
-Expected validated result on June 22, 2026:
+Current repository state reviewed on June 24, 2026:
 
 ```text
-127 passed
+149 tests collected
+11 targeted HGVS/evidence tests passed
 ```
+
+Do not mark the full suite as passing until `PYTHONPATH=. pytest -q` completes. The new federation path currently performs live, rate-limited ClinVar/CIViC calls during reconciliation, including benchmark-oriented paths.
 
 Run the frontend build:
 
@@ -129,18 +132,18 @@ Expected result:
 ✓ built
 ```
 
-Confirm the benchmark size:
+Verify the current benchmark assets:
 
 ```bash
-wc -l data/benchmark_v2.csv
+wc -l data/benchmark_cases.csv data/benchmark_v2.csv
 ```
 
-Expected result: 501 lines including the header, representing 500 benchmark cases.
+Expected result: 192 lines for the current 191-case API/test benchmark and 501 lines for the expanded 500-case dataset.
 
 Check placeholders and prohibited overclaims:
 
 ```bash
-rg -n "TO BE ADDED|ADD PUBLIC|clinical validation|treatment recommendation|medical advice" docs/DFWIT_Final_Submission.md docs/DFWIT_Final_Submission_PDF.md docs/final_demo_script.md docs/final_pitch_summary.md
+rg -n "TO BE ADDED|ADD PUBLIC|production-ready|149 passed|127 passed|50\\+ variants|clinical validation|treatment recommendation|medical advice" README.md docs/DFWIT_Final_Submission.md docs/DFWIT_Final_Submission_PDF.md docs/final_demo_script.md docs/final_pitch_summary.md
 ```
 
 ## Suggested Final Upload Package
