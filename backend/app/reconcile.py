@@ -4,7 +4,7 @@ import re
 import requests
 from difflib import SequenceMatcher
 from pathlib import Path
-from .models import ReconcileRequest, ReconcileResponse, CanonicalConcept, EvidenceItem
+from .models import ReconcileRequest, ReconcileResponse, CanonicalConcept, CanonicalHGVS, EvidenceItem, UnifiedEvidenceItem, FederationResult, EvidenceBoost
 
 try:
     from rapidfuzz import fuzz, process as rfprocess
@@ -1303,6 +1303,79 @@ def reconcile_record(
         "standards_status": "standards-inspired prototype",
     }
 
+    # ── Canonical HGVS & Federated Evidence ────────────────────────────────
+    from .canonical_hgvs import get_canonical_hgvs
+    from .evidence_unified import fetch_federated_evidence
+
+    audit_trail.append("Canonical HGVS resolution attempted")
+    hgvs_result = get_canonical_hgvs(canonical_gene, canonical_variant)
+
+    audit_trail.append("Federated evidence retrieval attempted")
+    # Gather evidence dicts for local normalization
+    local_evidence_dicts = [e.model_dump() for e in evidence]
+    federation = fetch_federated_evidence(
+        gene=canonical_gene or req.gene,
+        variant=canonical_variant or req.variant,
+        canonical_gene=canonical_gene,
+        canonical_variant=canonical_variant,
+        local_evidence=local_evidence_dicts,
+    )
+    audit_trail.append(f"Federated evidence: {federation['evidence_count']} items from {len(federation['by_source'])} sources")
+
+    # Create canonical HGVS model instance
+    canonical_hgvs_obj = CanonicalHGVS(
+        canonical_variant=hgvs_result.get("canonical_variant"),
+        protein_hgvs=hgvs_result.get("protein_hgvs"),
+        coding_hgvs=hgvs_result.get("coding_hgvs"),
+        genomic_hgvs=hgvs_result.get("genomic_hgvs"),
+        vrs_id=hgvs_result.get("vrs_id"),
+        vrs_ready=hgvs_result.get("vrs_ready", False),
+    )
+
+    # Build unified evidence items list
+    unified_items = []
+    for ev in federation.get("unified_evidence", []):
+        unified_items.append(UnifiedEvidenceItem(**ev))
+
+    # Build evidence boost for score breakdown enhancement
+    evidence_boost_data = federation.get("evidence_boost", {})
+    evidence_score_breakdown = {
+        "evidence_boost": evidence_boost_data.get("evidence_boost", 0.0),
+        "evidence_breakdown": evidence_boost_data.get("breakdown", {}),
+        "evidence_details": evidence_boost_data.get("details", []),
+    }
+
+    # Enhance notes with evidence info
+    if federation.get("evidence_count", 0) > 0:
+        notes.append(
+            f"Unified evidence: {federation['evidence_count']} items "
+            f"({', '.join(f'{k}: {len(v)}' for k, v in federation.get('by_source', {}).items() if v)})"
+        )
+    if federation.get("errors"):
+        for err in federation["errors"]:
+            notes.append(f"Evidence source error: {err}")
+            audit_trail.append(f"Evidence source error: {err}")
+
+    if canonical_hgvs_obj.protein_hgvs:
+        notes.append(f"Canonical protein HGVS: {canonical_hgvs_obj.protein_hgvs}")
+        audit_trail.append(f"Canonical protein HGVS resolved: {canonical_hgvs_obj.protein_hgvs}")
+
+    # Create federation result
+    federation_result = FederationResult(
+        unified_evidence=unified_items,
+        by_source=federation.get("by_source", {}),
+        hgvs=canonical_hgvs_obj,
+        evidence_count=federation.get("evidence_count", 0),
+        evidence_boost=EvidenceBoost(
+            evidence_boost=evidence_boost_data.get("evidence_boost", 0.0),
+            breakdown=evidence_boost_data.get("breakdown", {}),
+            details=evidence_boost_data.get("details", []),
+        ),
+        errors=federation.get("errors", []),
+    )
+
+    audit_trail.append("Reconciliation complete")
+
     return ReconcileResponse(
         case_id=req.case_id,
         input=req.model_dump(),
@@ -1311,11 +1384,15 @@ def reconcile_record(
             gene=canonical_gene,
             variant=canonical_variant,
         ),
+        canonical_hgvs=canonical_hgvs_obj,
         evidence=evidence,
+        unified_evidence=unified_items,
+        federation=federation_result,
         explanation=explanation,
         confidence=confidence,
         confidence_score=confidence_score,
         score_breakdown=score_breakdown,
+        evidence_score_breakdown=evidence_score_breakdown,
         review_status=review_status,
         alternatives=alternatives,
         notes=notes,

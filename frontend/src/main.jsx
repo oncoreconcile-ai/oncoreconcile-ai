@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./style.css";
 import { apiFetch } from "./api";
 import EvaluationDashboard from "./EvaluationDashboard";
+import EvidenceTab from "./EvidenceTab";
 import EnterprisePatientJourney from "./EnterprisePatientJourney";
 import EnterpriseAnalytics from "./EnterpriseAnalytics";
 import ExecutiveDashboard from "./ExecutiveDashboard";
@@ -357,6 +358,12 @@ function ResultCard({ result }) {
           )}
         </section>
       )}
+
+      {/* Unified Evidence Tab */}
+      <div className="unified-evidence-section">
+        <h4>Federated Evidence (ClinVar + CIViC + Local)</h4>
+        <EvidenceTab result={result} />
+      </div>
 
       <button onClick={()=>setExpanded(!expanded)} className="evidence-toggle">
         {expanded ? "Hide detailed evidence" : "Explore evidence sources & audit trail"}

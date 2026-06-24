@@ -1,6 +1,8 @@
 <div align="center">
 
-![OncoReconcile AI logo](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/images/oncoreconcile_logo.png)
+<p align="center">
+  <img src="images/oncoreconcile_logo.png" alt="OncoReconcile AI / Variant Vanguard logo" width="520" />
+</p>
 
 # OncoReconcile AI
 
@@ -14,7 +16,7 @@
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 **Demo video:**  
-[FINAL DEMO VIDEO LINK — TO BE ADDED]
+Demo video link will be added before final portal submission.
 
 **Submission date:** July 11, 2026
 
@@ -73,7 +75,7 @@ The product combines:
 - FHIR R4, OMOP CDM v5.4, and knowledge-graph export prototypes;
 - interactive APIs and benchmark evaluation.
 
-![Platform homepage](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/01-homepage.png)
+![Platform homepage](screenshots/01-homepage.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -89,7 +91,7 @@ A user submits a disease, gene, and variant record. The platform:
 6. presents evidence, alternatives, notes, and an audit trail;
 7. exports the governed result through standards-oriented formats.
 
-![High-confidence reconciliation with evidence](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/02-single-record-reconciliation.png)
+![High-confidence reconciliation with evidence](screenshots/02-single-record-reconciliation.png)
 
 # Human-Governed AI
 
@@ -103,9 +105,9 @@ The platform does not force an answer when evidence is incomplete.
 
 Optional LLM assistance is model-agnostic and restricted to review suggestions. It cannot silently promote an uncertain case to automatic acceptance.
 
-![Ambiguous case routed to human review](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/03-review-required.png)
+![Ambiguous case routed to human review](screenshots/03-review-required.png)
 
-![Review queue and curator workflow](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/04-review-queue.png)
+![Review queue and curator workflow](screenshots/04-review-queue.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -143,11 +145,103 @@ The platform demonstrates:
 - **knowledge graph export:** disease-gene-variant-treatment-evidence relationships;
 - **API-first integration:** FastAPI endpoints and interactive OpenAPI documentation.
 
-![Knowledge graph export](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/06-knowledge-graph-export.png)
+![Knowledge graph export](screenshots/06-knowledge-graph-export.png)
 
-![Interactive API documentation](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/07-api-docs.png)
+![Interactive API documentation](screenshots/07-api-docs.png)
 
 <div style="page-break-after: always;"></div>
+
+
+<div style="page-break-before: always;"></div>
+
+# Final Demo Screenshots
+
+The following screenshots demonstrate the complete OncoReconcile AI enterprise platform workflow.
+
+## 1. Homepage
+
+<p align="center">
+  <img src="screenshots/01-homepage.png" alt="Platform homepage with reconciliation entry" width="700" />
+</p>
+*Homepage showing the Single Record Reconciliation interface, featured demo, and manual input form.*
+
+## 2. Single Record Reconciliation
+
+<p align="center">
+  <img src="screenshots/02-single-record-reconciliation.png" alt="High-confidence reconciliation with evidence" width="700" />
+</p>
+*Evidence-supported reconciliation result showing canonical values, confidence score, evidence sources, and audit trail.*
+
+## 3. Review Required Case
+
+<p align="center">
+  <img src="screenshots/03-review-required.png" alt="Ambiguous case routed to human review" width="700" />
+</p>
+*Cat-VRS-style ambiguity (TRK fusion) preserved for accountable human review.*
+
+## 4. Review Queue
+
+<p align="center">
+  <img src="screenshots/04-review-queue.png" alt="Review queue and curator workflow" width="700" />
+</p>
+*Governed review queue with decision controls, alternatives, evidence, and audit history.*
+
+## 5. Evaluation Dashboard
+
+<p align="center">
+  <img src="screenshots/05-evaluation-dashboard.png" alt="Benchmark and safety evaluation dashboard" width="700" />
+</p>
+*Benchmark validation metrics, accuracy and coverage gauges, failure analysis, and reviewer agreement.*
+
+## 6. Enterprise Patient Journey
+
+<p align="center">
+  <img src="screenshots/08-patient-journey.png" alt="Enterprise Patient Journey dashboard" width="700" />
+</p>
+*Longitudinal oncology patient journey with diagnosis, biomarkers, treatment timeline, and semantic harmonization.*
+
+## 7. Executive Dashboard
+
+<p align="center">
+  <img src="screenshots/09-executive-dashboard.png" alt="Executive Dashboard" width="700" />
+</p>
+*Executive summary with patients managed, data quality, governance score, AI readiness, and coverage scorecard.*
+
+## 8. Coding System Alignment
+
+<p align="center">
+  <img src="screenshots/10-coding-alignment.png" alt="Coding System Alignment dashboard" width="700" />
+</p>
+*Semantic harmonization mappings across SNOMED CT, NCIt, HGNC, RxNorm, LOINC, ClinVar, ClinGen, and more.*
+
+## 9. FHIR Export
+
+<p align="center">
+  <img src="screenshots/11-fhir-export.png" alt="FHIR R4 Bundle export" width="700" />
+</p>
+*FHIR R4 Bundle with Patient, Condition, Observation, Provenance, and DiagnosticReport resources.*
+
+## 10. OMOP Export
+
+<p align="center">
+  <img src="screenshots/12-omop-export.png" alt="OMOP CDM v5.4 records export" width="700" />
+</p>
+*OMOP CDM v5.4-oriented condition_occurrence, measurement, and observation records.*
+
+## 11. Knowledge Graph Export
+
+<p align="center">
+  <img src="screenshots/06-knowledge-graph-export.png" alt="Knowledge Graph export" width="700" />
+</p>
+*JSON-LD knowledge graph with disease-gene-variant-treatment-evidence relationships.*
+
+## 12. API Documentation
+
+<p align="center">
+  <img src="screenshots/07-api-docs.png" alt="Interactive API documentation" width="700" />
+</p>
+*FastAPI interactive OpenAPI documentation exposing reconciliation, review, analytics, and export endpoints.*
+
 
 # Validation
 
@@ -166,7 +260,7 @@ Validated on June 22, 2026:
 
 The benchmark is an internal engineering evaluation, not a clinical validation study.
 
-![Benchmark and safety evaluation dashboard](https://raw.githubusercontent.com/oncoreconcile-ai/oncoreconcile-ai/enterprise-patient-journey-demo/docs/screenshots/05-evaluation-dashboard.png)
+![Benchmark and safety evaluation dashboard](screenshots/05-evaluation-dashboard.png)
 
 # Business Value
 

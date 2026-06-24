@@ -5,7 +5,7 @@
 **Team:** Variant Vanguard  
 **Submission branch:** `enterprise-patient-journey-demo`  
 **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo  
-**Demo video:** [FINAL DEMO VIDEO LINK — TO BE ADDED]
+**Demo video:** Demo video link will be added before final portal submission.
 
 ## Executive Summary
 

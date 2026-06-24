@@ -162,35 +162,109 @@ Latest benchmark results:
 
 ## Architecture
 
+### Evidence Retrieval Architecture (Upgraded)
+
+```
+Input (Disease, Gene, Variant)
+        │
+        ▼
+Disease Reconciliation  ──► Disease Aliases + Fuzzy Matching
+        │
+        ▼
+Gene Reconciliation  ──► Gene Aliases + HGNC-inspired lookup
+        │
+        ▼
+Variant Reconciliation  ──► Variant Aliases + Gene-Variant Catalog
+        │
+        ▼
+Canonical HGVS Generation
+  ├── Protein HGVS (p.Cys797Ser)
+  ├── Coding HGVS  (c.2390G>C)
+  ├── Genomic HGVS (chr7:g.55249192G>C)
+  └── GA4GH VRS ready (vrs_id, vrs_ready) [future]
+        │
+        ▼
+Evidence Retrieval Layer
+  ├── ClinVar ──► Clinical significance, review status, variation ID, citations
+  ├── CIViC   ──► Evidence type, level, direction, therapies, disease
+  ├── MyVariant.info ──► Live variant annotation
+  └── Local Catalog ──► Curated alias/harmonization evidence
+        │
+        ▼
+Unified Evidence Model  ──► Common schema across sources
+  {"source": "ClinVar | CIViC | Local Catalog",
+   "variant": "...",
+   "evidence_type": "...",
+   "summary": "...",
+   "confidence": 0.0,
+   "url": "...",
+   "metadata": {}}
+        │
+        ▼
+Evidence Ranking & Weighting
+  ├── ClinVar Pathogenic / Review Status → confidence boost
+  ├── CIViC Evidence Level (A/B/C/D/E) → confidence boost
+  ├── CIViC Predictive Evidence → bonus
+  └── Catalog AUTO_RECONCILE status → bonus
+        │
+        ▼
+Confidence Score  ──► 6 weighted signals + evidence boost
+   breakdown: match_type, source_authority, string_similarity,
+              context_consistency, alias_coverage, variant_catalog
+        │
+        ▼
+Review Queue  ──► Stores canonical HGVS, evidence summary, sources, count, breakdown
+   ▲──────────  curator approve / reject / edit / adjudicate
+        │
+        ▼
+FHIR / OMOP / Knowledge Graph / Provenance Exports
+```
+
+### Target Architecture Flow
+
+```
 Raw Oncology Data
-
-↓
-
+        │
+        ▼
 Entity Resolution
-
-↓
-
+        │
+        ▼
 Evidence Retrieval
-
-↓
-
+        │
+        ▼
 Confidence Scoring
-
-↓
-
+        │
+        ▼
 Governance Engine
-
-↓
-
+        │
+        ▼
 Human Review
-
-↓
-
+        │
+        ▼
 FHIR / OMOP Export
-
-↓
-
+        │
+        ▼
 Analytics & AI Applications
+```
+
+### New API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/reconcile` | POST | Main reconciliation with HGVS + federated evidence |
+| `/evidence/federated` | POST | Fetch evidence from all sources for a gene+variant |
+| `/hgvs/resolve` | POST | Resolve canonical HGVS (protein/coding/genomic) |
+| `/evidence/boost` | POST | Compute confidence score boost from evidence items |
+
+### Evidence Sources
+
+**ClinVar** — Queries NCBI ClinVar via E-utilities using canonical HGVS first, falls back to gene+variant text search. Retrieves clinical significance, review status, variation ID, accession, and supporting submissions count.
+
+**CIViC** — Queries CIViC via GraphQL variant search. Retrieves evidence type (Predictive, Prognostic, Diagnostic), evidence level (A–E), evidence direction, therapies, and disease context.
+
+**Local Catalog** — Curated aliases and disease-gene-variant relationships from local CSV catalogs.
+
+**MyVariant.info** — Live variant annotation API as a secondary evidence source.
 
 ---
 

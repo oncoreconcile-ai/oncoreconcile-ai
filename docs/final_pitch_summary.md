@@ -70,7 +70,7 @@ We are seeking pilot partners, oncology data collaborators, and advisors who can
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 **Demo video:**  
-[FINAL DEMO VIDEO LINK — TO BE ADDED]
+Demo video link will be added before final portal submission.
 
 *OncoReconcile AI is a prototype data harmonization and governance platform. It is not clinically validated and does not provide diagnosis, treatment recommendations, clinical decision support, or medical advice. The patient journey demonstration uses synthetic data only.*
 

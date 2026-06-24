@@ -20,6 +20,8 @@ from .standards_export import (
 )
 from .fhir_export import build_fhir_bundle, build_fhir_bundle_batch
 from .omop_export import build_omop_records, build_omop_records_batch
+from .canonical_hgvs import get_canonical_hgvs
+from .evidence_unified import fetch_federated_evidence, compute_evidence_boost, group_by_source
 from . import review_store
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -613,6 +615,94 @@ def promote_review_candidate(case_id: str):
     if not review_store.get_item(case_id):
         raise HTTPException(status_code=404, detail=f"Case {case_id} not found in review queue.")
     return review_store.promote_candidate_to_catalog(case_id)
+
+
+# ── Evidence & HGVS APIs ──────────────────────────────────────────────────
+
+
+@app.post("/evidence/federated")
+def get_federated_evidence(payload: dict):
+    """
+    Fetch federated evidence for a gene + variant from all configured sources
+    (ClinVar, CIViC, Local Catalog, MyVariant.info).
+
+    Accepts raw input or a reconciliation result. When provided with canonical
+    gene/variant, also resolves canonical HGVS.
+
+    Request formats:
+      {"gene": "EGFR", "variant": "C797S"}
+      {"gene": "EGFR", "variant": "C797S", "cancer_type": "NSCLC"}
+      (full reconciliation result)
+    """
+    # Extract gene/variant from payload
+    if "input" in payload and isinstance(payload.get("input"), dict):
+        gene = payload["input"].get("gene", "")
+        variant = payload["input"].get("variant", "")
+        canonical_gene = payload.get("canonical", {}).get("gene")
+        canonical_variant = payload.get("canonical", {}).get("variant")
+    else:
+        gene = payload.get("gene", "")
+        variant = payload.get("variant", "")
+        canonical_gene = payload.get("canonical_gene") or gene
+        canonical_variant = payload.get("canonical_variant") or variant
+
+    # Resolve via reconcile if needed
+    if not gene or not variant:
+        raise HTTPException(status_code=422, detail="gene and variant are required.")
+
+    result = fetch_federated_evidence(
+        gene=gene,
+        variant=variant,
+        canonical_gene=canonical_gene or gene,
+        canonical_variant=canonical_variant or variant,
+        local_evidence=payload.get("evidence"),
+    )
+    return result
+
+
+@app.post("/hgvs/resolve")
+def resolve_hgvs(payload: dict):
+    """
+    Resolve canonical HGVS (protein, coding, genomic) for a gene + variant.
+
+    Request:
+      {"gene": "EGFR", "variant": "C797S"}
+
+    Returns:
+      {"canonical_variant": "...", "protein_hgvs": "...", ...}
+    """
+    gene = payload.get("gene") or payload.get("canonical_gene")
+    variant = payload.get("variant") or payload.get("canonical_variant")
+
+    # Fallback to reconciliation result fields
+    if not gene or not variant:
+        canonical = payload.get("canonical", {})
+        gene = gene or canonical.get("gene")
+        variant = variant or canonical.get("variant")
+
+    if not gene or not variant:
+        raise HTTPException(status_code=422, detail="gene and variant are required.")
+
+    result = get_canonical_hgvs(gene, variant)
+    return result
+
+
+@app.post("/evidence/boost")
+def compute_evidence_boost_endpoint(payload: dict):
+    """
+    Compute confidence score boost from evidence items.
+
+    Accepts a list of unified evidence items (with source, confidence, metadata fields).
+    Returns boost breakdown per source.
+
+    Request:
+      {"unified_evidence": [...]}
+    """
+    evidence = payload.get("unified_evidence", [])
+    if not evidence:
+        return {"evidence_boost": 0.0, "breakdown": {}, "details": ["No evidence provided."]}
+    result = compute_evidence_boost(evidence)
+    return result
 
 
 # ── Enterprise Patient Journey APIs ──────────────────────────────────────────

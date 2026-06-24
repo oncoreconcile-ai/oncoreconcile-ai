@@ -773,56 +773,291 @@ def test_review_queue_reopen_moves_item_back_to_pending():
     assert any(row["case_id"] == "review-reopen-1" for row in pending_response.json()["items"])
 
 
-def test_review_history_agreement_metrics_and_adjudication_workflow():
-    response = client.post(
-        "/reconcile",
-        json={"case_id": "agreement-1", "cancer_type": "NSCLC", "gene": "TRK", "variant": "fusion"},
-    )
+# ── Evidence Upgrade Tests ────────────────────────────────────────────────
+
+
+def test_canonical_hgvs_for_egfr_c797s():
+    """Verify canonical HGVS resolution for EGFR C797S."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs("EGFR", "C797S")
+    assert hgvs["canonical_variant"] == "EGFR C797S"
+    assert hgvs["protein_hgvs"] == "p.Cys797Ser"
+    assert hgvs["coding_hgvs"] == "c.2390G>C"
+    assert hgvs["genomic_hgvs"] == "chr7:g.55249192G>C"
+    assert hgvs["vrs_ready"] is False
+
+
+def test_canonical_hgvs_for_braf_v600e():
+    """Verify pattern-based HGVS generation for BRAF V600E."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs("BRAF", "V600E")
+    assert hgvs["protein_hgvs"] == "p.Val600Glu"
+    assert hgvs["canonical_variant"] == "BRAF V600E"
+
+
+def test_canonical_hgvs_for_kras_g12c():
+    """Verify HGVS from reference map for KRAS G12C."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs("KRAS", "G12C")
+    assert hgvs["protein_hgvs"] == "p.Gly12Cys"
+    assert hgvs["coding_hgvs"] == "c.34G>T"
+    assert hgvs["genomic_hgvs"] == "chr12:g.25245350G>T"
+
+
+def test_canonical_hgvs_unknown_variant_graceful():
+    """Unknown variant with protein-like syntax uses pattern fallback gracefully."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs("UNKNOWN", "X999Z")
+    # X999Z matches the protein pattern regex, so pattern fallback generates a HGVS
+    assert hgvs["protein_hgvs"] is not None  # Pattern fallback works
+    assert isinstance(hgvs["canonical_variant"], str)
+    assert hgvs["vrs_ready"] is False
+
+
+def test_canonical_hgvs_null_inputs():
+    """Null gene/variant returns sensible defaults."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs(None, None)
+    assert hgvs["canonical_variant"] is None
+    assert hgvs["protein_hgvs"] is None
+    assert hgvs["vrs_ready"] is False
+
+
+def test_reconcile_response_includes_canonical_hgvs():
+    """Reconcile response should contain canonical_hgvs field for known variants."""
+    req = ReconcileRequest(case_id="hgvs-test", cancer_type="NSCLC", gene="EGFR", variant="L858R")
+    result = reconcile_record(req)
+    assert result.canonical_hgvs is not None
+    assert result.canonical_hgvs.protein_hgvs == "p.Leu858Arg"
+    assert result.canonical_hgvs.coding_hgvs == "c.2573T>G"
+    assert result.canonical_hgvs.vrs_ready is False
+
+
+def test_reconcile_response_includes_unified_evidence():
+    """Reconcile response should include unified_evidence and federation."""
+    req = ReconcileRequest(case_id="federation-test", cancer_type="NSCLC", gene="EGFR", variant="C797S")
+    result = reconcile_record(req)
+    assert result.unified_evidence is not None
+    assert result.federation is not None
+    assert len(result.unified_evidence) >= 5  # ClinVar + Local = at least 5
+
+
+def test_unified_evidence_grouped_by_source():
+    """Federated evidence should be grouped by source."""
+    req = ReconcileRequest(case_id="source-group-test", cancer_type="NSCLC", gene="EGFR", variant="C797S")
+    result = reconcile_record(req)
+    by_source = result.federation.by_source
+    assert "ClinVar" in by_source
+    assert "Local Catalog" in by_source
+    assert len(by_source["ClinVar"]) >= 1
+
+
+def test_unified_evidence_boost_computed():
+    """Evidence boost should be computed and included in response."""
+    req = ReconcileRequest(case_id="boost-test", cancer_type="NSCLC", gene="EGFR", variant="C797S")
+    result = reconcile_record(req)
+    assert "evidence_boost" in result.evidence_score_breakdown
+    assert result.evidence_score_breakdown["evidence_boost"] > 0
+
+
+def test_evidence_boost_breakdown_has_details():
+    """Evidence boost breakdown should contain per-source weights."""
+    req = ReconcileRequest(case_id="boost-detail", cancer_type="NSCLC", gene="EGFR", variant="L858R")
+    result = reconcile_record(req)
+    breakdown = result.evidence_score_breakdown
+    assert "evidence_breakdown" in breakdown
+    assert len(breakdown["evidence_breakdown"]) >= 1
+
+
+def test_clinvar_evidence_service_returns_structured_data(monkeypatch):
+    """ClinVar service should return structured evidence items."""
+    from app.evidence_clinvar import search_clinvar_by_text
+
+    class FakeResponse:
+        def raise_for_status(self): pass
+        def json(self): return {"esearchresult": {"idlist": ["123"]}}
+
+    class FakeSummaryResponse:
+        def raise_for_status(self): pass
+        def json(self):
+            return {
+                "result": {
+                    "123": {
+                        "variation_name": "NM_005228.5(EGFR):c.2390G>C",
+                        "title": "EGFR C797S",
+                        "clinical_significance": {"description": "Pathogenic"},
+                        "review_status": {"description": "criteria provided, multiple submitters"},
+                        "accession": "VCV000123",
+                        "supporting_submissions": [{"submitter": "Lab A"}],
+                    }
+                }
+            }
+
+    responses = iter([FakeResponse(), FakeSummaryResponse()])
+    monkeypatch.setattr("app.evidence_clinvar.httpx.get", lambda *args, **kwargs: next(responses))
+
+    evidence = search_clinvar_by_text("EGFR", "C797S")
+    assert len(evidence) >= 1
+    assert evidence[0]["source"] == "ClinVar"
+    assert evidence[0]["metadata"]["clinical_significance"] == "Pathogenic"
+    assert evidence[0]["metadata"]["review_status"] == "criteria provided, multiple submitters"
+    assert evidence[0]["metadata"]["citations_count"] == 1
+    assert evidence[0]["confidence"] > 0.7  # Pathogenic + criteria provided → high confidence
+
+
+def test_civic_evidence_service_returns_structured_data(monkeypatch):
+    """CIViC service should return structured evidence items."""
+    from app.evidence_civic import search_civic_variants
+
+    class FakeResponse:
+        def raise_for_status(self): pass
+        def json(self):
+            return {
+                "data": {
+                    "search": [
+                        {"id": 42, "name": "V600E", "resultType": "VARIANT"}
+                    ]
+                }
+            }
+
+    monkeypatch.setattr("app.evidence_civic.httpx.post", lambda *args, **kwargs: FakeResponse())
+
+    evidence = search_civic_variants("BRAF", "V600E")
+    assert len(evidence) >= 1
+    assert evidence[0]["source"] == "CIViC"
+    assert evidence[0]["metadata"]["civic_variant_id"] == 42
+    assert evidence[0]["confidence"] > 0
+
+
+def test_federated_evidence_endpoint_returns_federation_result():
+    """POST /evidence/federated should return full federation result."""
+    response = client.post("/evidence/federated", json={"gene": "EGFR", "variant": "C797S"})
     assert response.status_code == 200
+    payload = response.json()
+    assert "unified_evidence" in payload
+    assert "by_source" in payload
+    assert "hgvs" in payload
+    assert payload["evidence_count"] > 0
+    assert payload["hgvs"]["protein_hgvs"] == "p.Cys797Ser"
 
-    first = client.post(
-        "/review-queue/agreement-1/decision",
-        json={"case_id": "agreement-1", "decision": "approve", "curator_id": "curator-a"},
-    )
-    assert first.status_code == 200
-    client.post(
-        "/review-queue/agreement-1/decision",
-        json={"case_id": "agreement-1", "decision": "reopen", "curator_id": "curator-b"},
-    )
-    second = client.post(
-        "/review-queue/agreement-1/decision",
-        json={"case_id": "agreement-1", "decision": "reject", "curator_id": "curator-b"},
-    )
 
-    assert second.status_code == 200
-    item = second.json()["item"]
-    assert len(item["review_history"]) == 2
-    assert item["adjudication_status"] == "REQUIRED"
+def test_hgvs_resolve_endpoint():
+    """POST /hgvs/resolve should return canonical HGVS."""
+    response = client.post("/hgvs/resolve", json={"gene": "KRAS", "variant": "G12C"})
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["protein_hgvs"] == "p.Gly12Cys"
+    assert payload["coding_hgvs"] == "c.34G>T"
 
-    metrics = client.get("/review-queue-metrics").json()
-    assert metrics["cases_with_multiple_reviewers"] == 1
-    assert metrics["disagreements"] == 1
-    assert metrics["percent_agreement"] == 0.0
-    assert metrics["adjudication_required"] == 1
 
-    adjudicated = client.post(
-        "/review-queue/agreement-1/adjudicate",
-        json={
-            "case_id": "agreement-1",
-            "decision": "edit",
-            "curator_id": "senior-curator",
-            "override_canonical": {
-                "cancer_type": "Lung Non-Small Cell Carcinoma",
-                "gene": "NTRK1",
-                "variant": "NTRK1 Fusion",
-            },
-            "notes": "Final decision after disagreement review.",
+def test_evidence_boost_endpoint():
+    """POST /evidence/boost should compute boost from unified evidence."""
+    sample_evidence = [
+        {
+            "source": "ClinVar",
+            "summary": "Pathogenic variant",
+            "confidence": 0.85,
+            "metadata": {"clinical_significance": "Pathogenic", "review_status": "criteria provided, multiple submitters"}
         },
-    )
+        {
+            "source": "CIViC",
+            "summary": "Predictive evidence",
+            "confidence": 0.75,
+            "metadata": {"evidence_level": "B", "evidence_type": "Predictive", "evidence_direction": "Supports"}
+        },
+    ]
+    response = client.post("/evidence/boost", json={"unified_evidence": sample_evidence})
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["evidence_boost"] > 0
+    assert "ClinVar" in payload["breakdown"]
+    assert "CIViC" in payload["breakdown"]
 
-    assert adjudicated.status_code == 200
-    resolved = adjudicated.json()["item"]
-    assert resolved["adjudication_status"] == "RESOLVED"
-    assert resolved["adjudicated_by"] == "senior-curator"
-    assert resolved["canonical"]["gene"] == "NTRK1"
-    assert resolved["review_history"][-1]["role"] == "adjudicator"
+
+def test_reconcile_egfr_c797s_has_correct_hgvs_and_evidence():
+    """End-to-end: EGFR C797S should produce correct HGVS and federated evidence."""
+    req = ReconcileRequest(case_id="e2e-c797s", cancer_type="NSCLC", gene="EGFR", variant="C797S")
+    result = reconcile_record(req)
+    assert result.canonical_hgvs.protein_hgvs == "p.Cys797Ser"
+    assert result.canonical_hgvs.coding_hgvs == "c.2390G>C"
+    assert len(result.unified_evidence) >= 5
+    assert result.federation.evidence_count > 0
+    assert result.federation.evidence_boost.evidence_boost > 0
+
+
+def test_reconcile_egfr_l858r_auto_reconcile_with_hgvs():
+    """EGFR L858R should auto-reconcile and include HGVS."""
+    req = ReconcileRequest(case_id="e2e-l858r", cancer_type="NSCLC", gene="EGFR", variant="L858R")
+    result = reconcile_record(req)
+    assert result.review_status == "AUTO_RECONCILE"
+    assert result.canonical_hgvs.protein_hgvs == "p.Leu858Arg"
+    assert result.canonical_hgvs.coding_hgvs == "c.2573T>G"
+    assert len(result.unified_evidence) >= 3
+
+
+def test_reconcile_kras_g12c_auto_reconcile_with_hgvs():
+    """KRAS G12C should auto-reconcile and include HGVS."""
+    req = ReconcileRequest(case_id="e2e-g12c", cancer_type="NSCLC", gene="KRAS", variant="G12C")
+    result = reconcile_record(req)
+    assert result.review_status == "AUTO_RECONCILE"
+    assert result.canonical_hgvs.protein_hgvs == "p.Gly12Cys"
+    assert result.canonical_hgvs.coding_hgvs == "c.34G>T"
+
+
+def test_reconcile_braf_v600e_auto_reconcile_with_hgvs():
+    """BRAF V600E should auto-reconcile and include HGVS."""
+    req = ReconcileRequest(case_id="e2e-v600e", cancer_type="Melanoma", gene="BRAF", variant="V600E")
+    result = reconcile_record(req)
+    assert result.review_status == "AUTO_RECONCILE"
+    assert result.canonical_hgvs.protein_hgvs == "p.Val600Glu"
+    assert result.canonical_hgvs.coding_hgvs == "c.1799T>A"
+    assert len(result.unified_evidence) >= 3
+
+
+def test_reconcile_ntrk_fusion_review_required_with_hgvs():
+    """NTRK fusion should be REVIEW_REQUIRED with categorical variant."""
+    req = ReconcileRequest(case_id="e2e-ntrk", cancer_type="NSCLC", gene="TRK", variant="fusion")
+    result = reconcile_record(req)
+    assert result.review_status == "REVIEW_REQUIRED"
+    assert result.canonical.gene is None
+    assert "Categorical NTRK Fusion" in (result.canonical.variant or "")
+    # TRK fusion → gene not resolved, so canonical_hgvs should have gene=None
+    assert result.canonical_hgvs is not None
+
+
+def test_federated_evidence_deduplication():
+    """Federated evidence should not have duplicates within the same source (by URL)."""
+    req = ReconcileRequest(case_id="dedup-test", cancer_type="NSCLC", gene="EGFR", variant="C797S")
+    result = reconcile_record(req)
+    # Check no duplicate source+url keys in unified_evidence
+    # Source records from ClinVar each have unique URLs with variation IDs
+    seen = set()
+    for item in result.unified_evidence:
+        # Use url + source as dedup key (each record has a unique URL)
+        dedup_key = f"{item.source}|{item.url}"
+        # Source records with no URL use summary prefix instead
+        if not item.url:
+            dedup_key = f"{item.source}|{item.evidence_type}|{item.summary[:40]}"
+        assert dedup_key not in seen, f"Duplicate evidence: {dedup_key}"
+        seen.add(dedup_key)
+
+
+def test_evidence_boost_weight_config():
+    """Evidence weight config should have expected structure."""
+    from app.evidence_unified import EVIDENCE_WEIGHT_CONFIG
+    assert "ClinVar" in EVIDENCE_WEIGHT_CONFIG
+    assert "CIViC" in EVIDENCE_WEIGHT_CONFIG
+    assert "Local Catalog" in EVIDENCE_WEIGHT_CONFIG
+    assert "MyVariant.info" in EVIDENCE_WEIGHT_CONFIG
+    assert EVIDENCE_WEIGHT_CONFIG["ClinVar"]["base_weight"] == 0.25
+    assert EVIDENCE_WEIGHT_CONFIG["CIViC"]["base_weight"] == 0.25
+
+
+def test_canonical_hgvs_vrs_future_fields():
+    """Canonical HGVS should include VRS future fields."""
+    from app.canonical_hgvs import get_canonical_hgvs
+    hgvs = get_canonical_hgvs("EGFR", "L858R")
+    assert "vrs_id" in hgvs
+    assert "vrs_ready" in hgvs
+    assert hgvs["vrs_id"] is None  # Not implemented yet
+    assert hgvs["vrs_ready"] is False

@@ -73,7 +73,7 @@
 - [ ] State that validation is engineering validation, not clinical validation.
 - [ ] End with customers, business model, and value proposition.
 - [ ] Upload to a judge-accessible location and test the link without team credentials.
-- [ ] Replace all `[FINAL DEMO VIDEO LINK — TO BE ADDED]` placeholders.
+- [ ] Replace all `Demo video link will be added before final portal submission.` placeholders.
 
 ## Screenshots
 

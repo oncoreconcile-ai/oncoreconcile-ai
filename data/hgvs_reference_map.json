@@ -1,0 +1,262 @@
+{
+  "EGFR": {
+    "EGFR Exon 19 Deletion": {
+      "canonical_variant": "EGFR Exon 19 Deletion",
+      "protein_hgvs": "p.Glu746_Ala750del",
+      "coding_hgvs": "c.2236_2250del15",
+      "genomic_hgvs": "chr7:g.55242464_55242478del",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "EGFR L858R": {
+      "canonical_variant": "EGFR L858R",
+      "protein_hgvs": "p.Leu858Arg",
+      "coding_hgvs": "c.2573T>G",
+      "genomic_hgvs": "chr7:g.55259515T>G",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "EGFR T790M": {
+      "canonical_variant": "EGFR T790M",
+      "protein_hgvs": "p.Thr790Met",
+      "coding_hgvs": "c.2369C>T",
+      "genomic_hgvs": "chr7:g.55249071C>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "L858R": {
+      "canonical_variant": "EGFR L858R",
+      "protein_hgvs": "p.Leu858Arg",
+      "coding_hgvs": "c.2573T>G",
+      "genomic_hgvs": "chr7:g.55259515T>G",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "T790M": {
+      "canonical_variant": "EGFR T790M",
+      "protein_hgvs": "p.Thr790Met",
+      "coding_hgvs": "c.2369C>T",
+      "genomic_hgvs": "chr7:g.55249071C>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "C797S": {
+      "canonical_variant": "EGFR C797S",
+      "protein_hgvs": "p.Cys797Ser",
+      "coding_hgvs": "c.2390G>C",
+      "genomic_hgvs": "chr7:g.55249192G>C",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "EGFR C797S": {
+      "canonical_variant": "EGFR C797S",
+      "protein_hgvs": "p.Cys797Ser",
+      "coding_hgvs": "c.2390G>C",
+      "genomic_hgvs": "chr7:g.55249192G>C",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "EGFR Exon 20 Insertion": {
+      "canonical_variant": "EGFR Exon 20 Insertion",
+      "protein_hgvs": null,
+      "coding_hgvs": null,
+      "genomic_hgvs": null,
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "Ex19del": {
+      "canonical_variant": "EGFR Exon 19 Deletion",
+      "protein_hgvs": "p.Glu746_Ala750del",
+      "coding_hgvs": "c.2236_2250del15",
+      "genomic_hgvs": "chr7:g.55242464_55242478del",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "KRAS": {
+    "KRAS G12C": {
+      "canonical_variant": "KRAS G12C",
+      "protein_hgvs": "p.Gly12Cys",
+      "coding_hgvs": "c.34G>T",
+      "genomic_hgvs": "chr12:g.25245350G>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "KRAS G12D": {
+      "canonical_variant": "KRAS G12D",
+      "protein_hgvs": "p.Gly12Asp",
+      "coding_hgvs": "c.35G>A",
+      "genomic_hgvs": "chr12:g.25245351G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "KRAS G12V": {
+      "canonical_variant": "KRAS G12V",
+      "protein_hgvs": "p.Gly12Val",
+      "coding_hgvs": "c.35G>T",
+      "genomic_hgvs": "chr12:g.25245351G>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "G12C": {
+      "canonical_variant": "KRAS G12C",
+      "protein_hgvs": "p.Gly12Cys",
+      "coding_hgvs": "c.34G>T",
+      "genomic_hgvs": "chr12:g.25245350G>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "G12D": {
+      "canonical_variant": "KRAS G12D",
+      "protein_hgvs": "p.Gly12Asp",
+      "coding_hgvs": "c.35G>A",
+      "genomic_hgvs": "chr12:g.25245351G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "G12V": {
+      "canonical_variant": "KRAS G12V",
+      "protein_hgvs": "p.Gly12Val",
+      "coding_hgvs": "c.35G>T",
+      "genomic_hgvs": "chr12:g.25245351G>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "BRAF": {
+    "BRAF V600E": {
+      "canonical_variant": "BRAF V600E",
+      "protein_hgvs": "p.Val600Glu",
+      "coding_hgvs": "c.1799T>A",
+      "genomic_hgvs": "chr7:g.140753336T>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "BRAF V600K": {
+      "canonical_variant": "BRAF V600K",
+      "protein_hgvs": "p.Val600Lys",
+      "coding_hgvs": "c.1798G>A",
+      "genomic_hgvs": "chr7:g.140753335G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "V600E": {
+      "canonical_variant": "BRAF V600E",
+      "protein_hgvs": "p.Val600Glu",
+      "coding_hgvs": "c.1799T>A",
+      "genomic_hgvs": "chr7:g.140753336T>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "V600K": {
+      "canonical_variant": "BRAF V600K",
+      "protein_hgvs": "p.Val600Lys",
+      "coding_hgvs": "c.1798G>A",
+      "genomic_hgvs": "chr7:g.140753335G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "PIK3CA": {
+    "PIK3CA E545K": {
+      "canonical_variant": "PIK3CA E545K",
+      "protein_hgvs": "p.Glu545Lys",
+      "coding_hgvs": "c.1633G>A",
+      "genomic_hgvs": "chr3:g.179218303G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "PIK3CA H1047R": {
+      "canonical_variant": "PIK3CA H1047R",
+      "protein_hgvs": "p.His1047Arg",
+      "coding_hgvs": "c.3140A>G",
+      "genomic_hgvs": "chr3:g.179234297A>G",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "E545K": {
+      "canonical_variant": "PIK3CA E545K",
+      "protein_hgvs": "p.Glu545Lys",
+      "coding_hgvs": "c.1633G>A",
+      "genomic_hgvs": "chr3:g.179218303G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "H1047R": {
+      "canonical_variant": "PIK3CA H1047R",
+      "protein_hgvs": "p.His1047Arg",
+      "coding_hgvs": "c.3140A>G",
+      "genomic_hgvs": "chr3:g.179234297A>G",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "TP53": {
+    "TP53 R175H": {
+      "canonical_variant": "TP53 R175H",
+      "protein_hgvs": "p.Arg175His",
+      "coding_hgvs": "c.524G>A",
+      "genomic_hgvs": "chr17:g.7675088G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    },
+    "R175H": {
+      "canonical_variant": "TP53 R175H",
+      "protein_hgvs": "p.Arg175His",
+      "coding_hgvs": "c.524G>A",
+      "genomic_hgvs": "chr17:g.7675088G>A",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "ERBB2": {
+    "ERBB2 Amplification": {
+      "canonical_variant": "ERBB2 Amplification",
+      "protein_hgvs": null,
+      "coding_hgvs": null,
+      "genomic_hgvs": "chr17:g.37844000_37872000amp",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "ALK": {
+    "ALK Fusion": {
+      "canonical_variant": "ALK Fusion",
+      "protein_hgvs": null,
+      "coding_hgvs": null,
+      "genomic_hgvs": "chr2:g.29446394_29914288inv",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "MET": {
+    "MET Exon 14 Skipping": {
+      "canonical_variant": "MET Exon 14 Skipping",
+      "protein_hgvs": null,
+      "coding_hgvs": "c.3028+1G>T",
+      "genomic_hgvs": "chr7:g.116411933G>T",
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "BRCA1": {
+    "BRCA1 Mutation": {
+      "canonical_variant": "BRCA1 Mutation",
+      "protein_hgvs": null,
+      "coding_hgvs": null,
+      "genomic_hgvs": null,
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  },
+  "BRCA2": {
+    "BRCA2 Mutation": {
+      "canonical_variant": "BRCA2 Mutation",
+      "protein_hgvs": null,
+      "coding_hgvs": null,
+      "genomic_hgvs": null,
+      "vrs_id": null,
+      "vrs_ready": false
+    }
+  }
+}
