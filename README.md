@@ -217,6 +217,18 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
 ---
 
+## Local Frontend Configuration
+
+If the frontend cannot reach the backend, create `frontend/.env.local` with:
+
+```bash
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+Then restart the frontend dev server and open the local URL printed by Vite, typically `http://localhost:5173`.
+
+---
+
 ## Documentation
 
 * docs/DFWIT_Checkpoint2_Primary_Submission.md
