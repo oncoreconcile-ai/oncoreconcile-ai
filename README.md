@@ -217,7 +217,77 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
 ---
 
-## Local Frontend Configuration
+## Local Setup
+
+Recommended environment:
+
+* Python 3.10-3.12
+* Node.js 18+
+* npm
+
+### Start the Backend
+
+From the repository root:
+
+```bash
+cd backend
+```
+
+If this is your first time running the project, create a Python virtual environment:
+
+```bash
+python3.10 -m venv .venv
+source .venv/bin/activate
+```
+
+If the virtual environment already exists, activate it:
+
+```bash
+source .venv/bin/activate
+```
+
+Install or refresh backend dependencies:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Start the FastAPI backend:
+
+```bash
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+The backend API will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+Interactive API documentation is available at:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### Start the Frontend
+
+Open a second terminal from the repository root:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite, typically:
+
+```text
+http://localhost:5173
+```
+
+### Local Frontend Configuration
 
 If the frontend cannot reach the backend, create `frontend/.env.local` with:
 
@@ -225,7 +295,7 @@ If the frontend cannot reach the backend, create `frontend/.env.local` with:
 VITE_API_BASE_URL=http://127.0.0.1:8000
 ```
 
-Then restart the frontend dev server and open the local URL printed by Vite, typically `http://localhost:5173`.
+Then restart the frontend dev server.
 
 ---
 
