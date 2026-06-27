@@ -1,6 +1,21 @@
-<div align="center">
+---
+header-includes:
+  - \usepackage{xcolor}
+  - \usepackage{graphicx}
+  - \usepackage{fancyhdr}
+  - \setlength{\headheight}{90pt}
+  - \setlength{\headsep}{14pt}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \fancyhead[C]{\includegraphics[width=3.6in,height=1.15in,keepaspectratio]{images/oncoreconcile_logo.png}}
+  - \fancyfoot[L]{\textcolor{blue}{\textbf{OncoReconcile AI}}}
+  - \fancyfoot[R]{\textcolor{blue}{\textbf{page \thepage}}}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \renewcommand{\footrulewidth}{0.4pt}
+  - \AtBeginDocument{\pagestyle{fancy}}
+---
 
-<img src="images/oncoreconcile_logo.png" alt="Variant Vanguard logo" width="620" />
+<div align="center">
 
 # OncoReconcile AI
 
@@ -10,27 +25,13 @@
 
 ### Checkpoint 2 Primary Submission
 
-**Team:** Variant Vanguard<br>
-**Submission Branch:** `startup-platform`<br>
-**Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform<br>
-**Demo Video:** https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view<br>
+**Team:** Variant Vanguard
+
 **Submission Date:** June 27, 2026
 
+**Demo Video:** https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view
+
 </div>
-
-<div style="page-break-after: always;"></div>
-
-## Team Information
-
-| Field | Information |
-|---|---|
-| Team Name | Variant Vanguard |
-| Project | OncoReconcile AI |
-| Competition | DFWIT AI & Startup Competition 2026 |
-| Checkpoint | Checkpoint 2 |
-| Submission Branch | `startup-platform` |
-
-Demo video: https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view.
 
 ---
 
@@ -168,7 +169,7 @@ AUTO_RECONCILE REVIEW_REQUIRED CANNOT_RECONCILE
 
 <div align="center">
 
-<img src="screenshots/02-single-record-reconciliation.png" alt="Figure 1. Single Record Reconciliation" width="700" />
+![](screenshots/02-single-record-reconciliation.png){width=5.8in}
 
 **Figure 1. Single Record Reconciliation**
 
@@ -372,7 +373,7 @@ The governing principle is:
 
 <div align="center">
 
-<img src="screenshots/04-review-queue.png" alt="Figure 2. Human Review Queue" width="700" />
+![](screenshots/04-review-queue.png){width=5.8in}
 
 **Figure 2. Human Review Queue**
 
@@ -423,7 +424,7 @@ The submission dashboard evidence below summarizes the current `benchmark_v2.csv
 
 <div align="center">
 
-<img src="screenshots/05-evaluation-dashboard.png" alt="Figure 3. Evaluation Dashboard" width="700" />
+![](screenshots/05-evaluation-dashboard.png){width=5.8in}
 
 **Figure 3. Evaluation Dashboard**
 
