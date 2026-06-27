@@ -54,14 +54,12 @@ The result is trustworthy, explainable, and reusable oncology data suitable for 
 
 # Official Judging Alignment
 
-This Checkpoint 2 submission is organized around the DFWIT judging dimensions:
+This submission is organized to align with the DFWIT judging dimensions:
 
-| Judging Dimension | How OncoReconcile AI Addresses It |
-| ----------------- | ---------------------------------- |
-| Innovation, Business Value & Social Impact | Applies AI-assisted reconciliation to precision-oncology data quality, a high-friction healthcare data problem that affects analytics, research, interoperability, and trustworthy AI readiness. |
-| Tech Solution, Quality & User Experience | Provides a working FastAPI + React application with guided single-record demos, CSV batch reconciliation, human review, benchmark dashboards, evidence display, and standards-inspired export prototypes. |
-| Business Development | Positions the product as a biomedical data quality layer for cancer centers, molecular labs, healthcare data platforms, AI teams, and pharma analytics groups, with future services, SaaS, and API paths. |
-| Presentation | Uses a judge-friendly GUI flow: reconcile a record, show evidence and governance, process a CSV batch, review ambiguous cases, and explain benchmark results from the dashboard. |
+* **Innovation, Business Value & Social Impact:** Applies AI-assisted reconciliation to precision-oncology data quality, a high-friction healthcare data problem that affects analytics, research, interoperability, and trustworthy AI readiness.
+* **Tech Solution, Quality & User Experience:** Provides a working FastAPI + React application with guided single-record demos, CSV batch reconciliation, human review, benchmark dashboards, evidence display, and standards-inspired export prototypes.
+* **Business Development:** Positions the product as a biomedical data quality layer for cancer centers, molecular labs, healthcare data platforms, AI teams, and pharma analytics groups, with future services, SaaS, and API paths.
+* **Presentation:** Uses a judge-friendly GUI flow: reconcile a record, show evidence and governance, process a CSV batch, review ambiguous cases, and explain benchmark results from the dashboard.
 
 ---
 
