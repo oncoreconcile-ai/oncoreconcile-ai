@@ -3,6 +3,11 @@ header-includes:
   - \usepackage{xcolor}
   - \usepackage{graphicx}
   - \usepackage{fancyhdr}
+  - \usepackage{needspace}
+  - \usepackage{etoolbox}
+  - \pretocmd{\section}{\Needspace{8\baselineskip}}{}{}
+  - \pretocmd{\subsection}{\Needspace{7\baselineskip}}{}{}
+  - \pretocmd{\subsubsection}{\Needspace{5\baselineskip}}{}{}
   - \setlength{\headheight}{90pt}
   - \setlength{\headsep}{14pt}
   - \pagestyle{fancy}
@@ -14,6 +19,10 @@ header-includes:
   - \renewcommand{\footrulewidth}{0.4pt}
   - \AtBeginDocument{\pagestyle{fancy}}
 ---
+
+```{=latex}
+\vspace*{\fill}
+```
 
 <div align="center">
 
@@ -33,7 +42,14 @@ header-includes:
 
 </div>
 
----
+```{=latex}
+\vspace*{\fill}
+\newpage
+```
+
+```{=openxml}
+<w:p><w:r><w:br w:type="page"/></w:r></w:p>
+```
 
 ## Executive Summary
 
