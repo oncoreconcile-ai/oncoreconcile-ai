@@ -4,19 +4,25 @@
 
 ### Team Variant Vanguard
 
-**Team Members**
-
-- Justin (Lead)
-- [NAME]
-- [NAME]
-
 **Repository:** [Checkpoint 2 competition branch](https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform)
 
-**Demo:** [INSERT DEMO URL]
+**Primary submission:** [DFWIT_Checkpoint2_Primary_Submission.md](DFWIT_Checkpoint2_Primary_Submission.md)
+
+**Demo Video:** [Google Drive demo video](https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view)
+
+## Team Information
+
+| Field | Information |
+|---|---|
+| Team Name | Variant Vanguard |
+| Project | OncoReconcile AI |
+| Competition | DFWIT AI & Startup Competition 2026 |
+| Checkpoint | Checkpoint 2 |
+| Submission Branch | `startup-platform` |
 
 ## Verification Summary
 
-Verified June 20, 2026:
+Verified June 27, 2026:
 
 | Verification | Result |
 |---|---|
@@ -35,7 +41,7 @@ python -m pytest -q
 ```
 
 ```bash
-python -c "import csv; print(sum(1 for _ in csv.DictReader(open('data/benchmark_cases.csv'))))"
+python -c "import csv; print(sum(1 for _ in csv.DictReader(open('data/benchmark_v2.csv'))))"
 ```
 
 ```bash
@@ -44,6 +50,25 @@ npm run build
 ```
 
 The benchmark and test suite are internal technical validation, not independent clinical validation.
+
+## Official Rubric Alignment
+
+| DFWIT Judging Dimension | Evidence in This Package |
+|---|---|
+| Innovation, Business Value & Social Impact | Human-governed AI for precision-oncology data harmonization, with safety-first handling of ambiguity and safe failures. |
+| Tech Solution, Quality & User Experience | Working backend, frontend GUI, reconciliation workflow, review queue, benchmark/evaluation dashboards, evidence display, and export prototypes. |
+| Business Development | Reusable biomedical data quality layer with paths to professional services, SaaS workflow tools, and enterprise APIs. |
+| Presentation | GUI supports a clear demo path across single record, CSV upload, review queue, benchmark, and evaluation tabs. |
+
+## GUI Evidence
+
+The current React frontend exposes five demo tabs:
+
+- **Single Record** - manual input, featured demo, curated example cards, evidence-supported decision summary, confidence scoring, alternatives, audit trail, and standards/export actions.
+- **CSV Upload** - sample CSV, downloadable demo CSV, batch upload, status summary, and expandable row-level results.
+- **Review Queue** - seeded ambiguous cases, pending/reviewed filters, curator decisions, canonical edits, reopen flow, review history, and adjudication support.
+- **Benchmark** - accuracy, coverage, review rate, status counts, evidence counts, review-decision counts, and benchmark-source explanation.
+- **Evaluation** - visual KPI cards, charts, false auto-accept rate, reviewer agreement, and failure breakdown.
 
 ## Technical Evidence
 
@@ -63,7 +88,7 @@ Primary evidence:
 - `data/disease_aliases.json`
 - `data/gene_aliases.json`
 - `data/gene_variant_catalog.csv`
-- `data/benchmark_cases.csv`
+- `data/benchmark_v2.csv`
 - `backend/tests/test_reconcile.py`
 
 ### External Integrations
@@ -119,7 +144,7 @@ The knowledge graph export contains reconciliation activity, canonical concept, 
 
 ## Validation Coverage
 
-The 43-test backend suite covers:
+The 102-test backend suite covers:
 
 - Benchmark reconciliation across 500 cases
 - Alias and fuzzy normalization
@@ -141,31 +166,27 @@ The 43-test backend suite covers:
 
 ## Screenshots
 
-Final screenshots should use the reserved paths below. Text placeholders remain until the competition assets are captured.
+Current screenshot assets are stored under `docs/screenshots/`.
 
 ### Single Record Reconciliation
 
-`docs/images/single_reconciliation.png`
-
-[INSERT SCREENSHOT]
+`docs/screenshots/02-single-record-reconciliation.png`
 
 ### Review Queue
 
-`docs/images/review_queue.png`
+`docs/screenshots/04-review-queue.png`
 
-[INSERT SCREENSHOT]
+### Evaluation Dashboard
 
-### Reviewer Agreement Metrics
-
-`docs/images/reviewer_agreement.png`
-
-[INSERT SCREENSHOT]
+`docs/screenshots/05-evaluation-dashboard.png`
 
 ### Knowledge Graph Export
 
-`docs/images/knowledge_graph_export.png`
+`docs/screenshots/06-knowledge-graph-export.png`
 
-[INSERT SCREENSHOT]
+### Interactive API Documentation
+
+`docs/screenshots/07-api-docs.png`
 
 ## Claims Boundary
 

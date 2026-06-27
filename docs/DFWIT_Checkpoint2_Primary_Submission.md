@@ -15,6 +15,22 @@
 **Repository:**
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/startup-platform
 
+**Demo Video:** [Google Drive demo video](https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view)
+
+---
+
+# Team Information
+
+| Field | Information |
+| ----- | ----------- |
+| Team Name | Variant Vanguard |
+| Project | OncoReconcile AI |
+| Competition | DFWIT AI & Startup Competition 2026 |
+| Checkpoint | Checkpoint 2 |
+| Submission Branch | `startup-platform` |
+
+Demo video: [Google Drive demo video](https://drive.google.com/file/d/12k0wm4KthaTWYMj6u33mElQiiQ2KhR7p/view).
+
 ---
 
 # Executive Summary
@@ -33,6 +49,19 @@ The platform reconciles heterogeneous disease names, genes, and genomic variants
 Rather than forcing uncertain mappings, the system surfaces supporting evidence and routes ambiguous cases through expert review.
 
 The result is trustworthy, explainable, and reusable oncology data suitable for precision medicine, clinical research, healthcare analytics, and future AI applications.
+
+---
+
+# Official Judging Alignment
+
+This Checkpoint 2 submission is organized around the DFWIT judging dimensions:
+
+| Judging Dimension | How OncoReconcile AI Addresses It |
+| ----------------- | ---------------------------------- |
+| Innovation, Business Value & Social Impact | Applies AI-assisted reconciliation to precision-oncology data quality, a high-friction healthcare data problem that affects analytics, research, interoperability, and trustworthy AI readiness. |
+| Tech Solution, Quality & User Experience | Provides a working FastAPI + React application with guided single-record demos, CSV batch reconciliation, human review, benchmark dashboards, evidence display, and standards-inspired export prototypes. |
+| Business Development | Positions the product as a biomedical data quality layer for cancer centers, molecular labs, healthcare data platforms, AI teams, and pharma analytics groups, with future services, SaaS, and API paths. |
+| Presentation | Uses a judge-friendly GUI flow: reconcile a record, show evidence and governance, process a CSV batch, review ambiguous cases, and explain benchmark results from the dashboard. |
 
 ---
 
@@ -173,6 +202,56 @@ AUTO_RECONCILE REVIEW_REQUIRED CANNOT_RECONCILE
 * Safety reporting
 * Review metrics
 * Data quality metrics
+
+---
+
+# GUI Demonstration Workflow
+
+The current frontend is organized into five judge-facing tabs:
+
+| GUI Tab | What Judges Can See |
+| ------- | ------------------- |
+| Single Record | Manual disease/gene/variant input, featured demo case, guided examples, canonical output, confidence score, evidence badges, decision rationale, alternatives, audit trail, and standards/export actions. |
+| CSV Upload | Sample CSV, downloadable demo CSV, upload-and-reconcile workflow, batch status summary, and expandable result cards for each row. |
+| Review Queue | Seeded review examples, pending/reviewed filters, curator ID, evidence/candidate indicators, approve/reject/edit/reopen actions, review history, and adjudication support. |
+| Benchmark | Accuracy, coverage, review rate, total cases, status counts, evidence counts, review-decision counts, and benchmark-source explanation. |
+| Evaluation | Visual KPI cards, status distribution, accuracy/coverage chart, review-rate chart, false auto-accept rate, evidence-source chart, reviewer agreement, review-decision chart, and failure breakdown. |
+
+This workflow directly supports the presentation score because the demo can move from a messy oncology input to a governed, explainable, benchmarked output without requiring judges to inspect code.
+
+---
+
+# Screenshots
+
+The primary submission includes the current GUI screenshots stored under `docs/screenshots/`.
+
+## Platform Homepage
+
+![OncoReconcile AI homepage](screenshots/01-homepage.png)
+
+## Single Record Reconciliation
+
+![High-confidence single record reconciliation](screenshots/02-single-record-reconciliation.png)
+
+## Review-Required Decision
+
+![Ambiguous TRK fusion routed to human review](screenshots/03-review-required.png)
+
+## Human Review Queue
+
+![Human review queue and curator workflow](screenshots/04-review-queue.png)
+
+## Evaluation Dashboard
+
+![Benchmark evaluation and safety metrics](screenshots/05-evaluation-dashboard.png)
+
+## Knowledge Graph Export
+
+![JSON-LD knowledge graph export](screenshots/06-knowledge-graph-export.png)
+
+## Interactive API Documentation
+
+![FastAPI OpenAPI documentation](screenshots/07-api-docs.png)
 
 ---
 
@@ -344,6 +423,18 @@ Unlike general-purpose entity resolution systems, OncoReconcile AI is purpose-bu
 
 ---
 
+# User Experience & Product Quality
+
+The Checkpoint 2 GUI is designed to make the system understandable in a short live demo:
+
+* The Single Record tab includes curated example pathways for `AUTO_RECONCILE`, `REVIEW_REQUIRED`, and `CANNOT_RECONCILE`.
+* The result view separates canonical output, confidence, evidence, decision rationale, audit trail, alternatives, and standards/export actions.
+* The CSV Upload tab demonstrates a repeatable batch workflow using the same reconciliation engine.
+* The Review Queue tab shows how uncertain records become human-governed decisions instead of silent automated guesses.
+* The Benchmark and Evaluation tabs make quality, safety, and remaining gaps visible through metrics and charts.
+
+---
+
 # Target Users
 
 | User Type                 | Example Use Cases     |
@@ -358,6 +449,10 @@ Unlike general-purpose entity resolution systems, OncoReconcile AI is purpose-bu
 ---
 
 # Business Opportunity
+
+Precision oncology generates growing volumes of clinical and genomic information, while healthcare organizations face pressure to improve data quality, reduce manual curation, support AI initiatives, and exchange data through standards-based interfaces.
+
+OncoReconcile AI addresses this market as a biomedical data quality layer rather than a standalone terminology lookup tool. Its combination of reconciliation, evidence, governance, interoperability, and benchmark-driven validation creates a path toward enterprise services, SaaS deployment, and API licensing.
 
 Potential future offerings include:
 
@@ -385,15 +480,27 @@ Potential future offerings include:
 
 # Demonstration Assets
 
-Checkpoint 2 Demonstration Includes:
+Checkpoint 2 demonstration includes:
 
-* Single Record Reconciliation
-* Batch Reconciliation
-* Human Review Queue
-* Evaluation Dashboard
-* Evidence Package Generation
-* FHIR Export
-* OMOP Export
+* Single Record Reconciliation tab
+* CSV Upload tab
+* Human Review Queue tab
+* Benchmark tab
+* Evaluation Dashboard tab
+* Evidence package and audit-trail display
+* Provenance export
+* Knowledge graph export
+* FHIR export prototype
+* OMOP export prototype
+
+Suggested live demo order:
+
+1. Run the featured single-record demo and explain evidence, confidence, and review status.
+2. Open detailed evidence to show local evidence, live external evidence, safe API error handling, governance evidence, and audit trail.
+3. Use the standards/export buttons to show provenance, knowledge graph, VRS-ready, Cat-VRS-ready, VA-Spec-ready, and FHIR JSON outputs.
+4. Upload or use the sample CSV to show repeatable batch reconciliation.
+5. Seed and review an ambiguous case in the Human Review Queue.
+6. Close with Benchmark and Evaluation dashboards to show measured quality, safety-aware status accuracy, and false auto-accept rate.
 
 ---
 
