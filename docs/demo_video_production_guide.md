@@ -1,6 +1,6 @@
 # OncoReconcile AI
 
-## DFWIT 2026 Checkpoint 2 Demo Video Production Guide
+## DFWIT 2026 Final Demo Video Production Guide
 
 ### Team Variant Vanguard
 
@@ -29,7 +29,9 @@ Target audience:
 
 Target length:
 
-**4 minutes**
+**5 minutes**
+
+Use [`final_demo_script.md`](final_demo_script.md) as the narration source of truth. This guide is the production checklist for a teammate recording the final video.
 
 ---
 
@@ -278,8 +280,11 @@ Evaluation Dashboard
 Current benchmark metrics:
 
 ```text
-500 Cases
-102 Tests
+191 curated API/test cases
+500 expanded benchmark cases
+149 backend tests collected
+146 passing
+3 skipped live-evidence tests
 96.6% Gene Accuracy
 94.6% Variant Accuracy
 89.8% Safety-Aware Accuracy
@@ -495,18 +500,18 @@ Before Recording
 Video:
 
 ```text
-OncoReconcile_AI_Checkpoint2_Demo.mp4
+OncoReconcile_AI_Final_Demo.mp4
 ```
 
 Length:
 
 ```text
-4:00 ± 30 seconds
+5:00 ± 30 seconds
 ```
 
 Submission Assets:
 
-* Checkpoint 2 PDF
+* Final submission PDF
 * Demo Video
 * GitHub Repository
 * Screenshots

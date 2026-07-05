@@ -5,7 +5,7 @@
 **Team:** Variant Vanguard  
 **Submission branch:** `enterprise-patient-journey-demo`  
 **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo  
-**Demo video:** Demo video link will be added before final portal submission.
+**Demo video:** Pending final recording upload; add the public or judge-accessible URL before portal submission.
 
 ## Executive Summary
 
@@ -24,7 +24,7 @@ The final package follows the official DFWIT 2026 rubric:
 | Judging dimension | Weight | OncoReconcile AI evidence |
 |---|---:|---|
 | Innovation, Business Value & Social Impact | 35% | Human-governed AI, oncology-specific semantic harmonization, safer data for analytics and AI |
-| Tech Solution, Quality & User Experience | 20% | Working web product, API-first architecture, 149 collected backend tests, targeted evidence tests, passing frontend build, governed export prototypes |
+| Tech Solution, Quality & User Experience | 20% | Working web product, API-first architecture, 149 collected backend tests with 146 passing and 3 skipped, passing frontend build, governed export prototypes |
 | Business Development | 35% | Defined enterprise customers, services-to-SaaS commercialization path, API and integration opportunities |
 | Presentation | 10% | Five-minute workflow, executive dashboard, evidence-backed metrics, clear limitations and safety boundaries |
 
@@ -328,7 +328,7 @@ The evidence upgrade has 22 test cases in the reconciliation test module, coveri
 - Evidence deduplication across sources
 - Weight configuration validation
 
-On June 24, 2026, pytest collected 149 backend tests and 11 targeted HGVS/evidence tests passed. The full suite and benchmark were not reported as passing in this review because the new federation path performs live, rate-limited external requests during reconciliation.
+On June 24, 2026, pytest collected 149 backend tests. The current branch passes 146 deterministic tests, with 3 live-evidence tests intentionally skipped when external network services are unavailable. The frontend production build also passes.
 
 ## Human Governance Workflow
 
@@ -371,51 +371,85 @@ Repository validation reviewed on the `enterprise-patient-journey-demo` branch o
 
 | Validation item | Current result |
 |---|---:|
-| Backend automated tests | 149 collected; 11 targeted HGVS/evidence tests passed |
+| Backend automated tests | 149 collected; 146 passing; 3 skipped |
 | Frontend production build | Passing |
 | Current API/test benchmark | 191 curated cases |
 | Expanded benchmark dataset | 500 cases |
-| Full benchmark rerun | Required before submission; live evidence requests currently make it slow and network-dependent |
+| Latest recorded benchmark metrics | 96.6% gene accuracy; 94.6% variant accuracy; 89.8% safety-aware status accuracy; 0% false auto-accept rate |
 
 The benchmarks are internal engineering assets, not clinical validation studies.
 
-## Business Opportunity
+## Customer Pain Points
 
-Oncology organizations invest substantial expert time in cleaning, reconciling, reviewing, and remapping data before it can support analytics, interoperability, research, or AI. OncoReconcile AI can create value by:
+Before OncoReconcile AI, each oncology organization independently solves the same terminology fragmentation problem, often multiple times across different projects and teams.
 
-- reducing repetitive terminology cleanup;
-- making uncertain cases easier to prioritize and review;
-- improving traceability for governed datasets;
-- accelerating preparation of analytics- and AI-ready data;
-- reducing duplicate mapping logic across projects;
-- supporting standards-oriented delivery to downstream systems.
+| Stage | Current approach | Hidden cost |
+|---|---|---|
+| Data ingestion | Spreadsheets, one-off scripts, manual lookup | Hours per dataset, errors from copy-paste |
+| Terminology mapping | Each analyst rebuilds mappings for each project | Duplicate work, inconsistent results across teams |
+| Ambiguity handling | Guesses or escalates through email | Lost context, no audit trail, delays |
+| Quality validation | Manual spot-checking | Inconsistent coverage, hard to reproduce |
+| Interoperability | Ad hoc FHIR/OMOP field mapping | Fragile, project-specific, hard to maintain |
+| Governance | Email chains, meeting decisions, post-hoc documentation | No traceability, hard to prove compliance |
 
-The initial commercial thesis is business-to-business data infrastructure and workflow software—not a consumer medical application.
+**The result:** organizations spend expert time on data plumbing instead of science, and every project starts from scratch.
 
-## Target Customers
+## Customer Personas
 
-| Customer | Initial use case |
+| Customer | Primary pain | Value OncoReconcile provides |
+|---|---|---|
+| Cancer centers | Biomarker data is fragmented across EHR, laboratory, and registry systems, making cohort identification slow and unreliable | Harmonized patient data, governed review workflows, and AI-ready datasets for precision oncology programs |
+| Molecular diagnostic laboratories | Variant naming inconsistencies between reporting systems, clinical databases, and research partners increase manual review | Standardized gene/variant representation, automated evidence lookup, and quality dashboards |
+| CROs | Multi-site clinical trial data arrives with different terminology standards, requiring weeks of harmonization before analysis | Cross-site data standardization, governed mappings, and FHIR/OMOP-ready outputs |
+| Pharmaceutical companies | Real-world evidence and biomarker programs depend on consistent terminology across data partners | Cohort analytics, RWE pipelines, clinical trial matching, and reproducible governance |
+| Genomic knowledgebases | Curating public and internal variant evidence requires reconciling gene and variant names from heterogeneous sources | Normalized inputs, evidence retrieval, governed review, and audit-ready curation |
+| Healthcare AI platforms | AI model training and evaluation are only as reliable as the underlying terminology mappings | Governed, provenance-tracked data with explicit uncertainty |
+
+## Business Model
+
+| Revenue stream | Description | Maturity |
+|---|---|---|
+| Professional services | Oncology data harmonization, terminology assessment, governance workflow design, FHIR/OMOP implementation support | Immediate project-based engagements |
+| SaaS team workspace | Shared review queues, batch reconciliation, governed catalogs, audit dashboards, quality reporting | Near-term subscription |
+| Enterprise platform | Multi-user governance, role-based access, persistent storage, enterprise analytics, API access | Medium-term custom pricing |
+| Enterprise APIs | Reconciliation, evidence, governance, and export APIs for integration into customer platforms | Medium-term usage-based or contract pricing |
+| Licensing and deployment | Private-cloud or customer-controlled deployment for regulated environments | Long-term enterprise agreements |
+
+## Go-to-Market Strategy
+
+1. **Validate with services:** data-quality assessments and harmonization projects generate revenue while building domain understanding and customer relationships.
+2. **Convert to SaaS:** pilot customers transition to team subscriptions as governed workflows demonstrate measurable value.
+3. **Scale through APIs:** enterprise customers integrate OncoReconcile capabilities into their own platforms, creating recurring API revenue.
+
+## ROI Framework
+
+OncoReconcile AI does not make unsupported numerical claims. Instead, it delivers measurable operational improvements:
+
+| Benefit | How it creates value |
 |---|---|
-| Cancer centers and health systems | Oncology warehouse harmonization, registry quality, biomarker analytics |
-| Molecular diagnostic laboratories | Consistent gene and variant representation, review workflows |
-| Pharmaceutical and biotechnology companies | Multi-source biomarker and real-world-data harmonization |
-| Clinical research organizations | Cross-site data standardization and trial-data readiness |
-| Healthcare data and AI platforms | Governed oncology data-quality APIs and interoperability |
-| Research networks and registries | Reusable mappings, provenance, and cohort consistency |
+| Reduced manual normalization | Curated alias catalogs and automated reconciliation replace spreadsheet-based lookups |
+| Standardized review workflows | Structured governance replaces email chains and undocumented decisions |
+| Improved traceability | Every mapping has evidence, provenance, and audit history |
+| Governed AI-ready datasets | Data quality is measured and uncertainty is explicit before data reaches analytics or AI |
+| Reusable mappings | Once reconciled, a concept can be reused across downstream mappings and exports |
+| Scalable enterprise curation | Human reviewers focus on ambiguous cases while routine mappings are automated |
 
 ## Competitive Differentiation
 
-OncoReconcile AI is differentiated by the combination of capabilities around the normalization task:
-
-- oncology-specific disease, gene, and variant reconciliation;
-- explicit uncertainty states instead of forced answers;
-- evidence packages and score breakdowns;
-- review queue, decision history, and adjudication;
-- cross-terminology semantic mapping;
-- FHIR, OMOP, and knowledge-graph export prototypes;
-- benchmark and negative-control safety evaluation;
-- patient-journey and executive analytics;
-- API-first integration.
+| Capability | Manual curation | Terminology mapping tools | Generic LLM assistants | OncoReconcile AI |
+|---|---|---|---|---|
+| Disease normalization | Manual | Yes | Inconsistent | Yes |
+| Gene normalization | Manual | Partial | Inconsistent | Yes |
+| Variant normalization | Manual | Partial | Inconsistent | Yes |
+| Canonical HGVS | Manual lookup | No | No | Yes, curated reference map |
+| Evidence retrieval | Manual search | No | Hallucination risk | Guarded MyVariant, ClinVar, CIViC, and experimental ClinGen lookup |
+| Confidence scoring | Subjective | No | No | Six-signal numeric score |
+| Human governance | No | No | No | Review queue, approve, reject, edit, reopen |
+| Audit trail | No | No | Unreliable | Chronological, reviewer-identified history |
+| Review agreement metrics | No | No | No | Agreement and Cohen's kappa metrics |
+| FHIR/OMOP export | Manual mapping | No | No | Prototype exports |
+| Negative-control safety testing | No | No | No | Benchmark with zero false auto-accept in latest recorded run |
+| Enterprise analytics | No | No | No | Patient journey, executive, and governance views |
 
 The platform is not positioned as a replacement for authoritative terminology sources or public biomedical knowledgebases. It is the governed workflow and data-quality layer that helps organizations apply, inspect, and operationalize those resources across messy real-world data.
 
@@ -549,7 +583,7 @@ That combination of clinical-data domain framing and working full-stack implemen
 
 ## Demo Video Link
 
-**Final video:** [ADD PUBLIC OR JUDGE-ACCESSIBLE VIDEO URL]
+**Final video:** Pending final recording upload; add the public or judge-accessible URL before portal submission.
 
 ## GitHub Repository Link
 

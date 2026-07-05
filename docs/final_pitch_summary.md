@@ -27,7 +27,7 @@ OncoReconcile AI is an AI-powered data quality, governance, and analytics platfo
 | Capability | What it does |
 |---|---|
 | **Reconciliation** | Normalizes disease, gene, and variant terminology with deterministic rules, curated catalogs, and fuzzy matching |
-| **Evidence** | Retrieves structured evidence from ClinVar, CIViC, MyVariant.info, and ClinGen |
+| **Evidence** | Retrieves guarded evidence from MyVariant.info, ClinVar, CIViC, and an experimental ClinGen lookup |
 | **Confidence** | 6-signal numeric score — transparent, not a black box |
 | **Governance** | Review queue, approve/reject/edit/reopen, Cohen's kappa, adjudication |
 | **Interoperability** | FHIR R4, OMOP CDM v5.4, and knowledge graph export prototypes |
@@ -38,7 +38,7 @@ OncoReconcile AI is an AI-powered data quality, governance, and analytics platfo
 | | Manual Curation | Mapping Tools | Generic LLMs | **OncoReconcile AI** |
 |---|---|---|---|---|
 | Variant normalization | Manual | Partial | Inconsistent | **✓** |
-| Evidence retrieval | Manual | ✗ | Hallucinates | **✓** (4 sources) |
+| Evidence retrieval | Manual | ✗ | Hallucinates | **✓** (guarded external connectors) |
 | Confidence scoring | Subjective | ✗ | ✗ | **✓** (numeric) |
 | Human governance | ✗ | ✗ | ✗ | **✓** (queue + kappa) |
 | Audit trail | ✗ | ✗ | Unreliable | **✓** (full history) |
@@ -49,7 +49,7 @@ OncoReconcile AI is an AI-powered data quality, governance, and analytics platfo
 
 | Metric | Result |
 |---|---|
-| Backend tests | **146+ deterministic** |
+| Backend tests | **149 collected; 146 passing; 3 skipped** |
 | Benchmark cases | **191 curated + 500 expanded** |
 | Gene accuracy | **96.6%** |
 | False auto-accept rate | **0%** |

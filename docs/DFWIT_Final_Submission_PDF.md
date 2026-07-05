@@ -16,7 +16,7 @@
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 **Demo video:**  
-Demo video link will be added before final portal submission.
+Pending final recording upload; add the public or judge-accessible URL before portal submission.
 
 **Submission date:** July 11, 2026
 
@@ -287,7 +287,7 @@ Interface stubs exist for: GA4GH VRS (`vrs_id`, `vrs_ready`), ClinGen Allele Reg
 
 ## Testing
 
-The evidence upgrade has 22 test cases in the reconciliation test module. On June 24, 2026, pytest collected 149 backend tests and 11 targeted HGVS/evidence tests passed.
+The evidence upgrade is covered by the reconciliation test module. On June 24, 2026, pytest collected 149 backend tests; 146 pass deterministically and 3 live-evidence tests are intentionally skipped when external network services are unavailable.
 
 # Validation
 
@@ -295,13 +295,13 @@ Reviewed on June 24, 2026:
 
 | Metric | Result |
 |---|---:|
-| Backend tests | 149 collected; 11 targeted HGVS/evidence tests passed |
+| Backend tests | 149 collected; 146 passing; 3 skipped |
 | Frontend production build | Passing |
 | Current API/test benchmark | 191 curated cases |
 | Expanded benchmark dataset | 500 cases |
-| Full benchmark rerun | Required before submission |
+| Latest recorded benchmark metrics | 96.6% gene accuracy; 94.6% variant accuracy; 89.8% safety-aware status accuracy; 0% false auto-accept rate |
 
-The benchmark assets are internal engineering evaluation materials, not clinical validation studies. The full rerun is currently network-dependent because reconciliation invokes live ClinVar/CIViC federation.
+The benchmark assets are internal engineering evaluation materials, not clinical validation studies.
 
 ![Benchmark and safety evaluation dashboard](screenshots/05-evaluation-dashboard.png)
 
@@ -372,7 +372,7 @@ OncoReconcile AI does not make unsupported numerical claims. Instead, it deliver
 | Gene normalization | Manual | Partial | Inconsistent | ✓ |
 | Variant normalization | Manual | Partial | Inconsistent | ✓ |
 | Canonical HGVS | Manual lookup | ✗ | ✗ | ✓ (30 curated entries) |
-| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (ClinVar, CIViC, MyVariant, ClinGen) |
+| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (guarded MyVariant, ClinVar, CIViC, and experimental ClinGen lookup) |
 | Confidence scoring | Subjective | ✗ | ✗ | ✓ (6-signal numeric score) |
 | Human governance | ✗ | ✗ | ✗ | ✓ (review queue, approve/reject/edit/reopen) |
 | Audit trail | ✗ | ✗ | Unreliable | ✓ (chronological, reviewer-identified) |

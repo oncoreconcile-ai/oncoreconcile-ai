@@ -60,7 +60,7 @@ OncoReconcile AI provides a governed data-quality layer that preserves uncertain
 | Disease normalization | Manual | ✓ | Inconsistent | ✓ |
 | Gene normalization | Manual | Partial | Inconsistent | ✓ |
 | Variant normalization | Manual | Partial | Inconsistent | ✓ |
-| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (ClinVar, CIViC, MyVariant, ClinGen) |
+| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (guarded MyVariant, ClinVar, CIViC, and experimental ClinGen lookup) |
 | Confidence scoring | Subjective | ✗ | ✗ | ✓ (6-signal numeric) |
 | Human governance | ✗ | ✗ | ✗ | ✓ (queue, approve/reject, kappa) |
 | Audit trail | ✗ | ✗ | Unreliable | ✓ (full chronological history) |
@@ -139,7 +139,7 @@ OncoReconcile AI provides a governed data-quality layer that preserves uncertain
 
 | Metric | Final Submission result |
 |---|---:|
-| Backend Test Suite | 127 Passing |
+| Backend Test Suite | 149 collected; 146 passing; 3 skipped |
 | Frontend Build | Passing |
 | Benchmark Framework | 500 Cases |
 | Gene Accuracy | 96.6% |

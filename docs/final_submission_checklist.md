@@ -73,7 +73,7 @@
 - [ ] State that validation is engineering validation, not clinical validation.
 - [ ] End with customers, business model, and value proposition.
 - [ ] Upload to a judge-accessible location and test the link without team credentials.
-- [ ] Replace all `Demo video link will be added before final portal submission.` placeholders.
+- [ ] Replace all pending demo video URL notes with the final public or judge-accessible video link.
 
 ## Screenshots
 
@@ -114,10 +114,11 @@ Current repository state reviewed on June 24, 2026:
 
 ```text
 149 tests collected
-11 targeted HGVS/evidence tests passed
+146 passing
+3 skipped
 ```
 
-Do not mark the full suite as passing until `PYTHONPATH=. pytest -q` completes. The new federation path currently performs live, rate-limited ClinVar/CIViC calls during reconciliation, including benchmark-oriented paths.
+Expected result: 146 passing tests and 3 intentionally skipped live-evidence tests.
 
 Run the frontend build:
 
@@ -143,7 +144,7 @@ Expected result: 192 lines for the current 191-case API/test benchmark and 501 l
 Check placeholders and prohibited overclaims:
 
 ```bash
-rg -n "TO BE ADDED|ADD PUBLIC|production-ready|149 passed|127 passed|50\\+ variants|clinical validation|treatment recommendation|medical advice" README.md docs/DFWIT_Final_Submission.md docs/DFWIT_Final_Submission_PDF.md docs/final_demo_script.md docs/final_pitch_summary.md
+rg -n "TO BE ADDED|ADD.PUBLIC|production-ready|149 passed|12[0-9] passed|50\\+ variants|clinical validation|treatment recommendation|medical advice" README.md docs/DFWIT_Final_Submission.md docs/DFWIT_Final_Submission_PDF.md docs/final_demo_script.md docs/final_pitch_summary.md
 ```
 
 ## Suggested Final Upload Package

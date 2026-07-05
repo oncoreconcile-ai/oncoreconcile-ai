@@ -117,7 +117,7 @@ These are working interoperability prototypes designed for further implementatio
 
 **Narration:**
 
-“The current branch has 127 passing backend tests and a passing frontend production build. Our internal benchmark contains 500 cases, with 96.6 percent gene accuracy, 94.6 percent variant accuracy, 89.8 percent safety-aware status accuracy, a zero percent false auto-accept rate, and 100 percent negative-control safety.
+“The current branch has 149 backend tests collected, with 146 passing and 3 intentionally skipped live-evidence tests, plus a passing frontend production build. The repository includes a 191-case curated API benchmark and a 500-case expanded benchmark asset. The latest recorded internal benchmark results show 96.6 percent gene accuracy, 94.6 percent variant accuracy, 89.8 percent safety-aware status accuracy, a zero percent false auto-accept rate, and 100 percent negative-control safety.
 
 This is engineering validation, not clinical validation.”
 
@@ -139,4 +139,3 @@ OncoReconcile AI makes precision oncology data trustworthy before analytics and 
 - Do not remove the review-required example; it is the clearest safety differentiator.
 - Keep the synthetic-data disclaimer audible.
 - End on the customer value proposition, not the technology stack.
-
