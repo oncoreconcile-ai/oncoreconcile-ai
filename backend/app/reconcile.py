@@ -1319,6 +1319,7 @@ def reconcile_record(
         canonical_gene=canonical_gene,
         canonical_variant=canonical_variant,
         local_evidence=local_evidence_dicts,
+        offline=not allow_live_lookup,
     )
     audit_trail.append(f"Federated evidence: {federation['evidence_count']} items from {len(federation['by_source'])} sources")
 

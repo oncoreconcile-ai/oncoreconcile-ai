@@ -165,6 +165,7 @@ def fetch_federated_evidence(
     canonical_gene: str | None = None,
     canonical_variant: str | None = None,
     local_evidence: list[dict] | None = None,
+    offline: bool = False,
 ) -> dict:
     """
     Fetch evidence from all configured sources and merge into unified format.
@@ -182,19 +183,23 @@ def fetch_federated_evidence(
     # Resolve canonical HGVS
     hgvs = get_canonical_hgvs(canonical_gene or gene, canonical_variant or variant)
 
-    # Gather evidence from all sources
-    clinvar_results = search_clinvar_all(
-        gene=canonical_gene or gene,
-        variant=canonical_variant or variant,
-        protein_hgvs=hgvs.get("protein_hgvs"),
-        coding_hgvs=hgvs.get("coding_hgvs"),
-        genomic_hgvs=hgvs.get("genomic_hgvs"),
-    )
+    # Gather evidence from all sources (skip live lookups in offline mode)
+    clinvar_results = []
+    civic_results = []
 
-    civic_results = search_civic_all(
-        gene=canonical_gene or gene,
-        variant=canonical_variant or variant,
-    )
+    if not offline:
+        clinvar_results = search_clinvar_all(
+            gene=canonical_gene or gene,
+            variant=canonical_variant or variant,
+            protein_hgvs=hgvs.get("protein_hgvs"),
+            coding_hgvs=hgvs.get("coding_hgvs"),
+            genomic_hgvs=hgvs.get("genomic_hgvs"),
+        )
+
+        civic_results = search_civic_all(
+            gene=canonical_gene or gene,
+            variant=canonical_variant or variant,
+        )
 
     # Normalize local evidence to unified format
     local_unified = _normalize_local_evidence(local_evidence or [])
