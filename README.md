@@ -10,6 +10,62 @@ Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard
 
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
+## Quick Start
+
+Prerequisites: Python 3.10+ and Node.js/npm.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/oncoreconcile-ai/oncoreconcile-ai.git
+cd oncoreconcile-ai
+git checkout enterprise-patient-journey-demo
+```
+
+### 2. Set up the backend
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+Backend API:
+
+- http://127.0.0.1:8000
+- http://127.0.0.1:8000/docs
+
+### 3. Set up the frontend
+
+Open a second terminal from the repository root:
+
+```bash
+cd frontend
+npm install
+npm run dev -- --host 127.0.0.1 --port 5173
+```
+
+Frontend app:
+
+- http://127.0.0.1:5173
+
+### 4. Run validation checks
+
+From the repository root:
+
+```bash
+cd backend
+source .venv/bin/activate
+pytest -q tests
+```
+
+```bash
+cd frontend
+npm run build
+```
+
 ## Key Capabilities
 
 - Disease reconciliation
@@ -243,7 +299,17 @@ Current implementation includes selected prototype mappings and standards-aligne
 
 ![FastAPI OpenAPI documentation](docs/screenshots/07-api-docs.png)
 
-Additional final-submission screenshots will be added after manual capture.
+### Enterprise Patient Journey
+
+![Enterprise patient journey timeline](docs/screenshots/08-enterprise-patient-journey.png)
+
+### Executive Dashboard
+
+![Executive dashboard](docs/screenshots/09-executive-dashboard.png)
+
+### Coding System Alignment
+
+![Coding system alignment dashboard](docs/screenshots/10-coding-alignment.png)
 
 ## Final Submission Documentation
 
