@@ -196,8 +196,6 @@ The following screenshots demonstrate the complete OncoReconcile AI enterprise p
 </p>
 *Benchmark validation metrics, accuracy and coverage gauges, failure analysis, and reviewer agreement.*
 
-The repository currently contains seven verified screenshot files. Enterprise patient journey, executive dashboard, coding alignment, FHIR export, and OMOP export views are implemented but still require final screenshot capture before PDF export.
-
 ## 6. Knowledge Graph Export
 
 <p align="center">
@@ -211,6 +209,21 @@ The repository currently contains seven verified screenshot files. Enterprise pa
   <img src="screenshots/07-api-docs.png" alt="Interactive API documentation" width="700" />
 </p>
 *FastAPI interactive OpenAPI documentation exposing reconciliation, review, analytics, and export endpoints.*
+
+## 8. Enterprise Patient Journey
+
+![Enterprise patient journey timeline with biomarker and treatment history](screenshots/08-enterprise-patient-journey.png){ width=700px }
+*Longitudinal patient journey view showing diagnosis, biomarkers, copy-number alterations, treatment timeline, review status, and quality indicators.*
+
+## 9. Executive Dashboard
+
+![Executive dashboard with platform coverage and readiness metrics](screenshots/09-executive-dashboard.png){ width=700px }
+*Enterprise dashboard summarizing patients managed, data quality, governance, AI readiness, reconciliation coverage, evidence coverage, and semantic harmonization.*
+
+## 10. Coding System Alignment
+
+![Coding system alignment dashboard with semantic harmonization mappings](screenshots/10-coding-alignment.png){ width=700px }
+*Semantic interoperability dashboard showing coding-system coverage, canonical mappings, terminology examples, and complete mapping coverage.*
 
 
 # Evidence Retrieval Architecture
