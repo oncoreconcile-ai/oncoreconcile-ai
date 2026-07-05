@@ -47,9 +47,48 @@ The same biological or clinical concept often appears under different names:
 | `NSCLC` | Lung Non-Small Cell Carcinoma |
 | `Ex19del` | EGFR Exon 19 Deletion |
 
+**A real example:** one laboratory reports `HER2`, another reports `HER-2`, a third reports `ERBB2`, and a claims system records `V-erb-b2`. A researcher trying to identify all ERBB2-altered patients must manually reconcile these representations — every time, for every project.
+
 Poorly harmonized data increases manual effort, fragments cohorts, weakens interoperability, and reduces confidence in downstream analytics and AI.
 
 OncoReconcile AI provides a governed data-quality layer that preserves uncertainty, exposes evidence, and routes ambiguous cases to human review.
+
+## Competitive Differentiation
+
+| Capability | Manual Curation | Terminology Tools | Generic LLMs | **OncoReconcile AI** |
+|---|---|---|---|---|
+| Disease normalization | Manual | ✓ | Inconsistent | ✓ |
+| Gene normalization | Manual | Partial | Inconsistent | ✓ |
+| Variant normalization | Manual | Partial | Inconsistent | ✓ |
+| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (ClinVar, CIViC, MyVariant, ClinGen) |
+| Confidence scoring | Subjective | ✗ | ✗ | ✓ (6-signal numeric) |
+| Human governance | ✗ | ✗ | ✗ | ✓ (queue, approve/reject, kappa) |
+| Audit trail | ✗ | ✗ | Unreliable | ✓ (full chronological history) |
+| FHIR / OMOP export | Manual mapping | ✗ | ✗ | ✓ (prototypes) |
+| Safety testing (0% false auto-accept) | ✗ | ✗ | ✗ | ✓ (benchmark validated) |
+| Enterprise analytics | ✗ | ✗ | ✗ | ✓ (patient journey, executive) |
+
+**The key difference:** OncoReconcile AI combines all of these in a governed, oncology-specific platform — not a terminology tool, not a knowledgebase, not a generic AI.
+
+## Target Customers
+
+| Customer | Pain | Value |
+|---|---|---|
+| **Cancer Centers** | Fragmented biomarker data across EHR, lab, and registry | Harmonized patient data, governed review, AI-ready cohorts |
+| **Molecular Dx Labs** | Variant naming inconsistencies across reporting systems | Standardized representation, evidence lookup, quality dashboards |
+| **CROs** | Multi-site trial data with different terminology standards | Cross-site standardization, FHIR/OMOP-ready outputs |
+| **Pharma** | RWE and biomarker programs need consistent data across partners | Cohort analytics, governed pipelines, reproducible mappings |
+| **Genomic KBs** | Curating evidence from heterogeneous sources | Normalized inputs, governed review, audit-ready curation |
+| **Healthcare AI** | AI models depend on trustworthy terminology | Provenance-tracked data with explicit uncertainty |
+
+## Business Model
+
+| Revenue stream | Description |
+|---|---|
+| **Professional Services** | Oncology harmonization, FHIR/OMOP support, governance design |
+| **SaaS — Team** | Shared review queues, batch reconciliation, dashboards |
+| **SaaS — Enterprise** | Multi-user governance, role-based access, APIs, custom deployment |
+| **Enterprise APIs** | Reconciliation, evidence, governance, and export APIs |
 
 ## Platform Modules
 

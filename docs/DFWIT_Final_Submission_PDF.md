@@ -24,22 +24,25 @@ Demo video link will be added before final portal submission.
 
 <div style="page-break-after: always;"></div>
 
-# The Opportunity
+# The Problem: Fragmented Oncology Data
 
 Precision oncology depends on data from electronic health records, molecular laboratories, research systems, clinical trials, and external partners. The same disease, gene, variant, treatment, or laboratory concept is frequently represented with different names and codes.
 
-That inconsistency creates expensive manual work and weakens:
+**A real example:** one laboratory reports `HER2`, another reports `HER-2`, a third reports `ERBB2`, and a claims system records `V-erb-b2`. A researcher trying to identify all ERBB2-altered patients must manually reconcile these representations — every time, for every project.
 
-- cohort generation;
-- biomarker analytics;
-- longitudinal patient journeys;
-- interoperability;
-- real-world-data programs;
-- AI training and evaluation.
+This fragmentation creates expensive, repetitive work:
 
-**Trustworthy AI requires trustworthy data.**
+| Impact | Real-world consequence |
+|---|---|
+| Manual curation | Experts spend weeks cleaning and mapping data instead of analyzing it |
+| Fragmented cohorts | Patient populations are split across terminologies, hiding signal |
+| Inconsistent analytics | Biomarker trends, outcome analyses, and AI inputs depend on how terminology was mapped |
+| Interoperability gaps | FHIR, OMOP, and research exports use different coding systems that are not aligned |
+| Safety risk | Forced automatic mappings disguise uncertainty — bad data becomes harder to detect downstream |
 
-OncoReconcile AI is a governed data-quality layer that converts fragmented oncology data into standardized, explainable, reviewable, and reusable information.
+**Trustworthy AI requires trustworthy data.** Poorly harmonized data produces unreliable analytics, reduces confidence in AI outputs, and slows precision medicine adoption.
+
+OncoReconcile AI is a governed data-quality layer that converts fragmented oncology data into standardized, explainable, reviewable, and reusable information — before it reaches analytics, AI, or interoperability pipelines.
 
 # The Product
 
@@ -302,56 +305,108 @@ The benchmark assets are internal engineering evaluation materials, not clinical
 
 ![Benchmark and safety evaluation dashboard](screenshots/05-evaluation-dashboard.png)
 
-# Business Value
+# Customer Pain Points
 
-OncoReconcile AI targets the costly layer between raw oncology data and useful enterprise data products.
+Before OncoReconcile AI, each oncology organization independently solves the same terminology fragmentation problem — often multiple times across different projects and teams.
 
-Potential customer value includes:
+| Stage | Current approach | Hidden cost |
+|---|---|---|
+| Data ingestion | Spreadsheets, one-off scripts, manual lookup | Hours per dataset, errors from copy-paste |
+| Terminology mapping | Each analyst rebuilds mappings for each project | Duplicate work, inconsistent results across teams |
+| Ambiguity handling | Guesses or escalates through email | Lost context, no audit trail, delays |
+| Quality validation | Manual spot-checking | Inconsistent coverage, hard to reproduce |
+| Interoperability | Ad hoc FHIR/OMOP field mapping | Fragile, project-specific, hard to maintain |
+| Governance | Email chains, meeting decisions, post-hoc documentation | No traceability, hard to prove compliance |
 
-- less repetitive terminology cleanup;
-- faster review of ambiguous records;
-- reusable governed mappings;
-- stronger traceability and quality reporting;
-- easier preparation of analytics- and AI-ready datasets;
-- reduced duplication across FHIR, OMOP, research, and warehouse projects.
+**The result:** organizations spend expert time on data plumbing instead of science, and every project starts from scratch.
 
-# Target Customers
+# Customer Personas
 
-- cancer centers and health systems;
-- molecular diagnostic laboratories;
-- pharmaceutical and biotechnology companies;
-- clinical research organizations;
-- oncology registries and research networks;
-- healthcare data and AI platforms.
+| Customer | Primary Pain | Value OncoReconcile Provides |
+|---|---|---|
+| **Cancer Centers** | Biomarker data is fragmented across EHR, laboratory, and registry systems, making cohort identification slow and unreliable | Harmonized patient data, governed review workflows, and AI-ready datasets for precision oncology programs |
+| **Molecular Diagnostic Laboratories** | Variant naming inconsistencies between reporting systems, clinical databases, and research partners increase manual review | Standardized gene/variant representation, automated evidence lookup, and quality dashboards |
+| **CROs** | Multi-site clinical trial data arrives with different terminology standards, requiring weeks of harmonization before analysis | Cross-site data standardization, governed mappings, and FHIR/OMOP-ready outputs |
+| **Pharmaceutical Companies** | Real-world evidence and biomarker programs depend on consistent terminology across data partners that may use different coding systems | Cohort analytics, RWE pipelines, clinical trial matching, and reproducible governance |
+| **Genomic Knowledgebases** | Curating public and internal variant evidence requires reconciling gene and variant names from heterogeneous sources | Normalized inputs, evidence retrieval, governed review, and audit-ready curation |
+| **Healthcare AI Platforms** | AI model training and evaluation are only as reliable as the underlying terminology mappings | Governed, provenance-tracked data with explicit uncertainty — trustworthy AI starts with trustworthy data |
 
-# Commercial Strategy
+# Business Model
 
-1. **Paid services and pilots:** data-quality assessment, harmonization, governance design, FHIR/OMOP support.
-2. **Team SaaS:** batch workflows, shared review queues, audit dashboards, governed catalogs.
-3. **Enterprise APIs:** reconciliation, evidence, governance, exports, and customer-controlled deployment.
+| Revenue stream | Description | Maturity |
+|---|---|---|
+| **Professional Services** | Oncology data harmonization, terminology assessment, governance workflow design, FHIR/OMOP implementation support | Immediate — project-based engagements |
+| **SaaS — Team** | Shared review queues, batch reconciliation, governed catalogs, audit dashboards, quality reporting | Near-term — subscription pricing |
+| **SaaS — Enterprise** | Multi-user governance, role-based access, persistent storage, enterprise analytics, API access | Medium-term — custom pricing |
+| **Enterprise APIs** | Reconciliation, evidence, governance, and export APIs for integration into customer platforms | Medium-term — usage-based or contract |
+| **Licensing & Deployment** | Private-cloud or customer-controlled deployment for regulated environments | Long-term — enterprise agreements |
 
-The services-first strategy creates early revenue and customer learning before scaling recurring software.
+## Go-to-Market Strategy
+
+1. **Validate with services** — data-quality assessments and harmonization projects generate revenue while building domain understanding and customer relationships.
+2. **Convert to SaaS** — pilot customers transition to team subscriptions as governed workflows demonstrate measurable value.
+3. **Scale through APIs** — enterprise customers integrate OncoReconcile capabilities into their own platforms, creating recurring API revenue.
+
+## ROI Framework
+
+OncoReconcile AI does not make unsupported numerical claims. Instead, it delivers measurable operational improvements:
+
+| Benefit | How it creates value |
+|---|---|
+| **Reduced manual normalization** | Curated alias catalogs and automated reconciliation replace spreadsheet-based lookups |
+| **Standardized review workflows** | Structured governance replaces email chains and undocumented decisions |
+| **Improved traceability** | Every mapping has evidence, provenance, and audit history — reproducible and defensible |
+| **Governed AI-ready datasets** | Data quality is measured and uncertainty is explicit before data reaches analytics or AI |
+| **Reusable mappings** | Once reconciled, a concept is mapped across all coding systems — not rebuilt for each project |
+| **Scalable enterprise curation** | Human reviewers focus on ambiguous cases while routine mappings are automated |
 
 <div style="page-break-after: always;"></div>
 
 # Competitive Differentiation
 
-OncoReconcile AI does not attempt to replace authoritative biomedical terminology sources. It operationalizes them through an oncology-specific workflow that combines:
+## How OncoReconcile AI compares
 
-- semantic reconciliation;
-- evidence and provenance;
-- explicit uncertainty states;
-- human governance and adjudication;
-- safety-focused benchmarking;
-- interoperability exports;
-- enterprise patient and executive analytics;
-- API-first integration.
+| Capability | Manual Curation | Terminology Mapping Tools | Generic LLM Assistants | **OncoReconcile AI** |
+|---|---|---|---|---|
+| Disease normalization | Manual | ✓ | Inconsistent | ✓ |
+| Gene normalization | Manual | Partial | Inconsistent | ✓ |
+| Variant normalization | Manual | Partial | Inconsistent | ✓ |
+| Canonical HGVS | Manual lookup | ✗ | ✗ | ✓ (30 curated entries) |
+| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (ClinVar, CIViC, MyVariant, ClinGen) |
+| Confidence scoring | Subjective | ✗ | ✗ | ✓ (6-signal numeric score) |
+| Human governance | ✗ | ✗ | ✗ | ✓ (review queue, approve/reject/edit/reopen) |
+| Audit trail | ✗ | ✗ | Unreliable | ✓ (chronological, reviewer-identified) |
+| Review agreement metrics | ✗ | ✗ | ✗ | ✓ (Cohen's kappa, adjudication) |
+| Knowledge graph | ✗ | ✗ | Unreliable | ✓ (JSON-LD, disease-gene-variant-evidence) |
+| FHIR export | Manual mapping | ✗ | ✗ | ✓ (R4 Bundle prototype) |
+| OMOP export | Manual mapping | ✗ | ✗ | ✓ (CDM v5.4-oriented prototype) |
+| Categorical ambiguity preservation | ✗ | ✗ | ✗ | ✓ (Cat-VRS-inspired) |
+| Negative control safety testing | ✗ | ✗ | ✗ | ✓ (benchmark with 0% false auto-accept) |
+| Enterprise analytics | ✗ | ✗ | ✗ | ✓ (patient journey, executive, governance) |
+
+**The key difference:** OncoReconcile AI combines all of these capabilities in an oncology-specific, governance-first platform. It is not a terminology tool, not a knowledgebase, and not a generic AI — it is a governed data-quality layer for precision oncology.
+
+## Why This Combination Matters
+
+- **Manual curation** is slow, inconsistent, and does not scale.
+- **Terminology mapping tools** resolve codes but do not handle variant normalization, evidence, or governance.
+- **Generic LLM assistants** hallucinate, lack provenance, and cannot be trusted for regulated data.
+- **OncoReconcile AI** provides deterministic reconciliation where possible, evidence-supported review where needed, and human governance everywhere.
+
+<div style="page-break-after: always;"></div>
 
 # Social Impact
 
-Improved oncology data quality can support more reliable research, safer healthcare AI development, more consistent biomarker analysis, and greater reuse of data across organizations.
+| Impact | How OncoReconcile AI contributes |
+|---|---|
+| **Higher-quality oncology data** | Standardized terminology reduces errors, fragmentation, and ambiguity in datasets used for research and analytics |
+| **Reproducible research** | Governed mappings with audit trails mean every data transformation can be traced, validated, and reproduced |
+| **Trustworthy AI development** | AI models trained on governed, provenance-tracked data with explicit uncertainty markers are safer and more transparent |
+| **Reduced repetitive work** | Automation of routine normalization frees expert curators to focus on ambiguous cases and higher-value analysis |
+| **Human accountability** | The governance model ensures human experts remain in the loop for uncertain decisions — AI assists, humans decide |
+| **Interoperability for better care** | Standardized data across institutions supports larger, more diverse research cohorts and more robust evidence generation |
 
-The product’s current impact is data quality and governance. Any downstream clinical benefit requires further validation, clinical oversight, and regulatory assessment.
+OncoReconcile AI is a data-quality and governance platform. It does not make clinical decisions, provide treatment recommendations, or replace clinical judgment. Its impact is enabling better, more trustworthy data — which is a prerequisite for safer AI and more reliable research in precision oncology.
 
 # Team
 
