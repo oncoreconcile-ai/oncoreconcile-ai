@@ -1,0 +1,149 @@
+{
+  "person_source_value": "PT-DEMO-001",
+  "gender_source_value": "F",
+  "condition_occurrences": [
+    {
+      "condition_occurrence_id": "8555b3dc-17f7-4818-b130-47ee41064592",
+      "person_id": "PERSON-PT-DEMO-001",
+      "condition_concept_id": 0,
+      "condition_start_date": "2023-03-15",
+      "condition_source_value": "Non-Small Cell Lung Cancer",
+      "condition_type_concept_id": 0,
+      "stop_reason": null,
+      "_oncoreconcile_metadata": {
+        "diagnosis": "Non-Small Cell Lung Cancer",
+        "stage": "IV"
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "measurement_id": "6df2df05-9e0f-4518-8c56-179f5e6c03cf",
+      "person_id": "PERSON-PT-DEMO-001",
+      "measurement_concept_id": 0,
+      "measurement_date": "2023-03-20",
+      "measurement_source_value": "EGFR Mutation Analysis",
+      "measurement_type_concept_id": 0,
+      "value_source_value": "Method: NGS"
+    },
+    {
+      "measurement_id": "7e9cd5ae-f41f-4a94-8a97-3d99eb57ed5c",
+      "person_id": "PERSON-PT-DEMO-001",
+      "measurement_concept_id": 0,
+      "measurement_date": "2023-03-20",
+      "measurement_source_value": "PD-L1 IHC",
+      "measurement_type_concept_id": 0,
+      "value_source_value": "Method: IHC"
+    },
+    {
+      "measurement_id": "5ad5a568-38fd-4411-afce-acb59d38008d",
+      "person_id": "PERSON-PT-DEMO-001",
+      "measurement_concept_id": 0,
+      "measurement_date": "2023-03-22",
+      "measurement_source_value": "ALK FISH",
+      "measurement_type_concept_id": 0,
+      "value_source_value": "Method: FISH"
+    },
+    {
+      "measurement_id": "5ec56d32-52bc-46eb-9d72-48fb49f263db",
+      "person_id": "PERSON-PT-DEMO-001",
+      "measurement_concept_id": 0,
+      "measurement_date": "2023-03-22",
+      "measurement_source_value": "ROS1 IHC",
+      "measurement_type_concept_id": 0,
+      "value_source_value": "Method: IHC"
+    },
+    {
+      "measurement_id": "0a8c85af-d68d-4422-bdda-85679a26fe16",
+      "person_id": "PERSON-PT-DEMO-001",
+      "measurement_concept_id": 0,
+      "measurement_date": "2024-09-10",
+      "measurement_source_value": "ctDNA NGS Panel",
+      "measurement_type_concept_id": 0,
+      "value_source_value": "Method: NGS"
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "03b88be8-c63c-41de-bc6c-d561efe57ee0",
+      "person_id": "PERSON-PT-DEMO-001",
+      "observation_concept_id": 0,
+      "observation_date": "2023-03-15",
+      "observation_source_value": "Gene: EGFR",
+      "value_as_string": "Exon 19 Deletion (E746_A750del)",
+      "qualifier_source_value": "Oncogenic",
+      "observation_type_concept_id": 0
+    },
+    {
+      "observation_id": "5ccf9dc5-7742-453b-91f4-5d9373c6f361",
+      "person_id": "PERSON-PT-DEMO-001",
+      "observation_concept_id": 0,
+      "observation_date": "2023-03-15",
+      "observation_source_value": "Gene: TP53",
+      "value_as_string": "R273H",
+      "qualifier_source_value": "Oncogenic",
+      "observation_type_concept_id": 0
+    }
+  ],
+  "drug_exposures": [
+    {
+      "drug_exposure_id": "0566ffb5-a185-424e-a107-293faedb870c",
+      "person_id": "PERSON-PT-DEMO-001",
+      "drug_concept_id": 0,
+      "drug_exposure_start_date": "2023-04-01",
+      "drug_exposure_end_date": "2024-08-15",
+      "drug_source_value": "Tagrisso (Osimertinib)",
+      "drug_type_concept_id": 0,
+      "route_source_value": "Oral",
+      "dose_unit_source_value": "Osimertinib 80mg daily",
+      "_oncoreconcile_metadata": {
+        "line_of_therapy": 1,
+        "drug_class": "EGFR TKI"
+      }
+    },
+    {
+      "drug_exposure_id": "343e8c0b-64dc-4209-94be-deb1c53a97ac",
+      "person_id": "PERSON-PT-DEMO-001",
+      "drug_concept_id": 0,
+      "drug_exposure_start_date": "2024-09-01",
+      "drug_exposure_end_date": "2024-12-20",
+      "drug_source_value": "Carboplatin + Pemetrexed",
+      "drug_type_concept_id": 0,
+      "route_source_value": "IV",
+      "dose_unit_source_value": "Carboplatin AUC5 + Pemetrexed 500mg/m2 q3w",
+      "_oncoreconcile_metadata": {
+        "line_of_therapy": 2,
+        "drug_class": "Platinum Doublet"
+      }
+    },
+    {
+      "drug_exposure_id": "bdd25a8e-c170-47e4-8259-c2a992da4495",
+      "person_id": "PERSON-PT-DEMO-001",
+      "drug_concept_id": 0,
+      "drug_exposure_start_date": "2025-01-15",
+      "drug_exposure_end_date": null,
+      "drug_source_value": "Clinical Trial: EGFR TKI + Amivantamab",
+      "drug_type_concept_id": 0,
+      "route_source_value": "IV",
+      "dose_unit_source_value": "Investigational combination",
+      "_oncoreconcile_metadata": {
+        "line_of_therapy": 3,
+        "drug_class": "Investigational"
+      }
+    }
+  ],
+  "procedure_occurrences": [],
+  "metadata": {
+    "cdm_version": "5.4",
+    "source": "OncoReconcile AI Patient Journey OMOP Export",
+    "generated_at": "2026-07-11T21:35:42.032357+00:00",
+    "note": "Concept IDs are 0 for unmapped entries. Connect an OMOP vocabulary database to resolve full concept_ids.",
+    "record_count": {
+      "condition_occurrences": 1,
+      "measurements": 5,
+      "observations": 2,
+      "drug_exposures": 3,
+      "procedure_occurrences": 0
+    }
+  }
+}
