@@ -91,7 +91,7 @@ Before recording, open these tabs:
 6. Evaluation Dashboard: `http://127.0.0.1:5173/evaluation`
 7. API Docs: `http://127.0.0.1:8000/docs`
 
-If FHIR, OMOP, or knowledge graph outputs are shown, prepare them before recording so the video does not spend time waiting on API calls.
+If FHIR, OMOP, or knowledge graph outputs are shown, prepare them before recording so the video does not spend time waiting on API calls. Prepared FHIR and OMOP demo exports are available in `docs/demo_exports/`.
 
 ---
 
@@ -448,7 +448,7 @@ Before recording:
 - Executive Dashboard loads correctly.
 - Coding System Alignment loads correctly.
 - Evaluation Dashboard loads correctly.
-- Prepared FHIR, OMOP, or knowledge graph output is ready if shown.
+- Prepared FHIR, OMOP, or knowledge graph output is ready if shown; FHIR and OMOP demo files are available in `docs/demo_exports/`.
 - Swagger documentation is accessible.
 - Browser zoom is readable.
 - Microphone is tested.

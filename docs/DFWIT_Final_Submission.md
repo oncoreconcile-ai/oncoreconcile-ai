@@ -5,7 +5,7 @@
 **Team:** Variant Vanguard  
 **Submission branch:** `enterprise-patient-journey-demo`  
 **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo  
-**Demo video:** Pending final recording upload; add the public or judge-accessible URL before portal submission.
+**Demo video:** https://drive.google.com/file/d/1YKf1d22VhIZ5ue-pHQKTllWpvWo5zt9S/view
 
 ## Executive Summary
 
@@ -117,7 +117,7 @@ The final demonstration follows one coherent data story:
 
 The enterprise extension demonstrates how reconciliation can support a broader longitudinal oncology data platform.
 
-- **Dataset:** 15 synthetic oncology patient journeys
+- **Dataset:** 18 synthetic oncology patient journeys
 - **Cancer types:** NSCLC, breast cancer, colorectal cancer, melanoma, and AML
 - **Journey content:** diagnosis, histology, stage, biomarker testing, genes, variants, fusions, copy-number alterations, treatments, responses, progression events, trial flags, reconciliation status, evidence coverage, and data-quality scores
 - **Dashboards:** patient journey, cohort analytics, terminology coverage, governance metrics, and executive summary
@@ -568,8 +568,9 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-jou
 
 - Benchmark Evaluation Framework
 - Review Queue Governance Workflow
-- FHIR Export Prototype
-- OMOP Export Prototype
+- [Prepared FHIR Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-fhir-PT-DEMO-001.json)
+- [Prepared OMOP Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-omop-PT-DEMO-001.json)
+- [Demo Export Documentation](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/README.md)
 - Knowledge Graph Export Prototype
 - Enterprise Analytics Dashboard
 
@@ -583,7 +584,7 @@ That combination of clinical-data domain framing and working full-stack implemen
 
 ## Demo Video Link
 
-**Final video:** Pending final recording upload; add the public or judge-accessible URL before portal submission.
+**Final video:** https://drive.google.com/file/d/1YKf1d22VhIZ5ue-pHQKTllWpvWo5zt9S/view
 
 ## GitHub Repository Link
 

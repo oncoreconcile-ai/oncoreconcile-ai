@@ -67,7 +67,7 @@ This is how organizations can scale automation without removing accountable huma
 
 **Narration:**
 
-“Reconciliation becomes more valuable when it connects an entire patient journey. This demonstration uses 15 fully synthetic oncology patients across five cancer types.
+“Reconciliation becomes more valuable when it connects an entire patient journey. This demonstration uses 18 fully synthetic oncology patients across five cancer types.
 
 The journey combines diagnosis, histology, stage, biomarker tests, genes, variants, fusions, copy-number alterations, treatments, response, progression, trial flags, evidence coverage, and data-quality status. No real patient data is used.”
 
@@ -97,9 +97,9 @@ Each mapping carries a source, confidence, and review status. These mappings are
 
 **Narration:**
 
-“Governed data can be exported as a FHIR R4 Bundle containing patient, condition, observation, medication, procedure, and provenance resources.
+“Governed data can be exported as a FHIR R4 Bundle containing patient, condition, observation, medication, and provenance resources.
 
-The same journey can be represented as OMOP CDM v5.4-oriented condition, measurement, observation, drug-exposure, and procedure records. A knowledge-graph export is also available for relationship-based analytics.
+The same journey can be represented as OMOP CDM v5.4-oriented condition, measurement, observation, and drug-exposure records. A knowledge-graph export is also available for relationship-based analytics.
 
 These are working interoperability prototypes designed for further implementation-specific validation.”
 

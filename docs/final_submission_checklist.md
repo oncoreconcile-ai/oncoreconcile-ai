@@ -28,20 +28,20 @@
 - [x] `docs/final_pitch_summary.md`
 - [x] `docs/images/oncoreconcile_logo.png`
 - [x] Core product screenshots in `docs/screenshots/`
-- [ ] Enterprise patient journey screenshot
-- [ ] Executive dashboard screenshot
-- [ ] Semantic harmonization / coding-system screenshot
-- [ ] FHIR export screenshot
-- [ ] OMOP export screenshot
+- [x] Enterprise patient journey screenshot
+- [x] Executive dashboard screenshot
+- [x] Semantic harmonization / coding-system screenshot
+- [x] Prepared FHIR demo export JSON
+- [x] Prepared OMOP demo export JSON
 
 ## GitHub Branch
 
 - [x] Working branch is `enterprise-patient-journey-demo`.
 - [x] Remote branch exists.
-- [ ] Final documents are committed.
-- [ ] Final screenshots are committed.
-- [ ] Demo video link has replaced every placeholder.
-- [ ] Local branch is pushed and matches `origin/enterprise-patient-journey-demo`.
+- [x] Final documents are committed.
+- [x] Final screenshots are committed.
+- [x] Demo video link has replaced every placeholder in active submission documents.
+- [x] Local branch is pushed and matches `origin/enterprise-patient-journey-demo`.
 - [ ] Repository and branch are accessible to judges without requesting permission.
 - [ ] Absolute GitHub links were opened in a signed-out/private browser session.
 
@@ -73,7 +73,7 @@
 - [ ] State that validation is engineering validation, not clinical validation.
 - [ ] End with customers, business model, and value proposition.
 - [ ] Upload to a judge-accessible location and test the link without team credentials.
-- [ ] Replace all pending demo video URL notes with the final public or judge-accessible video link.
+- [x] Replace all pending demo video URL notes in active submission documents with the final public or judge-accessible video link.
 
 ## Screenshots
 
@@ -84,11 +84,11 @@
 - [x] Evaluation dashboard
 - [x] Knowledge graph export
 - [x] API documentation
-- [ ] Enterprise patient journey
-- [ ] Executive dashboard
-- [ ] Semantic terminology mapping
-- [ ] FHIR export
-- [ ] OMOP export
+- [x] Enterprise patient journey
+- [x] Executive dashboard
+- [x] Semantic terminology mapping
+- [x] Prepared FHIR demo export JSON
+- [x] Prepared OMOP demo export JSON
 - [ ] Preview image selected for portal upload
 
 Recommended preview image: a clean 16:9 composite or executive-dashboard screenshot with the product logo and one-line value proposition.
@@ -163,7 +163,7 @@ Prefer a focused package over using all five slots automatically. The primary PD
 
 - [ ] Final PDF filename is clear and professional.
 - [ ] One-page pitch PDF is included.
-- [ ] Demo video link works.
+- [x] Demo video link works.
 - [ ] GitHub link opens to the final branch.
 - [ ] Preview image is under 10 MB.
 - [ ] Each file is under 25 MB.

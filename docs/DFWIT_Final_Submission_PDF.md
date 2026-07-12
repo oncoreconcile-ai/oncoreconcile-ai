@@ -16,9 +16,9 @@
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 **Demo video:**  
-Pending final recording upload; add the public or judge-accessible URL before portal submission.
+https://drive.google.com/file/d/1YKf1d22VhIZ5ue-pHQKTllWpvWo5zt9S/view
 
-**Submission date:** July 11, 2026
+**Submission date:** July 12, 2026
 
 </div>
 
@@ -118,7 +118,7 @@ Optional LLM assistance is model-agnostic and restricted to review suggestions. 
 
 The enterprise demonstration expands the reconciliation workflow into longitudinal analytics:
 
-- 15 synthetic oncology patients;
+- 18 synthetic oncology patients;
 - NSCLC, breast cancer, colorectal cancer, melanoma, and AML;
 - diagnosis, histology, stage, biomarkers, genomic alterations, treatment lines, response, progression, trial flags, and governance signals;
 - patient, cohort, terminology, quality, governance, and executive views;
@@ -143,8 +143,8 @@ Mappings retain source, confidence, and review status. These are prototype mappi
 
 The platform demonstrates:
 
-- **FHIR R4 Bundle export:** Patient, Condition, Observation, MedicationStatement, Procedure, and Provenance resources;
-- **OMOP CDM v5.4-oriented export:** condition occurrence, measurement, observation, drug exposure, and procedure occurrence records;
+- **FHIR R4 Bundle export:** Patient, Condition, Observation, MedicationStatement, and Provenance resources;
+- **OMOP CDM v5.4-oriented export:** condition occurrence, measurement, observation, and drug exposure records;
 - **knowledge graph export:** disease-gene-variant-treatment-evidence relationships;
 - **API-first integration:** FastAPI endpoints and interactive OpenAPI documentation.
 
@@ -501,8 +501,9 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-jou
 
 - Benchmark Evaluation Framework
 - Review Queue Governance Workflow
-- FHIR Export Prototype
-- OMOP Export Prototype
+- [Prepared FHIR Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-fhir-PT-DEMO-001.json)
+- [Prepared OMOP Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-omop-PT-DEMO-001.json)
+- [Demo Export Documentation](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/README.md)
 - Knowledge Graph Export Prototype
 - Enterprise Analytics Dashboard
 

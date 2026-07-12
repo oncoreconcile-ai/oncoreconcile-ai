@@ -30,8 +30,8 @@ AI-Ready Dataset
 
 ### Synthetic Longitudinal Dataset
 - **File:** `data/patient_journey_demo.json`
-- **Patients:** 15 synthetic oncology patients
-- **Cancer Types:** NSCLC (4), Breast Cancer (3), Colorectal Cancer (3), Melanoma (3), AML (2)
+- **Patients:** 18 synthetic oncology patients
+- **Cancer Types:** NSCLC (6), Breast Cancer (4), Colorectal Cancer (3), Melanoma (3), AML (2)
 - **Fields per patient:** patient_id, sex, age_group, diagnosis, histology, stage, diagnosis_date, biomarker_tests, genes, variants, fusions, copy_number_alterations, treatments, line_of_therapy, response, progression_events, clinical_trial_flags, review_required_count, data_quality_score, reconciliation_status, evidence_coverage
 
 ### Semantic Harmonization Layer
@@ -68,7 +68,6 @@ The expanded FHIR export supports:
 - Condition (disease, histology)
 - Observation (biomarker tests, genes, variants, fusions, CNA)
 - MedicationStatement (treatments)
-- Procedure (key interventions)
 - Provenance
 
 ## OMOP Expansion
@@ -78,7 +77,6 @@ The expanded OMOP export maps to:
 - measurement
 - observation
 - drug_exposure
-- procedure_occurrence
 
 ## Frontend Routes
 
