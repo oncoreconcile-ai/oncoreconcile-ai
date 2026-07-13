@@ -313,8 +313,8 @@ Current implementation includes selected prototype mappings and standards-aligne
 
 ## Final Submission Documentation
 
-- [Final Submission](docs/DFWIT_Final_Submission.md)
-- [PDF-Ready Final Submission](docs/DFWIT_Final_Submission_PDF.md)
+- [Final Submission](https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0)
+- [PDF-Ready Final Submission](https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0)
 - [Final Demo Script](docs/final_demo_script.md)
 - [One-Page Pitch Summary](docs/final_pitch_summary.md)
 - [Final Submission Checklist](docs/final_submission_checklist.md)

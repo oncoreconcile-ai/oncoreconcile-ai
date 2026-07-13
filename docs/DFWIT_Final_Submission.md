@@ -5,15 +5,13 @@
 **Team:** Variant Vanguard  
 **Submission branch:** `enterprise-patient-journey-demo`  
 **Repository:** https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo  
-**Demo video:** https://drive.google.com/file/d/1YKf1d22VhIZ5ue-pHQKTllWpvWo5zt9S/view
+**Demo video:** https://drive.google.com/file/d/1x1MZUvCIXHdJ_M4LhPHl15NzQOj-0nVI/view
 
 ## Executive Summary
 
-OncoReconcile AI is an AI-powered precision oncology data quality, semantic harmonization, governance, interoperability, and analytics platform.
+OncoReconcile AI is a human-governed AI platform that transforms fragmented oncology terminology into governed, explainable, interoperable, and AI-ready data assets. The platform reconciles inconsistent disease names, gene symbols, and genomic variants through deterministic normalization, evidence-supported reconciliation, confidence scoring, provenance tracking, and human governance workflows.
 
-Healthcare organizations receive oncology data from electronic health records, molecular laboratories, research systems, clinical trials, and external data partners. The same disease, gene, or genomic variant can be represented in many incompatible ways. Those inconsistencies increase manual curation, weaken analytics, complicate interoperability, and make downstream AI less trustworthy.
-
-OncoReconcile AI turns fragmented inputs into explainable, governed, reusable data. It combines deterministic normalization, evidence retrieval, confidence scoring, narrowly controlled AI assistance, human review, coding-system mapping, standards-oriented exports, benchmark evaluation, and enterprise analytics.
+Rather than replacing expert curators, OncoReconcile AI accelerates oncology data harmonization while preserving transparency, auditability, and human oversight.
 
 The platform does not make treatment recommendations. Its purpose is to improve the quality and traceability of the data used by researchers, analysts, data stewards, interoperability teams, and future AI applications.
 
@@ -367,17 +365,24 @@ The API-first design supports future integration into data warehouses, research 
 
 ## Validation Metrics
 
-Repository validation reviewed on the `enterprise-patient-journey-demo` branch on June 24, 2026:
+Repository validation reviewed on the `enterprise-patient-journey-demo` branch on July 12, 2026:
 
 | Validation item | Current result |
 |---|---:|
-| Backend automated tests | 149 collected; 146 passing; 3 skipped |
+| Backend test suite | 149 tests collected; 146 passed; 3 skipped (live external-evidence tests) |
 | Frontend production build | Passing |
-| Current API/test benchmark | 191 curated cases |
-| Expanded benchmark dataset | 500 cases |
-| Latest recorded benchmark metrics | 96.6% gene accuracy; 94.6% variant accuracy; 89.8% safety-aware status accuracy; 0% false auto-accept rate |
+| Current API & regression benchmark | 191 curated test cases |
+| Expanded engineering benchmark | 500 benchmark cases |
+| Gene reconciliation accuracy | 96.6% |
+| Variant reconciliation accuracy | 94.6% |
+| Safety-aware status accuracy | 89.8% |
+| False auto-accept rate | 0% |
 
-The benchmarks are internal engineering assets, not clinical validation studies.
+The evidence-upgrade functionality is covered by the backend reconciliation test suite. During final project validation, pytest collected 149 backend tests, of which 146 passed deterministically and 3 live-evidence tests were intentionally skipped when external network services were unavailable. A subsequent local verification on July 12, 2026 produced the same backend result: 146 passed; 3 skipped.
+
+The frontend production build also completed successfully.
+
+The benchmark assets are intended for internal engineering evaluation and software quality assessment. They are not clinical validation studies or measures of clinical performance.
 
 ## Customer Pain Points
 
@@ -555,7 +560,7 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-jou
 ### Key Documentation
 
 - [README](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/README.md)
-- [Final Submission](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/DFWIT_Final_Submission.md)
+- [Final Submission](https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0)
 - [Architecture](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/architecture.md)
 - [Architecture Diagrams](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/architecture_diagrams.md)
 - [Commercial Strategy](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/commercial_strategy.md)
@@ -566,13 +571,13 @@ https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-jou
 
 ### Supporting Assets
 
-- Benchmark Evaluation Framework
-- Review Queue Governance Workflow
+- Enterprise Analytics Dashboard: executive dashboard demonstrating harmonization KPIs, governance metrics, evidence distribution, and operational analytics.
+- Benchmark Evaluation Framework: curated benchmark dataset and validation methodology for evaluating reconciliation accuracy and governance workflows.
+- Review Queue Governance Workflow: human review workflow supporting reviewer agreement metrics, Cohen's Kappa, adjudication, audit trail, and governed curation.
+- Knowledge Graph Export Prototype: JSON-LD prototype illustrating canonical disease, gene, variant, evidence, provenance, and relationship modeling.
 - [Prepared FHIR Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-fhir-PT-DEMO-001.json)
 - [Prepared OMOP Demo Export](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/oncoreconcile-omop-PT-DEMO-001.json)
 - [Demo Export Documentation](https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/demo_exports/README.md)
-- Knowledge Graph Export Prototype
-- Enterprise Analytics Dashboard
 
 ## Team Differentiation
 
@@ -584,7 +589,7 @@ That combination of clinical-data domain framing and working full-stack implemen
 
 ## Demo Video Link
 
-**Final video:** https://drive.google.com/file/d/1YKf1d22VhIZ5ue-pHQKTllWpvWo5zt9S/view
+**Final video:** https://drive.google.com/file/d/1x1MZUvCIXHdJ_M4LhPHl15NzQOj-0nVI/view
 
 ## GitHub Repository Link
 
@@ -592,7 +597,7 @@ That combination of clinical-data domain framing and working full-stack implemen
 https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 **Final submission document:**  
-https://github.com/oncoreconcile-ai/oncoreconcile-ai/blob/enterprise-patient-journey-demo/docs/DFWIT_Final_Submission.md
+https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0
 
 ## Disclaimer
 
