@@ -1,0 +1,1528 @@
+{
+  "purpose": "Semantic harmonization and coding system mappings for precision oncology platform demo",
+  "version": "1.0.0",
+  "note": "These are representative demo mappings for platform demonstration. Not validated for clinical use. Source codes and concept_ids are illustrative.",
+  "diseases": {
+    "Non-Small Cell Lung Cancer": {
+      "canonical_value": "Non-Small Cell Lung Carcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "provenance": "Expert-curated oncology terminology",
+      "evidence": "NCCN Guidelines, WHO Classification of Tumors",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "254637007",
+          "display_name": "Non-small cell lung cancer",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C2926",
+          "display_name": "Non-Small Cell Lung Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "OncoTree",
+          "code": "NSCLC",
+          "display_name": "Non-Small Cell Lung Cancer",
+          "source": "MSK OncoTree",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ICD-10",
+          "code": "C34.9",
+          "display_name": "Malignant neoplasm of bronchus or lung, unspecified",
+          "source": "WHO",
+          "confidence": 0.85,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    "Breast Cancer": {
+      "canonical_value": "Breast Carcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "provenance": "Expert-curated oncology terminology",
+      "evidence": "NCCN Guidelines, WHO Classification",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "254837009",
+          "display_name": "Malignant neoplasm of breast",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C4872",
+          "display_name": "Breast Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "OncoTree",
+          "code": "BRCA",
+          "display_name": "Breast Cancer",
+          "source": "MSK OncoTree",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ICD-10",
+          "code": "C50.9",
+          "display_name": "Malignant neoplasm of breast, unspecified",
+          "source": "WHO",
+          "confidence": 0.85,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    "Colorectal Cancer": {
+      "canonical_value": "Colorectal Carcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "provenance": "Expert-curated oncology terminology",
+      "evidence": "NCCN Guidelines",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "363406005",
+          "display_name": "Malignant neoplasm of colon",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C2955",
+          "display_name": "Colorectal Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "OncoTree",
+          "code": "COADREAD",
+          "display_name": "Colorectal Cancer",
+          "source": "MSK OncoTree",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ICD-10",
+          "code": "C18.9",
+          "display_name": "Malignant neoplasm of colon, unspecified",
+          "source": "WHO",
+          "confidence": 0.85,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    "Melanoma": {
+      "canonical_value": "Cutaneous Melanoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "provenance": "Expert-curated oncology terminology",
+      "evidence": "WHO Classification of Skin Tumours",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "372130007",
+          "display_name": "Malignant melanoma of skin",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3510",
+          "display_name": "Melanoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "OncoTree",
+          "code": "MEL",
+          "display_name": "Melanoma",
+          "source": "MSK OncoTree",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Acute Myeloid Leukemia": {
+      "canonical_value": "Acute Myeloid Leukemia",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "provenance": "Expert-curated oncology terminology",
+      "evidence": "WHO Classification of Haematolymphoid Tumours",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "91861009",
+          "display_name": "Acute myeloid leukemia",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3171",
+          "display_name": "Acute Myeloid Leukemia",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "OncoTree",
+          "code": "AML",
+          "display_name": "Acute Myeloid Leukemia",
+          "source": "MSK OncoTree",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ICD-10",
+          "code": "C92.0",
+          "display_name": "Acute myeloblastic leukemia",
+          "source": "WHO",
+          "confidence": 0.85,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    }
+  },
+  "histologies": {
+    "Lung Adenocarcinoma": {
+      "canonical_value": "Lung Adenocarcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "359332006",
+          "display_name": "Lung adenocarcinoma",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3577",
+          "display_name": "Lung Adenocarcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Invasive Ductal Carcinoma": {
+      "canonical_value": "Invasive Ductal Carcinoma of Breast",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "705544002",
+          "display_name": "Invasive carcinoma of breast",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C4744",
+          "display_name": "Invasive Ductal Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Colorectal Adenocarcinoma": {
+      "canonical_value": "Colorectal Adenocarcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "438817007",
+          "display_name": "Colorectal adenocarcinoma",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C5105",
+          "display_name": "Colorectal Adenocarcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Cutaneous Melanoma": {
+      "canonical_value": "Cutaneous Melanoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "372130007",
+          "display_name": "Malignant melanoma of skin",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3510",
+          "display_name": "Melanoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Mucosal Melanoma": {
+      "canonical_value": "Mucosal Melanoma",
+      "confidence": 0.9,
+      "review_status": "REVIEW_REQUIRED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "403627008",
+          "display_name": "Mucosal melanoma",
+          "source": "NLM UMLS",
+          "confidence": 0.9,
+          "review_status": "REVIEW_REQUIRED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3804",
+          "display_name": "Mucosal Melanoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.9,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    },
+    "Triple Negative Breast Cancer": {
+      "canonical_value": "Triple Negative Breast Carcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "NCIt",
+          "code": "C83220",
+          "display_name": "Triple-Negative Breast Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Invasive Lobular Carcinoma": {
+      "canonical_value": "Invasive Lobular Carcinoma of Breast",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "277572006",
+          "display_name": "Lobular carcinoma of breast",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Lung Squamous Cell Carcinoma": {
+      "canonical_value": "Lung Squamous Cell Carcinoma",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "SNOMED CT",
+          "code": "254624009",
+          "display_name": "Squamous cell carcinoma of lung",
+          "source": "NLM UMLS",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C3493",
+          "display_name": "Lung Squamous Cell Carcinoma",
+          "source": "NCI Thesaurus",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    }
+  },
+  "genes": {
+    "EGFR": {
+      "canonical_value": "EGFR",
+      "hgnc_id": "HGNC:3236",
+      "hgnc_symbol": "EGFR",
+      "hgnc_name": "Epidermal growth factor receptor",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "ERBB2": {
+      "canonical_value": "ERBB2",
+      "hgnc_id": "HGNC:3430",
+      "hgnc_symbol": "ERBB2",
+      "hgnc_name": "Erb-b2 receptor tyrosine kinase 2",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "BRAF": {
+      "canonical_value": "BRAF",
+      "hgnc_id": "HGNC:1097",
+      "hgnc_symbol": "BRAF",
+      "hgnc_name": "B-Raf proto-oncogene, serine/threonine kinase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "KRAS": {
+      "canonical_value": "KRAS",
+      "hgnc_id": "HGNC:6407",
+      "hgnc_symbol": "KRAS",
+      "hgnc_name": "KRAS proto-oncogene, GTPase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "NRAS": {
+      "canonical_value": "NRAS",
+      "hgnc_id": "HGNC:7989",
+      "hgnc_symbol": "NRAS",
+      "hgnc_name": "NRAS proto-oncogene, GTPase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "KIT": {
+      "canonical_value": "KIT",
+      "hgnc_id": "HGNC:6342",
+      "hgnc_symbol": "KIT",
+      "hgnc_name": "KIT proto-oncogene, receptor tyrosine kinase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "ALK": {
+      "canonical_value": "ALK",
+      "hgnc_id": "HGNC:427",
+      "hgnc_symbol": "ALK",
+      "hgnc_name": "ALK receptor tyrosine kinase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "ROS1": {
+      "canonical_value": "ROS1",
+      "hgnc_id": "HGNC:10261",
+      "hgnc_symbol": "ROS1",
+      "hgnc_name": "ROS proto-oncogene 1, receptor tyrosine kinase",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "FLT3": {
+      "canonical_value": "FLT3",
+      "hgnc_id": "HGNC:3765",
+      "hgnc_symbol": "FLT3",
+      "hgnc_name": "Fms related receptor tyrosine kinase 3",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "PIK3CA": {
+      "canonical_value": "PIK3CA",
+      "hgnc_id": "HGNC:8975",
+      "hgnc_symbol": "PIK3CA",
+      "hgnc_name": "Phosphatidylinositol-4,5-bisphosphate 3-kinase catalytic subunit alpha",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "ESR1": {
+      "canonical_value": "ESR1",
+      "hgnc_id": "HGNC:3467",
+      "hgnc_symbol": "ESR1",
+      "hgnc_name": "Estrogen receptor 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "BRCA1": {
+      "canonical_value": "BRCA1",
+      "hgnc_id": "HGNC:1100",
+      "hgnc_symbol": "BRCA1",
+      "hgnc_name": "BRCA1 DNA repair associated",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "BRCA2": {
+      "canonical_value": "BRCA2",
+      "hgnc_id": "HGNC:1101",
+      "hgnc_symbol": "BRCA2",
+      "hgnc_name": "BRCA2 DNA repair associated",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "TP53": {
+      "canonical_value": "TP53",
+      "hgnc_id": "HGNC:11998",
+      "hgnc_symbol": "TP53",
+      "hgnc_name": "Tumor protein p53",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "PTEN": {
+      "canonical_value": "PTEN",
+      "hgnc_id": "HGNC:9588",
+      "hgnc_symbol": "PTEN",
+      "hgnc_name": "Phosphatase and tensin homolog",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "CDKN2A": {
+      "canonical_value": "CDKN2A",
+      "hgnc_id": "HGNC:1787",
+      "hgnc_symbol": "CDKN2A",
+      "hgnc_name": "Cyclin dependent kinase inhibitor 2A",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "NPM1": {
+      "canonical_value": "NPM1",
+      "hgnc_id": "HGNC:7910",
+      "hgnc_symbol": "NPM1",
+      "hgnc_name": "Nucleophosmin 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "IDH2": {
+      "canonical_value": "IDH2",
+      "hgnc_id": "HGNC:5383",
+      "hgnc_symbol": "IDH2",
+      "hgnc_name": "Isocitrate dehydrogenase (NADP(+)) 2",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "DNMT3A": {
+      "canonical_value": "DNMT3A",
+      "hgnc_id": "HGNC:2978",
+      "hgnc_symbol": "DNMT3A",
+      "hgnc_name": "DNA methyltransferase 3 alpha",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "KMT2A": {
+      "canonical_value": "KMT2A",
+      "hgnc_id": "HGNC:7132",
+      "hgnc_symbol": "KMT2A",
+      "hgnc_name": "Lysine methyltransferase 2A",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "APC": {
+      "canonical_value": "APC",
+      "hgnc_id": "HGNC:583",
+      "hgnc_symbol": "APC",
+      "hgnc_name": "APC regulator of WNT signaling pathway",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "KEAP1": {
+      "canonical_value": "KEAP1",
+      "hgnc_id": "HGNC:23177",
+      "hgnc_symbol": "KEAP1",
+      "hgnc_name": "Kelch like ECH associated protein 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "STK11": {
+      "canonical_value": "STK11",
+      "hgnc_id": "HGNC:11389",
+      "hgnc_symbol": "STK11",
+      "hgnc_name": "Serine/threonine kinase 11",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "MSH2": {
+      "canonical_value": "MSH2",
+      "hgnc_id": "HGNC:7325",
+      "hgnc_symbol": "MSH2",
+      "hgnc_name": "MutS homolog 2",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "MLH1": {
+      "canonical_value": "MLH1",
+      "hgnc_id": "HGNC:7127",
+      "hgnc_symbol": "MLH1",
+      "hgnc_name": "MutL homolog 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "SMAD4": {
+      "canonical_value": "SMAD4",
+      "hgnc_id": "HGNC:6770",
+      "hgnc_symbol": "SMAD4",
+      "hgnc_name": "SMAD family member 4",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "MYC": {
+      "canonical_value": "MYC",
+      "hgnc_id": "HGNC:7553",
+      "hgnc_symbol": "MYC",
+      "hgnc_name": "MYC proto-oncogene, bHLH transcription factor",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "CTNNB1": {
+      "canonical_value": "CTNNB1",
+      "hgnc_id": "HGNC:2514",
+      "hgnc_symbol": "CTNNB1",
+      "hgnc_name": "Catenin beta 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "CCND1": {
+      "canonical_value": "CCND1",
+      "hgnc_id": "HGNC:1582",
+      "hgnc_symbol": "CCND1",
+      "hgnc_name": "Cyclin D1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    },
+    "NTRK1": {
+      "canonical_value": "NTRK1",
+      "hgnc_id": "HGNC:8031",
+      "hgnc_symbol": "NTRK1",
+      "hgnc_name": "Neurotrophic receptor tyrosine kinase 1",
+      "confidence": 0.98,
+      "review_status": "APPROVED"
+    }
+  },
+  "drugs": {
+    "Tagrisso (Osimertinib)": {
+      "canonical_value": "Osimertinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1792116",
+          "display_name": "osimertinib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01EX14",
+          "display_name": "Osimertinib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Herceptin (Trastuzumab)": {
+      "canonical_value": "Trastuzumab",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "231628",
+          "display_name": "trastuzumab",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FD01",
+          "display_name": "Trastuzumab",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "T-DM1 (Ado-Trastuzumab Emtansine)": {
+      "canonical_value": "Ado-Trastuzumab Emtansine",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1443896",
+          "display_name": "ado-trastuzumab emtansine",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FD03",
+          "display_name": "Trastuzumab emtansine",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Keytruda (Pembrolizumab)": {
+      "canonical_value": "Pembrolizumab",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1592936",
+          "display_name": "pembrolizumab",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FF02",
+          "display_name": "Pembrolizumab",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Opdivo (Nivolumab)": {
+      "canonical_value": "Nivolumab",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1592928",
+          "display_name": "nivolumab",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FF01",
+          "display_name": "Nivolumab",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Xalkori (Crizotinib)": {
+      "canonical_value": "Crizotinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1243640",
+          "display_name": "crizotinib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01ED01",
+          "display_name": "Crizotinib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Alecensa (Alectinib)": {
+      "canonical_value": "Alectinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1600499",
+          "display_name": "alectinib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01ED03",
+          "display_name": "Alectinib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Rozlytrek (Entrectinib)": {
+      "canonical_value": "Entrectinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "2056263",
+          "display_name": "entrectinib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Lynparza (Olaparib)": {
+      "canonical_value": "Olaparib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1400062",
+          "display_name": "olaparib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01XK01",
+          "display_name": "Olaparib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Lumakras (Sotorasib)": {
+      "canonical_value": "Sotorasib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "2526134",
+          "display_name": "sotorasib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Tafinlar (Dabrafenib) + Mekinist (Trametinib)": {
+      "canonical_value": "Dabrafenib + Trametinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "Gleevec (Imatinib)": {
+      "canonical_value": "Imatinib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "283891",
+          "display_name": "imatinib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01EA01",
+          "display_name": "Imatinib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Ibrance (Palbociclib)": {
+      "canonical_value": "Palbociclib",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1528895",
+          "display_name": "palbociclib",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01EF01",
+          "display_name": "Palbociclib",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Faslodex (Fulvestrant)": {
+      "canonical_value": "Fulvestrant",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "53755",
+          "display_name": "fulvestrant",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L02BA03",
+          "display_name": "Fulvestrant",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "Orserdu (Elacestrant)": {
+      "canonical_value": "Elacestrant",
+      "confidence": 0.9,
+      "review_status": "REVIEW_REQUIRED",
+      "mappings": []
+    },
+    "Letrozole": {
+      "canonical_value": "Letrozole",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "31006",
+          "display_name": "letrozole",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L02BG04",
+          "display_name": "Letrozole",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "FOLFOX": {
+      "canonical_value": "FOLFOX Regimen",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "FOLFIRI": {
+      "canonical_value": "FOLFIRI Regimen",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "Bevacizumab": {
+      "canonical_value": "Bevacizumab",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "257664",
+          "display_name": "bevacizumab",
+          "source": "NLM RxNorm",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FG01",
+          "display_name": "Bevacizumab",
+          "source": "WHO ATC",
+          "confidence": 0.9,
+          "review_status": "APPROVED"
+        }
+      ]
+    }
+  },
+  "biomarkers": {
+    "EGFR Exon 19 Deletion": {
+      "canonical_value": "EGFR Exon 19 Deletion",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "2697",
+          "display_name": "EGFR Ex19del",
+          "source": "ClinVar",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ClinGen",
+          "code": "CA000001",
+          "display_name": "EGFR c.2235_2249del (p.Glu746_Ala750del)",
+          "source": "ClinGen Allele Registry",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "BRAF V600E": {
+      "canonical_value": "BRAF V600E",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "13900",
+          "display_name": "BRAF V600E",
+          "source": "ClinVar",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ClinGen",
+          "code": "CA000002",
+          "display_name": "BRAF c.1799T>A (p.Val600Glu)",
+          "source": "ClinGen Allele Registry",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "KRAS G12C": {
+      "canonical_value": "KRAS G12C",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "1818",
+          "display_name": "KRAS G12C",
+          "source": "ClinVar",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ClinGen",
+          "code": "CA000003",
+          "display_name": "KRAS c.34G>T (p.Gly12Cys)",
+          "source": "ClinGen Allele Registry",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "BRCA1 c.5266dupC": {
+      "canonical_value": "BRCA1 c.5266dupC (p.Gln1756ProfsTer74)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "5275",
+          "display_name": "BRCA1 c.5266dupC",
+          "source": "ClinVar",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        },
+        {
+          "coding_system": "ClinGen",
+          "code": "CA000004",
+          "display_name": "BRCA1 c.5266dupC (p.Gln1756ProfsTer74)",
+          "source": "ClinGen Allele Registry",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "FLT3-ITD": {
+      "canonical_value": "FLT3 Internal Tandem Duplication (ITD)",
+      "confidence": 0.9,
+      "review_status": "REVIEW_REQUIRED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "16685",
+          "display_name": "FLT3 ITD",
+          "source": "ClinVar",
+          "confidence": 0.9,
+          "review_status": "REVIEW_REQUIRED"
+        }
+      ]
+    }
+  },
+  "lab_tests": {
+    "PD-L1 IHC": {
+      "canonical_value": "PD-L1 IHC (22C3 Assay)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "LOINC",
+          "code": "95540-1",
+          "display_name": "PD-L1 (CD274) Ab [Presence] in Tissue by Immune stain",
+          "source": "LOINC",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "EGFR Mutation Analysis": {
+      "canonical_value": "EGFR Gene Mutation Analysis",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "LOINC",
+          "code": "21664-4",
+          "display_name": "EGFR gene mutation analysis in Blood or Tissue",
+          "source": "LOINC",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "BRAF Mutation Analysis": {
+      "canonical_value": "BRAF Gene Mutation Analysis",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "LOINC",
+          "code": "50810-3",
+          "display_name": "BRAF gene mutation analysis",
+          "source": "LOINC",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "MSI Testing": {
+      "canonical_value": "Microsatellite Instability Analysis",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "LOINC",
+          "code": "94656-4",
+          "display_name": "Microsatellite instability [Presence] in Tumor tissue",
+          "source": "LOINC",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "HER2 FISH": {
+      "canonical_value": "HER2 FISH Assay",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "LOINC",
+          "code": "93045-5",
+          "display_name": "HER2 gene amplification by FISH",
+          "source": "LOINC",
+          "confidence": 0.95,
+          "review_status": "APPROVED"
+        }
+      ]
+    },
+    "NGS Comprehensive Panel": {
+      "canonical_value": "Next-Generation Sequencing Solid Tumor Panel",
+      "confidence": 0.9,
+      "review_status": "REVIEW_REQUIRED",
+      "mappings": []
+    }
+  },
+  "regimens": {
+    "Osimertinib 80mg daily": {
+      "canonical_value": "Osimertinib 80mg once daily",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "THP regimen q3w": {
+      "canonical_value": "Taxane + Trastuzumab + Pertuzumab q21 days",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "FOLFOX q2w": {
+      "canonical_value": "FOLFOX (5-FU + Leucovorin + Oxaliplatin) q14 days",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Nivolumab 1mg/kg + Ipilimumab 3mg/kg q3w x4, then Nivolumab 480mg q4w": {
+      "canonical_value": "Nivolumab + Ipilimumab Combination Immunotherapy",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Pembrolizumab 200mg q3w": {
+      "canonical_value": "Pembrolizumab 200mg q21 days",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Cytarabine 100mg/m2 x7 + Daunorubicin 60mg/m2 x3": {
+      "canonical_value": "7+3 Induction Chemotherapy",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Letrozole 2.5mg daily + Palbociclib 125mg daily 3/1 week": {
+      "canonical_value": "Letrozole + Palbociclib",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Carboplatin AUC5 + Pemetrexed 500mg/m2 q3w": {
+      "canonical_value": "Carboplatin + Pemetrexed",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "FOLFIRI q2w + Aflibercept 4mg/kg": {
+      "canonical_value": "FOLFIRI + Aflibercept",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    }
+  },
+  "response_codes": {
+    "Complete Response": {
+      "canonical_value": "Complete Response (CR)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "loinc": "LA27984-1"
+    },
+    "Partial Response": {
+      "canonical_value": "Partial Response (PR)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "loinc": "LA27983-3"
+    },
+    "Stable Disease": {
+      "canonical_value": "Stable Disease (SD)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "loinc": "LA27982-5"
+    },
+    "Progressive Disease": {
+      "canonical_value": "Progressive Disease (PD)",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "loinc": "LA27981-7"
+    },
+    "Complete Remission (CR)": {
+      "canonical_value": "Complete Remission",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "Pathologic Complete Response (pCR)": {
+      "canonical_value": "Pathologic Complete Response",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    },
+    "No Evidence of Disease": {
+      "canonical_value": "No Evidence of Disease (NED)",
+      "confidence": 0.95,
+      "review_status": "APPROVED"
+    }
+  },
+  "data_model_version": "1.0",
+  "note_clinical_validation": "These mappings are for platform demonstration only and have not undergone clinical validation. Real-world deployment requires validation against a reference terminology server.",
+  "variant_aliases": {
+    "Ex19del": {
+      "canonical_value": "EGFR Exon 19 Deletion",
+      "alternatives": [
+        "Exon 19 deletion",
+        "E746_A750del",
+        "c.2235_2249del"
+      ],
+      "confidence": 0.98,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "ClinVar",
+          "code": "2697",
+          "display_name": "EGFR Ex19del",
+          "confidence": 0.95
+        },
+        {
+          "coding_system": "ClinGen",
+          "code": "CA16602858",
+          "display_name": "EGFR c.2235_2249del",
+          "confidence": 0.95
+        },
+        {
+          "coding_system": "HGVS",
+          "code": "c.2235_2249del (p.Glu746_Ala750del)",
+          "display_name": "EGFR E746_A750del",
+          "confidence": 0.98
+        }
+      ]
+    },
+    "Exon 19 deletion": {
+      "canonical_value": "EGFR Exon 19 Deletion",
+      "alternative_of": "Ex19del",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "E746_A750del": {
+      "canonical_value": "EGFR Exon 19 Deletion",
+      "alternative_of": "Ex19del",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "HER2": {
+      "canonical_value": "ERBB2",
+      "alternatives": [
+        "HER-2",
+        "ERBB2",
+        "c-erbB2"
+      ],
+      "confidence": 0.98,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "HGNC",
+          "code": "HGNC:3430",
+          "display_name": "ERBB2",
+          "confidence": 0.98
+        },
+        {
+          "coding_system": "NCIt",
+          "code": "C17359",
+          "display_name": "HER2/neu",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "HER-2": {
+      "canonical_value": "ERBB2",
+      "alternative_of": "HER2",
+      "confidence": 0.98,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "NSCLC": {
+      "canonical_value": "Non-Small Cell Lung Carcinoma",
+      "alternatives": [
+        "Non-small cell lung cancer",
+        "NSCLC"
+      ],
+      "confidence": 0.98,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "NCIt",
+          "code": "C2926",
+          "display_name": "Non-Small Cell Lung Carcinoma",
+          "confidence": 0.98
+        },
+        {
+          "coding_system": "SNOMED CT",
+          "code": "254637007",
+          "display_name": "Non-small cell lung cancer",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "LUAD": {
+      "canonical_value": "Lung Adenocarcinoma",
+      "alternatives": [
+        "Lung adenocarcinoma",
+        "LUAD"
+      ],
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "NCIt",
+          "code": "C3577",
+          "display_name": "Lung Adenocarcinoma",
+          "confidence": 0.95
+        },
+        {
+          "coding_system": "SNOMED CT",
+          "code": "359332006",
+          "display_name": "Lung adenocarcinoma",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "Lung Adenocarcinoma": {
+      "canonical_value": "Lung Adenocarcinoma",
+      "alternative_of": "LUAD",
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": []
+    },
+    "Tagrisso": {
+      "canonical_value": "Osimertinib",
+      "alternatives": [
+        "Osimertinib",
+        "Tagrisso"
+      ],
+      "confidence": 0.98,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "1792116",
+          "display_name": "osimertinib",
+          "confidence": 0.98
+        },
+        {
+          "coding_system": "NDC",
+          "code": "0310-0650",
+          "display_name": "Tagrisso 80mg",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "Enhertu": {
+      "canonical_value": "Trastuzumab Deruxtecan",
+      "alternatives": [
+        "Trastuzumab Deruxtecan",
+        "Enhertu",
+        "DS-8201"
+      ],
+      "confidence": 0.95,
+      "review_status": "APPROVED",
+      "mappings": [
+        {
+          "coding_system": "RxNorm",
+          "code": "2133330",
+          "display_name": "trastuzumab deruxtecan",
+          "confidence": 0.95
+        },
+        {
+          "coding_system": "ATC",
+          "code": "L01FD04",
+          "display_name": "Trastuzumab deruxtecan",
+          "confidence": 0.9
+        }
+      ]
+    }
+  },
+  "coding_system_descriptions": {
+    "HGNC": "HUGO Gene Nomenclature Committee — official gene symbol and ID",
+    "ClinVar": "NCBI ClinVar — variant interpretations in human disease",
+    "ClinGen": "Clinical Genome Resource — allele registry and dosage sensitivity",
+    "NCIt": "NCI Thesaurus — comprehensive cancer terminology",
+    "SNOMED CT": "Systematized Nomenclature of Medicine — Clinical Terms",
+    "LOINC": "Logical Observation Identifiers Names and Codes",
+    "RxNorm": "NLM RxNorm — normalized drug nomenclature",
+    "ICD-10-CM": "International Classification of Diseases, 10th Revision, Clinical Modification",
+    "ATC": "WHO Anatomical Therapeutic Chemical Classification",
+    "OncoTree": "MSK OncoTree — cancer type classification",
+    "HGVS": "Human Genome Variation Society — sequence variant nomenclature",
+    "NDC": "National Drug Code — FDA drug identifier",
+    "GA4GH VRS": "Genomics Knowledge Standards — Variant Representation Specification",
+    "CIViC": "Clinical Interpretation of Variants in Cancer — evidence resource",
+    "MyGene.info": "Gene-centric annotation API",
+    "MyVariant.info": "Variant-centric annotation API",
+    "OMOP CDM": "Observational Medical Outcomes Partnership Common Data Model"
+  },
+  "variant_canonical_mappings": [
+    {
+      "original": "Ex19del",
+      "canonical": "EGFR Exon 19 Deletion",
+      "category": "variant alias",
+      "coding_systems": [
+        "ClinVar",
+        "ClinGen",
+        "HGVS"
+      ]
+    },
+    {
+      "original": "Exon 19 deletion",
+      "canonical": "EGFR Exon 19 Deletion",
+      "category": "textual variant",
+      "coding_systems": []
+    },
+    {
+      "original": "E746_A750del",
+      "canonical": "EGFR Exon 19 Deletion (E746_A750del)",
+      "category": "HGVS protein notation",
+      "coding_systems": [
+        "ClinGen",
+        "HGVS"
+      ]
+    },
+    {
+      "original": "HER2",
+      "canonical": "ERBB2",
+      "category": "gene alias",
+      "coding_systems": [
+        "HGNC"
+      ]
+    },
+    {
+      "original": "HER-2",
+      "canonical": "ERBB2",
+      "category": "gene alias",
+      "coding_systems": [
+        "HGNC"
+      ]
+    },
+    {
+      "original": "NSCLC",
+      "canonical": "Non-Small Cell Lung Carcinoma",
+      "category": "disease abbreviation",
+      "coding_systems": [
+        "NCIt",
+        "SNOMED CT"
+      ]
+    },
+    {
+      "original": "LUAD",
+      "canonical": "Lung Adenocarcinoma",
+      "category": "histology abbreviation",
+      "coding_systems": [
+        "NCIt",
+        "SNOMED CT"
+      ]
+    },
+    {
+      "original": "Tagrisso",
+      "canonical": "Osimertinib",
+      "category": "brand to generic drug",
+      "coding_systems": [
+        "RxNorm",
+        "NDC"
+      ]
+    },
+    {
+      "original": "Enhertu",
+      "canonical": "Trastuzumab Deruxtecan",
+      "category": "brand to generic drug",
+      "coding_systems": [
+        "RxNorm",
+        "ATC"
+      ]
+    }
+  ]
+}

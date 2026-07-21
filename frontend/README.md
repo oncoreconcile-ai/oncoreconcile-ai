@@ -1,47 +1,20 @@
-# OncoReconcile AI - Streamlit Frontend
+# Frontend
 
-This is the interactive web interface for OncoReconcile AI.
+This is a simple React/Vite skeleton.
 
-## Features
-
-- **Variant Reconciliation**: Submit raw variant strings for reconciliation
-- **Review Queue Dashboard**: View pending expert reviews
-- **Approval Interface**: Expert reviewers can approve/reject reconciliations
-- **Audit Trail Viewer**: Track all historical decisions
-
-## Running the App
+## Run
 
 ```bash
-streamlit run frontend/streamlit_app.py
+npm install
+npm run dev
 ```
 
-Access at: http://localhost:8501
+## Current Goal
 
-## Screens
+Build:
 
-### 1. Variant Submission
-- Input raw variant (e.g., "EGFR Ex19del")
-- Specify tissue and source
-- View reconciliation progress
-- Get canonical variant result
-
-### 2. Review Queue
-- List pending reviews by priority
-- Filter by queue type
-- View system reasoning
-- Route to expert reviewers
-
-### 3. Expert Review
-- Review system recommendations
-- Examine confidence breakdown
-- View approval history
-- Make approval decision
-
-### 4. Audit Log
-- View historical approvals
-- Filter by reviewer or variant
-- Export audit trail
-
----
-
-See main README for API documentation.
+- Manual input form
+- CSV upload
+- Result table
+- Review status display
+- Export button

@@ -1,297 +1,338 @@
 # OncoReconcile AI
 
-## Data Governance Guidance
+## AI-Powered Precision Oncology Data Quality, Semantic Harmonization, Governance & Interoperability Platform
 
-To ensure transparency, reproducibility, and ethical use of data in this project, all contributors and future data updates must follow these principles:
+OncoReconcile AI is an AI-powered precision oncology data quality, semantic harmonization, governance, patient journey analytics, coding-system alignment, interoperability, and AI-ready biomedical data platform.
 
-1. **Provenance and Documentation:**
-        - Clearly document the source, method of acquisition, and any synthesis or curation steps for all new data files.
-        - Maintain or update the provenance and reproducibility documentation (see `oncoreconcile_starter/PROVENANCE_AND_REPRODUCIBILITY.md`).
+Built for the **DFWIT AI & Startup Competition 2026** by **Team Variant Vanguard**.
 
-2. **Synthetic and Real Data:**
-        - Clearly distinguish between synthetic (AI- or human-generated) and real-world data.
-        - Do not include any real patient data or protected health information (PHI) unless explicit approval and compliance steps are followed.
+## Final Submission Branch
 
-3. **Public Data Use:**
-        - Only use public, redistributable data sources or those with appropriate licenses for open-source projects.
-        - Attribute all external data sources in documentation and code as appropriate.
-
-4. **Reproducibility:**
-        - When possible, provide scripts or detailed steps for how new data was generated or processed.
-        - Ensure that others can reproduce or extend the dataset using the provided documentation.
-
-5. **Ethics and Compliance:**
-        - Follow all applicable data use agreements, licenses, and ethical guidelines.
-        - If in doubt, consult with project leads before adding new data.
-
-For more details and examples, see `oncoreconcile_starter/PROVENANCE_AND_REPRODUCIBILITY.md`.
-
-**AI-assisted oncology gene and variant reconciliation platform**
-
-OncoReconcile AI is a DFWIT AI Competition project focused on turning messy oncology gene and variant strings into traceable, reviewable canonical knowledge objects. The project is intentionally human-governed: AI and deterministic logic help reconcile data, but ambiguous or low-confidence mappings must preserve uncertainty and flow into review instead of being forced into a false answer.
-
-## Disclaimer
-
-This is a research and educational prototype. It is not clinical software, does not make clinical claims, does not diagnose disease, and does not recommend treatment.
-
-## Project Goal
-
-Precision oncology data often arrives from different labs, reports, databases, and bioinformatics pipelines with inconsistent names for the same biological concept. Examples include `HER1`, `ERBB1`, and `EGFR`, or `EGFR Ex19del`, `E746_A750del`, and `p.E746_A750del`.
-
-The goal of this repo is to build a small, credible MVP that demonstrates:
-
-- Gene alias reconciliation against curated HGNC-style reference data.
-- Variant representation reconciliation for common oncology examples.
-- Confidence-aware status assignment: `reconciled`, `needs_review`, and `cannot_reconcile`.
-- Human review and audit trail concepts.
-- Traceable outputs that preserve original evidence, canonical mappings, confidence, provenance, and review status.
-
-The first demo scope is intentionally narrow: lung adenocarcinoma-oriented examples with genes such as EGFR, KRAS, BRAF, TP53, MET, ALK, and ERBB2/HER2; SNVs and small indels; and curated demo data rather than large raw genomics downloads.
-
-## Current MVP Status
-
-As of May 2026, the repo contains:
-
-- A FastAPI backend scaffold with reconciliation and review endpoints.
-- A deterministic CSV-backed gene reconciliation endpoint at `POST /reconcile/gene`.
-- A variant reconciliation workflow with extraction, normalization, retrieval, reasoning, confidence scoring, and review queue modules.
-- Curated reference data under `data/reference/v0.1/`.
-- Starter NSCLC demo data under `oncoreconcile_starter/`.
-- A Streamlit demo UI under `frontend/`.
-- Architecture, proposal, weekly execution plan, meeting agenda, and GitHub issue planning docs.
-- Passing pytest coverage for the current starter workflow.
-
-Some planned production-grade pieces are still placeholders, including semantic embedding retrieval, LLM reasoning integration, persistent database storage, and full frontend/backend review actions.
-
-## System Workflow
-
-```text
-Input mutation table or VCF-like data
-        |
-        v
-Gene name reconciliation
-        |
-        v
-Variant extraction
-        |
-        v
-Deterministic normalization
-        |
-        v
-Candidate retrieval
-        |
-        v
-AI-assisted reasoning and confidence scoring
-        |
-        v
-Human review workflow
-        |
-        v
-Governed canonical knowledge object + audit trail
-```
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
 
 ## Quick Start
 
-### Install
+Prerequisites: Python 3.10+ and Node.js/npm.
+
+### 1. Clone the repository
 
 ```bash
-python -m venv venv
-source venv/bin/activate
+git clone https://github.com/oncoreconcile-ai/oncoreconcile-ai.git
+cd oncoreconcile-ai
+git checkout enterprise-patient-journey-demo
+```
+
+### 2. Set up the backend
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-### Run Tests
+Backend API:
+
+- http://127.0.0.1:8000
+- http://127.0.0.1:8000/docs
+
+### 3. Set up the frontend
+
+Open a second terminal from the repository root:
 
 ```bash
-python -m pytest -q
+cd frontend
+npm install
+npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-### Run Backend
+Frontend app:
+
+- http://127.0.0.1:5173
+
+### 4. Run validation checks
+
+From the repository root:
 
 ```bash
-uvicorn src.api.main:app --reload
+cd backend
+source .venv/bin/activate
+pytest -q tests
 ```
-
-The API will be available at `http://localhost:8000`.
-
-### Run Streamlit Demo
-
-If the backend is running locally:
-
 
 ```bash
-export API_URL=http://localhost:8000
-streamlit run frontend/streamlit_app.py
+cd frontend
+npm run build
 ```
 
-*This ensures the frontend connects to your local backend. If you see 'Cannot connect to API', check this step.*
+## Key Capabilities
 
-If running through Docker Compose, the frontend defaults to the Docker service URL `http://api:8000`.
+- Disease reconciliation
+- Gene reconciliation
+- Variant reconciliation
+- Semantic harmonization
+- Coding-system alignment
+- Retrieval-augmented evidence workflows
+- Human-governed review
+- Patient journey analytics
+- Executive analytics dashboard
+- Benchmark evaluation
+- FHIR R4 export prototype
+- OMOP CDM export prototype
+- Knowledge graph export
+- API-first architecture
 
-### Docker
+## Why This Matters
 
-```bash
-docker-compose up -d
-```
+Precision oncology data is fragmented across:
 
-## API Examples
+- electronic health records;
+- molecular diagnostic laboratories;
+- clinical trials and research databases;
+- claims and real-world-evidence platforms;
+- registries, data warehouses, and external data partners.
 
-### Health Check
+The same biological or clinical concept often appears under different names:
 
-```bash
-curl http://localhost:8000/health
-```
+| Input | Canonical representation |
+|---|---|
+| `HER2` | `ERBB2` |
+| `HER1` | `EGFR` |
+| `p53` | `TP53` |
+| `NSCLC` | Lung Non-Small Cell Carcinoma |
+| `Ex19del` | EGFR Exon 19 Deletion |
 
-### Gene Reconciliation
+**A real example:** one laboratory reports `HER2`, another reports `HER-2`, a third reports `ERBB2`, and a claims system records `V-erb-b2`. A researcher trying to identify all ERBB2-altered patients must manually reconcile these representations — every time, for every project.
 
-```bash
-curl -X POST http://localhost:8000/reconcile/gene \
-  -H "Content-Type: application/json" \
-  -d '{"gene_name": "HER1", "source": "demo"}'
-```
+Poorly harmonized data increases manual effort, fragments cohorts, weakens interoperability, and reduces confidence in downstream analytics and AI.
 
-Expected result: `HER1` maps to canonical gene `EGFR` with deterministic alias provenance from `data/reference/v0.1/gene_aliases.csv`.
+OncoReconcile AI provides a governed data-quality layer that preserves uncertainty, exposes evidence, and routes ambiguous cases to human review.
 
-### Variant Reconciliation
+## Competitive Differentiation
 
-```bash
-curl -X POST http://localhost:8000/reconcile \
-  -H "Content-Type: application/json" \
-  -d '{
-    "raw_variant": "EGFR Ex19del",
-    "source": "local_lab",
-    "tissue": "lung_nsclc"
-  }'
-```
+| Capability | Manual Curation | Terminology Tools | Generic LLMs | **OncoReconcile AI** |
+|---|---|---|---|---|
+| Disease normalization | Manual | ✓ | Inconsistent | ✓ |
+| Gene normalization | Manual | Partial | Inconsistent | ✓ |
+| Variant normalization | Manual | Partial | Inconsistent | ✓ |
+| Evidence retrieval | Manual search | ✗ | Hallucination risk | ✓ (guarded MyVariant, ClinVar, CIViC, and experimental ClinGen lookup) |
+| Confidence scoring | Subjective | ✗ | ✗ | ✓ (6-signal numeric) |
+| Human governance | ✗ | ✗ | ✗ | ✓ (queue, approve/reject, kappa) |
+| Audit trail | ✗ | ✗ | Unreliable | ✓ (full chronological history) |
+| FHIR / OMOP export | Manual mapping | ✗ | ✗ | ✓ (prototypes) |
+| Safety testing (0% false auto-accept) | ✗ | ✗ | ✗ | ✓ (benchmark validated) |
+| Enterprise analytics | ✗ | ✗ | ✗ | ✓ (patient journey, executive) |
 
-### Review Queue
+**The key difference:** OncoReconcile AI combines all of these in a governed, oncology-specific platform — not a terminology tool, not a knowledgebase, not a generic AI.
 
-```bash
-curl http://localhost:8000/review-queue
-```
+## Target Customers
 
-## Repository Structure
+| Customer | Pain | Value |
+|---|---|---|
+| **Cancer Centers** | Fragmented biomarker data across EHR, lab, and registry | Harmonized patient data, governed review, AI-ready cohorts |
+| **Molecular Dx Labs** | Variant naming inconsistencies across reporting systems | Standardized representation, evidence lookup, quality dashboards |
+| **CROs** | Multi-site trial data with different terminology standards | Cross-site standardization, FHIR/OMOP-ready outputs |
+| **Pharma** | RWE and biomarker programs need consistent data across partners | Cohort analytics, governed pipelines, reproducible mappings |
+| **Genomic KBs** | Curating evidence from heterogeneous sources | Normalized inputs, governed review, audit-ready curation |
+| **Healthcare AI** | AI models depend on trustworthy terminology | Provenance-tracked data with explicit uncertainty |
+
+## Business Model
+
+| Revenue stream | Description |
+|---|---|
+| **Professional Services** | Oncology harmonization, FHIR/OMOP support, governance design |
+| **SaaS — Team** | Shared review queues, batch reconciliation, dashboards |
+| **SaaS — Enterprise** | Multi-user governance, role-based access, APIs, custom deployment |
+| **Enterprise APIs** | Reconciliation, evidence, governance, and export APIs |
+
+## Platform Modules
+
+### Reconciliation and Semantic Harmonization
+
+- Single-record reconciliation
+- Batch and CSV reconciliation
+- Disease, gene, and variant normalization
+- Canonical HGVS resolution
+- Semantic and coding-system mappings
+- Transparent confidence scoring
+
+### Evidence Intelligence
+
+- Curated local evidence packages
+- ClinVar evidence retrieval
+- CIViC variant-record retrieval
+- MyGene.info and MyVariant.info integrations
+- Unified evidence display
+- Source links, provenance, and retrieval-error reporting
+
+### Human Governance
+
+- `AUTO_RECONCILE`
+- `REVIEW_REQUIRED`
+- `CANNOT_RECONCILE`
+- Review queue and reviewer workspace
+- Approve, reject, edit, override, reopen, and adjudicate workflows
+- Decision history, agreement metrics, notes, and audit trails
+
+### Precision Oncology Analytics
+
+- Synthetic longitudinal patient journeys
+- Biomarker and cohort analytics
+- Coding coverage and terminology analytics
+- Data-quality and governance metrics
+- Executive analytics dashboard
+
+### Interoperability
+
+- FHIR R4 export prototype
+- OMOP CDM v5.4-oriented export prototype
+- JSON-LD knowledge graph export
+- Provenance export
+- API-first integration through FastAPI
+
+## Validation
+
+| Metric | Final Submission result |
+|---|---:|
+| Backend Test Suite | 149 collected; 146 passing; 3 skipped |
+| Frontend Build | Passing |
+| Benchmark Framework | 500 Cases |
+| Gene Accuracy | 96.6% |
+| Variant Accuracy | 94.6% |
+| Safety-Aware Status Accuracy | 89.8% |
+| False Auto-Accept Rate | 0% |
+
+These are internal engineering benchmark results, not clinical validation.
+
+## Architecture Flow
 
 ```text
-oncoreconcile-ai/
-├── README.md
-├── CONTRIBUTING.md
-├── requirements.txt
-├── pyproject.toml
-├── Dockerfile
-├── docker-compose.yml
-├── data/
-│   ├── examples/
-│   └── reference/v0.1/
-├── docs/
-│   ├── architecture/
-│   ├── diagrams/
-│   ├── meetings/
-│   ├── project_plan/
-│   └── proposal/
-├── frontend/
-│   ├── README.md
-│   └── streamlit_app.py
-├── oncoreconcile_starter/
-│   ├── README.md
-│   ├── gene_aliases.csv
-│   ├── oncology_variants_master.csv
-│   ├── variant_synonyms.csv
-│   ├── evidence_lookup.json
-│   └── synthetic_reports/
-├── scripts/
-│   └── create_github_issues.sh
-├── src/
-│   ├── agents/
-│   ├── api/
-│   ├── connectors/
-│   ├── governance/
-│   ├── reasoning/
-│   └── retrieval/
-└── tests/
+Clinical Data Sources
+        ↓
+Normalization
+        ↓
+Semantic Harmonization
+        ↓
+Evidence Retrieval
+        ↓
+Confidence Scoring
+        ↓
+Human Governance
+        ↓
+Patient Journey Analytics
+        ↓
+Executive Analytics
+        ↓
+FHIR / OMOP / Knowledge Graph Exports
 ```
 
-## Project Documentation
+## Evidence and API Architecture
 
-- Competition proposal: `docs/proposal/competition_submission_proposal.md`
-- Weekly execution plan: `docs/project_plan/weekly_execution_plan.md`
-- Team task board: `docs/project_plan/team_task_board.md`
-- GitHub issue backlog: `docs/project_plan/github_issue_backlog.md`
-- Task-mapped architecture: `docs/architecture/task_mapped_architecture.md`
-- Architecture diagrams: `docs/diagrams/architecture_task_map.md`
-- First team meeting agenda: `docs/meetings/first_team_meeting_agenda.md`
-- Starter data integration notes: `docs/architecture/starter_data_integration.md`
+The backend exposes FastAPI endpoints for reconciliation, evidence retrieval, human review, analytics, and standards-oriented exports.
 
-Google Docs copies have also been created for the proposal, weekly plan, and architecture/task map so the team can review and comment outside GitHub.
+Key endpoints include:
 
-## Team Workflow
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/reconcile` | POST | Reconcile one disease-gene-variant record |
+| `/reconcile/batch` | POST | Reconcile multiple records |
+| `/reconcile/upload` | POST | Reconcile a CSV upload |
+| `/evidence/federated` | POST | Retrieve and unify configured evidence sources |
+| `/hgvs/resolve` | POST | Resolve available protein, coding, and genomic HGVS values |
+| `/review-queue` | GET | View governed review cases |
+| `/benchmark` | GET | View benchmark evaluation metrics |
+| `/export/fhir` | POST | Generate a FHIR R4 Bundle prototype |
+| `/export/omop` | POST | Generate OMOP CDM-oriented records |
+| `/export/knowledge-graph` | POST | Generate a JSON-LD knowledge graph |
 
-The initial backlog is tracked as GitHub issues #1 through #12 in `michaeliuedu/oncoreconcile-ai`.
+The core workflow remains human governed. External evidence supports review and traceability; it does not provide diagnosis or treatment recommendations.
 
-Recommended contributor flow:
+## Standards Alignment
 
-1. Pick an issue based on interest and dependency readiness.
-2. Create a focused branch, for example `issue-3-batch-csv-reconcile`.
-3. Keep changes small and tied to the issue.
-4. Run `python -m pytest -q` before pushing.
-5. Open a pull request and link the issue.
+OncoReconcile AI is designed around relevant healthcare interoperability, biomedical terminology, and precision oncology resources:
 
-The issue creation helper is intentionally safe by default:
+- HL7 FHIR
+- OMOP Common Data Model
+- SNOMED CT
+- LOINC
+- RxNorm
+- ICD-10-CM
+- HGNC
+- ClinVar
+- ClinGen
+- NCI Thesaurus (NCIt)
+- GA4GH Variant Representation Specification (VRS)
+- CIViC
+- MyGene.info
+- MyVariant.info
 
-```bash
-sh scripts/create_github_issues.sh
-```
+Current implementation includes selected prototype mappings and standards-aligned exports. Additional terminology coverage remains future roadmap work. The project does not claim full production vocabulary coverage or formal standards compliance.
 
-This lists the planned issues and does not create duplicates. Creation modes require explicit confirmation.
+## Screenshots
 
-## MVP Priorities
+### Platform Homepage
 
-P0 work:
+![OncoReconcile AI homepage](docs/screenshots/01-homepage.png)
 
-- Canonical reconciliation output schema.
-- Curated demo CSV dataset.
-- Batch CSV reconciliation endpoint.
-- Explicit reconciliation status logic.
-- Cannot-reconcile and ambiguity handling.
+### Single-Record Reconciliation
 
-P1 work:
+![High-confidence single-record reconciliation](docs/screenshots/02-single-record-reconciliation.png)
 
-- Review decisions wired to an audit log.
-- Upload and results UI.
-- Review queue UI.
-- API documentation and local runbook.
-- Demo case design document.
-- Pitch deck outline.
-- Demo smoke test checklist.
+### Review-Required Decision
 
-## Technical Stack
+![Ambiguous TRK fusion routed to human review](docs/screenshots/03-review-required.png)
 
-| Area | Current Direction |
-| --- | --- |
-| Backend | Python, FastAPI |
-| Frontend | Streamlit for MVP demo |
-| Data | CSV/JSON reference and demo files |
-| Testing | pytest |
-| Future semantic retrieval | biomedical embeddings such as SapBERT/BioBERT/PubMedBERT |
-| Future persistence | PostgreSQL or DuckDB |
-| Future UI | React dashboard if competition scope allows |
+### Human Review Queue
 
-## References
+![Human review queue and curator workflow](docs/screenshots/04-review-queue.png)
 
-- HGNC: https://www.genenames.org/
-- ClinVar: https://www.ncbi.nlm.nih.gov/clinvar/
-- CIViC: https://civicdb.org/
-- GA4GH VRS: https://vrs.ga4gh.org/
-- FHIR Genomics: https://hl7.org/fhir/genomics.html
-- FastAPI: https://fastapi.tiangolo.com/
-- Streamlit: https://streamlit.io/
+### Evaluation Dashboard
 
-## License
+![Benchmark evaluation and safety metrics](docs/screenshots/05-evaluation-dashboard.png)
 
-This project is licensed under the MIT License. See `LICENSE` for details.
+### Knowledge Graph Export
 
-## Status
+![JSON-LD knowledge graph export](docs/screenshots/06-knowledge-graph-export.png)
 
-Active development for the DFWIT AI Competition.
+### Interactive API Documentation
 
-Last updated: May 22, 2026
+![FastAPI OpenAPI documentation](docs/screenshots/07-api-docs.png)
+
+### Enterprise Patient Journey
+
+![Enterprise patient journey timeline](docs/screenshots/08-enterprise-patient-journey.png)
+
+### Executive Dashboard
+
+![Executive dashboard](docs/screenshots/09-executive-dashboard.png)
+
+### Coding System Alignment
+
+![Coding system alignment dashboard](docs/screenshots/10-coding-alignment.png)
+
+## Final Submission Documentation
+
+- [Final Submission](https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0)
+- [PDF-Ready Final Submission](https://docs.google.com/document/d/1SbL5lo-suS56S8TtRIwaH1IyHVYw3yaIVhLhYaURaQI/edit?tab=t.0)
+- [Final Demo Script](docs/final_demo_script.md)
+- [One-Page Pitch Summary](docs/final_pitch_summary.md)
+- [Final Submission Checklist](docs/final_submission_checklist.md)
+- [Architecture](docs/architecture.md)
+- [Architecture Diagrams](docs/architecture_diagrams.md)
+- [Commercial Strategy](docs/commercial_strategy.md)
+- [Roadmap](docs/roadmap.md)
+
+## Repository
+
+**Final Submission Branch:**
+
+https://github.com/oncoreconcile-ai/oncoreconcile-ai/tree/enterprise-patient-journey-demo
+
+## Disclaimer
+
+OncoReconcile AI is a biomedical data harmonization, governance, interoperability, and analytics platform.
+
+This is not clinical decision support and does not provide diagnosis, treatment recommendations, or medical advice.
+
+The patient journey demonstration uses synthetic data. FHIR, OMOP, terminology, and knowledge graph capabilities are prototypes that require implementation-specific validation before production use.

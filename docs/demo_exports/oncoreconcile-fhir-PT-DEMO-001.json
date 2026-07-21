@@ -1,0 +1,622 @@
+{
+  "resourceType": "Bundle",
+  "id": "babf625d-af5b-4a18-92e5-cd16069fca1c",
+  "meta": {
+    "lastUpdated": "2026-07-11T21:35:42.028711Z",
+    "tag": [
+      {
+        "system": "https://oncoreconcile.ai/fhir/tags",
+        "code": "oncoreconcile-patient-journey",
+        "display": "OncoReconcile AI Patient Journey FHIR Export"
+      }
+    ]
+  },
+  "type": "collection",
+  "timestamp": "2026-07-11T21:35:42.028781Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:85554713-8ae6-4d83-925b-004061359327",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "85554713-8ae6-4d83-925b-004061359327",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://oncoreconcile.ai/fhir/patient",
+            "value": "PT-DEMO-001"
+          }
+        ],
+        "gender": "female"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4b617739-de35-4bb5-bd35-5d9b5a318ce6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "4b617739-de35-4bb5-bd35-5d9b5a318ce6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Condition"
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "254637007",
+              "display": "Non-small cell lung cancer"
+            }
+          ],
+          "text": "Non-Small Cell Lung Cancer"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "onsetPeriod": {
+          "start": "2023-03-15"
+        },
+        "stage": [
+          {
+            "summary": {
+              "text": "Stage IV"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00b9f27e-d695-4888-87b9-179bf0438e72",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "00b9f27e-d695-4888-87b9-179bf0438e72",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "EGFR Mutation Analysis"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectiveDateTime": "2023-03-20",
+        "valueString": "Method: NGS, Sample: Tissue"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c12b88c5-bcb9-4f75-8db1-51a2e333149b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c12b88c5-bcb9-4f75-8db1-51a2e333149b",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "PD-L1 IHC"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectiveDateTime": "2023-03-20",
+        "valueString": "Method: IHC, Sample: Tissue"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bb3b16d1-ec07-4222-8797-f75c19f088b2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bb3b16d1-ec07-4222-8797-f75c19f088b2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "ALK FISH"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectiveDateTime": "2023-03-22",
+        "valueString": "Method: FISH, Sample: Tissue"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e37a8082-a46d-47f2-b8fe-6ea23b17eb1f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "e37a8082-a46d-47f2-b8fe-6ea23b17eb1f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "ROS1 IHC"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectiveDateTime": "2023-03-22",
+        "valueString": "Method: IHC, Sample: Tissue"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9baf470b-1a66-4738-bcb1-52e8ca44e671",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "9baf470b-1a66-4738-bcb1-52e8ca44e671",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/Observation"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "ctDNA NGS Panel"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectiveDateTime": "2024-09-10",
+        "valueString": "Method: NGS, Sample: Blood"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1dcef615-e7de-4069-8c19-df05918d0a6b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1dcef615-e7de-4069-8c19-df05918d0a6b",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/gene"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "48018-6",
+              "display": "Gene studied ID"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.genenames.org/geneId",
+              "code": "HGNC:3236",
+              "display": "Epidermal growth factor receptor"
+            }
+          ]
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CAR",
+                "display": "Carrier"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:905eb26d-aab3-41b0-b20a-80db807e3622",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "905eb26d-aab3-41b0-b20a-80db807e3622",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "valueCodeableConcept": {
+          "text": "EGFR Exon 19 Deletion (E746_A750del)"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48018-6",
+                  "display": "Gene studied ID"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.genenames.org/geneId",
+                  "code": "HGNC:3236",
+                  "display": "Epidermal growth factor receptor"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Variant category"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Exon 19 Deletion (E746_A750del)"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ABN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:153f31f0-4dea-4a22-8d15-eab56748df1d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "153f31f0-4dea-4a22-8d15-eab56748df1d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/gene"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "48018-6",
+              "display": "Gene studied ID"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.genenames.org/geneId",
+              "code": "HGNC:11998",
+              "display": "Tumor protein p53"
+            }
+          ]
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "CAR",
+                "display": "Carrier"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4874a320-b362-40b1-b5cc-ae9081f286e2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4874a320-b362-40b1-b5cc-ae9081f286e2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/variant"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69548-6",
+              "display": "Genetic variant assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "valueCodeableConcept": {
+          "text": "TP53 R273H"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "48018-6",
+                  "display": "Gene studied ID"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.genenames.org/geneId",
+                  "code": "HGNC:11998",
+                  "display": "Tumor protein p53"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "81258-6",
+                  "display": "Variant category"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "R273H"
+            }
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "ABN"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6ef182e9-d05a-4592-8370-72a885c90e11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "6ef182e9-d05a-4592-8370-72a885c90e11",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "82122-3",
+              "display": "Gene copy number assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "valueString": "EGFR Amplification: copy number 6"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1aa2797c-ee5e-409d-aab8-9abb9da82721",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "1aa2797c-ee5e-409d-aab8-9abb9da82721",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/MedicationStatement"
+          ]
+        },
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Tagrisso (Osimertinib)"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectivePeriod": {
+          "start": "2023-04-01",
+          "end": "2024-08-15"
+        },
+        "dosage": [
+          {
+            "text": "Osimertinib 80mg daily"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Line 1: Non-Small Cell Lung Cancer"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd132b06-19e1-488e-b697-14d192642d44",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "cd132b06-19e1-488e-b697-14d192642d44",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/MedicationStatement"
+          ]
+        },
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Carboplatin + Pemetrexed"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectivePeriod": {
+          "start": "2024-09-01",
+          "end": "2024-12-20"
+        },
+        "dosage": [
+          {
+            "text": "Carboplatin AUC5 + Pemetrexed 500mg/m2 q3w"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Line 2: Non-Small Cell Lung Cancer"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:708b77fa-a1c9-4f02-9686-94f5538f8ecb",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "708b77fa-a1c9-4f02-9686-94f5538f8ecb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/MedicationStatement"
+          ]
+        },
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "Clinical Trial: EGFR TKI + Amivantamab"
+        },
+        "subject": {
+          "reference": "urn:uuid:85554713-8ae6-4d83-925b-004061359327"
+        },
+        "effectivePeriod": {
+          "start": "2025-01-15",
+          "end": null
+        },
+        "dosage": [
+          {
+            "text": "Investigational combination"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Line 3: Non-Small Cell Lung Cancer"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef45109b-2cfd-4888-b97f-01933094a5fa",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "ef45109b-2cfd-4888-b97f-01933094a5fa",
+        "target": [
+          {
+            "reference": "urn:uuid:4b617739-de35-4bb5-bd35-5d9b5a318ce6"
+          },
+          {
+            "reference": "urn:uuid:00b9f27e-d695-4888-87b9-179bf0438e72"
+          },
+          {
+            "reference": "urn:uuid:c12b88c5-bcb9-4f75-8db1-51a2e333149b"
+          },
+          {
+            "reference": "urn:uuid:bb3b16d1-ec07-4222-8797-f75c19f088b2"
+          },
+          {
+            "reference": "urn:uuid:e37a8082-a46d-47f2-b8fe-6ea23b17eb1f"
+          },
+          {
+            "reference": "urn:uuid:9baf470b-1a66-4738-bcb1-52e8ca44e671"
+          },
+          {
+            "reference": "urn:uuid:1dcef615-e7de-4069-8c19-df05918d0a6b"
+          },
+          {
+            "reference": "urn:uuid:905eb26d-aab3-41b0-b20a-80db807e3622"
+          },
+          {
+            "reference": "urn:uuid:153f31f0-4dea-4a22-8d15-eab56748df1d"
+          },
+          {
+            "reference": "urn:uuid:4874a320-b362-40b1-b5cc-ae9081f286e2"
+          },
+          {
+            "reference": "urn:uuid:6ef182e9-d05a-4592-8370-72a885c90e11"
+          },
+          {
+            "reference": "urn:uuid:1aa2797c-ee5e-409d-aab8-9abb9da82721"
+          },
+          {
+            "reference": "urn:uuid:cd132b06-19e1-488e-b697-14d192642d44"
+          },
+          {
+            "reference": "urn:uuid:708b77fa-a1c9-4f02-9686-94f5538f8ecb"
+          }
+        ],
+        "recorded": "2026-07-11T21:35:42.028563Z",
+        "activity": {
+          "coding": [
+            {
+              "system": "https://oncoreconcile.ai/fhir/CodeSystem/reconciliation-activity",
+              "code": "patient-journey-harmonization",
+              "display": "Patient journey semantic harmonization"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "device"
+                }
+              ]
+            },
+            "who": {
+              "identifier": {
+                "system": "https://oncoreconcile.ai/fhir/device-identifier",
+                "value": "OncoReconcile-AI"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: oncoreconcile-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile.render
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false
