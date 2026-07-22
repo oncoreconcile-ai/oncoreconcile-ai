@@ -3,6 +3,7 @@ services:
     name: oncoreconcile-api
     runtime: docker
     plan: free
+    rootDir: .
     dockerfilePath: ./backend/Dockerfile.render
     dockerContext: .
     healthCheckPath: /
